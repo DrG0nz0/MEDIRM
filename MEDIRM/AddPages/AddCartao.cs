@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace MEDIRM
 {
-    public partial class AddMaquina : Form
+    public partial class AddCartao : Form
     {
-        public AddMaquina()
+        public AddCartao()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMolde));
             this.minFrente = new System.Windows.Forms.TextBox();
             this.Labelminfrente = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,10 +45,11 @@
             // 
             // minFrente
             // 
+            this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minFrente.Location = new System.Drawing.Point(742, 151);
+            this.minFrente.Location = new System.Drawing.Point(481, 150);
             this.minFrente.Name = "minFrente";
-            this.minFrente.Size = new System.Drawing.Size(357, 26);
+            this.minFrente.Size = new System.Drawing.Size(589, 26);
             this.minFrente.TabIndex = 5;
             // 
             // Labelminfrente
@@ -55,7 +57,7 @@
             this.Labelminfrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Labelminfrente.AutoSize = true;
             this.Labelminfrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelminfrente.Location = new System.Drawing.Point(553, 151);
+            this.Labelminfrente.Location = new System.Drawing.Point(292, 150);
             this.Labelminfrente.Name = "Labelminfrente";
             this.Labelminfrente.Size = new System.Drawing.Size(183, 20);
             this.Labelminfrente.TabIndex = 4;
@@ -64,6 +66,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(742, 210);
             this.textBox1.Name = "textBox1";
@@ -84,6 +87,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(742, 264);
             this.textBox2.Name = "textBox2";
@@ -104,6 +108,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(742, 325);
             this.textBox3.Name = "textBox3";
@@ -124,6 +129,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(742, 388);
             this.textBox4.Name = "textBox4";
@@ -165,6 +171,7 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 15;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // AddMolde
             // 
@@ -183,6 +190,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.minFrente);
             this.Controls.Add(this.Labelminfrente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddMolde";
             this.Text = "AddMolde";
             this.ResumeLayout(false);

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MEDIRM
 {
-    public partial class AddComponente : Form
+    public partial class AddMolde : Form
     {
-        public AddComponente()
+        public AddMolde()
         {
             InitializeComponent();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new Menu());
         }
     }
 }

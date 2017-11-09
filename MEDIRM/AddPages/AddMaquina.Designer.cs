@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMaquina));
             this.minFrente = new System.Windows.Forms.TextBox();
             this.Labelminfrente = new System.Windows.Forms.Label();
             this.maxFrente = new System.Windows.Forms.TextBox();
@@ -41,11 +42,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labeltipo = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // minFrente
             // 
+            this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minFrente.Location = new System.Drawing.Point(671, 272);
             this.minFrente.Name = "minFrente";
@@ -66,6 +74,7 @@
             // 
             // maxFrente
             // 
+            this.maxFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maxFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxFrente.Location = new System.Drawing.Point(671, 304);
             this.maxFrente.Name = "maxFrente";
@@ -86,6 +95,7 @@
             // 
             // minAtras
             // 
+            this.minAtras.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minAtras.Location = new System.Drawing.Point(671, 358);
             this.minAtras.Name = "minAtras";
@@ -106,6 +116,7 @@
             // 
             // maxTras
             // 
+            this.maxTras.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maxTras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxTras.Location = new System.Drawing.Point(671, 390);
             this.maxTras.Name = "maxTras";
@@ -136,10 +147,11 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(667, 194);
+            this.textBox1.Location = new System.Drawing.Point(531, 144);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 26);
+            this.textBox1.Size = new System.Drawing.Size(544, 26);
             this.textBox1.TabIndex = 13;
             // 
             // label1
@@ -147,7 +159,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(519, 197);
+            this.label1.Location = new System.Drawing.Point(383, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 12;
@@ -156,10 +168,10 @@
             // 
             // labeltipo
             // 
-            this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labeltipo.AutoSize = true;
             this.labeltipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltipo.Location = new System.Drawing.Point(547, 127);
+            this.labeltipo.Location = new System.Drawing.Point(534, 212);
             this.labeltipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltipo.Name = "labeltipo";
             this.labeltipo.Size = new System.Drawing.Size(130, 20);
@@ -169,15 +181,79 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Rigida",
             "Semi-Rigida",
             "Manual"});
-            this.comboBox1.Location = new System.Drawing.Point(684, 127);
+            this.comboBox1.Location = new System.Drawing.Point(671, 212);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(145, 28);
             this.comboBox1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(913, 359);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Molde:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(975, 353);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(266, 26);
+            this.textBox5.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(913, 217);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 20);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Filme:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(975, 214);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(266, 26);
+            this.textBox6.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(913, 287);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Papel:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(975, 287);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(266, 26);
+            this.textBox7.TabIndex = 22;
             // 
             // back
             // 
@@ -192,12 +268,19 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 16;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // AddMaquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1916, 1017);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.back);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -213,9 +296,11 @@
             this.Controls.Add(this.Labelminfrente);
             this.Controls.Add(this.labeltipo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddMaquina";
             this.Text = "AddMaquina";
+            this.Load += new System.EventHandler(this.AddMaquina_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +321,11 @@
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }

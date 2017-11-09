@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MEDIRM.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>medirm.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,35 +66,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddComponente.cs">
+    <Compile Include="AddPages\AddCartao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddComponente.Designer.cs">
+    <Compile Include="AddPages\AddCartao.Designer.cs">
+      <DependentUpon>AddCartao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddCartolina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddCartolina.Designer.cs">
+      <DependentUpon>AddCartolina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddCliente.Designer.cs">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddEsterilizacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddEsterilizacao.Designer.cs">
+      <DependentUpon>AddEsterilizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddFilme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddFilme.Designer.cs">
+      <DependentUpon>AddFilme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddComponente.Designer.cs">
       <DependentUpon>AddComponente.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddMaquina.cs">
+    <Compile Include="AddPages\AddFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddMaquina.Designer.cs">
+    <Compile Include="AddPages\AddFuncionario.Designer.cs">
+      <DependentUpon>AddFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddMaquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddMaquina.Designer.cs">
       <DependentUpon>AddMaquina.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddMolde.cs">
+    <Compile Include="AddPages\AddMolde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddMolde.Designer.cs">
+    <Compile Include="AddPages\AddMolde.Designer.cs">
       <DependentUpon>AddMolde.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddArtigo.cs">
+    <Compile Include="AddPages\AddArtigo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddArtigo.Designer.cs">
+    <Compile Include="AddPages\AddArtigo.Designer.cs">
       <DependentUpon>AddArtigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddPapel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddPapel.Designer.cs">
+      <DependentUpon>AddPapel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddTransportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddTransportes.Designer.cs">
+      <DependentUpon>AddTransportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormView.Designer.cs">
+      <DependentUpon>MainFormView.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -83,17 +158,44 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddComponente.resx">
+    <EmbeddedResource Include="AddPages\AddCartao.resx">
+      <DependentUpon>AddCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddCartolina.resx">
+      <DependentUpon>AddCartolina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddCliente.resx">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddEsterilizacao.resx">
+      <DependentUpon>AddEsterilizacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddFilme.resx">
+      <DependentUpon>AddFilme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddComponente.resx">
       <DependentUpon>AddComponente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddMaquina.resx">
+    <EmbeddedResource Include="AddPages\AddFuncionario.resx">
+      <DependentUpon>AddFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddMaquina.resx">
       <DependentUpon>AddMaquina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddMolde.resx">
+    <EmbeddedResource Include="AddPages\AddMolde.resx">
       <DependentUpon>AddMolde.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddArtigo.resx">
+    <EmbeddedResource Include="AddPages\AddArtigo.resx">
       <DependentUpon>AddArtigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddPapel.resx">
+      <DependentUpon>AddPapel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddTransportes.resx">
+      <DependentUpon>AddTransportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormView.resx">
+      <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -123,6 +225,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="medirm.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

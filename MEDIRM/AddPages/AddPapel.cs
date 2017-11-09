@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MEDIRM
 {
-    public partial class AddMolde : Form
+    public partial class AddPapel : Form
     {
-        public AddMolde()
+        public AddPapel()
         {
             InitializeComponent();
         }

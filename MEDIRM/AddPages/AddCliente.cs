@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MEDIRM
+namespace MEDIRM.AddPages
 {
-    public partial class AddArtigo : Form
+    public partial class AddCliente : Form
     {
-        public AddArtigo()
+        public AddCliente()
         {
             InitializeComponent();
         }

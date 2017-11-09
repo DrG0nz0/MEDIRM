@@ -1,6 +1,6 @@
 ﻿namespace MEDIRM
 {
-    partial class AddArtigo
+    partial class AddComponente
     {
         /// <summary>
         /// Required designer variable.
@@ -44,15 +44,16 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 16;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // AddArtigo
+            // AddComponente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 661);
             this.Controls.Add(this.back);
-            this.Name = "AddArtigo";
-            this.Text = "AddArtigo";
+            this.Name = "AddComponente";
+            this.Text = "AddComponente";
             this.ResumeLayout(false);
 
         }

@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace MEDIRM
 {
-    public partial class Menu : Form
+    public partial class AddArtigo : Form
     {
-        public Menu()
+        public AddArtigo()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new AddMaquina());
+            MainFormView.ShowForm(new Menu());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddArtigo_Load(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new AddMolde());
+
         }
     }
 }
