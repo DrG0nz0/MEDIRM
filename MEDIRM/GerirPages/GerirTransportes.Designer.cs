@@ -39,14 +39,15 @@
             this.LabelMaxtras = new System.Windows.Forms.Label();
             this.minAtras = new System.Windows.Forms.TextBox();
             this.LabelminAtras = new System.Windows.Forms.Label();
-            this.maxFrente = new System.Windows.Forms.TextBox();
-            this.LabelmaxFrente = new System.Windows.Forms.Label();
             this.minFrente = new System.Windows.Forms.TextBox();
             this.Labelminfrente = new System.Windows.Forms.Label();
             this.labeltipo = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox2
@@ -156,27 +157,6 @@
             this.LabelminAtras.Text = "Transportadora:";
             this.LabelminAtras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // maxFrente
-            // 
-            this.maxFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maxFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxFrente.Location = new System.Drawing.Point(684, 297);
-            this.maxFrente.Name = "maxFrente";
-            this.maxFrente.Size = new System.Drawing.Size(100, 26);
-            this.maxFrente.TabIndex = 34;
-            // 
-            // LabelmaxFrente
-            // 
-            this.LabelmaxFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelmaxFrente.AutoSize = true;
-            this.LabelmaxFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelmaxFrente.Location = new System.Drawing.Point(545, 300);
-            this.LabelmaxFrente.Name = "LabelmaxFrente";
-            this.LabelmaxFrente.Size = new System.Drawing.Size(132, 20);
-            this.LabelmaxFrente.TabIndex = 33;
-            this.LabelmaxFrente.Text = "Quantidade (m3):";
-            this.LabelmaxFrente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // minFrente
             // 
             this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -204,12 +184,12 @@
             this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labeltipo.AutoSize = true;
             this.labeltipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltipo.Location = new System.Drawing.Point(623, 206);
+            this.labeltipo.Location = new System.Drawing.Point(587, 205);
             this.labeltipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltipo.Name = "labeltipo";
-            this.labeltipo.Size = new System.Drawing.Size(54, 20);
+            this.labeltipo.Size = new System.Drawing.Size(90, 20);
             this.labeltipo.TabIndex = 30;
-            this.labeltipo.Text = "Preço:";
+            this.labeltipo.Text = "Preço (m3):";
             this.labeltipo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // back
@@ -249,11 +229,46 @@
             this.button11.TabIndex = 47;
             this.button11.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(623, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(405, 20);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "(transportadora - cidade saida - cidade destino - volume)";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(976, 207);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(429, 255);
+            this.richTextBox1.TabIndex = 53;
+            this.richTextBox1.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(929, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 20);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Info:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GerirTransportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.back);
@@ -267,8 +282,6 @@
             this.Controls.Add(this.LabelMaxtras);
             this.Controls.Add(this.minAtras);
             this.Controls.Add(this.LabelminAtras);
-            this.Controls.Add(this.maxFrente);
-            this.Controls.Add(this.LabelmaxFrente);
             this.Controls.Add(this.minFrente);
             this.Controls.Add(this.Labelminfrente);
             this.Controls.Add(this.labeltipo);
@@ -293,12 +306,13 @@
         private System.Windows.Forms.Label LabelMaxtras;
         private System.Windows.Forms.TextBox minAtras;
         private System.Windows.Forms.Label LabelminAtras;
-        private System.Windows.Forms.TextBox maxFrente;
-        private System.Windows.Forms.Label LabelmaxFrente;
         private System.Windows.Forms.TextBox minFrente;
         private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

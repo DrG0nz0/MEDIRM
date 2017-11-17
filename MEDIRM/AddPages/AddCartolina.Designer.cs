@@ -107,7 +107,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackgroundImage = global::MEDIRM.Properties.Resources.cartolina;
+            this.button1.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoaoo;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

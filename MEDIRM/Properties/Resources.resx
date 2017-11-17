@@ -151,6 +151,9 @@
   <data name="cartaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bobinedepapel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bobinedepapel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="maquina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maquina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,6 +169,12 @@
   <data name="medirm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\medirm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="catalog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catalog1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EO-sterilization-symbol-sm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EO-sterilization-symbol-sm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cartao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,10 +184,13 @@
   <data name="catalog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bobinefilme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bobinefilme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cartao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="catalog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\catalog1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cartaoaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartaoaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

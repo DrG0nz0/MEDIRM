@@ -73,6 +73,26 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bobinedepapel {
+            get {
+                object obj = ResourceManager.GetObject("bobinedepapel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bobinefilme {
+            get {
+                object obj = ResourceManager.GetObject("bobinefilme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cartao {
             get {
                 object obj = ResourceManager.GetObject("cartao", resourceCulture);
@@ -96,6 +116,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap cartao2 {
             get {
                 object obj = ResourceManager.GetObject("cartao2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cartaoaoo {
+            get {
+                object obj = ResourceManager.GetObject("cartaoaoo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +196,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap criarBD {
             get {
                 object obj = ResourceManager.GetObject("criarBD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EO_sterilization_symbol_sm {
+            get {
+                object obj = ResourceManager.GetObject("EO-sterilization-symbol-sm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

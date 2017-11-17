@@ -269,13 +269,13 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackgroundImage = global::MEDIRM.Properties.Resources.esterilizacao;
+            this.button2.BackgroundImage = global::MEDIRM.Properties.Resources.EO_sterilization_symbol_sm;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(1259, 409);
+            this.button2.Location = new System.Drawing.Point(1328, 412);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 34);
+            this.button2.Size = new System.Drawing.Size(81, 29);
             this.button2.TabIndex = 45;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -285,7 +285,7 @@
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(1153, 412);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 26);
+            this.textBox7.Size = new System.Drawing.Size(169, 26);
             this.textBox7.TabIndex = 47;
             // 
             // label7

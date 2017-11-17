@@ -21,5 +21,20 @@ namespace MEDIRM.Navegacao
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new CriarBD());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new GerirBD());
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new Menu());
+        }
     }
 }

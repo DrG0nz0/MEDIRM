@@ -186,6 +186,12 @@
     <Compile Include="GerirPages\GerirFilme.Designer.cs">
       <DependentUpon>GerirFilme.cs</DependentUpon>
     </Compile>
+    <Compile Include="GerirPages\GerirFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPages\GerirFuncionarios.Designer.cs">
+      <DependentUpon>GerirFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerirPages\GerirMaquinas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     <EmbeddedResource Include="GerirPages\GerirFilme.resx">
       <DependentUpon>GerirFilme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirFuncionarios.resx">
+      <DependentUpon>GerirFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirMaquinas.resx">
       <DependentUpon>GerirMaquinas.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +375,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="medirm.ico" />
+    <None Include="Resources\cartaoaoo.png" />
+    <None Include="Resources\bobinedepapel.png" />
+    <None Include="Resources\bobinefilme.png" />
+    <None Include="Resources\EO-sterilization-symbol-sm.jpg" />
     <None Include="Resources\catalog1.png" />
     <None Include="Resources\worker.png" />
     <None Include="Resources\catalog.png" />

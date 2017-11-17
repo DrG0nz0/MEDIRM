@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEDIRM.Navegacao;
 
 namespace MEDIRM
 {
@@ -25,6 +26,11 @@ namespace MEDIRM
         private void button1_Click(object sender, EventArgs e)
         {
             MainFormView.ShowForm(new AddMolde());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new BD());
         }
     }
 }

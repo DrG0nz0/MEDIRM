@@ -141,7 +141,7 @@
             // button7
             // 
             this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.filme;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.bobinefilme;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

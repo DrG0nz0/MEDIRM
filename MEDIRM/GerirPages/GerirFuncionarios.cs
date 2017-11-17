@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MEDIRM
+namespace MEDIRM.GerirPages
 {
-    public partial class AddFuncionario : Form
+    public partial class GerirFuncionarios : Form
     {
-        public AddFuncionario()
+        public GerirFuncionarios()
         {
             InitializeComponent();
-        }
-
-        private void AddFuncionario_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

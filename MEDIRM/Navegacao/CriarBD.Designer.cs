@@ -213,6 +213,7 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 42;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // button12
             // 
@@ -226,6 +227,7 @@
             this.button12.Size = new System.Drawing.Size(100, 100);
             this.button12.TabIndex = 41;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button8
             // 
@@ -239,6 +241,7 @@
             this.button8.Size = new System.Drawing.Size(110, 109);
             this.button8.TabIndex = 40;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button11
             // 
@@ -252,11 +255,12 @@
             this.button11.Size = new System.Drawing.Size(100, 100);
             this.button11.TabIndex = 39;
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
             this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.papel;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.bobinedepapel;
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -265,6 +269,7 @@
             this.button10.Size = new System.Drawing.Size(100, 100);
             this.button10.TabIndex = 38;
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -278,11 +283,12 @@
             this.button9.Size = new System.Drawing.Size(100, 100);
             this.button9.TabIndex = 37;
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button7
             // 
             this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.filme;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.bobinefilme;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -291,6 +297,7 @@
             this.button7.Size = new System.Drawing.Size(100, 100);
             this.button7.TabIndex = 36;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -304,6 +311,7 @@
             this.button6.Size = new System.Drawing.Size(100, 100);
             this.button6.TabIndex = 35;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -317,6 +325,7 @@
             this.button5.Size = new System.Drawing.Size(100, 100);
             this.button5.TabIndex = 34;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -330,6 +339,7 @@
             this.button4.Size = new System.Drawing.Size(100, 100);
             this.button4.TabIndex = 33;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -343,24 +353,26 @@
             this.button3.Size = new System.Drawing.Size(100, 100);
             this.button3.TabIndex = 32;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackgroundImage = global::MEDIRM.Properties.Resources.esterilizacao;
+            this.button2.BackgroundImage = global::MEDIRM.Properties.Resources.EO_sterilization_symbol_sm;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(507, 114);
+            this.button2.Location = new System.Drawing.Point(483, 118);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 100);
+            this.button2.Size = new System.Drawing.Size(156, 79);
             this.button2.TabIndex = 31;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackgroundImage = global::MEDIRM.Properties.Resources.cartolina;
+            this.button1.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoaoo;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -369,6 +381,7 @@
             this.button1.Size = new System.Drawing.Size(100, 100);
             this.button1.TabIndex = 30;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CriarBD
             // 

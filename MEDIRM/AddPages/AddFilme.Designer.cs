@@ -130,13 +130,13 @@
             // button7
             // 
             this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.filme;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.bobinefilme;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(706, 28);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 100);
+            this.button7.Size = new System.Drawing.Size(132, 107);
             this.button7.TabIndex = 33;
             this.button7.UseVisualStyleBackColor = true;
             // 

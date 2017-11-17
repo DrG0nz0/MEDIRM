@@ -74,6 +74,7 @@
             this.button2.Size = new System.Drawing.Size(232, 221);
             this.button2.TabIndex = 28;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -88,6 +89,7 @@
             this.button1.Size = new System.Drawing.Size(191, 178);
             this.button1.TabIndex = 13;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // back
             // 
@@ -102,6 +104,7 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 43;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // BD
             // 
@@ -115,7 +118,7 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BD";
-            this.Text = " ";
+            this.Text = " Databases";
             this.ResumeLayout(false);
             this.PerformLayout();
 

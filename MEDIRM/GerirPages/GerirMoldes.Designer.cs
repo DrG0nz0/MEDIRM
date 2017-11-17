@@ -43,6 +43,7 @@
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // criarMaquina
@@ -197,11 +198,24 @@
             this.button9.TabIndex = 37;
             this.button9.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(655, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(335, 20);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "(maquina - formato - profundidade - cortantes)";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GerirMoldes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.back);
@@ -240,5 +254,6 @@
         private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label5;
     }
 }
