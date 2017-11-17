@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // minFrente
@@ -173,11 +174,25 @@
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.molde;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(712, 24);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(100, 100);
+            this.button9.TabIndex = 16;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // AddMolde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 661);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.back);
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.textBox4);
@@ -212,5 +227,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button criarMaquina;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button button9;
     }
 }

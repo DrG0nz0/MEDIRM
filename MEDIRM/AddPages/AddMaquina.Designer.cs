@@ -49,6 +49,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // minFrente
@@ -270,11 +274,67 @@
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(683, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 100);
+            this.button6.TabIndex = 23;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.molde;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(1261, 349);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(33, 32);
+            this.button9.TabIndex = 24;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.filme;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(1247, 206);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(47, 39);
+            this.button7.TabIndex = 25;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.papel;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(1247, 281);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(47, 32);
+            this.button10.TabIndex = 26;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // AddMaquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1916, 1017);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label5);
@@ -327,5 +387,9 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button10;
     }
 }

@@ -45,6 +45,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // back
@@ -221,11 +227,90 @@
             this.checkBox2.Text = "Esterilização:";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button5.BackgroundImage = global::MEDIRM.Properties.Resources.clientes;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(708, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 100);
+            this.button5.TabIndex = 42;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button11.BackgroundImage = global::MEDIRM.Properties.Resources.transp;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(663, 321);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(40, 44);
+            this.button11.TabIndex = 43;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button12.BackgroundImage = global::MEDIRM.Properties.Resources.catalog;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(1224, 249);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(45, 42);
+            this.button12.TabIndex = 44;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackgroundImage = global::MEDIRM.Properties.Resources.esterilizacao;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(1259, 409);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 34);
+            this.button2.TabIndex = 45;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(1153, 412);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 26);
+            this.textBox7.TabIndex = 47;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1040, 415);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 20);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Esterilização: ";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AddCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox6);
@@ -268,5 +353,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -50,6 +50,10 @@
             this.labeltipo = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox5
@@ -286,11 +290,67 @@
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(339, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 100);
+            this.button6.TabIndex = 45;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.papel;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(1209, 286);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(47, 32);
+            this.button10.TabIndex = 48;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.filme;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(1209, 211);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(47, 39);
+            this.button7.TabIndex = 47;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.molde;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(1223, 354);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(33, 32);
+            this.button9.TabIndex = 46;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
             // GerirMaquinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox5);
@@ -343,5 +403,9 @@
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button9;
     }
 }

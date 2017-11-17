@@ -45,6 +45,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -224,11 +225,25 @@
             this.back.TabIndex = 29;
             this.back.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button11.BackgroundImage = global::MEDIRM.Properties.Resources.transp;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(684, 12);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(100, 100);
+            this.button11.TabIndex = 30;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // AddTransportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.back);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -271,5 +286,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button button11;
     }
 }

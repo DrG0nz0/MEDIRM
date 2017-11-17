@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -137,11 +138,25 @@
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.papel;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(330, 12);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(78, 82);
+            this.button10.TabIndex = 39;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // GerirPapel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -170,5 +185,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button10;
     }
 }

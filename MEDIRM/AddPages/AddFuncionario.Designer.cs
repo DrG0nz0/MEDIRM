@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -145,11 +147,39 @@
             this.back.TabIndex = 23;
             this.back.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.worker;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(660, 311);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(110, 109);
+            this.button8.TabIndex = 24;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(335, 272);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 100);
+            this.button6.TabIndex = 25;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // AddFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.back);
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.textBox3);
@@ -180,5 +210,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button criarMaquina;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button6;
     }
 }

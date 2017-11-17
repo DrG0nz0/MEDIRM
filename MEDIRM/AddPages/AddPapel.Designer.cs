@@ -37,6 +37,7 @@
             this.back = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // criarMaquina
@@ -126,11 +127,25 @@
             this.label1.Text = "Metodo de calculo do preço:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.papel;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(701, 27);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(100, 100);
+            this.button10.TabIndex = 30;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // AddPapel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.back);
@@ -157,5 +172,6 @@
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button10;
     }
 }

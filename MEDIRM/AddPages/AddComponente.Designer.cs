@@ -35,6 +35,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // back
@@ -102,11 +103,25 @@
             this.button1.Text = "Adicionar componente";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.BackgroundImage = global::MEDIRM.Properties.Resources.componentes;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(727, 24);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 100);
+            this.button4.TabIndex = 29;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // AddComponente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 661);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -115,7 +130,7 @@
             this.Controls.Add(this.back);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddComponente";
-            this.Text = "GerirComponentes";
+            this.Text = "AddComponentes";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +144,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
     }
 }

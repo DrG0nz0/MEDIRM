@@ -16,5 +16,10 @@ namespace MEDIRM.Navegacao
         {
             InitializeComponent();
         }
+
+        private void GerirBD_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

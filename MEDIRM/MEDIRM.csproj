@@ -366,6 +366,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="medirm.ico" />
+    <None Include="Resources\catalog1.png" />
+    <None Include="Resources\worker.png" />
+    <None Include="Resources\catalog.png" />
+    <None Include="Resources\transp.png" />
+    <None Include="Resources\papel.png" />
+    <None Include="Resources\molde.png" />
+    <None Include="Resources\maquina.png" />
+    <None Include="Resources\filme.png" />
+    <None Include="Resources\esterilizacao.png" />
+    <None Include="Resources\componentes.png" />
+    <None Include="Resources\clientes.png" />
+    <None Include="Resources\cartolina.png" />
+    <None Include="Resources\cartaoo.png" />
+    <None Include="Resources\cartao2.png" />
+    <None Include="Resources\cartao1.png" />
+    <None Include="Resources\cartao.png" />
     <None Include="Resources\gerirBD.png" />
     <None Include="Resources\criarBD.png" />
     <None Include="Resources\print-icon.png" />

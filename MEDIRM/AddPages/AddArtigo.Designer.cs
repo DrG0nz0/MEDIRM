@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArtigo));
-            this.back = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labeltipo = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,23 +64,18 @@
             this.label17 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // back
-            // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
-            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.back.FlatAppearance.BorderSize = 0;
-            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Location = new System.Drawing.Point(12, 12);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(89, 50);
-            this.back.TabIndex = 16;
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // comboBox1
             // 
@@ -470,11 +464,153 @@
             this.button3.Text = "Calcular custo produção";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.BackgroundImage = global::MEDIRM.Properties.Resources.catalog1;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(1131, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(85, 69);
+            this.button4.TabIndex = 65;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // back
+            // 
+            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
+            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Location = new System.Drawing.Point(12, 12);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(89, 50);
+            this.back.TabIndex = 16;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(1376, 95);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(33, 41);
+            this.button6.TabIndex = 66;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button5.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(1376, 141);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(33, 41);
+            this.button5.TabIndex = 67;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(1376, 298);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(33, 41);
+            this.button7.TabIndex = 68;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(1376, 248);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(33, 41);
+            this.button8.TabIndex = 69;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(1376, 201);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(33, 41);
+            this.button9.TabIndex = 70;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.componentes;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(366, 103);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(48, 38);
+            this.button10.TabIndex = 71;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button11.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoo;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(936, 527);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(33, 36);
+            this.button11.TabIndex = 72;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button12.BackgroundImage = global::MEDIRM.Properties.Resources.cartolina;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(936, 560);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(33, 35);
+            this.button12.TabIndex = 73;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // AddArtigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 661);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label17);
@@ -559,5 +695,14 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
