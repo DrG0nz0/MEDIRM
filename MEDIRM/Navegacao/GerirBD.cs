@@ -55,7 +55,7 @@ namespace MEDIRM.Navegacao
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            MainFormView.ShowForm(new GerirFuncionarios());
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace MEDIRM.Navegacao
 
         private void button12_Click(object sender, EventArgs e)
         {
-
+            MainFormView.ShowForm(new GerirArtigos());
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEDIRM.Navegacao;
 
-namespace MEDIRM
+namespace MEDIRM.GerirPages
 {
-    public partial class CriarEncomenda : Form
+    public partial class GerirCustosFixos : Form
     {
-        public CriarEncomenda()
+        public GerirCustosFixos()
         {
             InitializeComponent();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new GerirBD());
         }
     }
 }

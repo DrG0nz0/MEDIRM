@@ -11,9 +11,9 @@ using MEDIRM.Navegacao;
 
 namespace MEDIRM.GerirPages
 {
-    public partial class GerirClientes : Form
+    public partial class GerirArtigos : Form
     {
-        public GerirClientes()
+        public GerirArtigos()
         {
             InitializeComponent();
         }

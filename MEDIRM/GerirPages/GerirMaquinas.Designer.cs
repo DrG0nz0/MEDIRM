@@ -144,6 +144,7 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 36;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // label1
             // 

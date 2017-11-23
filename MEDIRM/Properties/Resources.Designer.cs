@@ -183,6 +183,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coins_money_stack_318_50201 {
+            get {
+                object obj = ResourceManager.GetObject("coins-money-stack_318-50201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap componentes {
             get {
                 object obj = ResourceManager.GetObject("componentes", resourceCulture);
@@ -266,6 +276,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap molde {
             get {
                 object obj = ResourceManager.GetObject("molde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noeda {
+            get {
+                object obj = ResourceManager.GetObject("noeda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

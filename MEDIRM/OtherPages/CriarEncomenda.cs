@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
 
-namespace MEDIRM.GerirPages
+namespace MEDIRM
 {
-    public partial class GerirClientes : Form
+    public partial class CriarEncomenda : Form
     {
-        public GerirClientes()
+        public CriarEncomenda()
         {
             InitializeComponent();
         }
 
         private void back_Click(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new GerirBD());
+            MainFormView.ShowForm(new Menu());
         }
     }
 }

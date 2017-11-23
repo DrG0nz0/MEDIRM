@@ -45,10 +45,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label4
@@ -213,14 +213,6 @@
             this.criarMaquina.Text = "Adicionar";
             this.criarMaquina.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(553, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 26);
-            this.textBox1.TabIndex = 41;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -259,12 +251,22 @@
             this.back.Size = new System.Drawing.Size(89, 50);
             this.back.TabIndex = 59;
             this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(553, 34);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(675, 21);
+            this.comboBox8.TabIndex = 60;
             // 
             // GerirFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox8);
             this.Controls.Add(this.back);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox7);
@@ -283,7 +285,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.criarMaquina);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirFuncionarios";
@@ -312,8 +313,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button criarMaquina;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.ComboBox comboBox8;
     }
 }

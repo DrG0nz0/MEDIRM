@@ -61,23 +61,24 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.back = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -91,7 +92,7 @@
             // 
             // labeltipo
             // 
-            this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labeltipo.AutoSize = true;
             this.labeltipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeltipo.Location = new System.Drawing.Point(103, 111);
@@ -124,6 +125,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(335, 39);
             this.textBox1.Name = "textBox1";
@@ -144,6 +146,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(975, 39);
             this.textBox2.Name = "textBox2";
@@ -164,6 +167,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(61, 257);
             this.dataGridView1.Name = "dataGridView1";
@@ -172,6 +176,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(215, 147);
             this.textBox3.Name = "textBox3";
@@ -192,6 +197,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
@@ -205,7 +211,7 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(563, 106);
@@ -218,6 +224,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(740, 386);
             this.textBox5.Name = "textBox5";
@@ -238,6 +245,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(740, 418);
             this.textBox6.Name = "textBox6";
@@ -258,6 +266,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(740, 450);
             this.textBox7.Name = "textBox7";
@@ -278,6 +287,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
@@ -291,7 +301,7 @@
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(563, 153);
@@ -304,6 +314,7 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
@@ -317,7 +328,7 @@
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(563, 210);
@@ -330,6 +341,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
@@ -343,7 +355,7 @@
             // 
             // label14
             // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(563, 260);
@@ -356,6 +368,7 @@
             // 
             // comboBox6
             // 
+            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
@@ -369,7 +382,7 @@
             // 
             // label15
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(563, 314);
@@ -382,6 +395,7 @@
             // 
             // checkBox2
             // 
+            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox2.AutoSize = true;
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -406,6 +420,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(1033, 418);
             this.textBox12.Name = "textBox12";
@@ -426,11 +441,137 @@
             // 
             // textBox11
             // 
+            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(1033, 386);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(337, 26);
             this.textBox11.TabIndex = 54;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(740, 482);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(137, 26);
+            this.textBox8.TabIndex = 75;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(547, 485);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(187, 20);
+            this.label9.TabIndex = 74;
+            this.label9.Text = "Quantidade por cartolina:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button12.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoaoo;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(1376, 415);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(42, 35);
+            this.button12.TabIndex = 73;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button11.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoo;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(1376, 382);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(33, 36);
+            this.button11.TabIndex = 72;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.componentes;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(366, 103);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(48, 38);
+            this.button10.TabIndex = 71;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(1376, 201);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(33, 41);
+            this.button9.TabIndex = 70;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(1376, 248);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(33, 41);
+            this.button8.TabIndex = 69;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(1376, 298);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(33, 41);
+            this.button7.TabIndex = 68;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button5.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(1376, 141);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(33, 41);
+            this.button5.TabIndex = 67;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(1376, 95);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(33, 41);
+            this.button6.TabIndex = 66;
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -460,130 +601,6 @@
             this.back.TabIndex = 16;
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
-            // 
-            // button6
-            // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button6.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(1376, 95);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(33, 41);
-            this.button6.TabIndex = 66;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(1376, 141);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(33, 41);
-            this.button5.TabIndex = 67;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(1376, 298);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(33, 41);
-            this.button7.TabIndex = 68;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1376, 248);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(33, 41);
-            this.button8.TabIndex = 69;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.BackgroundImage = global::MEDIRM.Properties.Resources.maquina;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(1376, 201);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(33, 41);
-            this.button9.TabIndex = 70;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button10.BackgroundImage = global::MEDIRM.Properties.Resources.componentes;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(366, 103);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(48, 38);
-            this.button10.TabIndex = 71;
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button11.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoo;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(1376, 382);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(33, 36);
-            this.button11.TabIndex = 72;
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button12.BackgroundImage = global::MEDIRM.Properties.Resources.cartaoaoo;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(1376, 415);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(42, 35);
-            this.button12.TabIndex = 73;
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(740, 482);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(137, 26);
-            this.textBox8.TabIndex = 75;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(547, 485);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 20);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "Quantidade por cartolina:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddArtigo
             // 

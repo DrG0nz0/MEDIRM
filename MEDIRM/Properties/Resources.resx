@@ -136,8 +136,14 @@
   <data name="print-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cartaoaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartaoaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="criarBD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\criarBD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coins-money-stack_318-50201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coins-money-stack_318-50201.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="esterilizacao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\esterilizacao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -150,9 +156,6 @@
   </data>
   <data name="cartaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bobinedepapel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bobinedepapel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maquina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maquina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +181,9 @@
   <data name="cartao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cartao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="gerirBD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gerirBD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,10 +193,10 @@
   <data name="bobinefilme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bobinefilme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cartao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cartao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bobinedepapel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bobinedepapel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cartaoaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cartaoaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="noeda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noeda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

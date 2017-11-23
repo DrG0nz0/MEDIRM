@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEDIRM.Navegacao;
 
 namespace MEDIRM
 {
@@ -15,6 +16,11 @@ namespace MEDIRM
         public AddFilme()
         {
             InitializeComponent();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new CriarBD());
         }
     }
 }

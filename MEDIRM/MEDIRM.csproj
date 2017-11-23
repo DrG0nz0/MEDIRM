@@ -138,17 +138,23 @@
     <Compile Include="AddPages\AddTransportes.Designer.cs">
       <DependentUpon>AddTransportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="CriarEncomenda.cs">
+    <Compile Include="OtherPages\CriarEncomenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CriarEncomenda.Designer.cs">
+    <Compile Include="OtherPages\CriarEncomenda.Designer.cs">
       <DependentUpon>CriarEncomenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="GerirPages\GerirArtigos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GerirPages\GerirArtigos.Designer.cs">
+      <DependentUpon>GerirArtigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerirPages\GerirCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPages\GerirCambios.Designer.cs">
+      <DependentUpon>GerirCambios.cs</DependentUpon>
     </Compile>
     <Compile Include="GerirPages\GerirCartao.cs">
       <SubType>Form</SubType>
@@ -173,6 +179,12 @@
     </Compile>
     <Compile Include="GerirPages\GerirComponentes.Designer.cs">
       <DependentUpon>GerirComponentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerirPages\GerirCustosFixos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPages\GerirCustosFixos.Designer.cs">
+      <DependentUpon>GerirCustosFixos.cs</DependentUpon>
     </Compile>
     <Compile Include="GerirPages\GerirEsterilizacao.cs">
       <SubType>Form</SubType>
@@ -216,10 +228,10 @@
     <Compile Include="GerirPages\GerirTransportes.Designer.cs">
       <DependentUpon>GerirTransportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormView.cs">
+    <Compile Include="OtherPages\MainFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFormView.Designer.cs">
+    <Compile Include="OtherPages\MainFormView.Designer.cs">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </Compile>
     <Compile Include="Navegacao\BD.cs">
@@ -240,6 +252,12 @@
     <Compile Include="Navegacao\GerirBD.Designer.cs">
       <DependentUpon>GerirBD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Navegacao\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navegacao\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navegacao\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,10 +266,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VerPreços.cs">
+    <Compile Include="OtherPages\VerPreços.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerPreços.Designer.cs">
+    <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddPages\AddCartao.resx">
@@ -290,8 +308,14 @@
     <EmbeddedResource Include="AddPages\AddTransportes.resx">
       <DependentUpon>AddTransportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CriarEncomenda.resx">
+    <EmbeddedResource Include="OtherPages\CriarEncomenda.resx">
       <DependentUpon>CriarEncomenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirArtigos.resx">
+      <DependentUpon>GerirArtigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirCambios.resx">
+      <DependentUpon>GerirCambios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirCartao.resx">
       <DependentUpon>GerirCartao.cs</DependentUpon>
@@ -304,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirComponentes.resx">
       <DependentUpon>GerirComponentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirCustosFixos.resx">
+      <DependentUpon>GerirCustosFixos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirEsterilizacao.resx">
       <DependentUpon>GerirEsterilizacao.cs</DependentUpon>
@@ -326,7 +353,7 @@
     <EmbeddedResource Include="GerirPages\GerirTransportes.resx">
       <DependentUpon>GerirTransportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFormView.resx">
+    <EmbeddedResource Include="OtherPages\MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegacao\BD.resx">
@@ -337,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegacao\GerirBD.resx">
       <DependentUpon>GerirBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Navegacao\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Navegacao\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -351,7 +381,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="VerPreços.resx">
+    <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -375,6 +405,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="medirm.ico" />
+    <None Include="Resources\noeda.png" />
+    <None Include="Resources\coins-money-stack_318-50201.jpg" />
     <None Include="Resources\cartaoaoo.png" />
     <None Include="Resources\bobinedepapel.png" />
     <None Include="Resources\bobinefilme.png" />
