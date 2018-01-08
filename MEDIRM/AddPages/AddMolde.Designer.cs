@@ -49,7 +49,7 @@
             // 
             this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minFrente.Location = new System.Drawing.Point(481, 150);
+            this.minFrente.Location = new System.Drawing.Point(491, 198);
             this.minFrente.Name = "minFrente";
             this.minFrente.Size = new System.Drawing.Size(589, 26);
             this.minFrente.TabIndex = 5;
@@ -59,7 +59,7 @@
             this.Labelminfrente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Labelminfrente.AutoSize = true;
             this.Labelminfrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelminfrente.Location = new System.Drawing.Point(292, 150);
+            this.Labelminfrente.Location = new System.Drawing.Point(302, 198);
             this.Labelminfrente.Name = "Labelminfrente";
             this.Labelminfrente.Size = new System.Drawing.Size(183, 20);
             this.Labelminfrente.TabIndex = 4;
@@ -70,7 +70,7 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(765, 235);
+            this.textBox1.Location = new System.Drawing.Point(775, 283);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 7;
@@ -80,7 +80,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(597, 238);
+            this.label1.Location = new System.Drawing.Point(607, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(765, 289);
+            this.textBox2.Location = new System.Drawing.Point(775, 337);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 9;
@@ -101,7 +101,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(597, 292);
+            this.label2.Location = new System.Drawing.Point(607, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 8;
@@ -112,7 +112,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(765, 350);
+            this.textBox3.Location = new System.Drawing.Point(775, 398);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 26);
             this.textBox3.TabIndex = 11;
@@ -122,7 +122,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(597, 350);
+            this.label3.Location = new System.Drawing.Point(607, 398);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 20);
             this.label3.TabIndex = 10;
@@ -133,7 +133,7 @@
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(765, 413);
+            this.textBox4.Location = new System.Drawing.Point(775, 461);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 26);
             this.textBox4.TabIndex = 13;
@@ -143,7 +143,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(597, 416);
+            this.label4.Location = new System.Drawing.Point(607, 464);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 20);
             this.label4.TabIndex = 12;
@@ -153,7 +153,7 @@
             // criarMaquina
             // 
             this.criarMaquina.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.criarMaquina.Location = new System.Drawing.Point(669, 487);
+            this.criarMaquina.Location = new System.Drawing.Point(679, 535);
             this.criarMaquina.Name = "criarMaquina";
             this.criarMaquina.Size = new System.Drawing.Size(191, 59);
             this.criarMaquina.TabIndex = 14;
@@ -162,7 +162,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -182,7 +181,7 @@
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(712, 24);
+            this.button9.Location = new System.Drawing.Point(722, 72);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 100);
             this.button9.TabIndex = 16;
@@ -193,7 +192,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(597, 179);
+            this.label5.Location = new System.Drawing.Point(607, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(335, 20);
             this.label5.TabIndex = 39;
@@ -222,6 +221,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddMolde";
             this.Text = "AddMolde";
+            this.Load += new System.EventHandler(this.AddMolde_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

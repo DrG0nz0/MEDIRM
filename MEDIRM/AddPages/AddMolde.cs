@@ -22,5 +22,10 @@ namespace MEDIRM
         {
             MainFormView.ShowForm(new CriarBD());
         }
+
+        private void AddMolde_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

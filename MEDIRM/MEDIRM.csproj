@@ -145,6 +145,9 @@
     <Compile Include="AddPages\AddTransportes.Designer.cs">
       <DependentUpon>AddTransportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedirmDBDataSet.cs">
+      <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MedirmDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
