@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -53,7 +53,14 @@
     <ApplicationIcon>medirm.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -137,6 +144,11 @@
     </Compile>
     <Compile Include="AddPages\AddTransportes.Designer.cs">
       <DependentUpon>AddTransportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedirmDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="OtherPages\CriarEncomenda.cs">
       <SubType>Form</SubType>
@@ -384,6 +396,18 @@
     <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MedirmDBDataSet.xsc">
+      <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedirmDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedirmDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedirmDBDataSet.xss">
+      <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -405,6 +429,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="medirm.ico" />
+    <Content Include="MedirmDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MedirmDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MedirmDB.mdf</DependentUpon>
+    </Content>
     <None Include="Resources\noeda.png" />
     <None Include="Resources\coins-money-stack_318-50201.jpg" />
     <None Include="Resources\cartaoaoo.png" />

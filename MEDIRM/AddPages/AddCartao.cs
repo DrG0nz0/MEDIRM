@@ -22,5 +22,12 @@ namespace MEDIRM
         {
             MainFormView.ShowForm(new CriarBD());
         }
+
+        private void AddCartao_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
+            this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
+
+        }
     }
 }

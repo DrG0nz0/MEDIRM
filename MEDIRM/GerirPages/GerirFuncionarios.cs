@@ -22,5 +22,10 @@ namespace MEDIRM.GerirPages
         {
             MainFormView.ShowForm(new GerirBD());
         }
+
+        private void GerirFuncionarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

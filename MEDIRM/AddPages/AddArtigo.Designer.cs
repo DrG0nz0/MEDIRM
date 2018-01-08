@@ -56,7 +56,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -116,7 +115,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(1245, 573);
+            this.button1.Location = new System.Drawing.Point(1150, 558);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 59);
             this.button1.TabIndex = 20;
@@ -393,19 +392,6 @@
             this.label15.Text = "Máquina 5:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(657, 563);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(161, 24);
-            this.checkBox2.TabIndex = 52;
-            this.checkBox2.Text = "Dupla embalagem:";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -622,7 +608,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox5);
@@ -691,7 +676,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label17;

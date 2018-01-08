@@ -22,5 +22,10 @@ namespace MEDIRM.AddPages
         {
             MainFormView.ShowForm(new CriarBD());
         }
+
+        private void AddCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
