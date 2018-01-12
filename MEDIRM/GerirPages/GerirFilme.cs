@@ -20,6 +20,10 @@ namespace MEDIRM.GerirPages
 
         private void GerirFilme_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Filme'. Você pode movê-la ou removê-la conforme necessário.
+            this.filmeTableAdapter.Fill(this.medirmDBDataSet.Filme);
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
+            this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
         }
 

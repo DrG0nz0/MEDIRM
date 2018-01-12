@@ -80,33 +80,35 @@
             this.cartolinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cartaoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.CartaoTableAdapter();
             this.cartolinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.CartolinaTableAdapter();
+            this.componentesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.componentesTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ComponentesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartolinaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.componentesBindingSource;
+            this.comboBox1.DisplayMember = "Nome";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
-            this.comboBox1.Location = new System.Drawing.Point(215, 108);
+            this.comboBox1.Location = new System.Drawing.Point(151, 108);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 28);
+            this.comboBox1.Size = new System.Drawing.Size(312, 28);
             this.comboBox1.TabIndex = 18;
+            this.comboBox1.ValueMember = "ID";
             // 
             // labeltipo
             // 
             this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labeltipo.AutoSize = true;
             this.labeltipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltipo.Location = new System.Drawing.Point(103, 111);
+            this.labeltipo.Location = new System.Drawing.Point(39, 111);
             this.labeltipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltipo.Name = "labeltipo";
             this.labeltipo.Size = new System.Drawing.Size(105, 20);
@@ -189,7 +191,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(215, 147);
+            this.textBox3.Location = new System.Drawing.Point(151, 147);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(145, 26);
             this.textBox3.TabIndex = 27;
@@ -199,7 +201,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(113, 150);
+            this.label3.Location = new System.Drawing.Point(49, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 26;
@@ -487,7 +489,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(366, 103);
+            this.button10.Location = new System.Drawing.Point(482, 106);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(48, 38);
             this.button10.TabIndex = 71;
@@ -634,6 +636,15 @@
             // 
             this.cartolinaTableAdapter.ClearBeforeFill = true;
             // 
+            // componentesBindingSource
+            // 
+            this.componentesBindingSource.DataMember = "Componentes";
+            this.componentesBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // componentesTableAdapter
+            // 
+            this.componentesTableAdapter.ClearBeforeFill = true;
+            // 
             // AddArtigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,6 +702,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartolinaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.componentesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -748,5 +760,7 @@
         private MedirmDBDataSetTableAdapters.CartaoTableAdapter cartaoTableAdapter;
         private System.Windows.Forms.BindingSource cartolinaBindingSource;
         private MedirmDBDataSetTableAdapters.CartolinaTableAdapter cartolinaTableAdapter;
+        private System.Windows.Forms.BindingSource componentesBindingSource;
+        private MedirmDBDataSetTableAdapters.ComponentesTableAdapter componentesTableAdapter;
     }
 }

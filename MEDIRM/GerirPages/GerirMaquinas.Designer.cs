@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirMaquinas));
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,27 +62,32 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionarioTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FuncionarioTableAdapter();
+            this.tipoMaquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoMaquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.TipoMaquinaTableAdapter();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.filmeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.filmeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FilmeTableAdapter();
+            this.papelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.papelTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.PapelTableAdapter();
+            this.moldeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moldeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoldeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMaquinaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(1144, 352);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(266, 26);
-            this.textBox5.TabIndex = 42;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(1144, 286);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(266, 26);
-            this.textBox7.TabIndex = 41;
             // 
             // label5
             // 
@@ -110,15 +113,6 @@
             this.label7.Text = "Papel:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(1144, 213);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(266, 26);
-            this.textBox6.TabIndex = 38;
-            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -133,7 +127,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -161,16 +154,15 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.tipoMaquinaBindingSource;
+            this.comboBox1.DisplayMember = "Tipo";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox1.Location = new System.Drawing.Point(886, 196);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(145, 28);
             this.comboBox1.TabIndex = 33;
+            this.comboBox1.ValueMember = "Tipo";
             // 
             // criarMaquina
             // 
@@ -282,16 +274,15 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.DataSource = this.maquinaBindingSource;
+            this.comboBox2.DisplayMember = "Nome";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox2.Location = new System.Drawing.Point(541, 36);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(549, 28);
             this.comboBox2.TabIndex = 43;
+            this.comboBox2.ValueMember = "Nome";
             // 
             // button1
             // 
@@ -377,6 +368,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(358, 326);
             this.dataGridView2.Name = "dataGridView2";
@@ -385,6 +377,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(73, 326);
             this.dataGridView1.Name = "dataGridView1";
@@ -417,19 +410,26 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(72, 194);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(241, 21);
+            this.comboBox3.Size = new System.Drawing.Size(241, 28);
             this.comboBox3.TabIndex = 50;
             // 
             // comboBox4
             // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox4.DataSource = this.funcionarioBindingSource;
+            this.comboBox4.DisplayMember = "Nome";
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(358, 194);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(240, 21);
+            this.comboBox4.Size = new System.Drawing.Size(240, 28);
             this.comboBox4.TabIndex = 49;
+            this.comboBox4.ValueMember = "Nome";
             // 
             // button4
             // 
@@ -451,11 +451,112 @@
             this.button5.Text = "Remover";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // maquinaBindingSource
+            // 
+            this.maquinaBindingSource.DataMember = "Maquina";
+            this.maquinaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // maquinaTableAdapter
+            // 
+            this.maquinaTableAdapter.ClearBeforeFill = true;
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // funcionarioTableAdapter
+            // 
+            this.funcionarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // tipoMaquinaBindingSource
+            // 
+            this.tipoMaquinaBindingSource.DataMember = "TipoMaquina";
+            this.tipoMaquinaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // tipoMaquinaTableAdapter
+            // 
+            this.tipoMaquinaTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox5.DataSource = this.moldeBindingSource;
+            this.comboBox5.DisplayMember = "Designacao";
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(1139, 355);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(271, 28);
+            this.comboBox5.TabIndex = 59;
+            this.comboBox5.ValueMember = "Designacao";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox6.DataSource = this.papelBindingSource;
+            this.comboBox6.DisplayMember = "Designacao";
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(1139, 283);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(271, 28);
+            this.comboBox6.TabIndex = 60;
+            this.comboBox6.ValueMember = "Designacao";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox7.DataSource = this.filmeBindingSource;
+            this.comboBox7.DisplayMember = "Designacao";
+            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(1139, 213);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(271, 28);
+            this.comboBox7.TabIndex = 61;
+            this.comboBox7.ValueMember = "Designacao";
+            // 
+            // filmeBindingSource
+            // 
+            this.filmeBindingSource.DataMember = "Filme";
+            this.filmeBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // filmeTableAdapter
+            // 
+            this.filmeTableAdapter.ClearBeforeFill = true;
+            // 
+            // papelBindingSource
+            // 
+            this.papelBindingSource.DataMember = "Papel";
+            this.papelBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // papelTableAdapter
+            // 
+            this.papelTableAdapter.ClearBeforeFill = true;
+            // 
+            // moldeBindingSource
+            // 
+            this.moldeBindingSource.DataMember = "Molde";
+            this.moldeBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moldeTableAdapter
+            // 
+            this.moldeTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirMaquinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox7);
+            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
@@ -472,11 +573,8 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.back);
             this.Controls.Add(this.label1);
@@ -493,21 +591,25 @@
             this.Controls.Add(this.labeltipo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirMaquinas";
-            this.Text = "GerirMaquinas";
+            this.Text = "Gerir Maquinas";
+            this.Load += new System.EventHandler(this.GerirMaquinas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMaquinaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Label label1;
@@ -538,5 +640,21 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource maquinaBindingSource;
+        private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
+        private System.Windows.Forms.BindingSource funcionarioBindingSource;
+        private MedirmDBDataSetTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
+        private System.Windows.Forms.BindingSource tipoMaquinaBindingSource;
+        private MedirmDBDataSetTableAdapters.TipoMaquinaTableAdapter tipoMaquinaTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.BindingSource filmeBindingSource;
+        private MedirmDBDataSetTableAdapters.FilmeTableAdapter filmeTableAdapter;
+        private System.Windows.Forms.BindingSource papelBindingSource;
+        private MedirmDBDataSetTableAdapters.PapelTableAdapter papelTableAdapter;
+        private System.Windows.Forms.BindingSource moldeBindingSource;
+        private MedirmDBDataSetTableAdapters.MoldeTableAdapter moldeTableAdapter;
     }
 }

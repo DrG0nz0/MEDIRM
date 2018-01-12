@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirMoldes));
             this.criarMaquina = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -38,12 +39,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.minFrente = new System.Windows.Forms.TextBox();
             this.Labelminfrente = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.moldeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moldeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoldeTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // criarMaquina
@@ -140,15 +146,6 @@
             this.label1.Text = "Cortantes:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // minFrente
-            // 
-            this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minFrente.Location = new System.Drawing.Point(494, 36);
-            this.minFrente.Name = "minFrente";
-            this.minFrente.Size = new System.Drawing.Size(589, 26);
-            this.minFrente.TabIndex = 17;
-            // 
             // Labelminfrente
             // 
             this.Labelminfrente.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -163,7 +160,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -211,11 +207,39 @@
             this.label5.Text = "(maquina - formato - profundidade - cortantes)";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.moldeBindingSource;
+            this.comboBox1.DisplayMember = "Designacao";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(494, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(606, 28);
+            this.comboBox1.TabIndex = 39;
+            this.comboBox1.ValueMember = "Designacao";
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // moldeBindingSource
+            // 
+            this.moldeBindingSource.DataMember = "Molde";
+            this.moldeBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moldeTableAdapter
+            // 
+            this.moldeTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirMoldes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button1);
@@ -229,11 +253,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.minFrente);
             this.Controls.Add(this.Labelminfrente);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirMoldes";
             this.Text = "GerirMoldes";
+            this.Load += new System.EventHandler(this.GerirMoldes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,10 +277,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox minFrente;
         private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource moldeBindingSource;
+        private MedirmDBDataSetTableAdapters.MoldeTableAdapter moldeTableAdapter;
     }
 }

@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirTransportes));
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.criarMaquina = new System.Windows.Forms.Button();
             this.maxTras = new System.Windows.Forms.TextBox();
             this.LabelMaxtras = new System.Windows.Forms.Label();
@@ -51,6 +50,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.transporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transporteTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.TransporteTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -74,39 +83,17 @@
             this.label2.Text = "Para:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(551, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 26);
-            this.textBox1.TabIndex = 42;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(403, 39);
+            this.label1.Location = new System.Drawing.Point(291, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 20);
             this.label1.TabIndex = 41;
             this.label1.Text = "Nome/designação:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
-            this.comboBox1.Location = new System.Drawing.Point(684, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 21);
-            this.comboBox1.TabIndex = 40;
             // 
             // criarMaquina
             // 
@@ -227,7 +214,7 @@
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(297, 0);
+            this.button11.Location = new System.Drawing.Point(185, 0);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 100);
             this.button11.TabIndex = 47;
@@ -280,12 +267,15 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.moedaBindingSource;
+            this.comboBox2.DisplayMember = "Moeda";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(684, 155);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 28);
             this.comboBox2.TabIndex = 80;
+            this.comboBox2.ValueMember = "Moeda";
             // 
             // label7
             // 
@@ -299,11 +289,58 @@
             this.label7.Text = "Moeda:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.DataSource = this.transporteBindingSource;
+            this.comboBox3.DisplayMember = "Designacao";
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(438, 36);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(684, 28);
+            this.comboBox3.TabIndex = 82;
+            this.comboBox3.ValueMember = "Designacao";
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moedaTableAdapter
+            // 
+            this.moedaTableAdapter.ClearBeforeFill = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(684, 207);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 83;
+            // 
+            // transporteBindingSource
+            // 
+            this.transporteBindingSource.DataMember = "Transporte";
+            this.transporteBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // transporteTableAdapter
+            // 
+            this.transporteTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirTransportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label7);
@@ -315,9 +352,7 @@
             this.Controls.Add(this.back);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.maxTras);
             this.Controls.Add(this.LabelMaxtras);
@@ -329,6 +364,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirTransportes";
             this.Text = "GerirTransportes";
+            this.Load += new System.EventHandler(this.GerirTransportes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,9 +378,7 @@
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button criarMaquina;
         private System.Windows.Forms.TextBox maxTras;
         private System.Windows.Forms.Label LabelMaxtras;
@@ -358,5 +395,12 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource moedaBindingSource;
+        private MedirmDBDataSetTableAdapters.MoedaTableAdapter moedaTableAdapter;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.BindingSource transporteBindingSource;
+        private MedirmDBDataSetTableAdapters.TransporteTableAdapter transporteTableAdapter;
     }
 }

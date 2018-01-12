@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirArtigos));
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -40,11 +41,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -73,7 +73,18 @@
             this.labeltipo = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cartaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cartaoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.CartaoTableAdapter();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cartaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox8
@@ -215,15 +226,6 @@
             this.button4.TabIndex = 109;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox12
-            // 
-            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(1051, 441);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(337, 26);
-            this.textBox12.TabIndex = 108;
-            // 
             // label17
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -235,15 +237,6 @@
             this.label17.TabIndex = 107;
             this.label17.Text = "Cartolina:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(1051, 409);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(337, 26);
-            this.textBox11.TabIndex = 106;
             // 
             // label16
             // 
@@ -260,16 +253,25 @@
             // comboBox6
             // 
             this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox6.DataSource = this.maquinaBindingSource;
+            this.comboBox6.DisplayMember = "Nome";
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox6.Location = new System.Drawing.Point(675, 334);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(713, 28);
             this.comboBox6.TabIndex = 103;
+            this.comboBox6.ValueMember = "Nome";
+            // 
+            // maquinaBindingSource
+            // 
+            this.maquinaBindingSource.DataMember = "Maquina";
+            this.maquinaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label15
             // 
@@ -287,16 +289,15 @@
             // comboBox5
             // 
             this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox5.DataSource = this.maquinaBindingSource;
+            this.comboBox5.DisplayMember = "Nome";
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox5.Location = new System.Drawing.Point(675, 280);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(713, 28);
             this.comboBox5.TabIndex = 101;
+            this.comboBox5.ValueMember = "Nome";
             // 
             // label14
             // 
@@ -314,16 +315,15 @@
             // comboBox4
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox4.DataSource = this.maquinaBindingSource;
+            this.comboBox4.DisplayMember = "Nome";
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox4.Location = new System.Drawing.Point(675, 230);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(713, 28);
             this.comboBox4.TabIndex = 99;
+            this.comboBox4.ValueMember = "Nome";
             // 
             // label13
             // 
@@ -341,16 +341,15 @@
             // comboBox3
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.DataSource = this.maquinaBindingSource;
+            this.comboBox3.DisplayMember = "Nome";
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox3.Location = new System.Drawing.Point(675, 173);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(713, 28);
             this.comboBox3.TabIndex = 97;
+            this.comboBox3.ValueMember = "Nome";
             // 
             // label12
             // 
@@ -431,16 +430,15 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.DataSource = this.maquinaBindingSource;
+            this.comboBox2.DisplayMember = "Nome";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox2.Location = new System.Drawing.Point(675, 126);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(713, 28);
             this.comboBox2.TabIndex = 89;
+            this.comboBox2.ValueMember = "Nome";
             // 
             // label4
             // 
@@ -505,15 +503,6 @@
             this.label2.TabIndex = 83;
             this.label2.Text = "Numero do artigo:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(384, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(483, 26);
-            this.textBox1.TabIndex = 82;
             // 
             // label1
             // 
@@ -581,7 +570,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -604,12 +592,73 @@
             this.button3.Text = "Remover componente";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // maquinaTableAdapter
+            // 
+            this.maquinaTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox7.DataSource = this.cartaoBindingSource;
+            this.comboBox7.DisplayMember = "Designacao";
+            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(1051, 410);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(337, 28);
+            this.comboBox7.TabIndex = 121;
+            this.comboBox7.ValueMember = "Designacao";
+            // 
+            // cartaoBindingSource
+            // 
+            this.cartaoBindingSource.DataMember = "Cartao";
+            this.cartaoBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // cartaoTableAdapter
+            // 
+            this.cartaoTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox8.DataSource = this.cartaoBindingSource1;
+            this.comboBox8.DisplayMember = "Designacao";
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(1050, 441);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(337, 28);
+            this.comboBox8.TabIndex = 122;
+            this.comboBox8.ValueMember = "Designacao";
+            // 
+            // cartaoBindingSource1
+            // 
+            this.cartaoBindingSource1.DataMember = "Cartao";
+            this.cartaoBindingSource1.DataSource = this.medirmDBDataSet;
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Items.AddRange(new object[] {
+            "Rigida",
+            "Semi-Rigida",
+            "Manual"});
+            this.comboBox9.Location = new System.Drawing.Point(384, 36);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(486, 28);
+            this.comboBox9.TabIndex = 123;
+            // 
             // GerirArtigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox9);
+            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
@@ -622,9 +671,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.label15);
@@ -647,7 +694,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -657,7 +703,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirArtigos";
             this.Text = "GerirArtigos";
+            this.Load += new System.EventHandler(this.GerirArtigos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -676,9 +727,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label15;
@@ -701,7 +750,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -709,5 +757,14 @@
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button button3;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource maquinaBindingSource;
+        private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.BindingSource cartaoBindingSource;
+        private MedirmDBDataSetTableAdapters.CartaoTableAdapter cartaoTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.BindingSource cartaoBindingSource1;
+        private System.Windows.Forms.ComboBox comboBox9;
     }
 }

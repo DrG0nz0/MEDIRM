@@ -22,5 +22,14 @@ namespace MEDIRM.GerirPages
         {
             MainFormView.ShowForm(new GerirBD());
         }
+
+        private void GerirCartolina_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cartolina'. Você pode movê-la ou removê-la conforme necessário.
+            this.cartolinaTableAdapter.Fill(this.medirmDBDataSet.Cartolina);
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
+            this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
+
+        }
     }
 }

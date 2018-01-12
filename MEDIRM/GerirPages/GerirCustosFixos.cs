@@ -22,5 +22,20 @@ namespace MEDIRM.GerirPages
         {
             MainFormView.ShowForm(new GerirBD());
         }
+
+        private void custosFixosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.custosFixosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.medirmDBDataSet);
+
+        }
+
+        private void GerirCustosFixos_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.CustosFixos'. Você pode movê-la ou removê-la conforme necessário.
+            this.custosFixosTableAdapter.Fill(this.medirmDBDataSet.CustosFixos);
+
+        }
     }
 }

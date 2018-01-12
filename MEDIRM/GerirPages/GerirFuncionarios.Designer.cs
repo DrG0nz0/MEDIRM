@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirFuncionarios));
             this.label4 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
@@ -66,6 +67,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionarioTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FuncionarioTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -117,7 +123,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -132,11 +137,16 @@
             // 
             // comboBox8
             // 
+            this.comboBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox8.DataSource = this.funcionarioBindingSource;
+            this.comboBox8.DisplayMember = "Nome";
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.Location = new System.Drawing.Point(553, 34);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(675, 21);
+            this.comboBox8.Size = new System.Drawing.Size(675, 28);
             this.comboBox8.TabIndex = 60;
+            this.comboBox8.ValueMember = "Nome";
             // 
             // label12
             // 
@@ -176,6 +186,7 @@
             // 
             // comboBox15
             // 
+            this.comboBox15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox15.FormattingEnabled = true;
             this.comboBox15.Location = new System.Drawing.Point(898, 441);
             this.comboBox15.Name = "comboBox15";
@@ -184,6 +195,7 @@
             // 
             // comboBox16
             // 
+            this.comboBox16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox16.FormattingEnabled = true;
             this.comboBox16.Location = new System.Drawing.Point(898, 478);
             this.comboBox16.Name = "comboBox16";
@@ -192,6 +204,7 @@
             // 
             // comboBox17
             // 
+            this.comboBox17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox17.FormattingEnabled = true;
             this.comboBox17.Location = new System.Drawing.Point(898, 515);
             this.comboBox17.Name = "comboBox17";
@@ -200,6 +213,7 @@
             // 
             // comboBox18
             // 
+            this.comboBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox18.FormattingEnabled = true;
             this.comboBox18.Location = new System.Drawing.Point(898, 407);
             this.comboBox18.Name = "comboBox18";
@@ -208,6 +222,7 @@
             // 
             // comboBox19
             // 
+            this.comboBox19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox19.FormattingEnabled = true;
             this.comboBox19.Location = new System.Drawing.Point(898, 338);
             this.comboBox19.Name = "comboBox19";
@@ -216,6 +231,7 @@
             // 
             // comboBox20
             // 
+            this.comboBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox20.FormattingEnabled = true;
             this.comboBox20.Location = new System.Drawing.Point(898, 373);
             this.comboBox20.Name = "comboBox20";
@@ -224,6 +240,7 @@
             // 
             // comboBox21
             // 
+            this.comboBox21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox21.FormattingEnabled = true;
             this.comboBox21.Location = new System.Drawing.Point(898, 301);
             this.comboBox21.Name = "comboBox21";
@@ -232,6 +249,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(750, 441);
             this.comboBox1.Name = "comboBox1";
@@ -240,6 +258,7 @@
             // 
             // comboBox9
             // 
+            this.comboBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.Location = new System.Drawing.Point(750, 478);
             this.comboBox9.Name = "comboBox9";
@@ -248,6 +267,7 @@
             // 
             // comboBox10
             // 
+            this.comboBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox10.FormattingEnabled = true;
             this.comboBox10.Location = new System.Drawing.Point(750, 515);
             this.comboBox10.Name = "comboBox10";
@@ -256,6 +276,7 @@
             // 
             // comboBox11
             // 
+            this.comboBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox11.FormattingEnabled = true;
             this.comboBox11.Location = new System.Drawing.Point(750, 407);
             this.comboBox11.Name = "comboBox11";
@@ -264,6 +285,7 @@
             // 
             // comboBox12
             // 
+            this.comboBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox12.FormattingEnabled = true;
             this.comboBox12.Location = new System.Drawing.Point(750, 338);
             this.comboBox12.Name = "comboBox12";
@@ -272,6 +294,7 @@
             // 
             // comboBox13
             // 
+            this.comboBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox13.FormattingEnabled = true;
             this.comboBox13.Location = new System.Drawing.Point(750, 373);
             this.comboBox13.Name = "comboBox13";
@@ -280,6 +303,7 @@
             // 
             // comboBox14
             // 
+            this.comboBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox14.FormattingEnabled = true;
             this.comboBox14.Location = new System.Drawing.Point(750, 301);
             this.comboBox14.Name = "comboBox14";
@@ -288,6 +312,7 @@
             // 
             // comboBox7
             // 
+            this.comboBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(602, 442);
             this.comboBox7.Name = "comboBox7";
@@ -296,6 +321,7 @@
             // 
             // comboBox6
             // 
+            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(602, 479);
             this.comboBox6.Name = "comboBox6";
@@ -304,6 +330,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(602, 516);
             this.comboBox5.Name = "comboBox5";
@@ -312,6 +339,7 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(602, 408);
             this.comboBox4.Name = "comboBox4";
@@ -320,6 +348,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(602, 339);
             this.comboBox3.Name = "comboBox3";
@@ -328,6 +357,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(602, 374);
             this.comboBox2.Name = "comboBox2";
@@ -336,6 +366,7 @@
             // 
             // comboBox22
             // 
+            this.comboBox22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox22.FormattingEnabled = true;
             this.comboBox22.Location = new System.Drawing.Point(602, 302);
             this.comboBox22.Name = "comboBox22";
@@ -426,6 +457,20 @@
             this.label2.Text = "Segunda-feira:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // funcionarioBindingSource
+            // 
+            this.funcionarioBindingSource.DataMember = "Funcionario";
+            this.funcionarioBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // funcionarioTableAdapter
+            // 
+            this.funcionarioTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +517,8 @@
             this.Name = "GerirFuncionarios";
             this.Text = "GerirFuncionarios";
             this.Load += new System.EventHandler(this.GerirFuncionarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,5 +563,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource funcionarioBindingSource;
+        private MedirmDBDataSetTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
     }
 }

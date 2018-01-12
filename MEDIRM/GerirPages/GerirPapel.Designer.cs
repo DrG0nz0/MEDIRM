@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirPapel));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +42,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
+            this.papelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.papelTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.PapelTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -96,21 +105,12 @@
             this.label3.Text = "Preço por metro LINEAR:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(590, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(470, 26);
-            this.textBox2.TabIndex = 31;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(425, 39);
+            this.label2.Location = new System.Drawing.Point(414, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 20);
             this.label2.TabIndex = 30;
@@ -119,7 +119,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -135,7 +134,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(1089, 30);
+            this.button1.Location = new System.Drawing.Point(1078, 61);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 41);
             this.button1.TabIndex = 38;
@@ -149,7 +148,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(330, 12);
+            this.button10.Location = new System.Drawing.Point(319, 43);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(78, 82);
             this.button10.TabIndex = 39;
@@ -170,12 +169,16 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.DataSource = this.moedaBindingSource;
+            this.comboBox2.DisplayMember = "Moeda";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(609, 342);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 28);
             this.comboBox2.TabIndex = 80;
+            this.comboBox2.ValueMember = "Cambio";
             // 
             // label7
             // 
@@ -189,11 +192,48 @@
             this.label7.Text = "Moeda:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.papelBindingSource;
+            this.comboBox1.DisplayMember = "Designacao";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(579, 67);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(493, 28);
+            this.comboBox1.TabIndex = 82;
+            this.comboBox1.ValueMember = "Designacao";
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moedaTableAdapter
+            // 
+            this.moedaTableAdapter.ClearBeforeFill = true;
+            // 
+            // papelBindingSource
+            // 
+            this.papelBindingSource.DataMember = "Papel";
+            this.papelBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // papelTableAdapter
+            // 
+            this.papelTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirPapel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label7);
@@ -205,11 +245,14 @@
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirPapel";
             this.Text = "GerirPapel";
+            this.Load += new System.EventHandler(this.GerirPapel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,12 +266,17 @@
         private System.Windows.Forms.Button criarMaquina;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource moedaBindingSource;
+        private MedirmDBDataSetTableAdapters.MoedaTableAdapter moedaTableAdapter;
+        private System.Windows.Forms.BindingSource papelBindingSource;
+        private MedirmDBDataSetTableAdapters.PapelTableAdapter papelTableAdapter;
     }
 }

@@ -22,5 +22,12 @@ namespace MEDIRM.GerirPages
         {
             MainFormView.ShowForm(new GerirBD());
         }
+
+        private void GerirMoldes_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Molde'. Você pode movê-la ou removê-la conforme necessário.
+            this.moldeTableAdapter.Fill(this.medirmDBDataSet.Molde);
+
+        }
     }
 }

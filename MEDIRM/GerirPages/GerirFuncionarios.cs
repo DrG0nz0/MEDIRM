@@ -25,6 +25,8 @@ namespace MEDIRM.GerirPages
 
         private void GerirFuncionarios_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
 
         }
     }
