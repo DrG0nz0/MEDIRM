@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -287,6 +288,60 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sofia\Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\Conseil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Conseil.Designer.cs">
+      <DependentUpon>Conseil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\Criarlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Criarlogin.Designer.cs">
+      <DependentUpon>Criarlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\Hotlie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Hotlie.Designer.cs">
+      <DependentUpon>Hotlie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\intropage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\intropage.Designer.cs">
+      <DependentUpon>intropage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\Menus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Menus.Designer.cs">
+      <DependentUpon>Menus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\MesPrescriptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\MesPrescriptions.Designer.cs">
+      <DependentUpon>MesPrescriptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\Ordenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\Ordenance.Designer.cs">
+      <DependentUpon>Ordenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sofia\ScannerMonOrdenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sofia\ScannerMonOrdenance.Designer.cs">
+      <DependentUpon>ScannerMonOrdenance.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddPages\AddCartao.resx">
       <DependentUpon>AddCartao.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +454,33 @@
     <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Conseil.resx">
+      <DependentUpon>Conseil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Criarlogin.resx">
+      <DependentUpon>Criarlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Hotlie.resx">
+      <DependentUpon>Hotlie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\intropage.resx">
+      <DependentUpon>intropage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Menus.resx">
+      <DependentUpon>Menus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\MesPrescriptions.resx">
+      <DependentUpon>MesPrescriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\Ordenance.resx">
+      <DependentUpon>Ordenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sofia\ScannerMonOrdenance.resx">
+      <DependentUpon>ScannerMonOrdenance.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="MedirmDBDataSet.xsc">
       <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
     </None>
@@ -439,6 +521,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\call-512.png" />
+    <None Include="Resources\fr.jpg" />
+    <None Include="Resources\bc.jpg" />
+    <None Include="Resources\26857247_2204204592930444_1059345292_n.png" />
+    <None Include="Resources\ajouter_fichier_page.png" />
+    <None Include="Resources\lt100001431.png" />
+    <None Include="Resources\6-unique-android-launchers-thatll-get-you-ditch-your-stock-home-screen.w1456.jpg" />
+    <None Include="Resources\lt10000143.png" />
+    <None Include="Resources\12activepres.jpg" />
+    <None Include="Resources\maxresdefault.png" />
+    <None Include="Resources\Picture-111.png" />
+    <None Include="Resources\qrcode.png" />
+    <None Include="Resources\pharmaline01.png" />
     <None Include="Resources\noeda.png" />
     <None Include="Resources\coins-money-stack_318-50201.jpg" />
     <None Include="Resources\cartaoaoo.png" />

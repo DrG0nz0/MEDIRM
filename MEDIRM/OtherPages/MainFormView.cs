@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEDIRM.Navegacao;
+using MEDIRM.Sofia;
 
 namespace MEDIRM
 {
@@ -46,7 +48,7 @@ namespace MEDIRM
         {
             InitializeComponent();
             Instance = this;
-            ShowForm(new Menu());
+            ShowForm(new BD());
         }
         private void MainFormView_Load(object sender, EventArgs e)
         {
