@@ -244,6 +244,12 @@
     <Compile Include="GerirPages\GerirTransportes.Designer.cs">
       <DependentUpon>GerirTransportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherPages\Ferias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherPages\Ferias.Designer.cs">
+      <DependentUpon>Ferias.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherPages\MainFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,12 @@
     </Compile>
     <Compile Include="Navegacao\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherPages\VerEncomendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherPages\VerEncomendas.Designer.cs">
+      <DependentUpon>VerEncomendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -423,6 +435,9 @@
     <EmbeddedResource Include="GerirPages\GerirTransportes.resx">
       <DependentUpon>GerirTransportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OtherPages\Ferias.resx">
+      <DependentUpon>Ferias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OtherPages\MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Navegacao\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherPages\VerEncomendas.resx">
+      <DependentUpon>VerEncomendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
