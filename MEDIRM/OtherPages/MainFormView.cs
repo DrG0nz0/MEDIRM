@@ -24,22 +24,16 @@ namespace MEDIRM
                 return;
             var controls = Instance.Controls;
 
-            for (int i = 0; controls.Count > 1;)
-            {
-                if (controls[i] != Back)
-                    controls.RemoveAt(i);
-                else
-                {
-                    i++;
-                }
-            }
+            Instance.Controls.Clear();
+            
 
             m.TopLevel = false;
             m.Dock = DockStyle.Fill;
             m.Parent = MainFormView.Instance;
             m.FormBorderStyle = FormBorderStyle.None;
             Instance.Text = m.Text;
-            
+
+            Instance.Icon = m.Icon;
             m.Show();
         }
 

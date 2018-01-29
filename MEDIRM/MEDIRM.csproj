@@ -533,10 +533,10 @@
   <ItemGroup>
     <Content Include="medirm.ico" />
     <Content Include="MedirmDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MedirmDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
     <None Include="Resources\order-icon-21627.png" />
