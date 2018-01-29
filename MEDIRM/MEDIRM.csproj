@@ -521,6 +521,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\order-icon-21627.png" />
     <None Include="Resources\call-512.png" />
     <None Include="Resources\fr.jpg" />
     <None Include="Resources\bc.jpg" />

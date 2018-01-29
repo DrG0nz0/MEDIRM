@@ -393,6 +393,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap order_icon_21627 {
+            get {
+                object obj = ResourceManager.GetObject("order-icon-21627", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap papel {
             get {
                 object obj = ResourceManager.GetObject("papel", resourceCulture);
