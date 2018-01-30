@@ -159,6 +159,7 @@
             this.criarMaquina.TabIndex = 14;
             this.criarMaquina.Text = "Criar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // back
             // 

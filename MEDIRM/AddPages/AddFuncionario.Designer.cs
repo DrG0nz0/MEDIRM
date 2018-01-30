@@ -98,6 +98,7 @@
             this.criarMaquina.TabIndex = 22;
             this.criarMaquina.Text = "Adicionar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // back
             // 

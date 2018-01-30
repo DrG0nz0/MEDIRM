@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace MEDIRM.AddPages
 {
@@ -61,6 +63,65 @@ namespace MEDIRM.AddPages
                 label7.Visible = false;
                 comboBox1.Visible = false;
                 button2.Visible = false;
+            }
+        }
+
+        private void criarMaquina_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte, TipoCliente, TipoEsterilizacao, Artigos) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte, @TipoCliente, @Entrega, @Esterilizacao, @TipoEsterilizacao, @Artigos)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Nome", textBox2.Text);
+                com.Parameters.AddWithValue("@ID", textBox8.Text);
+                com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+
+                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
+                String cb1 = drv["Transporte"].ToString();
+                com.Parameters.AddWithValue("@Transporte", cb1);
+
+                DataRowView drv2 = (DataRowView)comboBox3.SelectedItem;
+                String cb2 = drv2["TipoCliente"].ToString();
+                com.Parameters.AddWithValue("@TipoCliente", cb2);
+
+                DataRowView drv3 = (DataRowView)comboBox3.SelectedItem;
+                String cb3 = drv3["TipoEsterilizacao"].ToString();
+                com.Parameters.AddWithValue("@TipoEsterilizacao", cb3);
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+
+                //Confirmation Message 
+                MessageBox.Show("Cliente adicionado com sucesso!");
+
+                //Clear the fields
+                textBox4.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox8.Clear();
+                comboBox2.ResetText();
+                comboBox1.ResetText();
+                comboBox3.ResetText();
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
+                comboBox1.Visible = false;
+                comboBox2.Visible = false;
+                button11.Visible = false;
+                button2.Visible = false;
+
+
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
             }
         }
     }

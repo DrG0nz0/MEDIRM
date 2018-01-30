@@ -41,14 +41,14 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
-            this.label7 = new System.Windows.Forms.Label();
             this.moedaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // criarMaquina
@@ -60,6 +60,7 @@
             this.criarMaquina.TabIndex = 21;
             this.criarMaquina.Text = "Adicionar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // textBox3
             // 
@@ -177,15 +178,20 @@
             this.comboBox2.TabIndex = 83;
             this.comboBox2.ValueMember = "Cambio";
             // 
-            // moedaBindingSource
+            // moedaBindingSource1
             // 
-            this.moedaBindingSource.DataMember = "Moeda";
-            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            this.moedaBindingSource1.DataMember = "Moeda";
+            this.moedaBindingSource1.DataSource = this.medirmDBDataSet;
             // 
             // medirmDBDataSet
             // 
             this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
             this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // label7
             // 
@@ -198,11 +204,6 @@
             this.label7.TabIndex = 82;
             this.label7.Text = "Moeda:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // moedaBindingSource1
-            // 
-            this.moedaBindingSource1.DataMember = "Moeda";
-            this.moedaBindingSource1.DataSource = this.medirmDBDataSet;
             // 
             // moedaTableAdapter
             // 
@@ -229,9 +230,9 @@
             this.Name = "AddFilme";
             this.Text = "AddFilme";
             this.Load += new System.EventHandler(this.AddFilme_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

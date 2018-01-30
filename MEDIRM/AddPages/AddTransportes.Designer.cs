@@ -33,14 +33,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
-            this.maxTras = new System.Windows.Forms.TextBox();
             this.LabelMaxtras = new System.Windows.Forms.Label();
-            this.minAtras = new System.Windows.Forms.TextBox();
             this.LabelminAtras = new System.Windows.Forms.Label();
             this.minFrente = new System.Windows.Forms.TextBox();
             this.Labelminfrente = new System.Windows.Forms.Label();
             this.labeltipo = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -54,6 +51,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             this.SuspendLayout();
@@ -88,15 +88,7 @@
             this.criarMaquina.TabIndex = 23;
             this.criarMaquina.Text = "Criar";
             this.criarMaquina.UseVisualStyleBackColor = true;
-            // 
-            // maxTras
-            // 
-            this.maxTras.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maxTras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxTras.Location = new System.Drawing.Point(663, 453);
-            this.maxTras.Name = "maxTras";
-            this.maxTras.Size = new System.Drawing.Size(100, 26);
-            this.maxTras.TabIndex = 22;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // LabelMaxtras
             // 
@@ -109,15 +101,6 @@
             this.LabelMaxtras.TabIndex = 21;
             this.LabelMaxtras.Text = "De:";
             this.LabelMaxtras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // minAtras
-            // 
-            this.minAtras.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.minAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minAtras.Location = new System.Drawing.Point(663, 421);
-            this.minAtras.Name = "minAtras";
-            this.minAtras.Size = new System.Drawing.Size(100, 26);
-            this.minAtras.TabIndex = 20;
             // 
             // LabelminAtras
             // 
@@ -165,15 +148,6 @@
             this.labeltipo.TabIndex = 14;
             this.labeltipo.Text = "Preço (m3):";
             this.labeltipo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(663, 496);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 28;
             // 
             // label2
             // 
@@ -308,11 +282,53 @@
             this.textBox3.Size = new System.Drawing.Size(154, 26);
             this.textBox3.TabIndex = 85;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.moedaBindingSource;
+            this.comboBox1.DisplayMember = "Moeda";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(663, 421);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(154, 28);
+            this.comboBox1.TabIndex = 86;
+            this.comboBox1.ValueMember = "Cambio";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.DataSource = this.moedaBindingSource;
+            this.comboBox3.DisplayMember = "Moeda";
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(663, 459);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(154, 28);
+            this.comboBox3.TabIndex = 87;
+            this.comboBox3.ValueMember = "Cambio";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox4.DataSource = this.moedaBindingSource;
+            this.comboBox4.DisplayMember = "Moeda";
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(663, 499);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(154, 28);
+            this.comboBox4.TabIndex = 88;
+            this.comboBox4.ValueMember = "Cambio";
+            // 
             // AddTransportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
@@ -322,14 +338,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.back);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.criarMaquina);
-            this.Controls.Add(this.maxTras);
             this.Controls.Add(this.LabelMaxtras);
-            this.Controls.Add(this.minAtras);
             this.Controls.Add(this.LabelminAtras);
             this.Controls.Add(this.minFrente);
             this.Controls.Add(this.Labelminfrente);
@@ -350,14 +363,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button criarMaquina;
-        private System.Windows.Forms.TextBox maxTras;
         private System.Windows.Forms.Label LabelMaxtras;
-        private System.Windows.Forms.TextBox minAtras;
         private System.Windows.Forms.Label LabelminAtras;
         private System.Windows.Forms.TextBox minFrente;
         private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Label labeltipo;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button button11;
@@ -371,5 +381,8 @@
         private System.Windows.Forms.BindingSource moedaBindingSource;
         private MedirmDBDataSetTableAdapters.MoedaTableAdapter moedaTableAdapter;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
