@@ -41,15 +41,15 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.label7 = new System.Windows.Forms.Label();
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.filmeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FilmeTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +95,7 @@
             this.criarMaquina.TabIndex = 36;
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // textBox3
             // 
@@ -141,6 +142,7 @@
             this.button1.TabIndex = 41;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button7
             // 
@@ -180,6 +182,16 @@
             this.comboBox2.TabIndex = 80;
             this.comboBox2.ValueMember = "Cambio";
             // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -191,16 +203,6 @@
             this.label7.TabIndex = 79;
             this.label7.Text = "Moeda:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // medirmDBDataSet
-            // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // moedaBindingSource
-            // 
-            this.moedaBindingSource.DataMember = "Moeda";
-            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // moedaTableAdapter
             // 
@@ -217,6 +219,7 @@
             this.comboBox1.Size = new System.Drawing.Size(494, 28);
             this.comboBox1.TabIndex = 82;
             this.comboBox1.ValueMember = "Designacao";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // filmeBindingSource
             // 
@@ -249,8 +252,8 @@
             this.Name = "GerirFilme";
             this.Text = "GerirFilme";
             this.Load += new System.EventHandler(this.GerirFilme_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

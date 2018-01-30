@@ -39,15 +39,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
-            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.esterilizacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.esterilizacaoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.EsterilizacaoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.criarMaquina.TabIndex = 29;
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // textBox3
             // 
@@ -117,6 +118,7 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -157,6 +159,16 @@
             this.comboBox2.TabIndex = 80;
             this.comboBox2.ValueMember = "Cambio";
             // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -181,25 +193,16 @@
             this.comboBox1.Size = new System.Drawing.Size(501, 28);
             this.comboBox1.TabIndex = 82;
             this.comboBox1.ValueMember = "Designacao";
-            // 
-            // medirmDBDataSet
-            // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // moedaBindingSource
-            // 
-            this.moedaBindingSource.DataMember = "Moeda";
-            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
-            // 
-            // moedaTableAdapter
-            // 
-            this.moedaTableAdapter.ClearBeforeFill = true;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // esterilizacaoBindingSource
             // 
             this.esterilizacaoBindingSource.DataMember = "Esterilizacao";
             this.esterilizacaoBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moedaTableAdapter
+            // 
+            this.moedaTableAdapter.ClearBeforeFill = true;
             // 
             // esterilizacaoTableAdapter
             // 
@@ -225,8 +228,8 @@
             this.Name = "GerirEsterilizacao";
             this.Text = "GerirEsterilizacao";
             this.Load += new System.EventHandler(this.GerirEsterilizacao_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
