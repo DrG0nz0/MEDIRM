@@ -41,15 +41,15 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
-            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.papelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.papelTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.PapelTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@
             this.criarMaquina.TabIndex = 34;
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // textBox3
             // 
@@ -140,6 +141,7 @@
             this.button1.TabIndex = 38;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button10
             // 
@@ -180,6 +182,16 @@
             this.comboBox2.TabIndex = 80;
             this.comboBox2.ValueMember = "Cambio";
             // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -204,25 +216,16 @@
             this.comboBox1.Size = new System.Drawing.Size(493, 28);
             this.comboBox1.TabIndex = 82;
             this.comboBox1.ValueMember = "Designacao";
-            // 
-            // medirmDBDataSet
-            // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // moedaBindingSource
-            // 
-            this.moedaBindingSource.DataMember = "Moeda";
-            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
-            // 
-            // moedaTableAdapter
-            // 
-            this.moedaTableAdapter.ClearBeforeFill = true;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // papelBindingSource
             // 
             this.papelBindingSource.DataMember = "Papel";
             this.papelBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // moedaTableAdapter
+            // 
+            this.moedaTableAdapter.ClearBeforeFill = true;
             // 
             // papelTableAdapter
             // 
@@ -250,8 +253,8 @@
             this.Name = "GerirPapel";
             this.Text = "GerirPapel";
             this.Load += new System.EventHandler(this.GerirPapel_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

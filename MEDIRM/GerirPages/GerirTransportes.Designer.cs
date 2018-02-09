@@ -49,16 +49,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
-            this.moedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.transporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transporteTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.TransporteTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,6 +104,7 @@
             this.criarMaquina.TabIndex = 39;
             this.criarMaquina.Text = "Alterar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // maxTras
             // 
@@ -206,6 +207,7 @@
             this.button1.TabIndex = 46;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button11
             // 
@@ -277,6 +279,16 @@
             this.comboBox2.TabIndex = 80;
             this.comboBox2.ValueMember = "Moeda";
             // 
+            // moedaBindingSource
+            // 
+            this.moedaBindingSource.DataMember = "Moeda";
+            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -301,16 +313,12 @@
             this.comboBox3.Size = new System.Drawing.Size(684, 28);
             this.comboBox3.TabIndex = 82;
             this.comboBox3.ValueMember = "Designacao";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
-            // medirmDBDataSet
+            // transporteBindingSource
             // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // moedaBindingSource
-            // 
-            this.moedaBindingSource.DataMember = "Moeda";
-            this.moedaBindingSource.DataSource = this.medirmDBDataSet;
+            this.transporteBindingSource.DataMember = "Transporte";
+            this.transporteBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // moedaTableAdapter
             // 
@@ -324,11 +332,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 83;
-            // 
-            // transporteBindingSource
-            // 
-            this.transporteBindingSource.DataMember = "Transporte";
-            this.transporteBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // transporteTableAdapter
             // 
@@ -365,8 +368,8 @@
             this.Name = "GerirTransportes";
             this.Text = "GerirTransportes";
             this.Load += new System.EventHandler(this.GerirTransportes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

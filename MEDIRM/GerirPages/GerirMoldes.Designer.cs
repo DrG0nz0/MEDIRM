@@ -45,11 +45,11 @@
             this.button9 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.moldeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.moldeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoldeTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // criarMaquina
@@ -61,6 +61,7 @@
             this.criarMaquina.TabIndex = 26;
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // textBox4
             // 
@@ -181,6 +182,7 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button9
             // 
@@ -219,16 +221,17 @@
             this.comboBox1.Size = new System.Drawing.Size(606, 28);
             this.comboBox1.TabIndex = 39;
             this.comboBox1.ValueMember = "Designacao";
-            // 
-            // medirmDBDataSet
-            // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // moldeBindingSource
             // 
             this.moldeBindingSource.DataMember = "Molde";
             this.moldeBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // moldeTableAdapter
             // 
@@ -258,8 +261,8 @@
             this.Name = "GerirMoldes";
             this.Text = "GerirMoldes";
             this.Load += new System.EventHandler(this.GerirMoldes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
