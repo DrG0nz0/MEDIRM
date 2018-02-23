@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPages\AddArtigosClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddArtigosClientes.Designer.cs">
+      <DependentUpon>AddArtigosClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPages\AddCartao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="AddPages\AddCliente.Designer.cs">
       <DependentUpon>AddCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPages\AddComponentesArtigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddComponentesArtigos.Designer.cs">
+      <DependentUpon>AddComponentesArtigos.cs</DependentUpon>
     </Compile>
     <Compile Include="AddPages\AddEsterilizacao.cs">
       <SubType>Form</SubType>
@@ -140,11 +152,23 @@
     <Compile Include="AddPages\AddPapel.Designer.cs">
       <DependentUpon>AddPapel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPages\AddPessoasMaquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddPessoasMaquinas.Designer.cs">
+      <DependentUpon>AddPessoasMaquinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPages\AddTransportes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddPages\AddTransportes.Designer.cs">
       <DependentUpon>AddTransportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerirPages\GerirTurnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPages\GerirTurnos.Designer.cs">
+      <DependentUpon>GerirTurnos.cs</DependentUpon>
     </Compile>
     <Compile Include="MedirmDBDataSet.cs">
       <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
@@ -300,6 +324,9 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddPages\AddArtigosClientes.resx">
+      <DependentUpon>AddArtigosClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddCartao.resx">
       <DependentUpon>AddCartao.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddCliente.resx">
       <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddComponentesArtigos.resx">
+      <DependentUpon>AddComponentesArtigos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddEsterilizacao.resx">
       <DependentUpon>AddEsterilizacao.cs</DependentUpon>
@@ -333,8 +363,14 @@
     <EmbeddedResource Include="AddPages\AddPapel.resx">
       <DependentUpon>AddPapel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddPages\AddPessoasMaquinas.resx">
+      <DependentUpon>AddPessoasMaquinas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddTransportes.resx">
       <DependentUpon>AddTransportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirTurnos.resx">
+      <DependentUpon>GerirTurnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherPages\CriarEncomenda.resx">
       <DependentUpon>CriarEncomenda.cs</DependentUpon>

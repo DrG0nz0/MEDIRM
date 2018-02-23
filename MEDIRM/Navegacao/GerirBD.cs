@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MEDIRM.AddPages;
 using MEDIRM.GerirPages;
 
 namespace MEDIRM.Navegacao
@@ -55,7 +56,7 @@ namespace MEDIRM.Navegacao
 
         private void button8_Click(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new GerirFuncionarios());
+            MainFormView.ShowForm(new GerirTurnos());
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -86,6 +87,31 @@ namespace MEDIRM.Navegacao
         private void back_Click(object sender, EventArgs e)
         {
             MainFormView.ShowForm(new BD());
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new AddComponentesArtigos());
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new AddArtigosClientes());
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new AddPessoasMaquinas());
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new GerirCustosFixos());
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new GerirCambios());
         }
     }
 

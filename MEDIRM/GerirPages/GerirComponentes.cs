@@ -48,7 +48,7 @@ namespace MEDIRM.GerirPages
                 SqlCommand com = new SqlCommand("UPDATE Componentes SET ID=@ID, PrecoCompra=@PrecoCompra, Moeda=@Moeda WHERE Nome=@Nome", con);
                 com.CommandType = CommandType.Text;
                 com.Parameters.AddWithValue("@PrecoCartolina", textBox3.ToString());
-                com.Parameters.AddWithValue("@Volume", textBox1.ToString());
+                //com.Parameters.AddWithValue("@Volume", textBox1.ToString());
 
                 DataRowView drv = (DataRowView)comboBox2.SelectedItem;
                 String cb1 = drv["Moeda"].ToString();
@@ -67,7 +67,7 @@ namespace MEDIRM.GerirPages
 
                 //Clear the fields
                 textBox3.Clear();
-                textBox1.Clear();
+                //textBox1.Clear();
                 comboBox2.ResetText();
                 comboBox1.ResetText();
             }

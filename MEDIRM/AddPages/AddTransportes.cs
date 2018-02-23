@@ -53,15 +53,15 @@ namespace MEDIRM
                 String cb1 = drv["Moeda"].ToString();
                 com.Parameters.AddWithValue("@Moeda", cb1);
 
-                DataRowView drv2 = (DataRowView)comboBox2.SelectedItem;
+                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
                 String cb2 = drv2["Transportadora"].ToString();
                 com.Parameters.AddWithValue("@Transportadora", cb2);
 
-                DataRowView drv3 = (DataRowView)comboBox2.SelectedItem;
+                DataRowView drv3 = (DataRowView)comboBox3.SelectedItem;
                 String cb3 = drv3["De"].ToString();
                 com.Parameters.AddWithValue("@De", cb3);
 
-                DataRowView drv4 = (DataRowView)comboBox2.SelectedItem;
+                DataRowView drv4 = (DataRowView)comboBox4.SelectedItem;
                 String cb4 = drv4["Para"].ToString();
                 com.Parameters.AddWithValue("@Para", cb4);
 
@@ -70,7 +70,7 @@ namespace MEDIRM
                 con.Close();
 
                 //Confirmation Message 
-                MessageBox.Show("Filme adicionado com sucesso!");
+                MessageBox.Show("Transporte adicionado com sucesso!");
 
                 //Clear the fields
                 textBox3.Clear();
@@ -85,7 +85,7 @@ namespace MEDIRM
             catch (Exception x)
             {
                 //Error Message 
-                MessageBox.Show("Erro ao adicionar filme. Por favor tente novamente.");
+                MessageBox.Show("Erro ao adicionar transporte. Por favor tente novamente.");
             }
         }
     }

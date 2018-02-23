@@ -245,7 +245,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 28);
             this.comboBox2.TabIndex = 83;
-            this.comboBox2.ValueMember = "Cambio";
+            this.comboBox2.ValueMember = "Moeda";
             // 
             // moedaBindingSource
             // 
@@ -285,41 +285,38 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.DataSource = this.moedaBindingSource;
-            this.comboBox1.DisplayMember = "Moeda";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "tls"});
             this.comboBox1.Location = new System.Drawing.Point(663, 421);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(154, 28);
             this.comboBox1.TabIndex = 86;
-            this.comboBox1.ValueMember = "Cambio";
             // 
             // comboBox3
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.DataSource = this.moedaBindingSource;
-            this.comboBox3.DisplayMember = "Moeda";
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "lisboa"});
             this.comboBox3.Location = new System.Drawing.Point(663, 459);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(154, 28);
             this.comboBox3.TabIndex = 87;
-            this.comboBox3.ValueMember = "Cambio";
             // 
             // comboBox4
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.DataSource = this.moedaBindingSource;
-            this.comboBox4.DisplayMember = "Moeda";
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "porto"});
             this.comboBox4.Location = new System.Drawing.Point(663, 499);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(154, 28);
             this.comboBox4.TabIndex = 88;
-            this.comboBox4.ValueMember = "Cambio";
             // 
             // AddTransportes
             // 

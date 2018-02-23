@@ -41,7 +41,7 @@ namespace MEDIRM
 
         }
 
-        private void criarMaquina_Click(object sender, EventArgs e)
+        private void criarMaquina_Click(object sender, EventArgs e)     // criar maquina
         {
             try
             {
@@ -49,13 +49,15 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde) VALUES (@Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2) VALUES (@Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1, @Velocidade2)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@MinPessFrente", minFrente.Text);
                 com.Parameters.AddWithValue("@MaxPessFrente", maxFrente.Text);
                 com.Parameters.AddWithValue("@MinPessTras", minAtras.Text);
                 com.Parameters.AddWithValue("@MaxPessTras", maxTras.Text);
+                com.Parameters.AddWithValue("@Velocidade1", textBox3.Text);
+                com.Parameters.AddWithValue("@Velocidade2", textBox2.Text);
 
                 DataRowView drv = (DataRowView)comboBox1.SelectedItem;
                 String cb = drv["Tipo"].ToString();
@@ -73,14 +75,12 @@ namespace MEDIRM
                 String cb3 = drv3["Molde"].ToString();
                 com.Parameters.AddWithValue("@Molde", cb3);
 
-                // falta ainda adicionar os funcionarios para tras e para a frente
-
                 con.Open();
                 int i = com.ExecuteNonQuery();
                 con.Close();
 
                 //Confirmation Message 
-                MessageBox.Show("Filme adicionado com sucesso!");
+                MessageBox.Show("Maquina adicionada com sucesso!");
 
                 //Clear the fields
                 minFrente.Clear();
@@ -96,7 +96,7 @@ namespace MEDIRM
             catch (Exception x)
             {
                 //Error Message 
-                MessageBox.Show("Erro ao adicionar filme. Por favor tente novamente.");
+                MessageBox.Show("Erro ao adicionar máquina. Por favor tente novamente.");
             }
         }
     }

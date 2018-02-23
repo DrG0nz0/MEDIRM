@@ -45,7 +45,11 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Cortantes", textBox1.Text);
                 com.Parameters.AddWithValue("@PecasPorAvanco", textBox2.Text);
                 com.Parameters.AddWithValue("@MetrosPorAvanco", textBox3.Text);
-                com.Parameters.AddWithValue("@Profundidade", textBox4.Text);
+
+                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                String cb = drv["Profundidade"].ToString();
+                com.Parameters.AddWithValue("@Profundidade", cb);
+
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -58,7 +62,7 @@ namespace MEDIRM
                 textBox3.Clear();
                 textBox2.Clear();
                 textBox1.Clear();
-                textBox4.Clear();
+                comboBox1.ResetText();
                 minFrente.Clear();
 
             }

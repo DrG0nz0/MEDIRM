@@ -66,7 +66,7 @@ namespace MEDIRM.AddPages
             }
         }
 
-        private void criarMaquina_Click(object sender, EventArgs e)
+        private void criarMaquina_Click(object sender, EventArgs e)     // add cliente
         {
             try
             {
@@ -74,7 +74,7 @@ namespace MEDIRM.AddPages
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte, TipoCliente, TipoEsterilizacao, Artigos) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte, @TipoCliente, @Entrega, @Esterilizacao, @TipoEsterilizacao, @Artigos)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte, TipoEsterilizacao) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte, @TipoEsterilizacao)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox2.Text);
@@ -86,13 +86,9 @@ namespace MEDIRM.AddPages
                 String cb1 = drv["Transporte"].ToString();
                 com.Parameters.AddWithValue("@Transporte", cb1);
 
-                DataRowView drv2 = (DataRowView)comboBox3.SelectedItem;
-                String cb2 = drv2["TipoCliente"].ToString();
-                com.Parameters.AddWithValue("@TipoCliente", cb2);
-
-                DataRowView drv3 = (DataRowView)comboBox3.SelectedItem;
-                String cb3 = drv3["TipoEsterilizacao"].ToString();
-                com.Parameters.AddWithValue("@TipoEsterilizacao", cb3);
+                DataRowView drv1 = (DataRowView)comboBox1.SelectedItem;
+                String cb2 = drv1["TipoEsterilizacao"].ToString();
+                com.Parameters.AddWithValue("@TipoEsterilizacao", cb2);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -108,7 +104,6 @@ namespace MEDIRM.AddPages
                 textBox8.Clear();
                 comboBox2.ResetText();
                 comboBox1.ResetText();
-                comboBox3.ResetText();
                 checkBox1.Checked = false;
                 checkBox2.Checked = false;
                 comboBox1.Visible = false;
@@ -123,6 +118,11 @@ namespace MEDIRM.AddPages
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)      // add artigo ao cliente
+        {
+            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriarEncomenda));
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -42,6 +43,14 @@
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ClienteTableAdapter();
+            this.artigosClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artigosClientesTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ArtigosClientesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -80,18 +89,20 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DisplayMember = "Nome";
+            this.comboBox2.DataSource = this.artigosClientesBindingSource;
+            this.comboBox2.DisplayMember = "Artigo";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(417, 261);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(650, 28);
             this.comboBox2.TabIndex = 85;
-            this.comboBox2.ValueMember = "ID";
+            this.comboBox2.ValueMember = "Artigo";
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.DataSource = this.clienteBindingSource;
             this.comboBox1.DisplayMember = "Nome";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -122,6 +133,7 @@
             this.criarMaquina.TabIndex = 88;
             this.criarMaquina.Text = "Adicionar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // dateTimePicker1
             // 
@@ -197,6 +209,29 @@
             this.button4.TabIndex = 93;
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "Cliente";
+            this.clienteBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // artigosClientesBindingSource
+            // 
+            this.artigosClientesBindingSource.DataMember = "ArtigosClientes";
+            this.artigosClientesBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // artigosClientesTableAdapter
+            // 
+            this.artigosClientesTableAdapter.ClearBeforeFill = true;
+            // 
             // CriarEncomenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +253,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CriarEncomenda";
             this.Text = "Inserir Encomenda";
+            this.Load += new System.EventHandler(this.CriarEncomenda_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +277,10 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
+        private MedirmDBDataSet medirmDBDataSet;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
+        private MedirmDBDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter;
+        private System.Windows.Forms.BindingSource artigosClientesBindingSource;
+        private MedirmDBDataSetTableAdapters.ArtigosClientesTableAdapter artigosClientesTableAdapter;
     }
 }
