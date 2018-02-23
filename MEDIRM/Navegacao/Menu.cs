@@ -18,19 +18,20 @@ namespace MEDIRM
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MainFormView.ShowForm(new AddMaquina());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainFormView.ShowForm(new AddMolde());
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
             MainFormView.ShowForm(new BD());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new CriarEncomenda());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new VerPreços());
         }
     }
 }

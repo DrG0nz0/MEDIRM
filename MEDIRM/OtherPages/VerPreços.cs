@@ -30,5 +30,10 @@ namespace MEDIRM
             this.clienteTableAdapter.Fill(this.medirmDBDataSet.Cliente);
 
         }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new Menu());
+        }
     }
 }

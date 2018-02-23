@@ -34,7 +34,10 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.artigosClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -43,14 +46,11 @@
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ClienteTableAdapter();
-            this.artigosClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artigosClientesTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ArtigosClientesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -99,6 +99,16 @@
             this.comboBox2.TabIndex = 85;
             this.comboBox2.ValueMember = "Artigo";
             // 
+            // artigosClientesBindingSource
+            // 
+            this.artigosClientesBindingSource.DataMember = "ArtigosClientes";
+            this.artigosClientesBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // medirmDBDataSet
+            // 
+            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
+            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -111,6 +121,11 @@
             this.comboBox1.Size = new System.Drawing.Size(650, 28);
             this.comboBox1.TabIndex = 87;
             this.comboBox1.ValueMember = "ID";
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "Cliente";
+            this.clienteBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // label1
             // 
@@ -137,6 +152,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePicker1.Location = new System.Drawing.Point(417, 373);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -169,7 +185,6 @@
             // 
             // back
             // 
-            this.back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
             this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.back.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -209,24 +224,9 @@
             this.button4.TabIndex = 93;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // medirmDBDataSet
-            // 
-            this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
-            this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "Cliente";
-            this.clienteBindingSource.DataSource = this.medirmDBDataSet;
-            // 
             // clienteTableAdapter
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // artigosClientesBindingSource
-            // 
-            this.artigosClientesBindingSource.DataMember = "ArtigosClientes";
-            this.artigosClientesBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // artigosClientesTableAdapter
             // 
@@ -254,9 +254,9 @@
             this.Name = "CriarEncomenda";
             this.Text = "Inserir Encomenda";
             this.Load += new System.EventHandler(this.CriarEncomenda_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.artigosClientesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
