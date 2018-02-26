@@ -494,6 +494,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\cambio.png" />
+    <None Include="Resources\repair_costs-512.png" />
+    <None Include="Resources\factory_industry_process_machine_production_industrial_conveyor_v2-512.png" />
+    <None Include="Resources\1-07-512.png" />
+    <None Include="Resources\icone-ingecom.png" />
     <None Include="Resources\MEDIRM decente.png" />
     <None Include="Resources\log_MEDIRM_RVB.jpg" />
     <None Include="Resources\Edit_prices-512.png" />

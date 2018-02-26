@@ -63,6 +63,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_07_512 {
+            get {
+                object obj = ResourceManager.GetObject("1-07-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _12activepres {
             get {
                 object obj = ResourceManager.GetObject("12activepres", resourceCulture);
@@ -146,6 +156,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap call_512 {
             get {
                 object obj = ResourceManager.GetObject("call-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cambio {
+            get {
+                object obj = ResourceManager.GetObject("cambio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +323,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap factory_industry_process_machine_production_industrial_conveyor_v2_512 {
+            get {
+                object obj = ResourceManager.GetObject("factory_industry_process_machine_production_industrial_conveyor_v2-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap filme {
             get {
                 object obj = ResourceManager.GetObject("filme", resourceCulture);
@@ -326,6 +356,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap gerirBD {
             get {
                 object obj = ResourceManager.GetObject("gerirBD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icone_ingecom {
+            get {
+                object obj = ResourceManager.GetObject("icone-ingecom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -486,6 +526,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap qrcode {
             get {
                 object obj = ResourceManager.GetObject("qrcode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap repair_costs_512 {
+            get {
+                object obj = ResourceManager.GetObject("repair_costs-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
