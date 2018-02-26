@@ -333,6 +333,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap log_MEDIRM_RVB {
+            get {
+                object obj = ResourceManager.GetObject("log_MEDIRM_RVB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lt10000143 {
             get {
                 object obj = ResourceManager.GetObject("lt10000143", resourceCulture);
@@ -376,6 +386,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap medirm {
             get {
                 object obj = ResourceManager.GetObject("medirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MEDIRM_decente {
+            get {
+                object obj = ResourceManager.GetObject("MEDIRM decente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

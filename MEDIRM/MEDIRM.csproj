@@ -286,34 +286,28 @@
     <Compile Include="OtherPages\MainFormView.Designer.cs">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegacao\BD.cs">
+    <Compile Include="OtherPages\BD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegacao\BD.Designer.cs">
+    <Compile Include="OtherPages\BD.Designer.cs">
       <DependentUpon>BD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegacao\CriarBD.cs">
+    <Compile Include="OtherPages\CriarBD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegacao\CriarBD.Designer.cs">
+    <Compile Include="OtherPages\CriarBD.Designer.cs">
       <DependentUpon>CriarBD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegacao\GerirBD.cs">
+    <Compile Include="OtherPages\GerirBD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegacao\GerirBD.Designer.cs">
+    <Compile Include="OtherPages\GerirBD.Designer.cs">
       <DependentUpon>GerirBD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegacao\Login.cs">
+    <Compile Include="OtherPages\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Navegacao\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Navegacao\Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegacao\Menu.Designer.cs">
+    <Compile Include="OtherPages\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="OtherPages\VerEncomendas.cs">
@@ -432,19 +426,16 @@
     <EmbeddedResource Include="OtherPages\MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegacao\BD.resx">
+    <EmbeddedResource Include="OtherPages\BD.resx">
       <DependentUpon>BD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegacao\CriarBD.resx">
+    <EmbeddedResource Include="OtherPages\CriarBD.resx">
       <DependentUpon>CriarBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegacao\GerirBD.resx">
+    <EmbeddedResource Include="OtherPages\GerirBD.resx">
       <DependentUpon>GerirBD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegacao\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Navegacao\Menu.resx">
+    <EmbeddedResource Include="OtherPages\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherPages\VerEncomendas.resx">
@@ -503,6 +494,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\MEDIRM decente.png" />
+    <None Include="Resources\log_MEDIRM_RVB.jpg" />
     <None Include="Resources\Edit_prices-512.png" />
     <None Include="Resources\schedule_clock-512.png" />
     <None Include="Resources\preferences-system.png" />
