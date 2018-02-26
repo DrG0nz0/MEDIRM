@@ -68,6 +68,8 @@ namespace MEDIRM {
         
         private TurnosFuncionariosDataTable tableTurnosFuncionarios;
         
+        private VerPrecosDataTable tableVerPrecos;
+        
         private global::System.Data.DataRelation relationMoeda_Papel;
         
         private global::System.Data.DataRelation relationMoeda_Transporte;
@@ -125,6 +127,14 @@ namespace MEDIRM {
         private global::System.Data.DataRelation relationArtigo_Encomenda;
         
         private global::System.Data.DataRelation relationCliente_Encomenda;
+        
+        private global::System.Data.DataRelation relationFuncionario_Ferias;
+        
+        private global::System.Data.DataRelation relationCliente_VerPrecos;
+        
+        private global::System.Data.DataRelation relationArtigo_VerPrecos;
+        
+        private global::System.Data.DataRelation relationCliente_VerPrecos1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -219,6 +229,9 @@ namespace MEDIRM {
                 }
                 if ((ds.Tables["TurnosFuncionarios"] != null)) {
                     base.Tables.Add(new TurnosFuncionariosDataTable(ds.Tables["TurnosFuncionarios"]));
+                }
+                if ((ds.Tables["VerPrecos"] != null)) {
+                    base.Tables.Add(new VerPrecosDataTable(ds.Tables["VerPrecos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -460,6 +473,16 @@ namespace MEDIRM {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public VerPrecosDataTable VerPrecos {
+            get {
+                return this.tableVerPrecos;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -590,6 +613,9 @@ namespace MEDIRM {
                 }
                 if ((ds.Tables["TurnosFuncionarios"] != null)) {
                     base.Tables.Add(new TurnosFuncionariosDataTable(ds.Tables["TurnosFuncionarios"]));
+                }
+                if ((ds.Tables["VerPrecos"] != null)) {
+                    base.Tables.Add(new VerPrecosDataTable(ds.Tables["VerPrecos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -756,6 +782,12 @@ namespace MEDIRM {
                     this.tableTurnosFuncionarios.InitVars();
                 }
             }
+            this.tableVerPrecos = ((VerPrecosDataTable)(base.Tables["VerPrecos"]));
+            if ((initTable == true)) {
+                if ((this.tableVerPrecos != null)) {
+                    this.tableVerPrecos.InitVars();
+                }
+            }
             this.relationMoeda_Papel = this.Relations["Moeda_Papel"];
             this.relationMoeda_Transporte = this.Relations["Moeda_Transporte"];
             this.relationPapel_Maquina = this.Relations["Papel_Maquina"];
@@ -785,6 +817,10 @@ namespace MEDIRM {
             this.relationMaquina_ComponentesDosArtigos4 = this.Relations["Maquina_ComponentesDosArtigos4"];
             this.relationArtigo_Encomenda = this.Relations["Artigo_Encomenda"];
             this.relationCliente_Encomenda = this.Relations["Cliente_Encomenda"];
+            this.relationFuncionario_Ferias = this.Relations["Funcionario_Ferias"];
+            this.relationCliente_VerPrecos = this.Relations["Cliente_VerPrecos"];
+            this.relationArtigo_VerPrecos = this.Relations["Artigo_VerPrecos"];
+            this.relationCliente_VerPrecos1 = this.Relations["Cliente_VerPrecos1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -839,6 +875,8 @@ namespace MEDIRM {
             base.Tables.Add(this.tablePessoasMaquinas);
             this.tableTurnosFuncionarios = new TurnosFuncionariosDataTable();
             base.Tables.Add(this.tableTurnosFuncionarios);
+            this.tableVerPrecos = new VerPrecosDataTable();
+            base.Tables.Add(this.tableVerPrecos);
             this.relationMoeda_Papel = new global::System.Data.DataRelation("Moeda_Papel", new global::System.Data.DataColumn[] {
                         this.tableMoeda.MoedaColumn}, new global::System.Data.DataColumn[] {
                         this.tablePapel.MoedaColumn}, false);
@@ -955,6 +993,22 @@ namespace MEDIRM {
                         this.tableCliente.NomeColumn}, new global::System.Data.DataColumn[] {
                         this.tableEncomenda.ClienteColumn}, false);
             this.Relations.Add(this.relationCliente_Encomenda);
+            this.relationFuncionario_Ferias = new global::System.Data.DataRelation("Funcionario_Ferias", new global::System.Data.DataColumn[] {
+                        this.tableFuncionario.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFerias.FuncionarioColumn}, false);
+            this.Relations.Add(this.relationFuncionario_Ferias);
+            this.relationCliente_VerPrecos = new global::System.Data.DataRelation("Cliente_VerPrecos", new global::System.Data.DataColumn[] {
+                        this.tableCliente.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVerPrecos.ClienteColumn}, false);
+            this.Relations.Add(this.relationCliente_VerPrecos);
+            this.relationArtigo_VerPrecos = new global::System.Data.DataRelation("Artigo_VerPrecos", new global::System.Data.DataColumn[] {
+                        this.tableArtigo.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVerPrecos.ClienteColumn}, false);
+            this.Relations.Add(this.relationArtigo_VerPrecos);
+            this.relationCliente_VerPrecos1 = new global::System.Data.DataRelation("Cliente_VerPrecos1", new global::System.Data.DataColumn[] {
+                        this.tableCliente.MargemLucroColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVerPrecos.MargemLucroColumn}, false);
+            this.Relations.Add(this.relationCliente_VerPrecos1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1091,6 +1145,12 @@ namespace MEDIRM {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeVerPrecos() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1209,6 +1269,9 @@ namespace MEDIRM {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void TurnosFuncionariosRowChangeEventHandler(object sender, TurnosFuncionariosRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void VerPrecosRowChangeEventHandler(object sender, VerPrecosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -7493,12 +7556,15 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FeriasRow AddFeriasRow(string Funcionario, System.DateTime DataInicio, System.DateTime DataFim) {
+            public FeriasRow AddFeriasRow(FuncionarioRow parentFuncionarioRowByFuncionario_Ferias, System.DateTime DataInicio, System.DateTime DataFim) {
                 FeriasRow rowFeriasRow = ((FeriasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Funcionario,
+                        null,
                         DataInicio,
                         DataFim};
+                if ((parentFuncionarioRowByFuncionario_Ferias != null)) {
+                    columnValuesArray[0] = parentFuncionarioRowByFuncionario_Ferias[0];
+                }
                 rowFeriasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFeriasRow);
                 return rowFeriasRow;
@@ -8286,6 +8352,342 @@ namespace MEDIRM {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class VerPrecosDataTable : global::System.Data.TypedTableBase<VerPrecosRow> {
+            
+            private global::System.Data.DataColumn columnCliente;
+            
+            private global::System.Data.DataColumn columnArtigo;
+            
+            private global::System.Data.DataColumn columnQuantidade;
+            
+            private global::System.Data.DataColumn columnPreco;
+            
+            private global::System.Data.DataColumn columnCustosFixos;
+            
+            private global::System.Data.DataColumn columnMargemLucro;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosDataTable() {
+                this.TableName = "VerPrecos";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal VerPrecosDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected VerPrecosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ClienteColumn {
+                get {
+                    return this.columnCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ArtigoColumn {
+                get {
+                    return this.columnArtigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn QuantidadeColumn {
+                get {
+                    return this.columnQuantidade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrecoColumn {
+                get {
+                    return this.columnPreco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CustosFixosColumn {
+                get {
+                    return this.columnCustosFixos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MargemLucroColumn {
+                get {
+                    return this.columnMargemLucro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow this[int index] {
+                get {
+                    return ((VerPrecosRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VerPrecosRowChangeEventHandler VerPrecosRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VerPrecosRowChangeEventHandler VerPrecosRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VerPrecosRowChangeEventHandler VerPrecosRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VerPrecosRowChangeEventHandler VerPrecosRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddVerPrecosRow(VerPrecosRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow AddVerPrecosRow(ClienteRow parentClienteRowByCliente_VerPrecos, string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1) {
+                VerPrecosRow rowVerPrecosRow = ((VerPrecosRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Artigo,
+                        Quantidade,
+                        Preco,
+                        CustosFixos,
+                        null};
+                if ((parentClienteRowByCliente_VerPrecos != null)) {
+                    columnValuesArray[0] = parentClienteRowByCliente_VerPrecos[1];
+                }
+                if ((parentClienteRowByCliente_VerPrecos1 != null)) {
+                    columnValuesArray[5] = parentClienteRowByCliente_VerPrecos1[3];
+                }
+                rowVerPrecosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVerPrecosRow);
+                return rowVerPrecosRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow FindByCliente(string Cliente) {
+                return ((VerPrecosRow)(this.Rows.Find(new object[] {
+                            Cliente})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                VerPrecosDataTable cln = ((VerPrecosDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new VerPrecosDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnCliente = base.Columns["Cliente"];
+                this.columnArtigo = base.Columns["Artigo"];
+                this.columnQuantidade = base.Columns["Quantidade"];
+                this.columnPreco = base.Columns["Preco"];
+                this.columnCustosFixos = base.Columns["CustosFixos"];
+                this.columnMargemLucro = base.Columns["MargemLucro"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnCliente = new global::System.Data.DataColumn("Cliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCliente);
+                this.columnArtigo = new global::System.Data.DataColumn("Artigo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArtigo);
+                this.columnQuantidade = new global::System.Data.DataColumn("Quantidade", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantidade);
+                this.columnPreco = new global::System.Data.DataColumn("Preco", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreco);
+                this.columnCustosFixos = new global::System.Data.DataColumn("CustosFixos", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustosFixos);
+                this.columnMargemLucro = new global::System.Data.DataColumn("MargemLucro", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMargemLucro);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCliente}, true));
+                this.columnCliente.AllowDBNull = false;
+                this.columnCliente.Unique = true;
+                this.columnCliente.MaxLength = 50;
+                this.columnArtigo.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow NewVerPrecosRow() {
+                return ((VerPrecosRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new VerPrecosRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(VerPrecosRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.VerPrecosRowChanged != null)) {
+                    this.VerPrecosRowChanged(this, new VerPrecosRowChangeEvent(((VerPrecosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.VerPrecosRowChanging != null)) {
+                    this.VerPrecosRowChanging(this, new VerPrecosRowChangeEvent(((VerPrecosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.VerPrecosRowDeleted != null)) {
+                    this.VerPrecosRowDeleted(this, new VerPrecosRowChangeEvent(((VerPrecosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.VerPrecosRowDeleting != null)) {
+                    this.VerPrecosRowDeleting(this, new VerPrecosRowChangeEvent(((VerPrecosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveVerPrecosRow(VerPrecosRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MedirmDBDataSet ds = new MedirmDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "VerPrecosDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class CartaoRow : global::System.Data.DataRow {
@@ -8588,6 +8990,28 @@ namespace MEDIRM {
                     return ((EncomendaRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_Encomenda"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow[] GetVerPrecosRows() {
+                if ((this.Table.ChildRelations["Cliente_VerPrecos"] == null)) {
+                    return new VerPrecosRow[0];
+                }
+                else {
+                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_VerPrecos"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow[] GetVerPrecosRowsByCliente_VerPrecos1() {
+                if ((this.Table.ChildRelations["Cliente_VerPrecos1"] == null)) {
+                    return new VerPrecosRow[0];
+                }
+                else {
+                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_VerPrecos1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -8858,6 +9282,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((TurnosFuncionariosRow[])(base.GetChildRows(this.Table.ChildRelations["Funcionario_TurnosFuncionarios"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FeriasRow[] GetFeriasRows() {
+                if ((this.Table.ChildRelations["Funcionario_Ferias"] == null)) {
+                    return new FeriasRow[0];
+                }
+                else {
+                    return ((FeriasRow[])(base.GetChildRows(this.Table.ChildRelations["Funcionario_Ferias"])));
                 }
             }
         }
@@ -9655,6 +10090,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((EncomendaRow[])(base.GetChildRows(this.Table.ChildRelations["Artigo_Encomenda"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow[] GetVerPrecosRows() {
+                if ((this.Table.ChildRelations["Artigo_VerPrecos"] == null)) {
+                    return new VerPrecosRow[0];
+                }
+                else {
+                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Artigo_VerPrecos"])));
                 }
             }
         }
@@ -11258,6 +11704,17 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FuncionarioRow FuncionarioRow {
+                get {
+                    return ((FuncionarioRow)(this.GetParentRow(this.Table.ParentRelations["Funcionario_Ferias"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Funcionario_Ferias"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsDataInicioNull() {
                 return this.IsNull(this.tableFerias.DataInicioColumn);
             }
@@ -11559,6 +12016,205 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTurno4Null() {
                 this[this.tableTurnosFuncionarios.Turno4Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class VerPrecosRow : global::System.Data.DataRow {
+            
+            private VerPrecosDataTable tableVerPrecos;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal VerPrecosRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableVerPrecos = ((VerPrecosDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Cliente {
+                get {
+                    return ((string)(this[this.tableVerPrecos.ClienteColumn]));
+                }
+                set {
+                    this[this.tableVerPrecos.ClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Artigo {
+                get {
+                    try {
+                        return ((string)(this[this.tableVerPrecos.ArtigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Artigo\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.ArtigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Quantidade {
+                get {
+                    try {
+                        return ((int)(this[this.tableVerPrecos.QuantidadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Quantidade\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.QuantidadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Preco {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVerPrecos.PrecoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Preco\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.PrecoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal CustosFixos {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVerPrecos.CustosFixosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CustosFixos\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.CustosFixosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal MargemLucro {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVerPrecos.MargemLucroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'MargemLucro\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.MargemLucroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ClienteRow ClienteRow {
+                get {
+                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["Cliente_VerPrecos"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Cliente_VerPrecos"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow ArtigoRow {
+                get {
+                    return ((ArtigoRow)(this.GetParentRow(this.Table.ParentRelations["Artigo_VerPrecos"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Artigo_VerPrecos"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ClienteRow ClienteRowByCliente_VerPrecos1 {
+                get {
+                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["Cliente_VerPrecos1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Cliente_VerPrecos1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsArtigoNull() {
+                return this.IsNull(this.tableVerPrecos.ArtigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetArtigoNull() {
+                this[this.tableVerPrecos.ArtigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsQuantidadeNull() {
+                return this.IsNull(this.tableVerPrecos.QuantidadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetQuantidadeNull() {
+                this[this.tableVerPrecos.QuantidadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPrecoNull() {
+                return this.IsNull(this.tableVerPrecos.PrecoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPrecoNull() {
+                this[this.tableVerPrecos.PrecoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCustosFixosNull() {
+                return this.IsNull(this.tableVerPrecos.CustosFixosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCustosFixosNull() {
+                this[this.tableVerPrecos.CustosFixosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMargemLucroNull() {
+                return this.IsNull(this.tableVerPrecos.MargemLucroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMargemLucroNull() {
+                this[this.tableVerPrecos.MargemLucroColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12296,6 +12952,40 @@ namespace MEDIRM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TurnosFuncionariosRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class VerPrecosRowChangeEvent : global::System.EventArgs {
+            
+            private VerPrecosRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRowChangeEvent(VerPrecosRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -21159,6 +21849,491 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class VerPrecosTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public VerPrecosTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "VerPrecos";
+            tableMapping.ColumnMappings.Add("Cliente", "Cliente");
+            tableMapping.ColumnMappings.Add("Artigo", "Artigo");
+            tableMapping.ColumnMappings.Add("Quantidade", "Quantidade");
+            tableMapping.ColumnMappings.Add("Preco", "Preco");
+            tableMapping.ColumnMappings.Add("CustosFixos", "CustosFixos");
+            tableMapping.ColumnMappings.Add("MargemLucro", "MargemLucro");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [VerPrecos] WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Preco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Preco", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustosFixos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MargemLucro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VerPrecos] ([Cliente], [Artigo], [Quantidade], [Preco], [CustosFixos], [MargemLucro]) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @CustosFixos, @MargemLucro);
+SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrecos WHERE (Cliente = @Cliente)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [VerPrecos] SET [Cliente] = @Cliente, [Artigo] = @Artigo, [Quantidade] = @Quantidade, [Preco] = @Preco, [CustosFixos] = @CustosFixos, [MargemLucro] = @MargemLucro WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)));
+SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrecos WHERE (Cliente = @Cliente)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Preco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Preco", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustosFixos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MargemLucro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::MEDIRM.Properties.Settings.Default.MedirmDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPreco" +
+                "s";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(MedirmDBDataSet.VerPrecosDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual MedirmDBDataSet.VerPrecosDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            MedirmDBDataSet.VerPrecosDataTable dataTable = new MedirmDBDataSet.VerPrecosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MedirmDBDataSet.VerPrecosDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MedirmDBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "VerPrecos");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
+            if ((Original_Cliente == null)) {
+                throw new global::System.ArgumentNullException("Original_Cliente");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Cliente));
+            }
+            if ((Original_Artigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Artigo));
+            }
+            if ((Original_Quantidade.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Quantidade.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Preco.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Preco.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CustosFixos.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_CustosFixos.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MargemLucro.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_MargemLucro.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Cliente, string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro) {
+            if ((Cliente == null)) {
+                throw new global::System.ArgumentNullException("Cliente");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Cliente));
+            }
+            if ((Artigo == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Artigo));
+            }
+            if ((Quantidade.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Quantidade.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Preco.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Preco.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((CustosFixos.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(CustosFixos.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((MargemLucro.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(MargemLucro.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Cliente, string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
+            if ((Cliente == null)) {
+                throw new global::System.ArgumentNullException("Cliente");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Cliente));
+            }
+            if ((Artigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Artigo));
+            }
+            if ((Quantidade.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Quantidade.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Preco.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Preco.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((CustosFixos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(CustosFixos.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((MargemLucro.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(MargemLucro.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cliente == null)) {
+                throw new global::System.ArgumentNullException("Original_Cliente");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Cliente));
+            }
+            if ((Original_Artigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Artigo));
+            }
+            if ((Original_Quantidade.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Quantidade.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Preco.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Preco.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CustosFixos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_CustosFixos.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MargemLucro.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_MargemLucro.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
+            return this.Update(Original_Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Original_Cliente, Original_Artigo, Original_Quantidade, Original_Preco, Original_CustosFixos, Original_MargemLucro);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -21213,6 +22388,8 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         private PessoasMaquinasTableAdapter _pessoasMaquinasTableAdapter;
         
         private TurnosFuncionariosTableAdapter _turnosFuncionariosTableAdapter;
+        
+        private VerPrecosTableAdapter _verPrecosTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -21539,6 +22716,20 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public VerPrecosTableAdapter VerPrecosTableAdapter {
+            get {
+                return this._verPrecosTableAdapter;
+            }
+            set {
+                this._verPrecosTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -21644,6 +22835,10 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                             && (this._turnosFuncionariosTableAdapter.Connection != null))) {
                     return this._turnosFuncionariosTableAdapter.Connection;
                 }
+                if (((this._verPrecosTableAdapter != null) 
+                            && (this._verPrecosTableAdapter.Connection != null))) {
+                    return this._verPrecosTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -21723,6 +22918,9 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                 if ((this._turnosFuncionariosTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._verPrecosTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -21734,21 +22932,21 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(MedirmDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._moedaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Moeda.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._moedaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._moedaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Moeda.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._moedaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21770,30 +22968,12 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._papelTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Papel.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._papelTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21842,6 +23022,15 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -21851,12 +23040,12 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._feriasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._feriasTableAdapter.Update(updatedRows));
+                    result = (result + this._moldeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21869,30 +23058,30 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._pessoasMaquinasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pessoasMaquinasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._feriasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._feriasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._componentesDosArtigosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ComponentesDosArtigos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._componentesDosArtigosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._custosFixosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._custosFixosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21905,12 +23094,30 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pessoasMaquinasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._custosFixosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pessoasMaquinasTableAdapter.Update(updatedRows));
+                    result = (result + this._custosFixosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cartolinaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21923,12 +23130,12 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._verPrecosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.VerPrecos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(updatedRows));
+                    result = (result + this._verPrecosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -21942,19 +23149,19 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(MedirmDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._moedaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Moeda.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._moedaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._moedaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Moeda.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._moedaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -21974,27 +23181,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._papelTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Papel.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._papelTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22038,6 +23229,14 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -22046,11 +23245,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._feriasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._feriasTableAdapter.Update(addedRows));
+                    result = (result + this._moldeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22062,27 +23261,27 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pessoasMaquinasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pessoasMaquinasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._feriasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._feriasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._componentesDosArtigosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ComponentesDosArtigos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._componentesDosArtigosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._custosFixosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._custosFixosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22094,11 +23293,27 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pessoasMaquinasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._custosFixosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pessoasMaquinasTableAdapter.Update(addedRows));
+                    result = (result + this._custosFixosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cartolinaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22110,11 +23325,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._verPrecosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.VerPrecos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(addedRows));
+                    result = (result + this._verPrecosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -22128,11 +23343,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(MedirmDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._verPrecosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.VerPrecos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(deletedRows));
+                    result = (result + this._verPrecosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22144,19 +23359,19 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pessoasMaquinasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pessoasMaquinasTableAdapter.Update(deletedRows));
+                    result = (result + this._cartolinaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cartaoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cartaoTableAdapter.Update(deletedRows));
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22168,11 +23383,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cartaoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(deletedRows));
+                    result = (result + this._cartaoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22184,14 +23399,6 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._encomendaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._encomendaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._feriasTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -22200,11 +23407,43 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._pessoasMaquinasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pessoasMaquinasTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._encomendaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._encomendaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._componentesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22248,27 +23487,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._papelTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Papel.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._papelTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22288,19 +23511,19 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._moedaTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Moeda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._moedaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -22450,6 +23673,11 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             }
             if (((this._turnosFuncionariosTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._turnosFuncionariosTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
+                        "cadeia de conexão.");
+            }
+            if (((this._verPrecosTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._verPrecosTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -22683,6 +23911,15 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                         adaptersWithAcceptChangesDuringUpdate.Add(this._turnosFuncionariosTableAdapter.Adapter);
                     }
                 }
+                if ((this._verPrecosTableAdapter != null)) {
+                    revertConnections.Add(this._verPrecosTableAdapter, this._verPrecosTableAdapter.Connection);
+                    this._verPrecosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._verPrecosTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._verPrecosTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._verPrecosTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._verPrecosTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -22828,6 +24065,10 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
                 if ((this._turnosFuncionariosTableAdapter != null)) {
                     this._turnosFuncionariosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._turnosFuncionariosTableAdapter]));
                     this._turnosFuncionariosTableAdapter.Transaction = null;
+                }
+                if ((this._verPrecosTableAdapter != null)) {
+                    this._verPrecosTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._verPrecosTableAdapter]));
+                    this._verPrecosTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
