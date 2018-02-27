@@ -57,10 +57,13 @@
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.cartaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.artigoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artigoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ArtigoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox8
@@ -331,16 +334,25 @@
             // comboBox9
             // 
             this.comboBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox9.DataSource = this.artigoBindingSource;
+            this.comboBox9.DisplayMember = "Nome";
             this.comboBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
-            "Rigida",
-            "Semi-Rigida",
-            "Manual"});
             this.comboBox9.Location = new System.Drawing.Point(384, 36);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(486, 28);
             this.comboBox9.TabIndex = 123;
+            this.comboBox9.ValueMember = "Nome";
+            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
+            // 
+            // artigoBindingSource
+            // 
+            this.artigoBindingSource.DataMember = "Artigo";
+            this.artigoBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // artigoTableAdapter
+            // 
+            this.artigoTableAdapter.ClearBeforeFill = true;
             // 
             // GerirArtigos
             // 
@@ -377,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +424,7 @@
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.BindingSource cartaoBindingSource1;
         private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.BindingSource artigoBindingSource;
+        private MedirmDBDataSetTableAdapters.ArtigoTableAdapter artigoTableAdapter;
     }
 }

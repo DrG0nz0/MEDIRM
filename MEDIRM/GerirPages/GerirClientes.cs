@@ -228,7 +228,7 @@ namespace MEDIRM.GerirPages
                     comboBox1.ResetText();
                 }
 
-                if (checkBox1.Checked && checkBox2.Checked)     // nem transporte nem esterilizacao
+                if (!checkBox1.Checked && !checkBox2.Checked)     // nem transporte nem esterilizacao
                 {
                     SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro WHERE Nome=@Nome", con);
                     com.CommandType = CommandType.Text;
@@ -253,7 +253,7 @@ namespace MEDIRM.GerirPages
                     comboBox1.ResetText();
                 }
 
-                if (checkBox1.Checked && checkBox2.Checked)     // so esterilizacao
+                if (!checkBox1.Checked && checkBox2.Checked)     // so esterilizacao
                 {
                     SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro, TipoEsterilizacao=@TipoEsterilizacao WHERE Nome=@Nome", con);
                     com.CommandType = CommandType.Text;
@@ -267,6 +267,8 @@ namespace MEDIRM.GerirPages
                     int i = com.ExecuteNonQuery();
                     con.Close();
 
+
+
                     //Confirmation Message 
                     MessageBox.Show("Cliente alterado com sucesso!");
 
@@ -279,7 +281,7 @@ namespace MEDIRM.GerirPages
                     comboBox1.ResetText();
                 }
 
-                if (checkBox1.Checked && checkBox2.Checked)     // so transporte 
+                if (checkBox1.Checked && !checkBox2.Checked)     // so transporte 
                 {
                     SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro, Transporte=@Transporte WHERE Nome=@Nome", con);
                     com.CommandType = CommandType.Text;

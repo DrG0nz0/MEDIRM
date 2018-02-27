@@ -179,6 +179,7 @@
             this.criarMaquina.TabIndex = 32;
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // maxTras
             // 
@@ -241,6 +242,7 @@
             this.comboBox2.Size = new System.Drawing.Size(549, 28);
             this.comboBox2.TabIndex = 43;
             this.comboBox2.ValueMember = "Nome";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // maquinaBindingSource
             // 
@@ -256,6 +258,7 @@
             this.button1.TabIndex = 44;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 

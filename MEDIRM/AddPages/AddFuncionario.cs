@@ -51,6 +51,169 @@ namespace MEDIRM
 
                 //Confirmation Message 
                 MessageBox.Show("Funcionário adicionado com sucesso!");
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+
+            try         // segunda feira
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Segunda-feira");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+     
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+            try         // terca feira
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Terca-feira");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+            try         // quarta feira
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Quarta-feira");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+            try         // quinta feira
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Quinta-feira");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+            try         // sexta feira
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Sexta-feira");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
+            }
+
+            try         // sabado
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
+                com.Parameters.AddWithValue("@DiaDaSemana", "Sabado");
+                com.Parameters.AddWithValue("@Turno1", "Nenhum");
+                com.Parameters.AddWithValue("@Turno2", "Nenhum");
+                com.Parameters.AddWithValue("@Turno3", "Nenhum");
+                com.Parameters.AddWithValue("@Turno4", "Nenhum");
+
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
 
                 //Clear the fields
                 textBox1.Clear();

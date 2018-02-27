@@ -597,6 +597,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\schedule-512.png" />
     <None Include="Resources\cambio.png" />
     <None Include="Resources\repair_costs-512.png" />
     <None Include="Resources\factory_industry_process_machine_production_industrial_conveyor_v2-512.png" />

@@ -543,6 +543,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap schedule_512 {
+            get {
+                object obj = ResourceManager.GetObject("schedule-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap schedule_clock_512 {
             get {
                 object obj = ResourceManager.GetObject("schedule_clock-512", resourceCulture);

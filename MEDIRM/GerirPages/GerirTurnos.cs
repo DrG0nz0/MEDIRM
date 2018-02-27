@@ -39,30 +39,22 @@ namespace MEDIRM.GerirPages
 
                 if (comboBox2.SelectedItem != null)
                 {
-                    DataRowView drv1 = (DataRowView)comboBox2.SelectedItem;
-                    String cb1 = drv1["Turno1"].ToString();
-                    com.Parameters.AddWithValue("@Turno1", cb1);
+                    com.Parameters.AddWithValue("@Turno1", comboBox2.SelectedItem.ToString());
                 }
 
                 if (comboBox3.SelectedItem != null)
                 {
-                    DataRowView drv2 = (DataRowView)comboBox3.SelectedItem;
-                    String cb2 = drv2["Turno2"].ToString();
-                    com.Parameters.AddWithValue("@Turno2", cb2);
+                    com.Parameters.AddWithValue("@Turno2", comboBox3.SelectedItem.ToString());
                 }
 
                 if (comboBox4.SelectedItem != null)
                 {
-                    DataRowView drv3 = (DataRowView)comboBox4.SelectedItem;
-                    String cb3 = drv3["Turno3"].ToString();
-                    com.Parameters.AddWithValue("@Turno3", cb3);
+                    com.Parameters.AddWithValue("@Turno3", comboBox4.SelectedItem.ToString());
                 }
 
                 if (comboBox5.SelectedItem != null)
                 {
-                    DataRowView drv4 = (DataRowView)comboBox5.SelectedItem;
-                    String cb4 = drv4["Turno4"].ToString();
-                    com.Parameters.AddWithValue("@Turno4", cb4);
+                    com.Parameters.AddWithValue("@Turno4", comboBox5.SelectedItem.ToString());
                 }
 
                 con.Open();
@@ -79,11 +71,14 @@ namespace MEDIRM.GerirPages
                 comboBox4.ResetText();
                 comboBox5.ResetText();
                 comboBox8.ResetText();
+
+                MainFormView.ShowForm(new GerirBD());
             }
             catch (Exception x)
             {
                 //Error Message 
                 MessageBox.Show("Erro ao alterar turnos. Por favor tente novamente.");
+                MainFormView.ShowForm(new GerirBD());
             }
         }
 
@@ -112,19 +107,15 @@ namespace MEDIRM.GerirPages
             {
                 comboBox2.DisplayMember = reader["Turno1"].ToString();
                 comboBox2.SelectedText = reader["Turno1"].ToString();
-                comboBox2.SelectedItem = reader["Turno1"].ToString();
 
                 comboBox3.DisplayMember = reader["Turno2"].ToString();
                 comboBox3.SelectedText = reader["Turno2"].ToString();
-                comboBox3.SelectedItem = reader["Turno2"].ToString();
 
                 comboBox4.DisplayMember = reader["Turno3"].ToString();
                 comboBox4.SelectedText = reader["Turno3"].ToString();
-                comboBox4.SelectedItem = reader["Turno3"].ToString();
 
                 comboBox5.DisplayMember = reader["Turno4"].ToString();
                 comboBox5.SelectedText = reader["Turno4"].ToString();
-                comboBox5.SelectedItem = reader["Turno4"].ToString();
 
                 reader.Close();
                 con2.Close();

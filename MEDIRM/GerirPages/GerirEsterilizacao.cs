@@ -51,7 +51,7 @@ namespace MEDIRM.GerirPages
                 SqlCommand com = new SqlCommand("DELETE FROM Esterilizacao WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
 
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
                 String cb1 = drv["Designacao"].ToString();
                 com.Parameters.AddWithValue("@Designacao", cb1);
 
@@ -82,7 +82,7 @@ namespace MEDIRM.GerirPages
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();
-            SqlCommand cmd2 = new SqlCommand("Select * from Esterilizacao where Designacao='" + comboBox1.Text.Trim() + "'", con2);
+            SqlCommand cmd2 = new SqlCommand("Select * from Esterilizacao where Designacao='" + comboBox2.Text.Trim() + "'", con2);
 
             try
             {

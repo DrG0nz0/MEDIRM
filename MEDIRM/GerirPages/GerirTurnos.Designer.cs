@@ -63,7 +63,7 @@
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(675, 28);
             this.comboBox8.TabIndex = 63;
-            this.comboBox8.ValueMember = "ID";
+            this.comboBox8.ValueMember = "Nome";
             // 
             // funcionarioBindingSource
             // 
@@ -78,7 +78,7 @@
             // button8
             // 
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.worker;
+            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.schedule_512;
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

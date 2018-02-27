@@ -46,6 +46,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -143,7 +145,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(527, 178);
+            this.label7.Location = new System.Drawing.Point(1219, 593);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(213, 20);
             this.label7.TabIndex = 24;
@@ -270,6 +272,32 @@
             this.label18.Text = "Gerir custos fixos";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(561, 178);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(134, 20);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "Gerir funcionarios";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button18
+            // 
+            this.button18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button18.BackgroundImage = global::MEDIRM.Properties.Resources.worker;
+            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Location = new System.Drawing.Point(565, 70);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(125, 110);
+            this.button18.TabIndex = 41;
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // button16
             // 
             this.button16.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -371,11 +399,11 @@
             // button8
             // 
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.worker;
+            this.button8.BackgroundImage = global::MEDIRM.Properties.Resources.schedule_512;
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(577, 71);
+            this.button8.Location = new System.Drawing.Point(1269, 486);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(110, 109);
             this.button8.TabIndex = 11;
@@ -527,6 +555,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.button18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button16);
@@ -608,5 +638,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button18;
     }
 }

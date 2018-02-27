@@ -127,14 +127,8 @@
   <data name="cartaoaoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartaoaoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Edit_prices-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit_prices-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="log_MEDIRM_RVB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\log_MEDIRM_RVB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cartao2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cartao2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="26857247_2204204592930444_1059345292_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26857247_2204204592930444_1059345292_n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +142,11 @@
   <data name="componentes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\componentes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gerirBD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gerirBD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="noeda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noeda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ajouter_fichier_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ajouter_fichier_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cartao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,9 +163,6 @@
   <data name="maxresdefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maxresdefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icone-ingecom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icone-ingecom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="order-icon-21627" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\order-icon-21627.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,11 +178,17 @@
   <data name="cartao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pharmaline01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pharmaline01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gerirBD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gerirBD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MEDIRM decente" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MEDIRM decente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="12activepres" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\12activepres.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cambio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cambio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="6-unique-android-launchers-thatll-get-you-ditch-your-stock-home-screen.w1456" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6-unique-android-launchers-thatll-get-you-ditch-your-stock-home-screen.w1456.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,14 +199,17 @@
   <data name="cartolina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cartolina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="12activepres" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12activepres.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cartao2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartao2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pharmaline01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pharmaline01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bobinedepapel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bobinedepapel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="repair_costs-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\repair_costs-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="catalog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catalog1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="call-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\call-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,8 +220,8 @@
   <data name="bobinefilme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bobinefilme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="catalog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\catalog1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icone-ingecom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icone-ingecom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bc.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +235,8 @@
   <data name="medirm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\medirm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ajouter_fichier_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ajouter_fichier_page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="repair_costs-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\repair_costs-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="catalog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,10 +268,10 @@
   <data name="clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clientes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="noeda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\noeda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Edit_prices-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit_prices-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cambio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cambio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="schedule-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedule-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
