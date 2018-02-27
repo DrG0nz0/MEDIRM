@@ -29,8 +29,6 @@ namespace MEDIRM
         {
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TipoMaquina'. Você pode movê-la ou removê-la conforme necessário.
             this.tipoMaquinaTableAdapter.Fill(this.medirmDBDataSet.TipoMaquina);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Papel'. Você pode movê-la ou removê-la conforme necessário.
             this.papelTableAdapter.Fill(this.medirmDBDataSet.Papel);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Molde'. Você pode movê-la ou removê-la conforme necessário.
@@ -49,8 +47,10 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2) VALUES (@Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1, @Velocidade2)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1, @Velocidade2)", con);
                 com.CommandType = CommandType.Text;
+
+                com.Parameters.AddWithValue("@Nome", textBox1.Text);
 
                 com.Parameters.AddWithValue("@MinPessFrente", minFrente.Text);
                 com.Parameters.AddWithValue("@MaxPessFrente", maxFrente.Text);
@@ -63,17 +63,10 @@ namespace MEDIRM
                 String cb = drv["Tipo"].ToString();
                 com.Parameters.AddWithValue("@Tipo", cb);
 
-                DataRowView drv1 = (DataRowView)comboBox4.SelectedItem;
-                String cb1 = drv1["Filme"].ToString();
-                com.Parameters.AddWithValue("@Filme", cb1);
 
-                DataRowView drv2 = (DataRowView)comboBox5.SelectedItem;
-                String cb2 = drv2["Papel"].ToString();
-                com.Parameters.AddWithValue("@Papel", cb2);
-
-                DataRowView drv3 = (DataRowView)comboBox6.SelectedItem;
-                String cb3 = drv3["Molde"].ToString();
-                com.Parameters.AddWithValue("@Molde", cb3);
+                com.Parameters.AddWithValue("@Filme", comboBox4.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Papel", comboBox5.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Molde", comboBox6.SelectedValue.ToString());  
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -91,7 +84,7 @@ namespace MEDIRM
                 comboBox4.ResetText();
                 comboBox5.ResetText();
                 comboBox6.ResetText();
-
+            
             }
             catch (Exception x)
             {

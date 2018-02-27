@@ -35,8 +35,8 @@ namespace MEDIRM
 
         private void criarMaquina_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 //Insert in the database
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
@@ -47,9 +47,13 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Designacao", textBox2.Text);
                 com.Parameters.AddWithValue("@Preco", textBox3.Text);
 
+                //decimal d = Convert.ToDecimal(textBox3.Text);
+                //com.Parameters.AddWithValue("@Preco", d);
+            
                 DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb1 = drv["Transporte"].ToString();
-                com.Parameters.AddWithValue("@Transporte", cb1);
+                String cb1 = drv["Moeda"].ToString();
+                com.Parameters.AddWithValue("@Moeda", cb1);
+
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -63,12 +67,12 @@ namespace MEDIRM
                 textBox2.Clear();
                 comboBox1.ResetText();
 
-            }
+           /* }
             catch (Exception x)
             {
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar esterilização. Por favor tente novamente.");
-            }
+            }*/
         }
     }
 }

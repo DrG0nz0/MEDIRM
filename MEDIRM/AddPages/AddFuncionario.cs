@@ -38,11 +38,12 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Funcionario (Nome, ID) VALUES (@Nome, @ID)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Funcionario (Nome, ID, Sigla) VALUES (@Nome, @ID, @Sigla)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
                 com.Parameters.AddWithValue("@ID", textBox2.Text);
+                com.Parameters.AddWithValue("@Sigla", textBox3.Text);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

@@ -38,13 +38,8 @@ namespace MEDIRM.AddPages
 
                 com.Parameters.AddWithValue("@Posicao", "Frente");
 
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb = drv["Maquina"].ToString();
-                com.Parameters.AddWithValue("@Maquina", cb);
-
-                DataRowView drv1 = (DataRowView)comboBox3.SelectedItem;
-                String cb1 = drv1["Funcionario"].ToString();
-                com.Parameters.AddWithValue("@Funcionario", cb1);
+                com.Parameters.AddWithValue("@Maquina", comboBox1.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Funcionario", comboBox3.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -79,13 +74,8 @@ namespace MEDIRM.AddPages
 
                 com.Parameters.AddWithValue("@Posicao", "Tras");
 
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb = drv["Maquina"].ToString();
-                com.Parameters.AddWithValue("@Maquina", cb);
-
-                DataRowView drv1 = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv1["Funcionario"].ToString();
-                com.Parameters.AddWithValue("@Funcionario", cb1);
+                com.Parameters.AddWithValue("@Maquina", comboBox1.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Funcionario", comboBox2.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

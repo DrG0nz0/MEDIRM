@@ -123,7 +123,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(408, 26);
             this.comboBox3.TabIndex = 36;
-            this.comboBox3.ValueMember = "ID";
+            this.comboBox3.ValueMember = "Sigla";
             // 
             // funcionarioBindingSource
             // 
@@ -146,7 +146,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(408, 26);
             this.comboBox2.TabIndex = 35;
-            this.comboBox2.ValueMember = "ID";
+            this.comboBox2.ValueMember = "Sigla";
             // 
             // funcionarioBindingSource1
             // 

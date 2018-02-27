@@ -33,13 +33,8 @@ namespace MEDIRM.AddPages
 
                 com.Parameters.AddWithValue("@Preco", textBox3.Text);
 
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Cliente"].ToString();
-                com.Parameters.AddWithValue("@Cliente", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox3.SelectedItem;
-                String cb2 = drv2["Artigo"].ToString();
-                com.Parameters.AddWithValue("@Artigo", cb2);
+                com.Parameters.AddWithValue("@Cliente", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Artigo", comboBox3.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

@@ -33,9 +33,9 @@ namespace MEDIRM
         }
 
         private void criarMaquina_Click(object sender, EventArgs e)
-        {
+        {/*
             try
-            {
+            {*/
                 //Insert in the database
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
@@ -45,25 +45,17 @@ namespace MEDIRM
 
                 com.Parameters.AddWithValue("@Designacao", textBox1.Text);
                 com.Parameters.AddWithValue("@Preco", textBox3.Text);
-                com.Parameters.AddWithValue("@Info", richTextBox1.Text);        // nao sei se funciona assim
-                com.Parameters.AddWithValue("@Utilizador", "enas");        // criar func para ir ver o user
+                com.Parameters.AddWithValue("@Info", richTextBox1.Text);     
+                com.Parameters.AddWithValue("@Utilizador", "User");        // criar func para ir ver o user
+
+                com.Parameters.AddWithValue("@Transportadora", comboBox1.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@De", comboBox3.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Para", comboBox4.SelectedItem.ToString());
 
 
                 DataRowView drv = (DataRowView)comboBox2.SelectedItem;
                 String cb1 = drv["Moeda"].ToString();
                 com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Transportadora"].ToString();
-                com.Parameters.AddWithValue("@Transportadora", cb2);
-
-                DataRowView drv3 = (DataRowView)comboBox3.SelectedItem;
-                String cb3 = drv3["De"].ToString();
-                com.Parameters.AddWithValue("@De", cb3);
-
-                DataRowView drv4 = (DataRowView)comboBox4.SelectedItem;
-                String cb4 = drv4["Para"].ToString();
-                com.Parameters.AddWithValue("@Para", cb4);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -80,13 +72,13 @@ namespace MEDIRM
                 comboBox1.ResetText();
                 comboBox3.ResetText();
                 comboBox4.ResetText();
-
+            /*
             }
             catch (Exception x)
             {
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar transporte. Por favor tente novamente.");
-            }
+            }*/
         }
     }
 }

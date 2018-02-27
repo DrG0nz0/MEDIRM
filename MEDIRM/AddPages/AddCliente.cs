@@ -68,56 +68,190 @@ namespace MEDIRM.AddPages
 
         private void criarMaquina_Click(object sender, EventArgs e)     // add cliente
         {
-            try
+            if (checkBox1.Checked && checkBox2.Checked)     // transporte e esterilizacao
             {
-                //Insert in the database
-                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
-                SqlConnection con = new SqlConnection(connectionString);
+                try
+                {
+                    //Insert in the database
+                    string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                    SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte, TipoEsterilizacao) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte, @TipoEsterilizacao)", con);
-                com.CommandType = CommandType.Text;
+                    SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte, TipoEsterilizacao) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte, @TipoEsterilizacao)", con);
+                    com.CommandType = CommandType.Text;
 
-                com.Parameters.AddWithValue("@Nome", textBox2.Text);
-                com.Parameters.AddWithValue("@ID", textBox8.Text);
-                com.Parameters.AddWithValue("@Localidade", textBox4.Text);
-                com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+                    com.Parameters.AddWithValue("@Nome", textBox2.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
 
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Transporte"].ToString();
-                com.Parameters.AddWithValue("@Transporte", cb1);
+                    com.Parameters.AddWithValue("@Transporte", comboBox2.SelectedValue.ToString());
+                    com.Parameters.AddWithValue("@TipoEsterilizacao", comboBox1.SelectedValue.ToString());
 
-                DataRowView drv1 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv1["TipoEsterilizacao"].ToString();
-                com.Parameters.AddWithValue("@TipoEsterilizacao", cb2);
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
 
-                con.Open();
-                int i = com.ExecuteNonQuery();
-                con.Close();
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente adicionado com sucesso!");
 
-                //Confirmation Message 
-                MessageBox.Show("Cliente adicionado com sucesso!");
+                    //Clear the fields
+                    textBox4.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    comboBox1.Visible = false;
+                    comboBox2.Visible = false;
+                    button11.Visible = false;
+                    button2.Visible = false;
+                }
+                catch (Exception x)
+                {
+                    //Error Message 
+                    MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
+                }
+            }
 
-                //Clear the fields
-                textBox4.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox8.Clear();
-                comboBox2.ResetText();
-                comboBox1.ResetText();
-                checkBox1.Checked = false;
-                checkBox2.Checked = false;
-                comboBox1.Visible = false;
-                comboBox2.Visible = false;
-                button11.Visible = false;
-                button2.Visible = false;
+            if (checkBox1.Checked && !checkBox2.Checked)     // so transporte
+            {
+                try
+                {
+                    //Insert in the database
+                    string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                    SqlConnection con = new SqlConnection(connectionString);
 
+                    SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, Transporte) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @Transporte)", con);
+                    com.CommandType = CommandType.Text;
+
+                    com.Parameters.AddWithValue("@Nome", textBox2.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+
+                    com.Parameters.AddWithValue("@Transporte", comboBox2.SelectedValue.ToString());
+
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente adicionado com sucesso!");
+
+                    //Clear the fields
+                    textBox4.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    comboBox1.Visible = false;
+                    comboBox2.Visible = false;
+                    button11.Visible = false;
+                    button2.Visible = false;
+                }
+                catch (Exception x)
+                {
+                    //Error Message 
+                    MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
+                }
 
             }
-            catch (Exception x)
+
+            if (!checkBox1.Checked && checkBox2.Checked)     // so esterilizacao
             {
-                //Error Message 
-                MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
+                try
+                {
+                    //Insert in the database
+                    string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                    SqlConnection con = new SqlConnection(connectionString);
+
+                    SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro, TipoEsterilizacao) VALUES (@ID, @Nome, @Localidade, @MargemLucro, @TipoEsterilizacao)", con);
+                    com.CommandType = CommandType.Text;
+
+                    com.Parameters.AddWithValue("@Nome", textBox2.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+
+                    com.Parameters.AddWithValue("@TipoEsterilizacao", comboBox1.SelectedValue.ToString());
+
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente adicionado com sucesso!");
+
+                    //Clear the fields
+                    textBox4.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    comboBox1.Visible = false;
+                    comboBox2.Visible = false;
+                    button11.Visible = false;
+                    button2.Visible = false;
+                }
+                catch (Exception x)
+                {
+                    //Error Message 
+                    MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
+                }
             }
+
+            if (!checkBox1.Checked && !checkBox2.Checked)     // nem transporte nem esterilizacao
+            {
+                try
+                {
+                    //Insert in the database
+                    string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                    SqlConnection con = new SqlConnection(connectionString);
+
+                    SqlCommand com = new SqlCommand("INSERT INTO Cliente (ID, Nome, Localidade, MargemLucro) VALUES (@ID, @Nome, @Localidade, @MargemLucro)", con);
+                    com.CommandType = CommandType.Text;
+
+                    com.Parameters.AddWithValue("@Nome", textBox2.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente adicionado com sucesso!");
+
+                    //Clear the fields
+                    textBox4.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                    checkBox1.Checked = false;
+                    checkBox2.Checked = false;
+                    comboBox1.Visible = false;
+                    comboBox2.Visible = false;
+                    button11.Visible = false;
+                    button2.Visible = false;
+                }
+                catch (Exception x)
+                {
+                    //Error Message 
+                    MessageBox.Show("Erro ao adicionar cliente. Por favor tente novamente.");
+                }
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)      // add artigo ao cliente

@@ -40,16 +40,16 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Papel (Designacao, PrecoMetro, MetodoDeCalculo, Moeda) VALUES (@Designacao, @PrecoMetro, @MetodoDeCalculo, @Moeda)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Papel (Designacao, PrecoMetro, MetodoCalculo, Moeda) VALUES (@Designacao, @PrecoMetro, @MetodoCalculo, @Moeda)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Designacao", textBox2.Text);
                 com.Parameters.AddWithValue("@PrecoMetro", textBox3.Text);
-                com.Parameters.AddWithValue("@MetodoDeCalculo", textBox1.Text);
+                com.Parameters.AddWithValue("@MetodoCalculo", textBox1.Text);
 
                 DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Transporte"].ToString();
-                com.Parameters.AddWithValue("@Transporte", cb1);
+                String cb1 = drv["Moeda"].ToString();
+                com.Parameters.AddWithValue("@Moeda", cb1);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

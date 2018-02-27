@@ -44,17 +44,12 @@
             this.button6 = new System.Windows.Forms.Button();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.maquinaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.label15 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label14 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.maquinaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,6 +60,11 @@
             this.componentesTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ComponentesTableAdapter();
             this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
             this.artigoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ArtigoTableAdapter();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource2)).BeginInit();
@@ -161,6 +161,7 @@
             this.button9.Size = new System.Drawing.Size(33, 41);
             this.button9.TabIndex = 101;
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
             // 
             // button8
             // 
@@ -174,6 +175,7 @@
             this.button8.Size = new System.Drawing.Size(33, 41);
             this.button8.TabIndex = 100;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
             // 
             // button7
             // 
@@ -187,6 +189,7 @@
             this.button7.Size = new System.Drawing.Size(33, 41);
             this.button7.TabIndex = 99;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
             // 
             // button1
             // 
@@ -200,6 +203,7 @@
             this.button1.Size = new System.Drawing.Size(33, 41);
             this.button1.TabIndex = 98;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // button6
             // 
@@ -213,6 +217,7 @@
             this.button6.Size = new System.Drawing.Size(33, 41);
             this.button6.TabIndex = 97;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
             // 
             // comboBox6
             // 
@@ -226,24 +231,12 @@
             this.comboBox6.Size = new System.Drawing.Size(713, 28);
             this.comboBox6.TabIndex = 96;
             this.comboBox6.ValueMember = "Nome";
+            this.comboBox6.Visible = false;
             // 
             // maquinaBindingSource2
             // 
             this.maquinaBindingSource2.DataMember = "Maquina";
             this.maquinaBindingSource2.DataSource = this.medirmDBDataSet;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(311, 406);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 20);
-            this.label15.TabIndex = 95;
-            this.label15.Text = "Máquina 5:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBox5
             // 
@@ -257,24 +250,12 @@
             this.comboBox5.Size = new System.Drawing.Size(713, 28);
             this.comboBox5.TabIndex = 94;
             this.comboBox5.ValueMember = "Nome";
+            this.comboBox5.Visible = false;
             // 
             // maquinaBindingSource
             // 
             this.maquinaBindingSource.DataMember = "Maquina";
             this.maquinaBindingSource.DataSource = this.medirmDBDataSet;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(311, 352);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 20);
-            this.label14.TabIndex = 93;
-            this.label14.Text = "Máquina 4:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBox4
             // 
@@ -288,19 +269,7 @@
             this.comboBox4.Size = new System.Drawing.Size(713, 28);
             this.comboBox4.TabIndex = 92;
             this.comboBox4.ValueMember = "Nome";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(311, 302);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 20);
-            this.label13.TabIndex = 91;
-            this.label13.Text = "Máquina 3:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox4.Visible = false;
             // 
             // comboBox1
             // 
@@ -314,19 +283,7 @@
             this.comboBox1.Size = new System.Drawing.Size(713, 28);
             this.comboBox1.TabIndex = 90;
             this.comboBox1.ValueMember = "Nome";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(311, 245);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 20);
-            this.label12.TabIndex = 89;
-            this.label12.Text = "Máquina 2:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox1.Visible = false;
             // 
             // comboBox7
             // 
@@ -340,24 +297,12 @@
             this.comboBox7.Size = new System.Drawing.Size(713, 28);
             this.comboBox7.TabIndex = 88;
             this.comboBox7.ValueMember = "Nome";
+            this.comboBox7.Visible = false;
             // 
             // maquinaBindingSource1
             // 
             this.maquinaBindingSource1.DataMember = "Maquina";
             this.maquinaBindingSource1.DataSource = this.medirmDBDataSet;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(311, 198);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
-            this.label4.TabIndex = 87;
-            this.label4.Text = "Máquina 1:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox1
             // 
@@ -395,12 +340,14 @@
             // 
             this.comboBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox8.DataSource = this.componentesBindingSource;
+            this.comboBox8.DisplayMember = "Nome";
             this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.Location = new System.Drawing.Point(405, 117);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(312, 28);
             this.comboBox8.TabIndex = 83;
+            this.comboBox8.ValueMember = "Nome";
             // 
             // componentesBindingSource
             // 
@@ -441,11 +388,81 @@
             // 
             this.artigoTableAdapter.ClearBeforeFill = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(297, 199);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(106, 24);
+            this.checkBox1.TabIndex = 104;
+            this.checkBox1.Text = "Máquina 1:";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(297, 244);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(106, 24);
+            this.checkBox2.TabIndex = 105;
+            this.checkBox2.Text = "Máquina 2:";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(297, 301);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(106, 24);
+            this.checkBox3.TabIndex = 106;
+            this.checkBox3.Text = "Máquina 3:";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(297, 351);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(106, 24);
+            this.checkBox4.TabIndex = 107;
+            this.checkBox4.Text = "Máquina 4:";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox5.Location = new System.Drawing.Point(297, 403);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(106, 24);
+            this.checkBox5.TabIndex = 108;
+            this.checkBox5.Text = "Máquina 5:";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
             // AddComponentesArtigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
@@ -454,15 +471,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox6);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
@@ -500,15 +512,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
@@ -524,5 +531,10 @@
         private MedirmDBDataSetTableAdapters.ArtigoTableAdapter artigoTableAdapter;
         private System.Windows.Forms.BindingSource maquinaBindingSource2;
         private System.Windows.Forms.BindingSource maquinaBindingSource1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
     }
 }

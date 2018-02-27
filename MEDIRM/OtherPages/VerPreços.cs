@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,7 +35,67 @@ namespace MEDIRM
 
         private void back_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("DELETE FROM VerPrecos", con);
+                com.CommandType = CommandType.Text;
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+
+                //Clear the fields
+                textBox3.Clear();
+                comboBox2.ResetText();
+                comboBox1.ResetText();
+
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro.");
+            }
+
             MainFormView.ShowForm(new Menu());
+        }
+
+        private void criarMaquina_Click(object sender, EventArgs e)     // adicionar um artigo
+        {
+            try
+            {
+                //Insert in the database
+                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
+
+                SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos)", con);
+                com.CommandType = CommandType.Text;
+
+                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
+                String cb1 = drv["Cliente"].ToString();
+                com.Parameters.AddWithValue("@Cliente", cb1);
+
+                DataRowView drv2 = (DataRowView)comboBox2.SelectedItem;
+                String cb2 = drv2["Artigo"].ToString();
+                com.Parameters.AddWithValue("@Artigo", cb2);
+
+                con.Open();
+                int i = com.ExecuteNonQuery();
+                con.Close();
+
+                //Clear the fields
+                textBox3.Clear();
+                comboBox2.ResetText();
+
+            }
+            catch (Exception x)
+            {
+                //Error Message 
+                MessageBox.Show("Erro ao adicionar artigo ao cliente. Por favor tente novamente.");
+            }
         }
     }
 }

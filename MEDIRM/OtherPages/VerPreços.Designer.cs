@@ -62,7 +62,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(508, 28);
             this.comboBox1.TabIndex = 20;
-            this.comboBox1.ValueMember = "ID";
+            this.comboBox1.ValueMember = "Nome";
             // 
             // clienteBindingSource
             // 
@@ -85,7 +85,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(453, 28);
             this.comboBox2.TabIndex = 21;
-            this.comboBox2.ValueMember = "ID";
+            this.comboBox2.ValueMember = "Nome";
             // 
             // artigoBindingSource
             // 
@@ -192,6 +192,7 @@
             this.criarMaquina.TabIndex = 89;
             this.criarMaquina.Text = "Adicionar";
             this.criarMaquina.UseVisualStyleBackColor = true;
+            this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
             // VerPreços
             // 

@@ -136,6 +136,8 @@ namespace MEDIRM {
         
         private global::System.Data.DataRelation relationCliente_VerPrecos1;
         
+        private global::System.Data.DataRelation relationTransporte_Componentes1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -821,6 +823,7 @@ namespace MEDIRM {
             this.relationCliente_VerPrecos = this.Relations["Cliente_VerPrecos"];
             this.relationArtigo_VerPrecos = this.Relations["Artigo_VerPrecos"];
             this.relationCliente_VerPrecos1 = this.Relations["Cliente_VerPrecos1"];
+            this.relationTransporte_Componentes1 = this.Relations["Transporte_Componentes1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1009,6 +1012,10 @@ namespace MEDIRM {
                         this.tableCliente.MargemLucroColumn}, new global::System.Data.DataColumn[] {
                         this.tableVerPrecos.MargemLucroColumn}, false);
             this.Relations.Add(this.relationCliente_VerPrecos1);
+            this.relationTransporte_Componentes1 = new global::System.Data.DataRelation("Transporte_Componentes1", new global::System.Data.DataColumn[] {
+                        this.tableTransporte.DesignacaoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableComponentes.NomeColumn}, false);
+            this.Relations.Add(this.relationTransporte_Componentes1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3710,11 +3717,11 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnDesignacao;
             
-            private global::System.Data.DataColumn columnPrecoMetro;
-            
             private global::System.Data.DataColumn columnMetodoCalculo;
             
             private global::System.Data.DataColumn columnMoeda;
+            
+            private global::System.Data.DataColumn columnPrecoMetro;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -3759,14 +3766,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PrecoMetroColumn {
-                get {
-                    return this.columnPrecoMetro;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn MetodoCalculoColumn {
                 get {
                     return this.columnMetodoCalculo;
@@ -3778,6 +3777,14 @@ namespace MEDIRM {
             public global::System.Data.DataColumn MoedaColumn {
                 get {
                     return this.columnMoeda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrecoMetroColumn {
+                get {
+                    return this.columnPrecoMetro;
                 }
             }
             
@@ -3818,15 +3825,15 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PapelRow AddPapelRow(string Designacao, decimal PrecoMetro, string MetodoCalculo, MoedaRow parentMoedaRowByMoeda_Papel) {
+            public PapelRow AddPapelRow(string Designacao, string MetodoCalculo, MoedaRow parentMoedaRowByMoeda_Papel, decimal PrecoMetro) {
                 PapelRow rowPapelRow = ((PapelRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Designacao,
-                        PrecoMetro,
                         MetodoCalculo,
-                        null};
+                        null,
+                        PrecoMetro};
                 if ((parentMoedaRowByMoeda_Papel != null)) {
-                    columnValuesArray[3] = parentMoedaRowByMoeda_Papel[0];
+                    columnValuesArray[2] = parentMoedaRowByMoeda_Papel[0];
                 }
                 rowPapelRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPapelRow);
@@ -3858,9 +3865,9 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnDesignacao = base.Columns["Designacao"];
-                this.columnPrecoMetro = base.Columns["PrecoMetro"];
                 this.columnMetodoCalculo = base.Columns["MetodoCalculo"];
                 this.columnMoeda = base.Columns["Moeda"];
+                this.columnPrecoMetro = base.Columns["PrecoMetro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3868,21 +3875,21 @@ namespace MEDIRM {
             private void InitClass() {
                 this.columnDesignacao = new global::System.Data.DataColumn("Designacao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDesignacao);
-                this.columnPrecoMetro = new global::System.Data.DataColumn("PrecoMetro", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrecoMetro);
                 this.columnMetodoCalculo = new global::System.Data.DataColumn("MetodoCalculo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMetodoCalculo);
                 this.columnMoeda = new global::System.Data.DataColumn("Moeda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMoeda);
+                this.columnPrecoMetro = new global::System.Data.DataColumn("PrecoMetro", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecoMetro);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDesignacao}, true));
                 this.columnDesignacao.AllowDBNull = false;
                 this.columnDesignacao.Unique = true;
                 this.columnDesignacao.MaxLength = 50;
-                this.columnPrecoMetro.AllowDBNull = false;
                 this.columnMetodoCalculo.MaxLength = 2147483647;
                 this.columnMoeda.AllowDBNull = false;
                 this.columnMoeda.MaxLength = 50;
+                this.columnPrecoMetro.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5722,19 +5729,19 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnTransporte;
             
-            private global::System.Data.DataColumn columnPrecoCompra;
-            
             private global::System.Data.DataColumn columnMoeda;
+            
+            private global::System.Data.DataColumn columnQtdCartao;
+            
+            private global::System.Data.DataColumn columnUnBase;
+            
+            private global::System.Data.DataColumn columnPrecoCompra;
             
             private global::System.Data.DataColumn columnPrecoCusto;
             
             private global::System.Data.DataColumn columnCustoAlfandega;
             
-            private global::System.Data.DataColumn columnQtdCartao;
-            
             private global::System.Data.DataColumn columnVolCartao;
-            
-            private global::System.Data.DataColumn columnUnBase;
             
             private global::System.Data.DataColumn columnPrecoCustoFinal;
             
@@ -5797,17 +5804,33 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PrecoCompraColumn {
+            public global::System.Data.DataColumn MoedaColumn {
                 get {
-                    return this.columnPrecoCompra;
+                    return this.columnMoeda;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MoedaColumn {
+            public global::System.Data.DataColumn QtdCartaoColumn {
                 get {
-                    return this.columnMoeda;
+                    return this.columnQtdCartao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UnBaseColumn {
+                get {
+                    return this.columnUnBase;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrecoCompraColumn {
+                get {
+                    return this.columnPrecoCompra;
                 }
             }
             
@@ -5829,25 +5852,9 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn QtdCartaoColumn {
-                get {
-                    return this.columnQtdCartao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn VolCartaoColumn {
                 get {
                     return this.columnVolCartao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UnBaseColumn {
-                get {
-                    return this.columnUnBase;
                 }
             }
             
@@ -5896,25 +5903,28 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesRow AddComponentesRow(string Nome, int ID, TransporteRow parentTransporteRowByTransporte_Componentes, decimal PrecoCompra, MoedaRow parentMoedaRowByMoeda_Componentes, decimal PrecoCusto, decimal CustoAlfandega, int QtdCartao, decimal VolCartao, string UnBase, decimal PrecoCustoFinal) {
+            public ComponentesRow AddComponentesRow(TransporteRow parentTransporteRowByTransporte_Componentes1, int ID, TransporteRow parentTransporteRowByTransporte_Componentes, MoedaRow parentMoedaRowByMoeda_Componentes, int QtdCartao, string UnBase, decimal PrecoCompra, decimal PrecoCusto, decimal CustoAlfandega, decimal VolCartao, decimal PrecoCustoFinal) {
                 ComponentesRow rowComponentesRow = ((ComponentesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Nome,
+                        null,
                         ID,
                         null,
-                        PrecoCompra,
                         null,
+                        QtdCartao,
+                        UnBase,
+                        PrecoCompra,
                         PrecoCusto,
                         CustoAlfandega,
-                        QtdCartao,
                         VolCartao,
-                        UnBase,
                         PrecoCustoFinal};
+                if ((parentTransporteRowByTransporte_Componentes1 != null)) {
+                    columnValuesArray[0] = parentTransporteRowByTransporte_Componentes1[0];
+                }
                 if ((parentTransporteRowByTransporte_Componentes != null)) {
                     columnValuesArray[2] = parentTransporteRowByTransporte_Componentes[0];
                 }
                 if ((parentMoedaRowByMoeda_Componentes != null)) {
-                    columnValuesArray[4] = parentMoedaRowByMoeda_Componentes[0];
+                    columnValuesArray[3] = parentMoedaRowByMoeda_Componentes[0];
                 }
                 rowComponentesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComponentesRow);
@@ -5948,13 +5958,13 @@ namespace MEDIRM {
                 this.columnNome = base.Columns["Nome"];
                 this.columnID = base.Columns["ID"];
                 this.columnTransporte = base.Columns["Transporte"];
-                this.columnPrecoCompra = base.Columns["PrecoCompra"];
                 this.columnMoeda = base.Columns["Moeda"];
+                this.columnQtdCartao = base.Columns["QtdCartao"];
+                this.columnUnBase = base.Columns["UnBase"];
+                this.columnPrecoCompra = base.Columns["PrecoCompra"];
                 this.columnPrecoCusto = base.Columns["PrecoCusto"];
                 this.columnCustoAlfandega = base.Columns["CustoAlfandega"];
-                this.columnQtdCartao = base.Columns["QtdCartao"];
                 this.columnVolCartao = base.Columns["VolCartao"];
-                this.columnUnBase = base.Columns["UnBase"];
                 this.columnPrecoCustoFinal = base.Columns["PrecoCustoFinal"];
             }
             
@@ -5967,20 +5977,20 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnID);
                 this.columnTransporte = new global::System.Data.DataColumn("Transporte", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransporte);
-                this.columnPrecoCompra = new global::System.Data.DataColumn("PrecoCompra", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrecoCompra);
                 this.columnMoeda = new global::System.Data.DataColumn("Moeda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMoeda);
+                this.columnQtdCartao = new global::System.Data.DataColumn("QtdCartao", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQtdCartao);
+                this.columnUnBase = new global::System.Data.DataColumn("UnBase", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnBase);
+                this.columnPrecoCompra = new global::System.Data.DataColumn("PrecoCompra", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecoCompra);
                 this.columnPrecoCusto = new global::System.Data.DataColumn("PrecoCusto", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecoCusto);
                 this.columnCustoAlfandega = new global::System.Data.DataColumn("CustoAlfandega", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustoAlfandega);
-                this.columnQtdCartao = new global::System.Data.DataColumn("QtdCartao", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQtdCartao);
                 this.columnVolCartao = new global::System.Data.DataColumn("VolCartao", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVolCartao);
-                this.columnUnBase = new global::System.Data.DataColumn("UnBase", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnBase);
                 this.columnPrecoCustoFinal = new global::System.Data.DataColumn("PrecoCustoFinal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecoCustoFinal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -9570,17 +9580,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal PrecoMetro {
-                get {
-                    return ((decimal)(this[this.tablePapel.PrecoMetroColumn]));
-                }
-                set {
-                    this[this.tablePapel.PrecoMetroColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string MetodoCalculo {
                 get {
                     try {
@@ -9603,6 +9602,17 @@ namespace MEDIRM {
                 }
                 set {
                     this[this.tablePapel.MoedaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal PrecoMetro {
+                get {
+                    return ((decimal)(this[this.tablePapel.PrecoMetroColumn]));
+                }
+                set {
+                    this[this.tablePapel.PrecoMetroColumn] = value;
                 }
             }
             
@@ -9852,6 +9862,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((ComponentesRow[])(base.GetChildRows(this.Table.ChildRelations["Transporte_Componentes"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ComponentesRow[] GetComponentesRowsByTransporte_Componentes1() {
+                if ((this.Table.ChildRelations["Transporte_Componentes1"] == null)) {
+                    return new ComponentesRow[0];
+                }
+                else {
+                    return ((ComponentesRow[])(base.GetChildRows(this.Table.ChildRelations["Transporte_Componentes1"])));
                 }
             }
         }
@@ -10659,22 +10680,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal PrecoCompra {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableComponentes.PrecoCompraColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PrecoCompra\' na tabela \'Componentes\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentes.PrecoCompraColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Moeda {
                 get {
                     try {
@@ -10686,6 +10691,54 @@ namespace MEDIRM {
                 }
                 set {
                     this[this.tableComponentes.MoedaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int QtdCartao {
+                get {
+                    try {
+                        return ((int)(this[this.tableComponentes.QtdCartaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QtdCartao\' na tabela \'Componentes\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComponentes.QtdCartaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UnBase {
+                get {
+                    try {
+                        return ((string)(this[this.tableComponentes.UnBaseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UnBase\' na tabela \'Componentes\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComponentes.UnBaseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal PrecoCompra {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableComponentes.PrecoCompraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PrecoCompra\' na tabela \'Componentes\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComponentes.PrecoCompraColumn] = value;
                 }
             }
             
@@ -10723,22 +10776,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int QtdCartao {
-                get {
-                    try {
-                        return ((int)(this[this.tableComponentes.QtdCartaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QtdCartao\' na tabela \'Componentes\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentes.QtdCartaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal VolCartao {
                 get {
                     try {
@@ -10750,22 +10787,6 @@ namespace MEDIRM {
                 }
                 set {
                     this[this.tableComponentes.VolCartaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string UnBase {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentes.UnBaseColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UnBase\' na tabela \'Componentes\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentes.UnBaseColumn] = value;
                 }
             }
             
@@ -10809,6 +10830,17 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TransporteRow TransporteRowByTransporte_Componentes1 {
+                get {
+                    return ((TransporteRow)(this.GetParentRow(this.Table.ParentRelations["Transporte_Componentes1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Transporte_Componentes1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableComponentes.IDColumn);
             }
@@ -10833,18 +10865,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPrecoCompraNull() {
-                return this.IsNull(this.tableComponentes.PrecoCompraColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPrecoCompraNull() {
-                this[this.tableComponentes.PrecoCompraColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsMoedaNull() {
                 return this.IsNull(this.tableComponentes.MoedaColumn);
             }
@@ -10853,6 +10873,42 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMoedaNull() {
                 this[this.tableComponentes.MoedaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsQtdCartaoNull() {
+                return this.IsNull(this.tableComponentes.QtdCartaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetQtdCartaoNull() {
+                this[this.tableComponentes.QtdCartaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsUnBaseNull() {
+                return this.IsNull(this.tableComponentes.UnBaseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetUnBaseNull() {
+                this[this.tableComponentes.UnBaseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPrecoCompraNull() {
+                return this.IsNull(this.tableComponentes.PrecoCompraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPrecoCompraNull() {
+                this[this.tableComponentes.PrecoCompraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10881,18 +10937,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsQtdCartaoNull() {
-                return this.IsNull(this.tableComponentes.QtdCartaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetQtdCartaoNull() {
-                this[this.tableComponentes.QtdCartaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsVolCartaoNull() {
                 return this.IsNull(this.tableComponentes.VolCartaoColumn);
             }
@@ -10901,18 +10945,6 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetVolCartaoNull() {
                 this[this.tableComponentes.VolCartaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsUnBaseNull() {
-                return this.IsNull(this.tableComponentes.UnBaseColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetUnBaseNull() {
-                this[this.tableComponentes.UnBaseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15835,7 +15867,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Molde] WHERE (([Designacao] = @Original_Designacao) AND ([Cortantes] = @Original_Cortantes) AND ([PecasPorAvanco] = @Original_PecasPorAvanco) AND ((@IsNull_MetrosPorAvanco = 1 AND [MetrosPorAvanco] IS NULL) OR ([MetrosPorAvanco] = @Original_MetrosPorAvanco)) AND ((@IsNull_Profundidade = 1 AND [Profundidade] IS NULL) OR ([Profundidade] = @Original_Profundidade)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Molde] WHERE (([Designacao] = @Original_Designacao) AND ([Cortantes] = @Original_Cortantes) AND ([PecasPorAvanco] = @Original_PecasPorAvanco) AND ((@IsNull_MetrosPorAvanco = 1 AND [MetrosPorAvanco] IS NULL) OR ([MetrosPorAvanco] = @Original_MetrosPorAvanco)) AND ((@IsNull_Profundidade = 1 AND [Profundidade] IS NULL) OR ([Profundidade] = @Original_Profundidade)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cortantes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cortantes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15846,7 +15878,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Profundidade", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Profundidade", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Molde] ([Designacao], [Cortantes], [PecasPorAvanco], [MetrosPorAvanco], [Profundidade]) VALUES (@Designacao, @Cortantes, @PecasPorAvanco, @MetrosPorAvanco, @Profundidade);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Molde] ([Designacao], [Cortantes], [PecasPorAvanco], [MetrosPorAvanco], [Profundidade]) VALUES (@Designacao, @Cortantes, @PecasPorAvanco, @MetrosPorAvanco, @Profundidade);
 SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM Molde WHERE (Designacao = @Designacao)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15856,7 +15888,7 @@ SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Profundidade", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Profundidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Molde] SET [Designacao] = @Designacao, [Cortantes] = @Cortantes, [PecasPorAvanco] = @PecasPorAvanco, [MetrosPorAvanco] = @MetrosPorAvanco, [Profundidade] = @Profundidade WHERE (([Designacao] = @Original_Designacao) AND ([Cortantes] = @Original_Cortantes) AND ([PecasPorAvanco] = @Original_PecasPorAvanco) AND ((@IsNull_MetrosPorAvanco = 1 AND [MetrosPorAvanco] IS NULL) OR ([MetrosPorAvanco] = @Original_MetrosPorAvanco)) AND ((@IsNull_Profundidade = 1 AND [Profundidade] IS NULL) OR ([Profundidade] = @Original_Profundidade)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Molde] SET [Designacao] = @Designacao, [Cortantes] = @Cortantes, [PecasPorAvanco] = @PecasPorAvanco, [MetrosPorAvanco] = @MetrosPorAvanco, [Profundidade] = @Profundidade WHERE (([Designacao] = @Original_Designacao) AND ([Cortantes] = @Original_Cortantes) AND ([PecasPorAvanco] = @Original_PecasPorAvanco) AND ((@IsNull_MetrosPorAvanco = 1 AND [MetrosPorAvanco] IS NULL) OR ([MetrosPorAvanco] = @Original_MetrosPorAvanco)) AND ((@IsNull_Profundidade = 1 AND [Profundidade] IS NULL) OR ([Profundidade] = @Original_Profundidade)));
 SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM Molde WHERE (Designacao = @Designacao)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15887,7 +15919,7 @@ SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM " +
-                "dbo.Molde";
+                "Molde";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16266,40 +16298,40 @@ SELECT Designacao, Cortantes, PecasPorAvanco, MetrosPorAvanco, Profundidade FROM
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Papel";
             tableMapping.ColumnMappings.Add("Designacao", "Designacao");
-            tableMapping.ColumnMappings.Add("PrecoMetro", "PrecoMetro");
             tableMapping.ColumnMappings.Add("MetodoCalculo", "MetodoCalculo");
             tableMapping.ColumnMappings.Add("Moeda", "Moeda");
+            tableMapping.ColumnMappings.Add("PrecoMetro", "PrecoMetro");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Papel] WHERE (([Designacao] = @Original_Designacao) AND ([Prec" +
-                "oMetro] = @Original_PrecoMetro) AND ([Moeda] = @Original_Moeda))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Papel] WHERE (([Designacao] = @Original_Designacao) AND ([Moeda] = @" +
+                "Original_Moeda) AND ([PrecoMetro] = @Original_PrecoMetro))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Papel] ([Designacao], [PrecoMetro], [MetodoCalculo], [Moeda]) " +
-                "VALUES (@Designacao, @PrecoMetro, @MetodoCalculo, @Moeda);\r\nSELECT Designacao, P" +
-                "recoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao = @Designacao)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Papel] ([Designacao], [MetodoCalculo], [Moeda], [PrecoMetro]) VALUES" +
+                " (@Designacao, @MetodoCalculo, @Moeda, @PrecoMetro);\r\nSELECT Designacao, MetodoC" +
+                "alculo, Moeda, PrecoMetro FROM Papel WHERE (Designacao = @Designacao)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetodoCalculo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MetodoCalculo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Papel] SET [Designacao] = @Designacao, [PrecoMetro] = @PrecoMetro, [MetodoCalculo] = @MetodoCalculo, [Moeda] = @Moeda WHERE (([Designacao] = @Original_Designacao) AND ([PrecoMetro] = @Original_PrecoMetro) AND ([Moeda] = @Original_Moeda));
-SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao = @Designacao)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Papel] SET [Designacao] = @Designacao, [MetodoCalculo] = @MetodoCalculo, [Moeda] = @Moeda, [PrecoMetro] = @PrecoMetro WHERE (([Designacao] = @Original_Designacao) AND ([Moeda] = @Original_Moeda) AND ([PrecoMetro] = @Original_PrecoMetro));
+SELECT Designacao, MetodoCalculo, Moeda, PrecoMetro FROM Papel WHERE (Designacao = @Designacao)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetodoCalculo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MetodoCalculo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Designacao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoMetro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoMetro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16315,7 +16347,7 @@ SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM dbo.Papel";
+            this._commandCollection[0].CommandText = "SELECT Designacao, MetodoCalculo, Moeda, PrecoMetro FROM Papel";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16376,20 +16408,20 @@ SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Designacao, decimal Original_PrecoMetro, string Original_Moeda) {
+        public virtual int Delete(string Original_Designacao, string Original_Moeda, decimal Original_PrecoMetro) {
             if ((Original_Designacao == null)) {
                 throw new global::System.ArgumentNullException("Original_Designacao");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Designacao));
             }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_PrecoMetro));
             if ((Original_Moeda == null)) {
                 throw new global::System.ArgumentNullException("Original_Moeda");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Moeda));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Moeda));
             }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_PrecoMetro));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16410,26 +16442,26 @@ SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Designacao, decimal PrecoMetro, string MetodoCalculo, string Moeda) {
+        public virtual int Insert(string Designacao, string MetodoCalculo, string Moeda, decimal PrecoMetro) {
             if ((Designacao == null)) {
                 throw new global::System.ArgumentNullException("Designacao");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Designacao));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(PrecoMetro));
             if ((MetodoCalculo == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MetodoCalculo));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MetodoCalculo));
             }
             if ((Moeda == null)) {
                 throw new global::System.ArgumentNullException("Moeda");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Moeda));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Moeda));
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(PrecoMetro));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16450,39 +16482,39 @@ SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Designacao, decimal PrecoMetro, string MetodoCalculo, string Moeda, string Original_Designacao, decimal Original_PrecoMetro, string Original_Moeda) {
+        public virtual int Update(string Designacao, string MetodoCalculo, string Moeda, decimal PrecoMetro, string Original_Designacao, string Original_Moeda, decimal Original_PrecoMetro) {
             if ((Designacao == null)) {
                 throw new global::System.ArgumentNullException("Designacao");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Designacao));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(PrecoMetro));
             if ((MetodoCalculo == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MetodoCalculo));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MetodoCalculo));
             }
             if ((Moeda == null)) {
                 throw new global::System.ArgumentNullException("Moeda");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Moeda));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Moeda));
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(PrecoMetro));
             if ((Original_Designacao == null)) {
                 throw new global::System.ArgumentNullException("Original_Designacao");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Designacao));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_PrecoMetro));
             if ((Original_Moeda == null)) {
                 throw new global::System.ArgumentNullException("Original_Moeda");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Moeda));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Moeda));
             }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_PrecoMetro));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16503,8 +16535,8 @@ SELECT Designacao, PrecoMetro, MetodoCalculo, Moeda FROM Papel WHERE (Designacao
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal PrecoMetro, string MetodoCalculo, string Moeda, string Original_Designacao, decimal Original_PrecoMetro, string Original_Moeda) {
-            return this.Update(Original_Designacao, PrecoMetro, MetodoCalculo, Moeda, Original_Designacao, Original_PrecoMetro, Original_Moeda);
+        public virtual int Update(string MetodoCalculo, string Moeda, decimal PrecoMetro, string Original_Designacao, string Original_Moeda, decimal Original_PrecoMetro) {
+            return this.Update(Original_Designacao, MetodoCalculo, Moeda, PrecoMetro, Original_Designacao, Original_Moeda, Original_PrecoMetro);
         }
     }
     
@@ -18973,93 +19005,93 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             tableMapping.ColumnMappings.Add("Nome", "Nome");
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Transporte", "Transporte");
-            tableMapping.ColumnMappings.Add("PrecoCompra", "PrecoCompra");
             tableMapping.ColumnMappings.Add("Moeda", "Moeda");
+            tableMapping.ColumnMappings.Add("QtdCartao", "QtdCartao");
+            tableMapping.ColumnMappings.Add("UnBase", "UnBase");
+            tableMapping.ColumnMappings.Add("PrecoCompra", "PrecoCompra");
             tableMapping.ColumnMappings.Add("PrecoCusto", "PrecoCusto");
             tableMapping.ColumnMappings.Add("CustoAlfandega", "CustoAlfandega");
-            tableMapping.ColumnMappings.Add("QtdCartao", "QtdCartao");
             tableMapping.ColumnMappings.Add("VolCartao", "VolCartao");
-            tableMapping.ColumnMappings.Add("UnBase", "UnBase");
             tableMapping.ColumnMappings.Add("PrecoCustoFinal", "PrecoCustoFinal");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Componentes] WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Transporte = 1 AND [Transporte] IS NULL) OR ([Transporte] = @Original_Transporte)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_Moeda = 1 AND [Moeda] IS NULL) OR ([Moeda] = @Original_Moeda)) AND ((@IsNull_PrecoCusto = 1 AND [PrecoCusto] IS NULL) OR ([PrecoCusto] = @Original_PrecoCusto)) AND ((@IsNull_CustoAlfandega = 1 AND [CustoAlfandega] IS NULL) OR ([CustoAlfandega] = @Original_CustoAlfandega)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_VolCartao = 1 AND [VolCartao] IS NULL) OR ([VolCartao] = @Original_VolCartao)) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_PrecoCustoFinal = 1 AND [PrecoCustoFinal] IS NULL) OR ([PrecoCustoFinal] = @Original_PrecoCustoFinal)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Componentes] WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Transporte = 1 AND [Transporte] IS NULL) OR ([Transporte] = @Original_Transporte)) AND ((@IsNull_Moeda = 1 AND [Moeda] IS NULL) OR ([Moeda] = @Original_Moeda)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_CustoAlfandega = 1 AND [CustoAlfandega] IS NULL) OR ([CustoAlfandega] = @Original_CustoAlfandega)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoCusto = 1 AND [PrecoCusto] IS NULL) OR ([PrecoCusto] = @Original_PrecoCusto)) AND ((@IsNull_PrecoCustoFinal = 1 AND [PrecoCustoFinal] IS NULL) OR ([PrecoCustoFinal] = @Original_PrecoCustoFinal)) AND ((@IsNull_VolCartao = 1 AND [VolCartao] IS NULL) OR ([VolCartao] = @Original_VolCartao)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Transporte", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Transporte", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCompra", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Moeda", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCusto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustoAlfandega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VolCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VolCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnBase", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnBase", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustoAlfandega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCompra", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCusto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCustoFinal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCustoFinal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VolCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VolCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Componentes] ([Nome], [ID], [Transporte], [PrecoCompra], [Moeda], [PrecoCusto], [CustoAlfandega], [QtdCartao], [VolCartao], [UnBase], [PrecoCustoFinal]) VALUES (@Nome, @ID, @Transporte, @PrecoCompra, @Moeda, @PrecoCusto, @CustoAlfandega, @QtdCartao, @VolCartao, @UnBase, @PrecoCustoFinal);
-SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, QtdCartao, VolCartao, UnBase, PrecoCustoFinal FROM Componentes WHERE (Nome = @Nome)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Componentes] ([Nome], [ID], [Transporte], [Moeda], [QtdCartao], [UnBase], [CustoAlfandega], [PrecoCompra], [PrecoCusto], [PrecoCustoFinal], [VolCartao]) VALUES (@Nome, @ID, @Transporte, @Moeda, @QtdCartao, @UnBase, @CustoAlfandega, @PrecoCompra, @PrecoCusto, @PrecoCustoFinal, @VolCartao);
+SELECT Nome, ID, Transporte, Moeda, QtdCartao, UnBase, CustoAlfandega, PrecoCompra, PrecoCusto, PrecoCustoFinal, VolCartao FROM Componentes WHERE (Nome = @Nome)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Transporte", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnBase", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCustoFinal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Componentes] SET [Nome] = @Nome, [ID] = @ID, [Transporte] = @Transporte, [PrecoCompra] = @PrecoCompra, [Moeda] = @Moeda, [PrecoCusto] = @PrecoCusto, [CustoAlfandega] = @CustoAlfandega, [QtdCartao] = @QtdCartao, [VolCartao] = @VolCartao, [UnBase] = @UnBase, [PrecoCustoFinal] = @PrecoCustoFinal WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Transporte = 1 AND [Transporte] IS NULL) OR ([Transporte] = @Original_Transporte)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_Moeda = 1 AND [Moeda] IS NULL) OR ([Moeda] = @Original_Moeda)) AND ((@IsNull_PrecoCusto = 1 AND [PrecoCusto] IS NULL) OR ([PrecoCusto] = @Original_PrecoCusto)) AND ((@IsNull_CustoAlfandega = 1 AND [CustoAlfandega] IS NULL) OR ([CustoAlfandega] = @Original_CustoAlfandega)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_VolCartao = 1 AND [VolCartao] IS NULL) OR ([VolCartao] = @Original_VolCartao)) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_PrecoCustoFinal = 1 AND [PrecoCustoFinal] IS NULL) OR ([PrecoCustoFinal] = @Original_PrecoCustoFinal)));
-SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, QtdCartao, VolCartao, UnBase, PrecoCustoFinal FROM Componentes WHERE (Nome = @Nome)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Componentes] SET [Nome] = @Nome, [ID] = @ID, [Transporte] = @Transporte, [Moeda] = @Moeda, [QtdCartao] = @QtdCartao, [UnBase] = @UnBase, [CustoAlfandega] = @CustoAlfandega, [PrecoCompra] = @PrecoCompra, [PrecoCusto] = @PrecoCusto, [PrecoCustoFinal] = @PrecoCustoFinal, [VolCartao] = @VolCartao WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Transporte = 1 AND [Transporte] IS NULL) OR ([Transporte] = @Original_Transporte)) AND ((@IsNull_Moeda = 1 AND [Moeda] IS NULL) OR ([Moeda] = @Original_Moeda)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_CustoAlfandega = 1 AND [CustoAlfandega] IS NULL) OR ([CustoAlfandega] = @Original_CustoAlfandega)) AND ((@IsNull_PrecoCompra = 1 AND [PrecoCompra] IS NULL) OR ([PrecoCompra] = @Original_PrecoCompra)) AND ((@IsNull_PrecoCusto = 1 AND [PrecoCusto] IS NULL) OR ([PrecoCusto] = @Original_PrecoCusto)) AND ((@IsNull_PrecoCustoFinal = 1 AND [PrecoCustoFinal] IS NULL) OR ([PrecoCustoFinal] = @Original_PrecoCustoFinal)) AND ((@IsNull_VolCartao = 1 AND [VolCartao] IS NULL) OR ([VolCartao] = @Original_VolCartao)));
+SELECT Nome, ID, Transporte, Moeda, QtdCartao, UnBase, CustoAlfandega, PrecoCompra, PrecoCusto, PrecoCustoFinal, VolCartao FROM Componentes WHERE (Nome = @Nome)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Transporte", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnBase", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoCustoFinal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Transporte", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Transporte", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporte", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCompra", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Moeda", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Moeda", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Moeda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCusto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustoAlfandega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QtdCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VolCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VolCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnBase", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnBase", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustoAlfandega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustoAlfandega", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustoAlfandega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCompra", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCompra", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCompra", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCusto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCusto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCusto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrecoCustoFinal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrecoCustoFinal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoCustoFinal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VolCartao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VolCartao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VolCartao", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "VolCartao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19075,8 +19107,8 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, QtdC" +
-                "artao, VolCartao, UnBase, PrecoCustoFinal FROM Componentes";
+            this._commandCollection[0].CommandText = "SELECT Nome, ID, Transporte, Moeda, QtdCartao, UnBase, CustoAlfandega, PrecoCompr" +
+                "a, PrecoCusto, PrecoCustoFinal, VolCartao FROM Componentes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19137,7 +19169,7 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Transporte, global::System.Nullable<decimal> Original_PrecoCompra, string Original_Moeda, global::System.Nullable<decimal> Original_PrecoCusto, global::System.Nullable<decimal> Original_CustoAlfandega, global::System.Nullable<int> Original_QtdCartao, global::System.Nullable<decimal> Original_VolCartao, string Original_UnBase, global::System.Nullable<decimal> Original_PrecoCustoFinal) {
+        public virtual int Delete(string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Transporte, string Original_Moeda, global::System.Nullable<int> Original_QtdCartao, string Original_UnBase, global::System.Nullable<decimal> Original_CustoAlfandega, global::System.Nullable<decimal> Original_PrecoCompra, global::System.Nullable<decimal> Original_PrecoCusto, global::System.Nullable<decimal> Original_PrecoCustoFinal, global::System.Nullable<decimal> Original_VolCartao) {
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
@@ -19160,29 +19192,29 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Transporte));
             }
-            if ((Original_PrecoCompra.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_PrecoCompra.Value));
-            }
-            else {
+            if ((Original_Moeda == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Moeda == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Moeda));
+            }
+            if ((Original_QtdCartao.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_QtdCartao.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Moeda));
-            }
-            if ((Original_PrecoCusto.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_PrecoCusto.Value));
-            }
-            else {
+            if ((Original_UnBase == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_UnBase));
             }
             if ((Original_CustoAlfandega.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
@@ -19192,33 +19224,33 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_QtdCartao.HasValue == true)) {
+            if ((Original_PrecoCompra.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_QtdCartao.Value));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_PrecoCompra.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_VolCartao.HasValue == true)) {
+            if ((Original_PrecoCusto.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_VolCartao.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_PrecoCusto.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_UnBase == null)) {
+            if ((Original_PrecoCustoFinal.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_PrecoCustoFinal.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_UnBase));
-            }
-            if ((Original_PrecoCustoFinal.HasValue == true)) {
+            if ((Original_VolCartao.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_PrecoCustoFinal.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_VolCartao.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
@@ -19244,7 +19276,7 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nome, global::System.Nullable<int> ID, string Transporte, global::System.Nullable<decimal> PrecoCompra, string Moeda, global::System.Nullable<decimal> PrecoCusto, global::System.Nullable<decimal> CustoAlfandega, global::System.Nullable<int> QtdCartao, global::System.Nullable<decimal> VolCartao, string UnBase, global::System.Nullable<decimal> PrecoCustoFinal) {
+        public virtual int Insert(string Nome, global::System.Nullable<int> ID, string Transporte, string Moeda, global::System.Nullable<int> QtdCartao, string UnBase, global::System.Nullable<decimal> CustoAlfandega, global::System.Nullable<decimal> PrecoCompra, global::System.Nullable<decimal> PrecoCusto, global::System.Nullable<decimal> PrecoCustoFinal, global::System.Nullable<decimal> VolCartao) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -19263,23 +19295,23 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Transporte));
             }
-            if ((PrecoCompra.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(PrecoCompra.Value));
-            }
-            else {
+            if ((Moeda == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Moeda == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Moeda));
+            }
+            if ((QtdCartao.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(QtdCartao.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Moeda));
-            }
-            if ((PrecoCusto.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(PrecoCusto.Value));
-            }
-            else {
+            if ((UnBase == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(UnBase));
             }
             if ((CustoAlfandega.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(CustoAlfandega.Value));
@@ -19287,26 +19319,26 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((QtdCartao.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(QtdCartao.Value));
+            if ((PrecoCompra.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(PrecoCompra.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((VolCartao.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(VolCartao.Value));
+            if ((PrecoCusto.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(PrecoCusto.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((UnBase == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((PrecoCustoFinal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(PrecoCustoFinal.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(UnBase));
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((PrecoCustoFinal.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(PrecoCustoFinal.Value));
+            if ((VolCartao.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(VolCartao.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -19335,25 +19367,25 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
                     string Nome, 
                     global::System.Nullable<int> ID, 
                     string Transporte, 
-                    global::System.Nullable<decimal> PrecoCompra, 
                     string Moeda, 
-                    global::System.Nullable<decimal> PrecoCusto, 
-                    global::System.Nullable<decimal> CustoAlfandega, 
                     global::System.Nullable<int> QtdCartao, 
-                    global::System.Nullable<decimal> VolCartao, 
                     string UnBase, 
+                    global::System.Nullable<decimal> CustoAlfandega, 
+                    global::System.Nullable<decimal> PrecoCompra, 
+                    global::System.Nullable<decimal> PrecoCusto, 
                     global::System.Nullable<decimal> PrecoCustoFinal, 
+                    global::System.Nullable<decimal> VolCartao, 
                     string Original_Nome, 
                     global::System.Nullable<int> Original_ID, 
                     string Original_Transporte, 
-                    global::System.Nullable<decimal> Original_PrecoCompra, 
                     string Original_Moeda, 
-                    global::System.Nullable<decimal> Original_PrecoCusto, 
-                    global::System.Nullable<decimal> Original_CustoAlfandega, 
                     global::System.Nullable<int> Original_QtdCartao, 
-                    global::System.Nullable<decimal> Original_VolCartao, 
                     string Original_UnBase, 
-                    global::System.Nullable<decimal> Original_PrecoCustoFinal) {
+                    global::System.Nullable<decimal> Original_CustoAlfandega, 
+                    global::System.Nullable<decimal> Original_PrecoCompra, 
+                    global::System.Nullable<decimal> Original_PrecoCusto, 
+                    global::System.Nullable<decimal> Original_PrecoCustoFinal, 
+                    global::System.Nullable<decimal> Original_VolCartao) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -19372,23 +19404,23 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Transporte));
             }
-            if ((PrecoCompra.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(PrecoCompra.Value));
-            }
-            else {
+            if ((Moeda == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Moeda == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Moeda));
+            }
+            if ((QtdCartao.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(QtdCartao.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Moeda));
-            }
-            if ((PrecoCusto.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(PrecoCusto.Value));
-            }
-            else {
+            if ((UnBase == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(UnBase));
             }
             if ((CustoAlfandega.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(CustoAlfandega.Value));
@@ -19396,26 +19428,26 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((QtdCartao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(QtdCartao.Value));
+            if ((PrecoCompra.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(PrecoCompra.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((VolCartao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(VolCartao.Value));
+            if ((PrecoCusto.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(PrecoCusto.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((UnBase == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((PrecoCustoFinal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(PrecoCustoFinal.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(UnBase));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((PrecoCustoFinal.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(PrecoCustoFinal.Value));
+            if ((VolCartao.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(VolCartao.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -19442,29 +19474,29 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Transporte));
             }
-            if ((Original_PrecoCompra.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_PrecoCompra.Value));
-            }
-            else {
+            if ((Original_Moeda == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((Original_Moeda == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Moeda));
+            }
+            if ((Original_QtdCartao.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_QtdCartao.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Moeda));
-            }
-            if ((Original_PrecoCusto.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_PrecoCusto.Value));
-            }
-            else {
+            if ((Original_UnBase == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_UnBase));
             }
             if ((Original_CustoAlfandega.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
@@ -19474,33 +19506,33 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_QtdCartao.HasValue == true)) {
+            if ((Original_PrecoCompra.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_QtdCartao.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_PrecoCompra.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_VolCartao.HasValue == true)) {
+            if ((Original_PrecoCusto.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(Original_VolCartao.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(Original_PrecoCusto.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_UnBase == null)) {
+            if ((Original_PrecoCustoFinal.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Original_PrecoCustoFinal.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_UnBase));
-            }
-            if ((Original_PrecoCustoFinal.HasValue == true)) {
+            if ((Original_VolCartao.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_PrecoCustoFinal.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_VolCartao.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
@@ -19529,26 +19561,26 @@ SELECT Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, Qtd
         public virtual int Update(
                     global::System.Nullable<int> ID, 
                     string Transporte, 
-                    global::System.Nullable<decimal> PrecoCompra, 
                     string Moeda, 
-                    global::System.Nullable<decimal> PrecoCusto, 
-                    global::System.Nullable<decimal> CustoAlfandega, 
                     global::System.Nullable<int> QtdCartao, 
-                    global::System.Nullable<decimal> VolCartao, 
                     string UnBase, 
+                    global::System.Nullable<decimal> CustoAlfandega, 
+                    global::System.Nullable<decimal> PrecoCompra, 
+                    global::System.Nullable<decimal> PrecoCusto, 
                     global::System.Nullable<decimal> PrecoCustoFinal, 
+                    global::System.Nullable<decimal> VolCartao, 
                     string Original_Nome, 
                     global::System.Nullable<int> Original_ID, 
                     string Original_Transporte, 
-                    global::System.Nullable<decimal> Original_PrecoCompra, 
                     string Original_Moeda, 
-                    global::System.Nullable<decimal> Original_PrecoCusto, 
-                    global::System.Nullable<decimal> Original_CustoAlfandega, 
                     global::System.Nullable<int> Original_QtdCartao, 
-                    global::System.Nullable<decimal> Original_VolCartao, 
                     string Original_UnBase, 
-                    global::System.Nullable<decimal> Original_PrecoCustoFinal) {
-            return this.Update(Original_Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, QtdCartao, VolCartao, UnBase, PrecoCustoFinal, Original_Nome, Original_ID, Original_Transporte, Original_PrecoCompra, Original_Moeda, Original_PrecoCusto, Original_CustoAlfandega, Original_QtdCartao, Original_VolCartao, Original_UnBase, Original_PrecoCustoFinal);
+                    global::System.Nullable<decimal> Original_CustoAlfandega, 
+                    global::System.Nullable<decimal> Original_PrecoCompra, 
+                    global::System.Nullable<decimal> Original_PrecoCusto, 
+                    global::System.Nullable<decimal> Original_PrecoCustoFinal, 
+                    global::System.Nullable<decimal> Original_VolCartao) {
+            return this.Update(Original_Nome, ID, Transporte, Moeda, QtdCartao, UnBase, CustoAlfandega, PrecoCompra, PrecoCusto, PrecoCustoFinal, VolCartao, Original_Nome, Original_ID, Original_Transporte, Original_Moeda, Original_QtdCartao, Original_UnBase, Original_CustoAlfandega, Original_PrecoCompra, Original_PrecoCusto, Original_PrecoCustoFinal, Original_VolCartao);
         }
     }
     

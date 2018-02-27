@@ -100,7 +100,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(503, 28);
             this.comboBox2.TabIndex = 64;
-            this.comboBox2.ValueMember = "ID";
+            this.comboBox2.ValueMember = "Nome";
             // 
             // clienteBindingSource
             // 
@@ -123,7 +123,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(503, 28);
             this.comboBox3.TabIndex = 70;
-            this.comboBox3.ValueMember = "ID";
+            this.comboBox3.ValueMember = "Nome";
             // 
             // artigoBindingSource
             // 

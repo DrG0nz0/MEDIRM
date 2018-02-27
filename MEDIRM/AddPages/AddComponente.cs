@@ -42,7 +42,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Componente (Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, PrecoCusto, QtdCartao, VolCartao, UnBase, PrecoCustoFinal) VALUES (@Nome, @ID, @Transporte, @PrecoCompra, @Moeda, @PrecoCusto, @CustoAlfandegario, @QtdCartao, @VolCartao, @UnBase, @PrecoCustoFinal)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Componentes (Nome, ID, Transporte, PrecoCompra, Moeda, PrecoCusto, CustoAlfandega, QtdCartao, VolCartao, UnBase, PrecoCustoFinal) VALUES (@Nome, @ID, @Transporte, @PrecoCompra, @Moeda, @PrecoCusto, @CustoAlfandega, @QtdCartao, @VolCartao, @UnBase, @PrecoCustoFinal)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -52,15 +52,14 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
                 com.Parameters.AddWithValue("@VolCartao", textBox7.Text);
                 com.Parameters.AddWithValue("@UnBase", textBox8.Text);
+                com.Parameters.AddWithValue("@CustoAlfandega", textBox5.Text);
                 com.Parameters.AddWithValue("@PrecoCustoFinal", 0);
 
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb1 = drv["Transporte"].ToString();
-                com.Parameters.AddWithValue("@Transporte", cb1);
+                com.Parameters.AddWithValue("@Transporte", comboBox1.SelectedValue.ToString());
 
-                DataRowView drv2 = (DataRowView)comboBox2.SelectedItem;
-                String cb2 = drv2["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb2);
+                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
+                String cb = drv["Moeda"].ToString();
+                com.Parameters.AddWithValue("@Moeda", cb);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -70,13 +69,18 @@ namespace MEDIRM
                 MessageBox.Show("Componente adicionado com sucesso!");
 
                 //Clear the fields
-                textBox4.Clear();
+                textBox1.Clear();
                 textBox2.Clear();
                 textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
                 textBox8.Clear();
+                textBox7.Clear();
+                textBox9.Clear();
                 comboBox2.ResetText();
                 comboBox1.ResetText();
-
+            
             }
             catch (Exception x)
             {

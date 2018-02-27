@@ -56,15 +56,12 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                 com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
 
-                DataRowView drv = (DataRowView)comboBox7.SelectedItem;
-                String cb = drv["Cartao"].ToString();
-                com.Parameters.AddWithValue("@Cartao", cb);
 
-                DataRowView drv1 = (DataRowView)comboBox8.SelectedItem;
-                String cb1 = drv1["Cartolina"].ToString();
-                com.Parameters.AddWithValue("@Cartolina", cb1);
+                string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                com.Parameters.AddWithValue("@Cartao", ed);
 
-                // falta ainda adicionar os funcionarios para tras e para a frente
+                string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                com.Parameters.AddWithValue("@Cartolina", ed2);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
