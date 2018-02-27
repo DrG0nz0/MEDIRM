@@ -19,6 +19,8 @@ namespace MEDIRM
             InitializeComponent();
         }
 
+        MedirmDBEntities me = new MedirmDBEntities();
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -33,7 +35,7 @@ namespace MEDIRM
 
         }
 
-        private void back_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)     // apagar a BD
         {
             try
             {
@@ -65,6 +67,19 @@ namespace MEDIRM
 
         private void criarMaquina_Click(object sender, EventArgs e)     // adicionar um artigo
         {
+            String coefe = me.ComponentesDosArtigos.ToString();
+            MessageBox.Show(coefe);
+
+
+
+
+
+
+
+
+
+
+
             try
             {
                 //Insert in the database
@@ -74,13 +89,9 @@ namespace MEDIRM
                 SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos)", con);
                 com.CommandType = CommandType.Text;
 
-                DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb1 = drv["Cliente"].ToString();
-                com.Parameters.AddWithValue("@Cliente", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox2.SelectedItem;
-                String cb2 = drv2["Artigo"].ToString();
-                com.Parameters.AddWithValue("@Artigo", cb2);
+                com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Designacao", textBox3.Text);
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

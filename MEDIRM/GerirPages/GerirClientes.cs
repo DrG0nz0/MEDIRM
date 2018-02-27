@@ -30,6 +30,14 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cliente'. Você pode movê-la ou removê-la conforme necessário.
             this.clienteTableAdapter.Fill(this.medirmDBDataSet.Cliente);
 
+            //Clear the fields
+            textBox3.Clear();
+            textBox8.Clear();
+            textBox4.Clear();
+            comboBox3.ResetText();
+            comboBox2.ResetText();
+            comboBox1.ResetText();
+
         }
 
         private void checkBox1_Click(object sender, EventArgs e)
@@ -109,12 +117,12 @@ namespace MEDIRM.GerirPages
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();
-            SqlCommand cmd2 = new SqlCommand("Select * from Cliente where Designacao='" + comboBox1.Text.Trim() + "'", con2);
+            SqlCommand cmd2 = new SqlCommand("Select * from Cliente where Nome='" + comboBox1.Text.Trim() + "'", con2);
 
             try
             {
                 DataRowView drv = (DataRowView)comboBox1.SelectedItem;
-                String cb1 = drv["Designacao"].ToString();
+                String cb1 = drv["Nome"].ToString();
             }
             catch { }
 
@@ -122,19 +130,63 @@ namespace MEDIRM.GerirPages
             SqlDataReader reader = cmd2.ExecuteReader();
             if (reader.Read())
             {
-                textBox4.Text = reader["Localidade"].ToString();
-                textBox3.Text = reader["MargemLucro"].ToString();
-         
-                comboBox2.DisplayMember = reader["Transporte"].ToString();
-                comboBox2.SelectedText = reader["Transporte"].ToString();
-                comboBox2.SelectedItem = reader["Transporte"].ToString();
+                if (checkBox1.Checked && checkBox2.Checked)     // transporte e esterilizacao
+                {
+                    textBox4.Text = reader["Localidade"].ToString();
+                    textBox3.Text = reader["MargemLucro"].ToString();
+                    textBox8.Text = reader["ID"].ToString();
 
-                comboBox3.DisplayMember = reader["TipoEsterilizacao"].ToString();
-                comboBox3.SelectedText = reader["TipoEsterilizacao"].ToString();
-                comboBox3.SelectedItem = reader["TipoEsterilizacao"].ToString();
+                    comboBox2.DisplayMember = reader["Transporte"].ToString();
+                    comboBox2.SelectedText = reader["Transporte"].ToString();
+                    comboBox2.SelectedItem = reader["Transporte"].ToString();
 
-                reader.Close();
-                con2.Close();
+                    comboBox3.DisplayMember = reader["TipoEsterilizacao"].ToString();
+                    comboBox3.SelectedText = reader["TipoEsterilizacao"].ToString();
+                    comboBox3.SelectedItem = reader["TipoEsterilizacao"].ToString();
+
+                    reader.Close();
+                    con2.Close();
+                }
+
+                if (!checkBox1.Checked && checkBox2.Checked)     // so esterilizacao
+                {
+                    textBox4.Text = reader["Localidade"].ToString();
+                    textBox3.Text = reader["MargemLucro"].ToString();
+                    textBox8.Text = reader["ID"].ToString();
+
+                    comboBox3.DisplayMember = reader["TipoEsterilizacao"].ToString();
+                    comboBox3.SelectedText = reader["TipoEsterilizacao"].ToString();
+                    comboBox3.SelectedItem = reader["TipoEsterilizacao"].ToString();
+
+                    reader.Close();
+                    con2.Close();
+                }
+
+                if (checkBox1.Checked && !checkBox2.Checked)     // so transporte
+                {
+                    textBox4.Text = reader["Localidade"].ToString();
+                    textBox3.Text = reader["MargemLucro"].ToString();
+                    textBox8.Text = reader["ID"].ToString();
+
+                    comboBox2.DisplayMember = reader["Transporte"].ToString();
+                    comboBox2.SelectedText = reader["Transporte"].ToString();
+                    comboBox2.SelectedItem = reader["Transporte"].ToString();
+
+                    reader.Close();
+                    con2.Close();
+                }
+
+                if (!checkBox1.Checked && !checkBox2.Checked)     // nem transport nem esterilizacao
+                {
+                    textBox4.Text = reader["Localidade"].ToString();
+                    textBox3.Text = reader["MargemLucro"].ToString();
+                    textBox8.Text = reader["ID"].ToString();
+
+                    reader.Close();
+                    con2.Close();
+                }
+
+
             }
             else
             {
@@ -149,31 +201,111 @@ namespace MEDIRM.GerirPages
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("UPDATE Cliente SET Localidade=@Localidade, MargemLucro=@MargemLucro, Transporte=@Transporte, TipoEsterilizacao=@TipoEsterilizacao WHERE Designacao=@Designacao", con);
-                com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@Localidade", textBox4.ToString());
-                com.Parameters.AddWithValue("@MargemLucro", textBox3.ToString());
+                if (checkBox1.Checked && checkBox2.Checked)     // transporte e esterilizacao
+                {
+                    SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro, Transporte=@Transporte, TipoEsterilizacao=@TipoEsterilizacao WHERE Nome=@Nome", con);
+                    com.CommandType = CommandType.Text;
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Transporte", comboBox2.SelectedValue.ToString());
+                    com.Parameters.AddWithValue("@TipoEsterilizacao", comboBox3.SelectedValue.ToString());
+                    com.Parameters.AddWithValue("@Nome", comboBox1.SelectedValue.ToString());
 
-                DataRowView drv = (DataRowView)comboBox3.SelectedItem;
-                String cb1 = drv["TipoEsterilizacao"].ToString();
-                com.Parameters.AddWithValue("@TipoEsterilizacao", cb1);
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
 
-                DataRowView drv2 = (DataRowView)comboBox2.SelectedItem;
-                String cb2 = drv2["Transporte"].ToString();
-                com.Parameters.AddWithValue("@Transporte", cb2);
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente alterado com sucesso!");
 
-                con.Open();
-                int i = com.ExecuteNonQuery();
-                con.Close();
+                    //Clear the fields
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    textBox4.Clear();
+                    comboBox3.ResetText();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                }
 
-                //Confirmation Message 
-                MessageBox.Show("Cliente alterado com sucesso!");
+                if (checkBox1.Checked && checkBox2.Checked)     // nem transporte nem esterilizacao
+                {
+                    SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro WHERE Nome=@Nome", con);
+                    com.CommandType = CommandType.Text;
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Nome", comboBox1.SelectedValue.ToString());
 
-                //Clear the fields
-                textBox3.Clear();
-                textBox4.Clear();
-                comboBox3.ResetText();
-                comboBox2.ResetText();
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente alterado com sucesso!");
+
+                    //Clear the fields
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    textBox4.Clear();
+                    comboBox3.ResetText();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                }
+
+                if (checkBox1.Checked && checkBox2.Checked)     // so esterilizacao
+                {
+                    SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro, TipoEsterilizacao=@TipoEsterilizacao WHERE Nome=@Nome", con);
+                    com.CommandType = CommandType.Text;
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@TipoEsterilizacao", comboBox3.SelectedValue.ToString());
+                    com.Parameters.AddWithValue("@Nome", comboBox1.SelectedValue.ToString());
+
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente alterado com sucesso!");
+
+                    //Clear the fields
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    textBox4.Clear();
+                    comboBox3.ResetText();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                }
+
+                if (checkBox1.Checked && checkBox2.Checked)     // so transporte 
+                {
+                    SqlCommand com = new SqlCommand("UPDATE Cliente SET ID=@ID, Localidade=@Localidade, MargemLucro=@MargemLucro, Transporte=@Transporte WHERE Nome=@Nome", con);
+                    com.CommandType = CommandType.Text;
+                    com.Parameters.AddWithValue("@Localidade", textBox4.Text);
+                    com.Parameters.AddWithValue("@MargemLucro", textBox3.Text);
+                    com.Parameters.AddWithValue("@ID", textBox8.Text);
+                    com.Parameters.AddWithValue("@Transporte", comboBox2.SelectedValue.ToString());
+                    com.Parameters.AddWithValue("@Nome", comboBox1.SelectedValue.ToString());
+
+                    con.Open();
+                    int i = com.ExecuteNonQuery();
+                    con.Close();
+
+                    //Confirmation Message 
+                    MessageBox.Show("Cliente alterado com sucesso!");
+
+                    //Clear the fields
+                    textBox3.Clear();
+                    textBox8.Clear();
+                    textBox4.Clear();
+                    comboBox3.ResetText();
+                    comboBox2.ResetText();
+                    comboBox1.ResetText();
+                }
+
+
             }
             catch (Exception x)
             {
