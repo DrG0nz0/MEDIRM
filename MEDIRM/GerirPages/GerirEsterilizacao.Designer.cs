@@ -157,7 +157,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 28);
             this.comboBox2.TabIndex = 80;
-            this.comboBox2.ValueMember = "Cambio";
+            this.comboBox2.ValueMember = "Moeda";
             // 
             // moedaBindingSource
             // 

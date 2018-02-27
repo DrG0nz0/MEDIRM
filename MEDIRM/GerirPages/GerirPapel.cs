@@ -32,6 +32,12 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
             this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
+            //Clear the fields
+            textBox3.Clear();
+            textBox1.Clear();
+            comboBox2.ResetText();
+            comboBox1.ResetText();
+
         }
 
         private void criarMaquina_Click(object sender, EventArgs e)     // guardar
@@ -43,16 +49,10 @@ namespace MEDIRM.GerirPages
 
                 SqlCommand com = new SqlCommand("UPDATE Papel SET PrecoMetro=@PrecoMetro, MetodoCalculo=@MetodoCalculo, Moeda=@Moeda WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@PrecoMetro", textBox3.ToString());
-                com.Parameters.AddWithValue("@MetodoCalculo", textBox1.ToString());
-
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
+                com.Parameters.AddWithValue("@PrecoMetro", textBox3.Text);
+                com.Parameters.AddWithValue("@MetodoCalculo", textBox1.Text);
+                com.Parameters.AddWithValue("@Moeda", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox1.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

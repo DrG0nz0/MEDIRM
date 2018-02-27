@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirMoldes));
             this.criarMaquina = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.moldeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
             this.moldeTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoldeTableAdapter();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             this.SuspendLayout();
@@ -62,15 +62,6 @@
             this.criarMaquina.Text = "Guardar";
             this.criarMaquina.UseVisualStyleBackColor = true;
             this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(742, 388);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
-            this.textBox4.TabIndex = 25;
             // 
             // label4
             // 
@@ -237,18 +228,44 @@
             // 
             this.moldeTableAdapter.ClearBeforeFill = true;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "2",
+            "2,5",
+            "3",
+            "3,5",
+            "4",
+            "4,5",
+            "5",
+            "5,5",
+            "6",
+            "6,5",
+            "7",
+            "7,5",
+            "8",
+            "8,5",
+            "9"});
+            this.comboBox2.Location = new System.Drawing.Point(739, 385);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(103, 26);
+            this.comboBox2.TabIndex = 40;
+            // 
             // GerirMoldes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.back);
             this.Controls.Add(this.criarMaquina);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -272,7 +289,6 @@
 
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button criarMaquina;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
@@ -288,5 +304,6 @@
         private MedirmDBDataSet medirmDBDataSet;
         private System.Windows.Forms.BindingSource moldeBindingSource;
         private MedirmDBDataSetTableAdapters.MoldeTableAdapter moldeTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

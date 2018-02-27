@@ -41,14 +41,11 @@ namespace MEDIRM.GerirPages
 
                 SqlCommand com = new SqlCommand("UPDATE Molde SET Cortantes=@Cortantes, PecasPorAvanco=@PecasPorAvanco, MetrosPorAvanco=@MetrosPorAvanco, Profundidade=@Profundidade WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@Cortantes", textBox1.ToString());
-                com.Parameters.AddWithValue("@PecasPorAvanco", textBox2.ToString());
-                com.Parameters.AddWithValue("@MetrosPorAvanco", textBox3.ToString());
-                com.Parameters.AddWithValue("@Profundidade", textBox4.ToString());
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
+                com.Parameters.AddWithValue("@Cortantes", textBox1.Text);
+                com.Parameters.AddWithValue("@PecasPorAvanco", textBox2.Text);
+                com.Parameters.AddWithValue("@MetrosPorAvanco", textBox3.Text);
+                com.Parameters.AddWithValue("@Profundidade", comboBox2.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox1.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -61,7 +58,7 @@ namespace MEDIRM.GerirPages
                 textBox2.Clear();
                 textBox1.Clear();
                 textBox3.Clear();
-                textBox4.Clear();
+                comboBox2.ResetText();
                 comboBox1.ResetText();
             }
             catch (Exception x)
@@ -92,8 +89,9 @@ namespace MEDIRM.GerirPages
                 textBox1.Text = reader["Cortantes"].ToString();
                 textBox2.Text = reader["PecasPorAvanco"].ToString();
                 textBox3.Text = reader["MetrosPorAvanco"].ToString();
-                textBox4.Text = reader["Profundidade"].ToString();
-                
+                comboBox2.DisplayMember = reader["Profundidade"].ToString();
+                comboBox2.SelectedText = reader["Profundidade"].ToString();
+  
                 reader.Close();
                 con2.Close();
             }

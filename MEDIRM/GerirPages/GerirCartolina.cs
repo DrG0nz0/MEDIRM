@@ -32,6 +32,10 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
             this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
+            textBox3.Clear();
+            comboBox2.ResetText();
+            comboBox1.ResetText();
+
         }
 
         private void button1_Click(object sender, EventArgs e)      // eliminar cartolina
@@ -74,8 +78,6 @@ namespace MEDIRM.GerirPages
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)     // preencher campos quando muda index
         {
-            comboBox2.ResetText();
-
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();
@@ -95,7 +97,7 @@ namespace MEDIRM.GerirPages
                 textBox3.Text = reader["PrecoMetro"].ToString();
                 comboBox2.DisplayMember = reader["Moeda"].ToString();
                 comboBox2.SelectedText = reader["Moeda"].ToString();
-                comboBox2.SelectedItem = reader["Moeda"].ToString();
+
 
                 reader.Close();
                 con2.Close();
@@ -115,15 +117,10 @@ namespace MEDIRM.GerirPages
 
                 SqlCommand com = new SqlCommand("UPDATE Cartolina SET PrecoMetro=@PrecoMetro, Moeda=@Moeda WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@PrecoMetro", textBox3.ToString());
+                com.Parameters.AddWithValue("@PrecoMetro", textBox3.Text);
 
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
+                com.Parameters.AddWithValue("@Moeda", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox1.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -135,7 +132,7 @@ namespace MEDIRM.GerirPages
                 //Clear the fields
                 textBox3.Clear();
                 comboBox2.ResetText();
-                comboBox1.ResetText();
+                comboBox1.ResetText(); 
             }
             catch (Exception x)
             {

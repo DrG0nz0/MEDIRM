@@ -32,6 +32,10 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
             this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
+            textBox3.Clear();
+            textBox1.Clear();
+            comboBox2.ResetText();
+            comboBox1.ResetText();
         }
 
         private void button1_Click(object sender, EventArgs e)  //apagar entrada da BD
@@ -118,16 +122,10 @@ namespace MEDIRM.GerirPages
 
                 SqlCommand com = new SqlCommand("UPDATE Cartao SET PrecoCartolina=@PrecoCartolina, Volume=@Volume, Moeda=@Moeda WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@PrecoCartolina", textBox3.ToString());
-                com.Parameters.AddWithValue("@Volume", textBox1.ToString());
- 
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
+                com.Parameters.AddWithValue("@PrecoCartolina", textBox3.Text);
+                com.Parameters.AddWithValue("@Volume", textBox1.Text);
+                com.Parameters.AddWithValue("@Moeda", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox1.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

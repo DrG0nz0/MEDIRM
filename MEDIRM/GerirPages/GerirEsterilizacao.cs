@@ -32,6 +32,11 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
             this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
+            //Clear the fields
+            textBox3.Clear();
+            comboBox2.ResetText();
+            comboBox1.ResetText();
+
         }
 
         private void button1_Click(object sender, EventArgs e)      // eliminar
@@ -111,17 +116,11 @@ namespace MEDIRM.GerirPages
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("UPDATE Esterilizacao SET Preco=@Precoa, Moeda=@Moeda WHERE Designacao=@Designacao", con);
+                SqlCommand com = new SqlCommand("UPDATE Esterilizacao SET Preco=@Preco, Moeda=@Moeda WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@Preco", textBox3.ToString());
-
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox1.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
+                com.Parameters.AddWithValue("@Preco", textBox3.Text);
+                com.Parameters.AddWithValue("@Moeda", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox1.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();

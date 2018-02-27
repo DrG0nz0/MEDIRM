@@ -48,7 +48,7 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
                 com.Parameters.AddWithValue("@ID", textBox2.Text);
                 com.Parameters.AddWithValue("@PrecoCompra", textBox3.Text);
-                com.Parameters.AddWithValue("@PrecoCusto", textBox3.Text);
+                com.Parameters.AddWithValue("@PrecoCusto", textBox4.Text);
                 com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
                 com.Parameters.AddWithValue("@VolCartao", textBox7.Text);
                 com.Parameters.AddWithValue("@UnBase", textBox8.Text);

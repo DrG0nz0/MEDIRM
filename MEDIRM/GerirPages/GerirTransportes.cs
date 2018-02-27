@@ -33,6 +33,17 @@ namespace MEDIRM.GerirPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Moeda'. Você pode movê-la ou removê-la conforme necessário.
             this.moedaTableAdapter.Fill(this.medirmDBDataSet.Moeda);
 
+            minAtras.Clear();
+            textBox1.Clear();
+            maxTras.Clear();
+            textBox2.Clear();
+            minAtras.Clear();
+            richTextBox1.Clear();
+            minAtras.Clear();
+            textBox1.Clear();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+
         }
 
         private void button1_Click(object sender, EventArgs e)      // apagar
@@ -112,34 +123,25 @@ namespace MEDIRM.GerirPages
             }
         }
 
-        private void criarMaquina_Click(object sender, EventArgs e)
+        private void criarMaquina_Click(object sender, EventArgs e)     // alterar
         {
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                String user="";     //definir como o user que esta logado
+                String user="user";     //definir como o user que esta logado
 
                 SqlCommand com = new SqlCommand("UPDATE Transporte SET Transportadora=@Transportadora, Preço=@Preço, De=@De, Para=@Para, Info=@Info, Utilizador=@Utilizador WHERE Designacao=@Designacao", con);
                 com.CommandType = CommandType.Text;
-                com.Parameters.AddWithValue("@Transportadora", minAtras.ToString());
-                com.Parameters.AddWithValue("@Preço", textBox1.ToString());
-                com.Parameters.AddWithValue("@De", maxTras.ToString());
-                com.Parameters.AddWithValue("@Para", textBox2.ToString());
-                com.Parameters.AddWithValue("@Info", richTextBox1.ToString());
+                com.Parameters.AddWithValue("@Transportadora", minAtras.Text);
+                com.Parameters.AddWithValue("@Preço", textBox1.Text);
+                com.Parameters.AddWithValue("@De", maxTras.Text);
+                com.Parameters.AddWithValue("@Para", textBox2.Text);
+                com.Parameters.AddWithValue("@Info", richTextBox1.Text);
                 com.Parameters.AddWithValue("@Utilizador", user);
-
-                DataRowView drv = (DataRowView)comboBox2.SelectedItem;
-                String cb1 = drv["Moeda"].ToString();
-                com.Parameters.AddWithValue("@Moeda", cb1);
-
-                DataRowView drv2 = (DataRowView)comboBox3.SelectedItem;
-                String cb2 = drv2["Designacao"].ToString();
-                com.Parameters.AddWithValue("@Designacao", cb2);
-
-                
-
+                com.Parameters.AddWithValue("@Moeda", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Designacao", comboBox3.SelectedValue.ToString());
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -151,8 +153,14 @@ namespace MEDIRM.GerirPages
                 //Clear the fields
                 minAtras.Clear();
                 textBox1.Clear();
+                maxTras.Clear();
+                textBox2.Clear();
+                minAtras.Clear();
+                richTextBox1.Clear();
+                minAtras.Clear();
+                textBox1.Clear();
                 comboBox2.ResetText();
-                maxTras.ResetText();
+                comboBox3.ResetText();
             }
             catch (Exception x)
             {

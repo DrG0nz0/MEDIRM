@@ -120,6 +120,7 @@
             this.button2.TabIndex = 36;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -171,7 +172,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 28);
             this.comboBox2.TabIndex = 76;
-            this.comboBox2.ValueMember = "Cambio";
+            this.comboBox2.ValueMember = "Moeda";
             // 
             // moedaBindingSource
             // 
@@ -338,6 +339,7 @@
             this.comboBox3.Size = new System.Drawing.Size(512, 28);
             this.comboBox3.TabIndex = 79;
             this.comboBox3.ValueMember = "ID";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // componentesBindingSource
             // 
