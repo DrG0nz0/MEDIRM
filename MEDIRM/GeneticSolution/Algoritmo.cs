@@ -63,7 +63,7 @@ namespace MEDIRM.GeneticSolution
         public List<MaquinaResource> Maquinas = new List<MaquinaResource>();
 
         public List<Planificaçao> plan = new List<Planificaçao>();
-        public void Generate()
+        public List<Planificaçao> Generate()
         {
             var context = new MedirmDBEntities();
             var todasEncomendas = context.Encomenda.Where(x => x.Estado.ToLower() != "terminado");
@@ -132,6 +132,7 @@ namespace MEDIRM.GeneticSolution
                     var plani = new Planificaçao();
                     plani.Turno = turno.Turno1;
                     plani.DiaDaSemana = turno.DiaDaSemana;
+                    plani.Funcionario = context.Funcionario.FirstOrDefault(x=>x.Nome == turno.Funcionario);
                     plan.Add(plani);
                 }
                 if (turno.Turno2.ToLower() != "nenhum")
@@ -139,6 +140,8 @@ namespace MEDIRM.GeneticSolution
                     var plani2 = new Planificaçao();
                     plani2.Turno = turno.Turno2;
                     plani2.DiaDaSemana = turno.DiaDaSemana;
+                    plani2.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+
                     plan.Add(plani2);
                 }
                 if (turno.Turno3.ToLower() != "nenhum")
@@ -146,6 +149,8 @@ namespace MEDIRM.GeneticSolution
                     var plani3 = new Planificaçao();
                     plani3.Turno = turno.Turno3;
                     plani3.DiaDaSemana = turno.DiaDaSemana;
+                    plani3.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+
                     plan.Add(plani3);
 
                 }
@@ -154,6 +159,8 @@ namespace MEDIRM.GeneticSolution
                     var plani4 = new Planificaçao();
                     plani4.Turno = turno.Turno4;
                     plani4.DiaDaSemana = turno.DiaDaSemana;
+                    plani4.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+
                     plan.Add(plani4);
 
                 }
@@ -172,13 +179,13 @@ namespace MEDIRM.GeneticSolution
                      { "sabado" , 4 },
                   };
 
-
+            // para cada maquina na Prioridade 1
             foreach (var maquina in group)
             {
                 var list = maquina.ToList();
                 var tipo = maquina.Key;
                 var MaquinaTipo = context.Maquina.FirstOrDefault(x => x.Tipo == tipo);
-                // Ordernado por molde
+                // Ordernado Tarefas por molde
                 var lPorMolde = list.GroupBy(x => x.Molde);
                 foreach (var molde in lPorMolde)
                 {
@@ -187,8 +194,8 @@ namespace MEDIRM.GeneticSolution
                     var prodPorHora = int.Parse(string.IsNullOrEmpty(MaquinaTipo.Velocidade1) ? "1" : MaquinaTipo.Velocidade1);
 
                     var tempoTotal = UnidadesTotal / prodPorHora;
-                    // ver que pessoas podem usar a maquina
                     var produced = 0;
+                    // ver que pessoas podem usar a maquina
 
                     foreach (var pessoasMaquinas in context.PessoasMaquinas)
                     {
@@ -196,9 +203,10 @@ namespace MEDIRM.GeneticSolution
                         if (maq.Tipo != tipo)
                             continue;
                         // Primeira planificaçao que essa pessoa pode ter .
-                        var planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Nome == pessoasMaquinas.Funcionario && x.Maquina == null);
+                        var planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
                         if (planoFirst == null)
                         {
+                            break;
                             throw new Exception("NAO existem turnos disponiveis para esse funcionaro");
                         }
                         produced += TurnoHoras(planoFirst.Turno);
@@ -207,7 +215,7 @@ namespace MEDIRM.GeneticSolution
                         planoFirst.Molde = context.Molde.FirstOrDefault(x => x.Designacao == maq.Molde);
                         while (produced < UnidadesTotal)
                         {
-                            planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Nome == pessoasMaquinas.Funcionario && x.Maquina == null);
+                            planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
                             if (planoFirst == null)
                             {
                                 break;
@@ -224,6 +232,7 @@ namespace MEDIRM.GeneticSolution
                 }
 
             }
+            return plan;
 
         }
 
