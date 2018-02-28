@@ -85,7 +85,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(503, 28);
             this.comboBox3.TabIndex = 78;
-            this.comboBox3.ValueMember = "ID";
+            this.comboBox3.ValueMember = "Nome";
             // 
             // artigoBindingSource
             // 
@@ -400,6 +400,7 @@
             this.checkBox1.Text = "Máquina 1:";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
             // checkBox2
             // 
@@ -413,6 +414,7 @@
             this.checkBox2.Text = "Máquina 2:";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
             // 
             // checkBox3
             // 
@@ -426,6 +428,7 @@
             this.checkBox3.Text = "Máquina 3:";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.checkBox3.CheckStateChanged += new System.EventHandler(this.checkBox3_CheckStateChanged);
             // 
             // checkBox4
             // 
@@ -439,6 +442,7 @@
             this.checkBox4.Text = "Máquina 4:";
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.checkBox4.CheckStateChanged += new System.EventHandler(this.checkBox4_CheckStateChanged);
             // 
             // checkBox5
             // 
@@ -452,6 +456,7 @@
             this.checkBox5.Text = "Máquina 5:";
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            this.checkBox5.CheckStateChanged += new System.EventHandler(this.checkBox5_CheckStateChanged);
             // 
             // AddComponentesArtigos
             // 

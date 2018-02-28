@@ -314,10 +314,6 @@ namespace MEDIRM.AddPages
             MainFormView.ShowForm(new GerirBD());
         }
 
-        
-
-
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -375,6 +371,67 @@ namespace MEDIRM.AddPages
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                comboBox6.Visible = true;
+                button7.Visible = true;
+            }
+            else
+            {
+                comboBox6.Visible = false;
+                button7.Visible = false;
+            }
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                comboBox7.Visible = true;
+                button6.Visible = true;
+            }
+            else
+            {
+                comboBox7.Visible = false;
+                button6.Visible = false;
+            }
+        }
+
+        private void checkBox2_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                comboBox4.Visible = true;
+                button9.Visible = true;
+            }
+            else
+            {
+                comboBox4.Visible = false;
+                button9.Visible = false;
+            }
+        }
+
+        private void checkBox4_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                comboBox5.Visible = true;
+                button8.Visible = true;
+            }
+            else
+            {
+                comboBox5.Visible = false;
+                button8.Visible = false;
+            }
+        }
+
+        private void checkBox5_CheckStateChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
