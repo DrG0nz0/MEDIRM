@@ -226,6 +226,16 @@
     <Compile Include="Funcionario.cs">
       <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GeneticSolution\Colors.cs" />
+    <Compile Include="GeneticSolution\GeneticRunner.cs" />
+    <Compile Include="GeneticSolution\InputBoxProvider.cs" />
+    <Compile Include="GeneticSolution\GeneticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneticSolution\GeneticForm.Designer.cs">
+      <DependentUpon>GeneticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneticSolution\Schedule.cs" />
     <Compile Include="GerirPages\GerirTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,7 +411,7 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
-    <Compile Include="SolverFoundation\Class1.cs" />
+    <Compile Include="SolverFoundation\Models.cs" />
     <Compile Include="SolverFoundation\ScheduledTask.cs" />
     <Compile Include="SolverFoundation\ScheduleForm.cs">
       <SubType>Form</SubType>
@@ -470,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddTransportes.resx">
       <DependentUpon>AddTransportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneticSolution\GeneticForm.resx">
+      <DependentUpon>GeneticForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirTurnos.resx">
       <DependentUpon>GerirTurnos.cs</DependentUpon>

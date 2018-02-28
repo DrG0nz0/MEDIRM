@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
 using MEDIRM.SolverFoundation;
+using Scheduling;
 
 namespace MEDIRM
 {
@@ -37,7 +38,7 @@ namespace MEDIRM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new ScheduleForm());
+            MainFormView.ShowForm(new GeneticForm());
 
         }
     }

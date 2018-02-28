@@ -24,18 +24,17 @@ namespace ProjectScheduling.SolverFoundation
             // number of hours
             var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0);
             var hours = 0.0;
-            while (startDate < time)
+            while (startDate.Date.Year <= time.Date.Year && startDate.Date.DayOfYear < time.Date.DayOfYear)
             {
-                if (time.Subtract(startDate).TotalHours > 1)
-                {
-                    hours++;
-                    var startHolder = startDate;
-                    startDate = startDate.AddHours(hours);
-                    startDate = NextWorkingTime(startDate,false);
-                    hours += startDate.Subtract(startHolder).TotalHours;
-                }
+
+                var sum = Math.Min(1, time.Subtract(startDate).TotalHours);
+                hours += sum;
+                var startHolder = startDate;
+                startDate = startDate.AddHours(sum);
+                startDate = NextWorkingTime(startDate, false);
+                //hours += startDate.Subtract(startHolder).TotalHours;
             }
-            return hours;
+            return hours +5000;
         }
 
         private List<TimeInterval> CalculatePeriods(DateTime start, double hours)
@@ -47,7 +46,7 @@ namespace ProjectScheduling.SolverFoundation
                 var increHours = Math.Min(hours, 1);
                 end = end.AddHours(increHours);
                 hours -= increHours;
-                
+
                 if (end.TimeOfDay >= TimeSpan.FromHours(17.01))
                 {
                     //Breaks.Add(start,)
@@ -122,8 +121,6 @@ namespace ProjectScheduling.SolverFoundation
                 }
             }
         }
-
-
 
 
         private DateTime AddDays(DateTime start, double hours, bool isStart)

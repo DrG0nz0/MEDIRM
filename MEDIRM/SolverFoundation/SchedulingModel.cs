@@ -96,12 +96,12 @@ namespace ProjectScheduling
                   makespan >= start[e] + (isActive[i, e] - isActive[i, e - 1]) * duration[i])
             ));
 
-            model.AddConstraint("ValidDeliveryDate",
-            Model.ForEach(tasks, e => start[e] + duration[e] <= entrega[e]));
+         //   model.AddConstraint("ValidDeliveryDate",
+         //   Model.ForEach(tasks, e => start[e] + duration[e] <= entrega[e]));
 
-            model.AddConstraint("ModelSwitchPause", Model.ForEach(events1ToN, (t) =>
-          start[t] >= start[t - 1] + duration[t - 1] + Model.If(molde[t] != molde[t - 1], 1, 0)
-         ));
+         //   model.AddConstraint("ModelSwitchPause", Model.ForEach(events1ToN, (t) =>
+         // start[t] >= start[t - 1] + duration[t - 1] + Model.If(molde[t] != molde[t - 1], 1, 0)
+         //));
 
 
 
