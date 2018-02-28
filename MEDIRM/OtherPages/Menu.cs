@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
+using MEDIRM.SolverFoundation;
 
 namespace MEDIRM
 {
@@ -32,6 +33,12 @@ namespace MEDIRM
         private void button2_Click(object sender, EventArgs e)
         {
             MainFormView.ShowForm(new VerPreços());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new ScheduleForm());
+
         }
     }
 }

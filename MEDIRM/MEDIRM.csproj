@@ -59,12 +59,18 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Solver.Foundation, Version=3.0.2.10889, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Solver.Foundation.3.1.0\lib\Microsoft.Solver.Foundation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.Calendar">
+      <HintPath>SolverFoundation\System.Windows.Forms.Calendar.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -395,6 +401,16 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
+    <Compile Include="SolverFoundation\Class1.cs" />
+    <Compile Include="SolverFoundation\ScheduledTask.cs" />
+    <Compile Include="SolverFoundation\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolverFoundation\ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SolverFoundation\SchedulingModel.cs" />
+    <Compile Include="SolverFoundation\SolverTest.cs" />
     <Compile Include="TipoMaquina.cs">
       <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
@@ -540,6 +556,9 @@
     <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SolverFoundation\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="BloggingModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BloggingModel.Designer.cs</LastGenOutput>
@@ -663,5 +682,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
