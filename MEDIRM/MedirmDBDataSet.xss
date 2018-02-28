@@ -27,7 +27,7 @@
     <Shape ID="DesignTable:Encomenda" ZOrder="29" X="2467" Y="438" Height="210" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:Ferias" ZOrder="28" X="2689" Y="18" Height="134" Width="178" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:PessoasMaquinas" ZOrder="27" X="49" Y="143" Height="192" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:TurnosFuncionarios" ZOrder="20" X="268" Y="255" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:TurnosFuncionarios" ZOrder="20" X="268" Y="255" Height="210" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:VerPrecos" ZOrder="6" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>
   <Connectors>
@@ -250,7 +250,7 @@
           <Y>282</Y>
         </Point>
         <Point>
-          <X>426</X>
+          <X>526</X>
           <Y>282</Y>
         </Point>
       </RoutePoints>

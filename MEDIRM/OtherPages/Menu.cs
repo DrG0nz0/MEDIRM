@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
+using MEDIRM.OtherPages;
 using Scheduling;
 
 namespace MEDIRM
@@ -39,6 +40,11 @@ namespace MEDIRM
         {
             MainFormView.ShowForm(new GeneticForm());
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new VerTurnosFuncionarios());
         }
     }
 }

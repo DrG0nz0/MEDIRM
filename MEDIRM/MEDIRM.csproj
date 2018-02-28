@@ -59,9 +59,22 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>.\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>.\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Solver.Foundation, Version=3.0.2.10889, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Solver.Foundation.3.1.0\lib\Microsoft.Solver.Foundation.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -237,6 +250,12 @@
       <DependentUpon>GeneticForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneticSolution\Schedule.cs" />
+    <Compile Include="GerirPages\GerirEncomendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerirPages\GerirEncomendas.Designer.cs">
+      <DependentUpon>GerirEncomendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerirPages\GerirTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +417,12 @@
     <Compile Include="OtherPages\VerEncomendas.Designer.cs">
       <DependentUpon>VerEncomendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherPages\VerTurnosFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherPages\VerTurnosFuncionarios.Designer.cs">
+      <DependentUpon>VerTurnosFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Papel.cs">
       <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
@@ -475,6 +500,9 @@
     <EmbeddedResource Include="GeneticSolution\GeneticForm.resx">
       <DependentUpon>GeneticForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GerirPages\GerirEncomendas.resx">
+      <DependentUpon>GerirEncomendas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerirPages\GerirTurnos.resx">
       <DependentUpon>GerirTurnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,6 +575,9 @@
     <EmbeddedResource Include="OtherPages\VerEncomendas.resx">
       <DependentUpon>VerEncomendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OtherPages\VerTurnosFuncionarios.resx">
+      <DependentUpon>VerTurnosFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -617,6 +648,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MedirmDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\schedule-5121.png" />
+    <None Include="Resources\adobe-acrobat-pdf-file-512.png" />
     <None Include="Resources\schedule-512.png" />
     <None Include="Resources\cambio.png" />
     <None Include="Resources\repair_costs-512.png" />
