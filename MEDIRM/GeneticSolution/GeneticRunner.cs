@@ -648,9 +648,7 @@ namespace Scheduling
 
         #endregion
 
-
         //***************************************************//
-
 
         #region Properties
         public bool Refresh

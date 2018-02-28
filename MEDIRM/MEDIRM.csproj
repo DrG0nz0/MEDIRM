@@ -226,6 +226,7 @@
     <Compile Include="Funcionario.cs">
       <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GeneticSolution\Algoritmo.cs" />
     <Compile Include="GeneticSolution\Colors.cs" />
     <Compile Include="GeneticSolution\GeneticRunner.cs" />
     <Compile Include="GeneticSolution\InputBoxProvider.cs" />
@@ -411,16 +412,6 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
-    <Compile Include="SolverFoundation\Models.cs" />
-    <Compile Include="SolverFoundation\ScheduledTask.cs" />
-    <Compile Include="SolverFoundation\ScheduleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SolverFoundation\ScheduleForm.Designer.cs">
-      <DependentUpon>ScheduleForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SolverFoundation\SchedulingModel.cs" />
-    <Compile Include="SolverFoundation\SolverTest.cs" />
     <Compile Include="TipoMaquina.cs">
       <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
@@ -568,9 +559,6 @@
     </Compile>
     <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SolverFoundation\ScheduleForm.resx">
-      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="BloggingModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

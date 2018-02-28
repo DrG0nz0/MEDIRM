@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEDIRM.Navegacao;
-using MEDIRM.SolverFoundation;
 using Scheduling;
 
 namespace MEDIRM

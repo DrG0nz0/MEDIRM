@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MedirmDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MedirmDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Artigo">
           <Key>
             <PropertyRef Name="Nome" />
@@ -19,7 +19,7 @@
           <Property Name="Cartolina" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ArtigosClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ArtigosClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ArtigosClientes">
           <Key>
             <PropertyRef Name="Cliente" />
@@ -77,7 +77,7 @@ warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.
           <Property Name="PrecoCustoFinal" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ComponentesDosArtigos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ComponentesDosArtigos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ComponentesDosArtigos">
           <Key>
             <PropertyRef Name="Artigo" />
@@ -188,7 +188,7 @@ warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.
           <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.PessoasMaquinas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.PessoasMaquinas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PessoasMaquinas">
           <Key>
             <PropertyRef Name="Maquina" />
@@ -217,7 +217,7 @@ warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.
           <Property Name="Info" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.TurnosFuncionarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.TurnosFuncionarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TurnosFuncionarios">
           <Key>
             <PropertyRef Name="Funcionario" />
@@ -308,8 +308,7 @@ warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.
     FROM [dbo].[TurnosFuncionarios] AS [TurnosFuncionarios]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MedirmDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
