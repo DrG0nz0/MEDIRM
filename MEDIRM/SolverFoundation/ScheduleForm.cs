@@ -157,6 +157,11 @@ namespace MEDIRM.SolverFoundation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if ( tasks == null || tasks.Count == 0)
+            {
+                MessageBox.Show("Click in Planificar first to create a virtual schedule. Then Click Here to produce a Calendar.");
+                return;
+            }
             var list = new List<CalendarItem>();
             var random = new Random();
             foreach (var task in tasks)
@@ -181,6 +186,8 @@ namespace MEDIRM.SolverFoundation
 
             tasks = Run();
         }
+       
+
 
         public static Project CreateProject()
         {
@@ -188,112 +195,118 @@ namespace MEDIRM.SolverFoundation
             var context = new MedirmDBEntities();
 
             var todasEncomendas = context.Encomenda.Where(x => x.Estado.ToLower() != "terminado");
-            var todosArtigosdAsEncomendas = new List<Artigo>();
-            var todosComponents = new List<ComponentesDosArtigos>();
             var Tasks = new List<ProjectScheduling.Task>();
+            var Moldes = context.Maquina.Select(x => x.Molde).ToArray();
+            List<Resource> resources = new List<Resource>();
 
             List<TaskDependency> links = new List<TaskDependency>();
 
             foreach (var encomenda in todasEncomendas)
             {
+                var todosArtigosdAsEncomendas = new List<Artigo>();
                 todosArtigosdAsEncomendas.AddRange(context.Artigo.Where(x => x.Nome == encomenda.Artigo));
-            }
-            foreach (var compoartigos in todosArtigosdAsEncomendas)
-            {
-                todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == compoartigos.Nome.ToString()));
-            }
+                foreach (var compoartigos in todosArtigosdAsEncomendas)
+                {
+                    var todosComponents = new List<ComponentesDosArtigos>();
 
-            List<Resource> resources = new List<Resource>();
-
-
-            foreach (var components in todosComponents)
-            {
-                var maquina1 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina1);
-                var maquina2 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina2);
-                var maquina3 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina3);
-                var maquina4 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina4);
-                var maquina5 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina5);
-
-                if (resources.FirstOrDefault(x => x.Name == maquina1.Tipo) == null)
-                {
-                    resources.Add(new Resource("M" + maquina1.Tipo, 1));
-                }
-                if (resources.FirstOrDefault(x => x.Name == maquina2.Tipo) == null)
-                {
-                    resources.Add(new Resource("M" + maquina2.Tipo, 1));
-                }
-                if (resources.FirstOrDefault(x => x.Name == maquina3.Tipo) == null)
-                {
-                    resources.Add(new Resource("M" + maquina3.Tipo, 1));
-                }
-                if (resources.FirstOrDefault(x => x.Name == maquina4.Tipo) == null)
-                {
-                    resources.Add(new Resource("M" + maquina4.Tipo, 1));
-                }
-                if (resources.FirstOrDefault(x => x.Name == maquina5.Tipo) == null)
-                {
-                    resources.Add(new Resource("M" + maquina5.Tipo, 1));
-                }
-                //
-                ProjectScheduling.Task lastTask = null;
-                if (components.Maquina1 != null)
-                {
-                    var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
-                    var duration = 10;
-                    var task = new ProjectScheduling.Task(artigo.Nome, duration, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina1), 1.0) });
-                    task.componenteDosArtigos = components;
-                    Tasks.Add(task);
-                    lastTask = task;
-                    task.Entrega = 500;
-                }
-                if (components.Maquina2 != null)
-                {
-                    var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
-                    var duration = 10;
-                    var task = new ProjectScheduling.Task(artigo.Nome, duration, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina2), 1.0) });
-                    task.componenteDosArtigos = components;
-                    Tasks.Add(task);
-                    links.Add(new TaskDependency()
+                    todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == compoartigos.Nome.ToString()));
+                    foreach (var components in todosComponents)
                     {
-                        Source = lastTask,
-                        Destination = task
-                    });
-                    lastTask = task;
-                    task.Entrega = 500;
+                        var maquina1 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina1);
+                        var maquina2 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina2);
+                        var maquina3 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina3);
+                        var maquina4 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina4);
+                        var maquina5 = context.Maquina.FirstOrDefault(x => x.Nome == components.Maquina5);
+
+                        if (resources.FirstOrDefault(x => x.Name == maquina1.Tipo) == null)
+                        {
+                            resources.Add(new Resource("M" + maquina1.Tipo, 1));
+                        }
+                        if (resources.FirstOrDefault(x => x.Name == maquina2.Tipo) == null)
+                        {
+                            resources.Add(new Resource("M" + maquina2.Tipo, 1));
+                        }
+                        if (resources.FirstOrDefault(x => x.Name == maquina3.Tipo) == null)
+                        {
+                            resources.Add(new Resource("M" + maquina3.Tipo, 1));
+                        }
+                        if (resources.FirstOrDefault(x => x.Name == maquina4.Tipo) == null)
+                        {
+                            resources.Add(new Resource("M" + maquina4.Tipo, 1));
+                        }
+                        if (resources.FirstOrDefault(x => x.Name == maquina5.Tipo) == null)
+                        {
+                            resources.Add(new Resource("M" + maquina5.Tipo, 1));
+                        }
+                        //
+                        ProjectScheduling.Task lastTask = null;
+                        if (components.Maquina1 != null)
+                        {
+                            var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                            var duration = 10;
+                            var task = new ProjectScheduling.Task(artigo.Nome, duration, encomenda.DataLimite, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina1), 1.0) });
+                            task.componenteDosArtigos = components;
+                            Tasks.Add(task);
+                            lastTask = task;
+                            task.Molde = Array.IndexOf(Moldes, maquina1.Molde);
+                        }
+                        if (components.Maquina2 != null)
+                        {
+                            var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                            var duration = 10;
+                            var task = new ProjectScheduling.Task(artigo.Nome, duration,encomenda.DataLimite, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina2), 1.0) });
+                            task.componenteDosArtigos = components;
+                            Tasks.Add(task);
+                            links.Add(new TaskDependency()
+                            {
+                                Source = lastTask,
+                                Destination = task
+                            });
+                            lastTask = task;
+                            task.Molde = Array.IndexOf(Moldes, maquina2.Molde);
+                        }
+                        if (components.Maquina3 != null)
+                        {
+                            var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                            var duration = 10;
+                            var task = new ProjectScheduling.Task(artigo.Nome, duration, encomenda.DataLimite, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina3), 1.0) });
+                            task.componenteDosArtigos = components;
+                            Tasks.Add(task);
+                            links.Add(new TaskDependency()
+                            {
+                                Source = lastTask,
+                                Destination = task
+                            });
+                            lastTask = task;
+                            lastTask = task;
+                            task.Molde = Array.IndexOf(Moldes, maquina3.Molde);
+                        }
+                        if (components.Maquina4 != null)
+                        {
+                            var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                            var duration = 10;
+                            var task = new ProjectScheduling.Task(artigo.Nome, duration, encomenda.DataLimite, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina4), 1.0) })
+                            {
+                                componenteDosArtigos = components
+                            };
+                            Tasks.Add(task);
+                            links.Add(new TaskDependency()
+                            {
+                                Source = lastTask,
+                                Destination = task
+                            });
+                            lastTask = task;
+                            lastTask = task;
+                            task.Molde = Array.IndexOf(Moldes, maquina4.Molde);
+                        }
+                    }
                 }
-                if (components.Maquina3 != null)
-                {
-                    var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
-                    var duration = 10;
-                    var task = new ProjectScheduling.Task(artigo.Nome, duration, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina3), 1.0) });
-                    task.componenteDosArtigos = components;
-                    Tasks.Add(task);
-                    links.Add(new TaskDependency()
-                    {
-                        Source = lastTask,
-                        Destination = task
-                    });
-                    lastTask = task;
-                    lastTask = task;
-                    task.Entrega = 500;
-                }
-                if (components.Maquina4 != null)
-                {
-                    var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
-                    var duration = 10;
-                    var task = new ProjectScheduling.Task(artigo.Nome, duration, new Assignment[] { new Assignment(resources.FirstOrDefault(x => x.Name == components.Maquina4), 1.0) });
-                    task.componenteDosArtigos = components;
-                    Tasks.Add(task);
-                    links.Add(new TaskDependency()
-                    {
-                        Source = lastTask,
-                        Destination = task
-                    });
-                    lastTask = task;
-                    lastTask = task;
-                    task.Entrega = 500;
-                }
+
             }
+
+
+
+
             if (Tasks.Count == 0)
                 return null;
             return new Project(Tasks, resources, links);
@@ -312,7 +325,7 @@ namespace MEDIRM.SolverFoundation
 
             m.Initialize(project);
             IDictionary<int, double> schedule = m.Solve();
-            ProjectUtilities.PrintProjectSchedule(project, schedule);
+            //ProjectUtilities.PrintProjectSchedule(project, schedule);
 
             var results = new List<ScheduledTask>();
             foreach (var taskSchedule in schedule)

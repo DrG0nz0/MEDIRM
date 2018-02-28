@@ -19,6 +19,25 @@ namespace ProjectScheduling.SolverFoundation
             this.end = AddDays(this.start, task.Duration, false);
         }
 
+        public static double EntregaFromDate(DateTime time)
+        {
+            // number of hours
+            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0);
+            var hours = 0.0;
+            while (startDate < time)
+            {
+                if (time.Subtract(startDate).TotalHours > 1)
+                {
+                    hours++;
+                    var startHolder = startDate;
+                    startDate = startDate.AddHours(hours);
+                    startDate = NextWorkingTime(startDate,false);
+                    hours += startDate.Subtract(startHolder).TotalHours;
+                }
+            }
+            return hours;
+        }
+
         private List<TimeInterval> CalculatePeriods(DateTime start, double hours)
         {
             var end = start;
@@ -104,6 +123,9 @@ namespace ProjectScheduling.SolverFoundation
             }
         }
 
+
+
+
         private DateTime AddDays(DateTime start, double hours, bool isStart)
         {
             while (hours > 0)
@@ -129,7 +151,7 @@ namespace ProjectScheduling.SolverFoundation
             return start;
         }
 
-        private DateTime NextWorkingTime(DateTime start, bool isStart)
+        public static DateTime NextWorkingTime(DateTime start, bool isStart)
         {
             if (start.TimeOfDay >= TimeSpan.FromHours(isStart ? 17 : 17.01))
             {

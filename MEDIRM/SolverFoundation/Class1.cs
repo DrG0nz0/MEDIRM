@@ -1,4 +1,5 @@
 ﻿using MEDIRM;
+using ProjectScheduling.SolverFoundation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -68,33 +69,33 @@ namespace ProjectScheduling
             return build.ToString();
         }
 
-        private static Project CreateProject(int taskCount)
-        {
-            System.Random random = new Random(0);
-            int maxDuration = 5;
-            int linkCount = Math.Max(taskCount / 10, 1);
+      //  private static Project CreateProject(int taskCount)
+      //  {
+      //      System.Random random = new Random(0);
+      //      int maxDuration = 5;
+      //      int linkCount = Math.Max(taskCount / 10, 1);
 
-            Resource[] resources = new Resource[] {
-        new Resource("R1", 100.0),
-        new Resource("R2", 100.0)
-      };
+      //      Resource[] resources = new Resource[] {
+      //  new Resource("R1", 100.0),
+      //  new Resource("R2", 100.0)
+      //};
 
-            Task[] tasks = new Task[taskCount];
-            for (int i = 0; i < tasks.Length; i++)
-            {
-                tasks[i] = new Task("t" + i, random.Next(1, maxDuration + 1), new Assignment[] { new Assignment(resources[i % resources.Length], 1.0) });
-            }
+      //      Task[] tasks = new Task[taskCount];
+      //      for (int i = 0; i < tasks.Length; i++)
+      //      {
+      //          tasks[i] = new Task("t" + i, random.Next(1, maxDuration + 1), new Assignment[] { new Assignment(resources[i % resources.Length], 1.0) });
+      //      }
 
-            TaskDependency[] links = new TaskDependency[linkCount];
-            for (int i = 0; i < links.Length; i++)
-            {
-                int source = random.Next(0, taskCount - 1);
-                int dest = random.Next(source + 1, taskCount); // guaranteeing no cycles.
-                links[i] = new TaskDependency { Source = tasks[source], Destination = tasks[dest] };
-            }
+      //      TaskDependency[] links = new TaskDependency[linkCount];
+      //      for (int i = 0; i < links.Length; i++)
+      //      {
+      //          int source = random.Next(0, taskCount - 1);
+      //          int dest = random.Next(source + 1, taskCount); // guaranteeing no cycles.
+      //          links[i] = new TaskDependency { Source = tasks[source], Destination = tasks[dest] };
+      //      }
 
-            return new Project(tasks, resources, links);
-        }
+      //      return new Project(tasks, resources, links);
+      //  }
     }
 
     /// <summary>A task.
@@ -104,17 +105,16 @@ namespace ProjectScheduling
         private IEnumerable<Assignment> assignments;
         private static int nextID = 0;
 
-        private Task(int id, string name, double duration, IEnumerable<Assignment> assignments)
+        public Task(string name, double duration,DateTime? entrega, IEnumerable<Assignment> assignments)
         {
-            ID = id;
             Name = name;
             Duration = duration;
             this.assignments = assignments;
+            this.Entrega = ScheduledTask.EntregaFromDate(entrega.HasValue ? entrega.Value :  DateTime.Now.AddYears(1));
+
         }
 
-        /// <summary>A dummy invalid task.
-        /// </summary>
-        public static Task Invalid = new Task(-1, "** INVALID **", -1, null);
+
 
         /// <summary>A unique ID.
         /// </summary>
@@ -130,7 +130,7 @@ namespace ProjectScheduling
 
         public int Molde { get; set; }
 
-        public int Entrega { get; set; }
+        public double Entrega { get; }
 
         public ComponentesDosArtigos componenteDosArtigos;
         /// <summary>The resource assignments for the task.
@@ -138,11 +138,6 @@ namespace ProjectScheduling
         public IEnumerable<Assignment> Assignments
         {
             get { return assignments; }
-        }
-
-        public Task(string name, double duration, IEnumerable<Assignment> assignments)
-          : this(nextID++, name, duration, assignments)
-        {
         }
 
         public override string ToString()
@@ -165,7 +160,7 @@ namespace ProjectScheduling
 
         public override string ToString()
         {
-            return String.Format("{0} -> {1}", (Source ?? Task.Invalid).ID, (Destination ?? Task.Invalid).ID);
+            return String.Format("{0} -> {1}",Source.ID, Destination.ID);
         }
     }
 
