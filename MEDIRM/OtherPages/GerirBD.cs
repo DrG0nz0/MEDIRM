@@ -118,6 +118,11 @@ namespace MEDIRM.Navegacao
         {
             MainFormView.ShowForm(new GerirFuncionarios());
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            MainFormView.ShowForm(new GerirEncomendas());
+        }
     }
 
 }

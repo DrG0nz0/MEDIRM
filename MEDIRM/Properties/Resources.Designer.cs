@@ -103,6 +103,16 @@ namespace MEDIRM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adobe_acrobat_pdf_file_512 {
+            get {
+                object obj = ResourceManager.GetObject("adobe-acrobat-pdf-file-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ajouter_fichier_page {
             get {
                 object obj = ResourceManager.GetObject("ajouter_fichier_page", resourceCulture);
@@ -546,6 +556,16 @@ namespace MEDIRM.Properties {
         internal static System.Drawing.Bitmap schedule_512 {
             get {
                 object obj = ResourceManager.GetObject("schedule-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap schedule_5121 {
+            get {
+                object obj = ResourceManager.GetObject("schedule-5121", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

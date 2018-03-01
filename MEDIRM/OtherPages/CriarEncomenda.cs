@@ -38,7 +38,7 @@ namespace MEDIRM
 
                 com.Parameters.AddWithValue("@Quantidade", textBox3.Text);
                 com.Parameters.AddWithValue("@DataLimite", dateTimePicker1.Value);
-                com.Parameters.AddWithValue("@Estado", "EmProducao");
+                com.Parameters.AddWithValue("@Estado", "EmEspera");
                 com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedValue.ToString());
                 com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedValue.ToString());
 
