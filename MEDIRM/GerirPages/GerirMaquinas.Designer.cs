@@ -424,11 +424,11 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(330, 361);
+            this.label12.Location = new System.Drawing.Point(371, 361);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(166, 15);
+            this.label12.Size = new System.Drawing.Size(110, 15);
             this.label12.TabIndex = 64;
-            this.label12.Text = "(peças por metro por minuto)";
+            this.label12.Text = "(peças por minuto)";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -460,11 +460,11 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(705, 354);
+            this.label11.Location = new System.Drawing.Point(746, 351);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 15);
+            this.label11.Size = new System.Drawing.Size(110, 15);
             this.label11.TabIndex = 71;
-            this.label11.Text = "(peças por metro por minuto)";
+            this.label11.Text = "(peças por minuto)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
