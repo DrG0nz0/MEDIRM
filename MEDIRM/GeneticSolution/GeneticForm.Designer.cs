@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange11 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange12 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange13 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange14 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange15 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange1 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange2 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange3 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange4 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneticForm));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.resPanel = new System.Windows.Forms.Panel();
@@ -111,7 +112,7 @@
             this.resPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resPanel.Location = new System.Drawing.Point(3, 16);
             this.resPanel.Name = "resPanel";
-            this.resPanel.Size = new System.Drawing.Size(1074, 196);
+            this.resPanel.Size = new System.Drawing.Size(1471, 196);
             this.resPanel.TabIndex = 7;
             this.resPanel.Visible = false;
             // 
@@ -218,7 +219,7 @@
             this.lblBestTime});
             this.statusStrip.Location = new System.Drawing.Point(0, 772);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1087, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1484, 22);
             this.statusStrip.TabIndex = 3;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -408,30 +409,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.calendar1.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            calendarHighlightRange11.DayOfWeek = System.DayOfWeek.Monday;
-            calendarHighlightRange11.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange11.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange12.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange12.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange12.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange13.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange13.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange13.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange14.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange14.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange14.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange15.DayOfWeek = System.DayOfWeek.Friday;
-            calendarHighlightRange15.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange15.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
+            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
+            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
+            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
+            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Friday;
+            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
             this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
-        calendarHighlightRange11,
-        calendarHighlightRange12,
-        calendarHighlightRange13,
-        calendarHighlightRange14,
-        calendarHighlightRange15};
+        calendarHighlightRange1,
+        calendarHighlightRange2,
+        calendarHighlightRange3,
+        calendarHighlightRange4,
+        calendarHighlightRange5};
             this.calendar1.Location = new System.Drawing.Point(12, 275);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(773, 484);
+            this.calendar1.Size = new System.Drawing.Size(1170, 484);
             this.calendar1.TabIndex = 16;
             this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
             this.calendar1.DayHeaderClick += new System.Windows.Forms.Calendar.Calendar.CalendarDayEventHandler(this.calendar1_DayHeaderClick);
@@ -444,7 +445,7 @@
             this.groupBox2.Controls.Add(this.resPanel);
             this.groupBox2.Location = new System.Drawing.Point(7, 54);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1080, 215);
+            this.groupBox2.Size = new System.Drawing.Size(1477, 215);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Overtime Preview";
@@ -455,7 +456,7 @@
             this.btnPreview.CausesValidation = false;
             this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPreview.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPreview.Location = new System.Drawing.Point(791, 275);
+            this.btnPreview.Location = new System.Drawing.Point(1188, 275);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(102, 37);
             this.btnPreview.TabIndex = 18;
@@ -468,7 +469,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.propertyGrid1);
-            this.groupBox3.Location = new System.Drawing.Point(791, 318);
+            this.groupBox3.Location = new System.Drawing.Point(1188, 318);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(284, 441);
             this.groupBox3.TabIndex = 19;
@@ -489,7 +490,7 @@
             this.button1.CausesValidation = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Location = new System.Drawing.Point(970, 275);
+            this.button1.Location = new System.Drawing.Point(1367, 275);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 37);
             this.button1.TabIndex = 20;
@@ -501,7 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 794);
+            this.ClientSize = new System.Drawing.Size(1484, 794);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnPreview);
@@ -512,6 +513,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneticForm";
             this.Text = "Genetic Scheduler";
             this.resPanel.ResumeLayout(false);

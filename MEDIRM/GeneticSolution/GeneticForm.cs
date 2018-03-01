@@ -240,7 +240,7 @@ namespace Scheduling
 
                     for (int i = 0; i < MaxMachines; i++)
                     {
-                        if (process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
+                        if (process != GeneticTask.GeneticProcess.Empty && process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
                         {
                             vals[k, j, i] = process.Duration;
                         }
@@ -378,8 +378,8 @@ namespace Scheduling
         Stopwatch stp = new Stopwatch();
         void btnStart_Click(object sender, EventArgs e)
         {
-            try
-            {
+            /*try
+            {*/
                 Data.DataTable = getDatas();
                 Data.Tasks = Tasks;
                 Colors.GenerateRandomHSV(MaxJob);
@@ -409,11 +409,11 @@ namespace Scheduling
                 stp.Start();
                 genetik.Start();
                 btnStop.Enabled = true;
-            }
+            /*}
             catch(Exception ea)
             {
                 MessageBox.Show("Data table is wrong");
-            }
+            }*/
         }
        
 
@@ -625,6 +625,8 @@ namespace Scheduling
 
             // Lista com os dados
             var tasks = events.Select(x => new TaskVisualizer(x, events));
+
+            
 
         }
     }

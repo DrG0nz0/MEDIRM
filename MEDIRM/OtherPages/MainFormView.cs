@@ -19,21 +19,29 @@ namespace MEDIRM
 
         public static void ShowForm(Form m)
         {
-            if (Instance == null)
-                return;
-            var controls = Instance.Controls;
+            try
+            {
+                if (Instance == null)
+                    return;
+                var controls = Instance.Controls;
 
-            Instance.Controls.Clear();
+                Instance.Controls.Clear();
+
+
+                m.TopLevel = false;
+                m.Dock = DockStyle.Fill;
+                m.Parent = MainFormView.Instance;
+                m.FormBorderStyle = FormBorderStyle.None;
+                Instance.Text = m.Text;
+
+                Instance.Icon = m.Icon;
+                m.Show();
+            }
+            catch (Exception e)
+            {
+                
+            }
             
-
-            m.TopLevel = false;
-            m.Dock = DockStyle.Fill;
-            m.Parent = MainFormView.Instance;
-            m.FormBorderStyle = FormBorderStyle.None;
-            Instance.Text = m.Text;
-
-            Instance.Icon = m.Icon;
-            m.Show();
         }
 
 
