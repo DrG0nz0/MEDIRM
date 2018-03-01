@@ -101,7 +101,7 @@ namespace Scheduling
 
                      var process = Data.Tasks[job].GetProcess(proc);
                      object nTipo = process == GeneticProcess.Empty ? null : compare(process);
-                     if (oldTipo.ToString() != nTipo.ToString() && oldTipo != nTipo)
+                     if (oldTipo != null && nTipo != null && oldTipo.ToString() != nTipo.ToString() && oldTipo != nTipo)
                      {
                          return true;
                      }

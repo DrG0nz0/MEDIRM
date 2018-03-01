@@ -275,7 +275,7 @@ namespace Scheduling
                     {
 
                         float time = 0;
-                        if (process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
+                        if (process != GeneticTask.GeneticProcess.Empty &&  process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
                         {
                             time = process.Duration;
                         }
