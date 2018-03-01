@@ -37,7 +37,6 @@
             this.artigoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.clienteTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ClienteTableAdapter();
@@ -45,10 +44,21 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
+            this.verPrecosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.verPrecosTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.VerPrecosTableAdapter();
+            this.tableAdapterManager = new MEDIRM.MedirmDBDataSetTableAdapters.TableAdapterManager();
+            this.verPrecosDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verPrecosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verPrecosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -116,15 +126,6 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Artigo:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 145);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1409, 534);
-            this.dataGridView1.TabIndex = 24;
             // 
             // button1
             // 
@@ -194,16 +195,107 @@
             this.criarMaquina.UseVisualStyleBackColor = true;
             this.criarMaquina.Click += new System.EventHandler(this.criarMaquina_Click);
             // 
+            // verPrecosBindingSource
+            // 
+            this.verPrecosBindingSource.DataMember = "VerPrecos";
+            this.verPrecosBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // verPrecosTableAdapter
+            // 
+            this.verPrecosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.ArtigosClientesTableAdapter = null;
+            this.tableAdapterManager.ArtigoTableAdapter = this.artigoTableAdapter;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CartaoTableAdapter = null;
+            this.tableAdapterManager.CartolinaTableAdapter = null;
+            this.tableAdapterManager.ClienteTableAdapter = this.clienteTableAdapter;
+            this.tableAdapterManager.ComponentesDosArtigosTableAdapter = null;
+            this.tableAdapterManager.ComponentesTableAdapter = null;
+            this.tableAdapterManager.CustosFixosTableAdapter = null;
+            this.tableAdapterManager.EncomendaTableAdapter = null;
+            this.tableAdapterManager.EsterilizacaoTableAdapter = null;
+            this.tableAdapterManager.FeriasTableAdapter = null;
+            this.tableAdapterManager.FilmeTableAdapter = null;
+            this.tableAdapterManager.FuncionarioTableAdapter = null;
+            this.tableAdapterManager.MaquinaTableAdapter = null;
+            this.tableAdapterManager.MoedaTableAdapter = null;
+            this.tableAdapterManager.MoldeTableAdapter = null;
+            this.tableAdapterManager.PapelTableAdapter = null;
+            this.tableAdapterManager.PessoasMaquinasTableAdapter = null;
+            this.tableAdapterManager.TipoMaquinaTableAdapter = null;
+            this.tableAdapterManager.TransporteTableAdapter = null;
+            this.tableAdapterManager.TurnosFuncionariosTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MEDIRM.MedirmDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            this.tableAdapterManager.VerPrecosTableAdapter = this.verPrecosTableAdapter;
+            // 
+            // verPrecosDataGridView
+            // 
+            this.verPrecosDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.verPrecosDataGridView.AutoGenerateColumns = false;
+            this.verPrecosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.verPrecosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.verPrecosDataGridView.DataSource = this.verPrecosBindingSource;
+            this.verPrecosDataGridView.Location = new System.Drawing.Point(32, 154);
+            this.verPrecosDataGridView.Name = "verPrecosDataGridView";
+            this.verPrecosDataGridView.Size = new System.Drawing.Size(1319, 513);
+            this.verPrecosDataGridView.TabIndex = 89;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Cliente";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Cliente";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Artigo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Artigo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantidade";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Quantidade";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Preco";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Preco";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CustosFixos";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CustosFixos";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "MargemLucro";
+            this.dataGridViewTextBoxColumn6.HeaderText = "MargemLucro";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
             // VerPreços
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.verPrecosDataGridView);
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox2);
@@ -216,7 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verPrecosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.verPrecosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,7 +322,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private MedirmDBDataSet medirmDBDataSet;
         private System.Windows.Forms.BindingSource clienteBindingSource;
@@ -239,5 +331,15 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button criarMaquina;
+        private System.Windows.Forms.BindingSource verPrecosBindingSource;
+        private MedirmDBDataSetTableAdapters.VerPrecosTableAdapter verPrecosTableAdapter;
+        private MedirmDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView verPrecosDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
