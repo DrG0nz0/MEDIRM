@@ -25,7 +25,6 @@ namespace MEDIRM.GeneticSolution.Helpers
 
             var hours = task.HourDuration;
             int velocidade;
-            ;
             this.unidadesPorTurno = int.TryParse(process.Machine.Velocidade1, out velocidade) ? (hours * velocidade).ToString() : "N/A";
         }
 
