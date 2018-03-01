@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ProjectScheduling.SolverFoundation
 {
-    internal class ScheduledTask
+    public class ScheduledTask
     {
         public DateTime start { get; private set; }
         public DateTime end { get; private set; }
