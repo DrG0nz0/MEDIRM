@@ -19,8 +19,6 @@ namespace MEDIRM
             InitializeComponent();
         }
 
-        MedirmDBEntities me = new MedirmDBEntities();
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -105,7 +103,7 @@ namespace MEDIRM
                 if (reader2.Read())
                 {
                     string s = reader2["MargemLucro"].ToString();
-                    preco = Convert.ToDecimal(s);
+                    margemLucro = Convert.ToDecimal(s);
                 
                     reader2.Close();
                     con3.Close();
@@ -135,8 +133,8 @@ namespace MEDIRM
                 SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos)", con);
                 com.CommandType = CommandType.Text;
 
-                com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedItem.ToString());
-                com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Cliente", "aefsf");
+                com.Parameters.AddWithValue("@Artigo", "wsef");
                 com.Parameters.AddWithValue("@Quantidade", textBox3.Text);
                 com.Parameters.AddWithValue("@Preco", preco);
                 com.Parameters.AddWithValue("@MargemLucro", margemLucro);
@@ -145,12 +143,13 @@ namespace MEDIRM
                 int i = com.ExecuteNonQuery();
                 con.Close();
 
-                MessageBox.Show("Artigo armazenado com sucesso.");
+                MessageBox.Show("Artigo adicionado com sucesso.");
 
 
                 //Clear the fields
                 // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.VerPrecos'. Você pode movê-la ou removê-la conforme necessário.
                 this.verPrecosTableAdapter.Fill(this.medirmDBDataSet.VerPrecos);
+
                 verPrecosDataGridView.Refresh();
                 textBox3.Clear();
                 comboBox2.ResetText();
