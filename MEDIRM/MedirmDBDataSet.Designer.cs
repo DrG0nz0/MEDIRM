@@ -130,10 +130,6 @@ namespace MEDIRM {
         
         private global::System.Data.DataRelation relationFuncionario_Ferias;
         
-        private global::System.Data.DataRelation relationCliente_VerPrecos;
-        
-        private global::System.Data.DataRelation relationArtigo_VerPrecos;
-        
         private global::System.Data.DataRelation relationCliente_VerPrecos1;
         
         private global::System.Data.DataRelation relationTransporte_Componentes1;
@@ -820,8 +816,6 @@ namespace MEDIRM {
             this.relationArtigo_Encomenda = this.Relations["Artigo_Encomenda"];
             this.relationCliente_Encomenda = this.Relations["Cliente_Encomenda"];
             this.relationFuncionario_Ferias = this.Relations["Funcionario_Ferias"];
-            this.relationCliente_VerPrecos = this.Relations["Cliente_VerPrecos"];
-            this.relationArtigo_VerPrecos = this.Relations["Artigo_VerPrecos"];
             this.relationCliente_VerPrecos1 = this.Relations["Cliente_VerPrecos1"];
             this.relationTransporte_Componentes1 = this.Relations["Transporte_Componentes1"];
         }
@@ -1000,14 +994,6 @@ namespace MEDIRM {
                         this.tableFuncionario.NomeColumn}, new global::System.Data.DataColumn[] {
                         this.tableFerias.FuncionarioColumn}, false);
             this.Relations.Add(this.relationFuncionario_Ferias);
-            this.relationCliente_VerPrecos = new global::System.Data.DataRelation("Cliente_VerPrecos", new global::System.Data.DataColumn[] {
-                        this.tableCliente.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVerPrecos.ClienteColumn}, false);
-            this.Relations.Add(this.relationCliente_VerPrecos);
-            this.relationArtigo_VerPrecos = new global::System.Data.DataRelation("Artigo_VerPrecos", new global::System.Data.DataColumn[] {
-                        this.tableArtigo.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVerPrecos.ClienteColumn}, false);
-            this.Relations.Add(this.relationArtigo_VerPrecos);
             this.relationCliente_VerPrecos1 = new global::System.Data.DataRelation("Cliente_VerPrecos1", new global::System.Data.DataColumn[] {
                         this.tableCliente.MargemLucroColumn}, new global::System.Data.DataColumn[] {
                         this.tableVerPrecos.MargemLucroColumn}, false);
@@ -8368,8 +8354,6 @@ namespace MEDIRM {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class VerPrecosDataTable : global::System.Data.TypedTableBase<VerPrecosRow> {
             
-            private global::System.Data.DataColumn columnCliente;
-            
             private global::System.Data.DataColumn columnArtigo;
             
             private global::System.Data.DataColumn columnQuantidade;
@@ -8379,6 +8363,8 @@ namespace MEDIRM {
             private global::System.Data.DataColumn columnCustosFixos;
             
             private global::System.Data.DataColumn columnMargemLucro;
+            
+            private global::System.Data.DataColumn columnCliente;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -8411,14 +8397,6 @@ namespace MEDIRM {
             protected VerPrecosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ClienteColumn {
-                get {
-                    return this.columnCliente;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8463,6 +8441,14 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ClienteColumn {
+                get {
+                    return this.columnCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8498,20 +8484,17 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VerPrecosRow AddVerPrecosRow(ClienteRow parentClienteRowByCliente_VerPrecos, string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1) {
+            public VerPrecosRow AddVerPrecosRow(string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1, string Cliente) {
                 VerPrecosRow rowVerPrecosRow = ((VerPrecosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         Artigo,
                         Quantidade,
                         Preco,
                         CustosFixos,
-                        null};
-                if ((parentClienteRowByCliente_VerPrecos != null)) {
-                    columnValuesArray[0] = parentClienteRowByCliente_VerPrecos[1];
-                }
+                        null,
+                        Cliente};
                 if ((parentClienteRowByCliente_VerPrecos1 != null)) {
-                    columnValuesArray[5] = parentClienteRowByCliente_VerPrecos1[3];
+                    columnValuesArray[4] = parentClienteRowByCliente_VerPrecos1[3];
                 }
                 rowVerPrecosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVerPrecosRow);
@@ -8542,19 +8525,17 @@ namespace MEDIRM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnCliente = base.Columns["Cliente"];
                 this.columnArtigo = base.Columns["Artigo"];
                 this.columnQuantidade = base.Columns["Quantidade"];
                 this.columnPreco = base.Columns["Preco"];
                 this.columnCustosFixos = base.Columns["CustosFixos"];
                 this.columnMargemLucro = base.Columns["MargemLucro"];
+                this.columnCliente = base.Columns["Cliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnCliente = new global::System.Data.DataColumn("Cliente", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente);
                 this.columnArtigo = new global::System.Data.DataColumn("Artigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArtigo);
                 this.columnQuantidade = new global::System.Data.DataColumn("Quantidade", typeof(int), null, global::System.Data.MappingType.Element);
@@ -8565,12 +8546,14 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnCustosFixos);
                 this.columnMargemLucro = new global::System.Data.DataColumn("MargemLucro", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMargemLucro);
+                this.columnCliente = new global::System.Data.DataColumn("Cliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCliente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCliente}, true));
+                this.columnArtigo.MaxLength = 50;
                 this.columnCliente.AllowDBNull = false;
                 this.columnCliente.Unique = true;
                 this.columnCliente.MaxLength = 50;
-                this.columnArtigo.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8998,17 +8981,6 @@ namespace MEDIRM {
                 }
                 else {
                     return ((EncomendaRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_Encomenda"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VerPrecosRow[] GetVerPrecosRows() {
-                if ((this.Table.ChildRelations["Cliente_VerPrecos"] == null)) {
-                    return new VerPrecosRow[0];
-                }
-                else {
-                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_VerPrecos"])));
                 }
             }
             
@@ -10111,17 +10083,6 @@ namespace MEDIRM {
                 }
                 else {
                     return ((EncomendaRow[])(base.GetChildRows(this.Table.ChildRelations["Artigo_Encomenda"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VerPrecosRow[] GetVerPrecosRows() {
-                if ((this.Table.ChildRelations["Artigo_VerPrecos"] == null)) {
-                    return new VerPrecosRow[0];
-                }
-                else {
-                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Artigo_VerPrecos"])));
                 }
             }
         }
@@ -12067,17 +12028,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Cliente {
-                get {
-                    return ((string)(this[this.tableVerPrecos.ClienteColumn]));
-                }
-                set {
-                    this[this.tableVerPrecos.ClienteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Artigo {
                 get {
                     try {
@@ -12158,23 +12108,12 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ClienteRow ClienteRow {
+            public string Cliente {
                 get {
-                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["Cliente_VerPrecos"])));
+                    return ((string)(this[this.tableVerPrecos.ClienteColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Cliente_VerPrecos"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ArtigoRow ArtigoRow {
-                get {
-                    return ((ArtigoRow)(this.GetParentRow(this.Table.ParentRelations["Artigo_VerPrecos"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Artigo_VerPrecos"]);
+                    this[this.tableVerPrecos.ClienteColumn] = value;
                 }
             }
             
@@ -22037,18 +21976,17 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "VerPrecos";
-            tableMapping.ColumnMappings.Add("Cliente", "Cliente");
             tableMapping.ColumnMappings.Add("Artigo", "Artigo");
             tableMapping.ColumnMappings.Add("Quantidade", "Quantidade");
             tableMapping.ColumnMappings.Add("Preco", "Preco");
             tableMapping.ColumnMappings.Add("CustosFixos", "CustosFixos");
             tableMapping.ColumnMappings.Add("MargemLucro", "MargemLucro");
+            tableMapping.ColumnMappings.Add("Cliente", "Cliente");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [VerPrecos] WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [VerPrecos] WHERE (((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)) AND ([Cliente] = @Original_Cliente))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -22059,29 +21997,29 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MargemLucro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VerPrecos] ([Cliente], [Artigo], [Quantidade], [Preco], [CustosFixos], [MargemLucro]) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @CustosFixos, @MargemLucro);
-SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrecos WHERE (Cliente = @Cliente)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VerPrecos] ([Artigo], [Quantidade], [Preco], [CustosFixos], [MargemLucro], [Cliente]) VALUES (@Artigo, @Quantidade, @Preco, @CustosFixos, @MargemLucro, @Cliente);
+SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrecos WHERE (Cliente = @Cliente)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [VerPrecos] SET [Cliente] = @Cliente, [Artigo] = @Artigo, [Quantidade] = @Quantidade, [Preco] = @Preco, [CustosFixos] = @CustosFixos, [MargemLucro] = @MargemLucro WHERE (([Cliente] = @Original_Cliente) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)));
-SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrecos WHERE (Cliente = @Cliente)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [VerPrecos] SET [Artigo] = @Artigo, [Quantidade] = @Quantidade, [Preco] = @Preco, [CustosFixos] = @CustosFixos, [MargemLucro] = @MargemLucro, [Cliente] = @Cliente WHERE (((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)) AND ([Cliente] = @Original_Cliente));
+SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrecos WHERE (Cliente = @Cliente)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Preco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -22092,6 +22030,7 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MargemLucro", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22107,7 +22046,7 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPreco" +
+            this._commandCollection[0].CommandText = "SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPreco" +
                 "s";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -22169,52 +22108,52 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
+        public virtual int Delete(string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro, string Original_Cliente) {
+            if ((Original_Artigo == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Artigo));
+            }
+            if ((Original_Quantidade.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Quantidade.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Preco.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Preco.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CustosFixos.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_CustosFixos.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MargemLucro.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_MargemLucro.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             if ((Original_Cliente == null)) {
                 throw new global::System.ArgumentNullException("Original_Cliente");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Cliente));
-            }
-            if ((Original_Artigo == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Artigo));
-            }
-            if ((Original_Quantidade.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Quantidade.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Preco.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Preco.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CustosFixos.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_CustosFixos.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_MargemLucro.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_MargemLucro.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Cliente));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22236,42 +22175,42 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Cliente, string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro) {
-            if ((Cliente == null)) {
-                throw new global::System.ArgumentNullException("Cliente");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Cliente));
-            }
+        public virtual int Insert(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Cliente) {
             if ((Artigo == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Artigo));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Artigo));
             }
             if ((Quantidade.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Quantidade.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Quantidade.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Preco.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Preco.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Preco.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Preco.Value));
+            if ((CustosFixos.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(CustosFixos.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((CustosFixos.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(CustosFixos.Value));
+            if ((MargemLucro.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(MargemLucro.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((MargemLucro.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(MargemLucro.Value));
+            if ((Cliente == null)) {
+                throw new global::System.ArgumentNullException("Cliente");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Cliente));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22293,88 +22232,88 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Cliente, string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
-            if ((Cliente == null)) {
-                throw new global::System.ArgumentNullException("Cliente");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Cliente));
-            }
+        public virtual int Update(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro, string Original_Cliente) {
             if ((Artigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Artigo));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Artigo));
             }
             if ((Quantidade.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Quantidade.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Quantidade.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Preco.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Preco.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Preco.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Preco.Value));
+            if ((CustosFixos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(CustosFixos.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((CustosFixos.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(CustosFixos.Value));
+            if ((MargemLucro.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(MargemLucro.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((MargemLucro.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(MargemLucro.Value));
+            if ((Cliente == null)) {
+                throw new global::System.ArgumentNullException("Cliente");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Cliente));
+            }
+            if ((Original_Artigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Artigo));
+            }
+            if ((Original_Quantidade.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Quantidade.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Preco.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_Preco.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CustosFixos.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_CustosFixos.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MargemLucro.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_MargemLucro.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_Cliente == null)) {
                 throw new global::System.ArgumentNullException("Original_Cliente");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Cliente));
-            }
-            if ((Original_Artigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Artigo));
-            }
-            if ((Original_Quantidade.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Quantidade.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Preco.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Preco.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CustosFixos.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_CustosFixos.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_MargemLucro.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_MargemLucro.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Cliente));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22396,8 +22335,8 @@ SELECT Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro FROM VerPrec
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Original_Cliente, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro) {
-            return this.Update(Original_Cliente, Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Original_Cliente, Original_Artigo, Original_Quantidade, Original_Preco, Original_CustosFixos, Original_MargemLucro);
+        public virtual int Update(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Original_Artigo, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<decimal> Original_Preco, global::System.Nullable<decimal> Original_CustosFixos, global::System.Nullable<decimal> Original_MargemLucro, string Original_Cliente) {
+            return this.Update(Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Original_Cliente, Original_Artigo, Original_Quantidade, Original_Preco, Original_CustosFixos, Original_MargemLucro, Original_Cliente);
         }
     }
     
