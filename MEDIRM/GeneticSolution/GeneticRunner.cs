@@ -241,10 +241,13 @@ namespace Scheduling
 
 
         #region Event Firings
-
+        bool CompareFitValue( Schedule A, Schedule B)
+        {
+            return A.Compare(B);
+        }
         void checkBestValueChanged(Schedule tour)
         {
-            if (best == null || best.FitValue > tour.FitValue)
+            if (best == null ||  CompareFitValue(best,tour))
             {
                 best = tour;
                 aop.Post(new System.Threading.SendOrPostCallback(delegate
@@ -293,7 +296,7 @@ namespace Scheduling
 
                 for (int i = 0; i < nums.Length - 1; i++)
                 {
-                    if (population[nums[i]].FitValue > population[nums[i + 1]].FitValue)
+                    if (CompareFitValue(population[nums[i]],population[nums[i + 1]]))
                     {
                         int temp = nums[i];
                         nums[i] = nums[i + 1];
@@ -734,6 +737,9 @@ namespace Scheduling
     public static class Data
     {
         public static float[, ,] DataTable;
+
+        public static List<GeneticForm.GeneticTask> Tasks { get; internal set; }
+
         public static int GetMinTimeMacForJP(int job, int proc)
         {
             int result = -1;
