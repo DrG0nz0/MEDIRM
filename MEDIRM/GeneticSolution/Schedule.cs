@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ProjectScheduling.SolverFoundation;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Scheduling.GeneticForm.GeneticTask;
 
 namespace Scheduling
 {
@@ -16,7 +18,7 @@ namespace Scheduling
         float totalIdleTime;
         bool makeSpanCalculated, idleCalculated;
         float makeSpan;
-
+        private int ModelSwitches = 0;
         public Schedule(int[] js, int[] ms, int j, int p, int m)
         {
             this.j = j;
@@ -24,7 +26,7 @@ namespace Scheduling
             this.m = m;
             jobSchedule = js;
             macSchedule = ms;
-            
+
             makeSpanCalculated = false;
             idleCalculated = false;
             makeSpan = 0;
@@ -33,8 +35,43 @@ namespace Scheduling
             idleTimes = new float[m];
         }
 
-        #region Makespan
+        private float AverageTime()
+        {
+            float average = 0;
 
+            for (int i = 0; i < j; i++)
+            {
+                for (int k = 0; k < p; k++)
+                {
+                    average += startTimes[i, k];
+
+                }
+            }
+            return average / (j * p);
+        }
+        #region Makespan
+        public bool Compare(Schedule b)
+        {
+            if (FitValue == b.FitValue)
+            {
+                if (ModelSwitches == b.ModelSwitches)
+                {
+                    if (FilmeSwitch == b.FilmeSwitch)
+                    {
+
+                        if (PapelSwitch == b.PapelSwitch)
+                        {
+
+                            return this.AverageTime() > b.AverageTime();
+                        }
+                        return PapelSwitch > b.PapelSwitch;
+                    }
+                    return FilmeSwitch > b.FilmeSwitch;
+                }
+                return ModelSwitches > b.ModelSwitches;
+            }
+            return FitValue > b.FitValue;
+        }
         public float MakeSpan()
         {
             if (makeSpanCalculated)
@@ -55,12 +92,37 @@ namespace Scheduling
                 int mac = macSchedule[a];
                 int oldProc = compProcs[job] > 0 ? compProcs[job] - 1 : -1;
                 var modelSwitch = 0;
-                if ((lastJob[mac].HasValue && lastJob[mac].Value != job ))
-                    {
-                    var lastJobId = lastJob[mac].Value;
-                    var lastProcId = lastProc[mac].Value;
-                    modelSwitch = 100;
+
+                Func<Func<GeneticProcess, Object>, bool> change = (Func<GeneticProcess, Object> compare) =>
+                 {
+                     if (!lastJob[mac].HasValue)
+                         return false;
+                     object oldTipo = compare(Data.Tasks[lastJob[mac].Value].Processes[lastProc[mac].Value]);
+
+                     var process = Data.Tasks[job].GetProcess(proc);
+                     object nTipo = process == GeneticProcess.Empty ? null : compare(process);
+                     if (oldTipo.ToString() != nTipo.ToString() && oldTipo != nTipo)
+                     {
+                         return true;
+                     }
+                     return false;
+
+                 };
+                if (change(x => x.Machine.Molde))
+                {
+                    modelSwitch = 1;
+                    ModelSwitches++;
                 }
+                if (change(x => x.Machine.Filme))
+                {
+                    FilmeSwitch++;
+                }
+                if (change(x => x.Machine.Papel))
+                {
+                    PapelSwitch++;
+                }
+
+   
                 startTimes[job, proc] = Math.Max(totalTime[mac],
                                                 oldProc == -1 ? 0 : finishTimes[job, oldProc]) + modelSwitch;
                 //Idle time calculator
@@ -100,7 +162,7 @@ namespace Scheduling
             makeSpanCalculated = true;
             return makeSpan;
         }
-        
+
         #endregion
 
         #region Drawing
@@ -132,7 +194,7 @@ namespace Scheduling
                 }
                 if (i == job - 1)
                     delWidth = tp.X + 20;
-            } 
+            }
             #endregion
 
             panel.Height = (mac * 25 + vertSpace) + 15;
@@ -155,7 +217,7 @@ namespace Scheduling
                     grp.DrawString(text, font, Brushes.DarkGray, tp);
 
                 }
-            } 
+            }
             #endregion
 
             #region Draw gray background rectangles
@@ -179,7 +241,7 @@ namespace Scheduling
                     grp.DrawString(idle, font, Brushes.DarkGray, itPo.X + idWidth / 2 - size.Width / 2,
                                                                     backRects[i].Y + backRects[i].Height / 2 - size.Height / 2 + 2);
                 }
-            } 
+            }
             #endregion
 
             #region Draw machine texts
@@ -193,7 +255,7 @@ namespace Scheduling
                     grp.DrawString(text, font, Brushes.Gray, tp);
 
                 }
-            } 
+            }
             #endregion
 
             #region Draw process bars and texts
@@ -242,12 +304,29 @@ namespace Scheduling
                     }
 
                 }
-            } 
+            }
             #endregion
         }
-        
+
+        internal List<ScheduledTask> GetEvents()
+        {
+            List<ScheduledTask> task = new List<ScheduledTask>();
+            for (int i = 0; i < j; i++)
+            {
+                for (int k = 0; k < p; k++)
+                {
+                    var t = new ScheduledTask(startTimes[i, k], finishTimes[i, k]);
+                    t.JobId = i;
+                    t.ProcessId = k;
+                    task.Add(t);
+
+                }
+            }
+            return task;
+        }
+
         #endregion
-        
+
         #region Repair
         Random rnd = new Random();
         public void Repair()
@@ -316,16 +395,19 @@ namespace Scheduling
                 return totalIdleTime;
             }
         }
+
+        public int FilmeSwitch { get; private set; }
+        public int PapelSwitch { get; private set; }
         #endregion
 
         #region ToString
-        
+
         public string JobsToString()
         {
             string text = "";
             for (int i = 0; i < j * p; i++)
             {
-                text += (jobSchedule[i]+1) + "";
+                text += (jobSchedule[i] + 1) + "";
             }
             return text;
         }

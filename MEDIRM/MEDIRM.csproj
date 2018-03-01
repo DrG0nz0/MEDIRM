@@ -237,6 +237,7 @@
       <DependentUpon>GeneticForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneticSolution\Schedule.cs" />
+    <Compile Include="GeneticSolution\ScheduledTask.cs" />
     <Compile Include="GerirPages\GerirTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
