@@ -91,6 +91,15 @@ namespace MEDIRM.GerirPages
 
         private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Clear the fields
+            textBox2.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            comboBox7.ResetText();
+            comboBox8.ResetText();
+           
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();

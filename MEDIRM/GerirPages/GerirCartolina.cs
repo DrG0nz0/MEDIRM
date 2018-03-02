@@ -78,6 +78,8 @@ namespace MEDIRM.GerirPages
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)     // preencher campos quando muda index
         {
+            comboBox2.ResetText();
+            
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();

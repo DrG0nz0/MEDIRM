@@ -38,8 +38,6 @@
             this.LabelMaxtras = new System.Windows.Forms.Label();
             this.minAtras = new System.Windows.Forms.TextBox();
             this.LabelminAtras = new System.Windows.Forms.Label();
-            this.minFrente = new System.Windows.Forms.TextBox();
-            this.Labelminfrente = new System.Windows.Forms.Label();
             this.labeltipo = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -147,28 +145,6 @@
             this.LabelminAtras.TabIndex = 35;
             this.LabelminAtras.Text = "Transportadora:";
             this.LabelminAtras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // minFrente
-            // 
-            this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minFrente.Location = new System.Drawing.Point(684, 265);
-            this.minFrente.Name = "minFrente";
-            this.minFrente.Size = new System.Drawing.Size(100, 26);
-            this.minFrente.TabIndex = 32;
-            this.minFrente.Text = "auto";
-            // 
-            // Labelminfrente
-            // 
-            this.Labelminfrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Labelminfrente.AutoSize = true;
-            this.Labelminfrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelminfrente.Location = new System.Drawing.Point(516, 268);
-            this.Labelminfrente.Name = "Labelminfrente";
-            this.Labelminfrente.Size = new System.Drawing.Size(163, 20);
-            this.Labelminfrente.TabIndex = 31;
-            this.Labelminfrente.Text = "Utilizador que alterou:";
-            this.Labelminfrente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labeltipo
             // 
@@ -362,8 +338,6 @@
             this.Controls.Add(this.LabelMaxtras);
             this.Controls.Add(this.minAtras);
             this.Controls.Add(this.LabelminAtras);
-            this.Controls.Add(this.minFrente);
-            this.Controls.Add(this.Labelminfrente);
             this.Controls.Add(this.labeltipo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerirTransportes";
@@ -388,8 +362,6 @@
         private System.Windows.Forms.Label LabelMaxtras;
         private System.Windows.Forms.TextBox minAtras;
         private System.Windows.Forms.Label LabelminAtras;
-        private System.Windows.Forms.TextBox minFrente;
-        private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button11;

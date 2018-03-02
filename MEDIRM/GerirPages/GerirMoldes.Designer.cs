@@ -235,19 +235,19 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "2",
-            "2,5",
+            "2.5",
             "3",
-            "3,5",
+            "3.5",
             "4",
-            "4,5",
+            "4.5",
             "5",
-            "5,5",
+            "5.5",
             "6",
-            "6,5",
+            "6.5",
             "7",
-            "7,5",
+            "7.5",
             "8",
-            "8,5",
+            "8.5",
             "9"});
             this.comboBox2.Location = new System.Drawing.Point(739, 385);
             this.comboBox2.Name = "comboBox2";

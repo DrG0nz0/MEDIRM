@@ -198,20 +198,19 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "2",
-            "2,5",
+            "2.5",
             "3",
-            "3,5",
+            "3.5",
             "4",
-            "4,5",
+            "4.5",
             "5",
-            "5,5",
+            "5.5",
             "6",
-            "6,5",
+            "6.5",
             "7",
-            "7,5",
+            "7.5",
             "8",
-            "8,5",
-            "9"});
+            "8.5"});
             this.comboBox1.Location = new System.Drawing.Point(775, 466);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);

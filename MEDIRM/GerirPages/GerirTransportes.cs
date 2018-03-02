@@ -105,7 +105,7 @@ namespace MEDIRM.GerirPages
             if (reader.Read())
             {
                 minAtras.Text = reader["Transportadora"].ToString();
-                textBox1.Text = reader["Preço"].ToString();
+                textBox1.Text = reader["Preco"].ToString();
                 maxTras.Text = reader["De"].ToString();
                 textBox2.Text = reader["Para"].ToString();
                 richTextBox1.Text = reader["Info"].ToString();

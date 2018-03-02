@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPessoasMaquinas));
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -44,17 +46,22 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.back = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.funcionarioTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FuncionarioTableAdapter();
             this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pessoasMaquinasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pessoasMaquinasTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.PessoasMaquinasTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maquinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funcionarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posicaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pessoasMaquinasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -78,15 +85,6 @@
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(124, 286);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(408, 301);
-            this.dataGridView1.TabIndex = 39;
             // 
             // label3
             // 
@@ -123,7 +121,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(408, 26);
             this.comboBox3.TabIndex = 36;
-            this.comboBox3.ValueMember = "Sigla";
+            this.comboBox3.ValueMember = "Nome";
             // 
             // funcionarioBindingSource
             // 
@@ -146,7 +144,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(408, 26);
             this.comboBox2.TabIndex = 35;
-            this.comboBox2.ValueMember = "Sigla";
+            this.comboBox2.ValueMember = "Nome";
             // 
             // funcionarioBindingSource1
             // 
@@ -194,15 +192,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(876, 286);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(408, 301);
-            this.dataGridView2.TabIndex = 50;
-            // 
             // back
             // 
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
@@ -238,12 +227,70 @@
             // 
             this.maquinaTableAdapter.ClearBeforeFill = true;
             // 
+            // pessoasMaquinasBindingSource
+            // 
+            this.pessoasMaquinasBindingSource.DataMember = "PessoasMaquinas";
+            this.pessoasMaquinasBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // pessoasMaquinasTableAdapter
+            // 
+            this.pessoasMaquinasTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maquinaDataGridViewTextBoxColumn,
+            this.funcionarioDataGridViewTextBoxColumn,
+            this.posicaoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.pessoasMaquinasBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(453, 253);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(495, 301);
+            this.dataGridView1.TabIndex = 51;
+            // 
+            // maquinaDataGridViewTextBoxColumn
+            // 
+            this.maquinaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.maquinaDataGridViewTextBoxColumn.DataPropertyName = "Maquina";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.maquinaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.maquinaDataGridViewTextBoxColumn.HeaderText = "Maquina";
+            this.maquinaDataGridViewTextBoxColumn.Name = "maquinaDataGridViewTextBoxColumn";
+            this.maquinaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // funcionarioDataGridViewTextBoxColumn
+            // 
+            this.funcionarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.funcionarioDataGridViewTextBoxColumn.DataPropertyName = "Funcionario";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.funcionarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.funcionarioDataGridViewTextBoxColumn.HeaderText = "Funcionario";
+            this.funcionarioDataGridViewTextBoxColumn.Name = "funcionarioDataGridViewTextBoxColumn";
+            this.funcionarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // posicaoDataGridViewTextBoxColumn
+            // 
+            this.posicaoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.posicaoDataGridViewTextBoxColumn.DataPropertyName = "Posicao";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.posicaoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.posicaoDataGridViewTextBoxColumn.HeaderText = "Posicao";
+            this.posicaoDataGridViewTextBoxColumn.Name = "posicaoDataGridViewTextBoxColumn";
+            this.posicaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // AddPessoasMaquinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.back);
             this.Controls.Add(this.button6);
@@ -251,7 +298,6 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox3);
@@ -260,12 +306,12 @@
             this.Name = "AddPessoasMaquinas";
             this.Text = "Adicionar pessoas as maquinas";
             this.Load += new System.EventHandler(this.AddPessoasMaquinas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pessoasMaquinasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +321,6 @@
 
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -285,12 +330,17 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private MedirmDBDataSet medirmDBDataSet;
         private MedirmDBDataSetTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
         private System.Windows.Forms.BindingSource funcionarioBindingSource;
         private System.Windows.Forms.BindingSource funcionarioBindingSource1;
         private System.Windows.Forms.BindingSource maquinaBindingSource;
         private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
+        private System.Windows.Forms.BindingSource pessoasMaquinasBindingSource;
+        private MedirmDBDataSetTableAdapters.PessoasMaquinasTableAdapter pessoasMaquinasTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maquinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn funcionarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posicaoDataGridViewTextBoxColumn;
     }
 }

@@ -84,6 +84,11 @@ namespace MEDIRM.GerirPages
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)     // preencher turnos
         {
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            comboBox4.ResetText();
+            comboBox5.ResetText();
+
             if (comboBox8.SelectedIndex.ToString()==null)
             {
                 return;

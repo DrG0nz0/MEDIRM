@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabelaHorario));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.encomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,7 @@
             this.unidadesNesteTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataFinalProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInicioProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -82,12 +83,10 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(822, 512);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 50;
+            this.dataGridView1.Size = new System.Drawing.Size(1484, 691);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // taskVisualizerBindingSource
-            // 
-            this.taskVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TaskVisualizer);
             // 
             // encomendaDataGridViewTextBoxColumn
             // 
@@ -208,12 +207,17 @@
             this.dataInicioProcessoDataGridViewTextBoxColumn.Name = "dataInicioProcessoDataGridViewTextBoxColumn";
             this.dataInicioProcessoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // taskVisualizerBindingSource
+            // 
+            this.taskVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TaskVisualizer);
+            // 
             // TabelaHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 512);
+            this.ClientSize = new System.Drawing.Size(1484, 691);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TabelaHorario";
             this.Text = "TabelaHorario";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

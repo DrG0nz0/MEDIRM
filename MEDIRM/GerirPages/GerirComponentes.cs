@@ -53,6 +53,7 @@ namespace MEDIRM.GerirPages
 
         private void button1_Click(object sender, EventArgs e)      // modificar componente
         {
+
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
@@ -149,6 +150,9 @@ namespace MEDIRM.GerirPages
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)     // preencher
         {
+            comboBox2.ResetText();
+            comboBox1.ResetText();
+
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();

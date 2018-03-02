@@ -59,6 +59,9 @@ namespace MEDIRM.AddPages
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar pessoa a máquiuna. Por favor tente novamente.");
             }
+
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)      // adicionar pessoas a tras
@@ -95,6 +98,8 @@ namespace MEDIRM.AddPages
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar pessoa a máquiuna. Por favor tente novamente.");
             }
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
 
         private void button3_Click(object sender, EventArgs e)      // concluir
@@ -105,10 +110,43 @@ namespace MEDIRM.AddPages
 
         private void AddPessoasMaquinas_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.PessoasMaquinas'. Você pode movê-la ou removê-la conforme necessário.
+            this.pessoasMaquinasTableAdapter.Fill(this.medirmDBDataSet.PessoasMaquinas);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
             this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.pessoasMaquinasTableAdapter.FillBy(this.medirmDBDataSet.PessoasMaquinas);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.pessoasMaquinasTableAdapter.FillBy1(this.medirmDBDataSet.PessoasMaquinas);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }

@@ -7111,6 +7111,8 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnEstado;
             
+            private global::System.Data.DataColumn columnFeitas;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public EncomendaDataTable() {
@@ -7202,6 +7204,14 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FeitasColumn {
+                get {
+                    return this.columnFeitas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7237,7 +7247,7 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EncomendaRow AddEncomendaRow(ArtigoRow parentArtigoRowByArtigo_Encomenda, ClienteRow parentClienteRowByCliente_Encomenda, int Quantidade, System.DateTime DataLimite, System.DateTime DataEntregaPrevista, string Estado) {
+            public EncomendaRow AddEncomendaRow(ArtigoRow parentArtigoRowByArtigo_Encomenda, ClienteRow parentClienteRowByCliente_Encomenda, int Quantidade, System.DateTime DataLimite, System.DateTime DataEntregaPrevista, string Estado, int Feitas) {
                 EncomendaRow rowEncomendaRow = ((EncomendaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7246,7 +7256,8 @@ namespace MEDIRM {
                         Quantidade,
                         DataLimite,
                         DataEntregaPrevista,
-                        Estado};
+                        Estado,
+                        Feitas};
                 if ((parentArtigoRowByArtigo_Encomenda != null)) {
                     columnValuesArray[1] = parentArtigoRowByArtigo_Encomenda[0];
                 }
@@ -7289,6 +7300,7 @@ namespace MEDIRM {
                 this.columnDataLimite = base.Columns["DataLimite"];
                 this.columnDataEntregaPrevista = base.Columns["DataEntregaPrevista"];
                 this.columnEstado = base.Columns["Estado"];
+                this.columnFeitas = base.Columns["Feitas"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7308,6 +7320,8 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnDataEntregaPrevista);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.columnFeitas = new global::System.Data.DataColumn("Feitas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeitas);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNumeroEnco}, true));
                 this.columnNumeroEnco.AutoIncrement = true;
@@ -11545,6 +11559,22 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Feitas {
+                get {
+                    try {
+                        return ((int)(this[this.tableEncomenda.FeitasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Feitas\' na tabela \'Encomenda\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncomenda.FeitasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ArtigoRow ArtigoRow {
                 get {
                     return ((ArtigoRow)(this.GetParentRow(this.Table.ParentRelations["Artigo_Encomenda"])));
@@ -11635,6 +11665,18 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEstadoNull() {
                 this[this.tableEncomenda.EstadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFeitasNull() {
+                return this.IsNull(this.tableEncomenda.FeitasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFeitasNull() {
+                this[this.tableEncomenda.FeitasColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -20571,10 +20613,11 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
             tableMapping.ColumnMappings.Add("DataLimite", "DataLimite");
             tableMapping.ColumnMappings.Add("DataEntregaPrevista", "DataEntregaPrevista");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Feitas", "Feitas");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Encomenda] WHERE (([NumeroEnco] = @Original_NumeroEnco) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Cliente = 1 AND [Cliente] IS NULL) OR ([Cliente] = @Original_Cliente)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_DataLimite = 1 AND [DataLimite] IS NULL) OR ([DataLimite] = @Original_DataLimite)) AND ((@IsNull_DataEntregaPrevista = 1 AND [DataEntregaPrevista] IS NULL) OR ([DataEntregaPrevista] = @Original_DataEntregaPrevista)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Encomenda] WHERE (([NumeroEnco] = @Original_NumeroEnco) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Cliente = 1 AND [Cliente] IS NULL) OR ([Cliente] = @Original_Cliente)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_DataLimite = 1 AND [DataLimite] IS NULL) OR ([DataLimite] = @Original_DataLimite)) AND ((@IsNull_DataEntregaPrevista = 1 AND [DataEntregaPrevista] IS NULL) OR ([DataEntregaPrevista] = @Original_DataEntregaPrevista)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_Feitas = 1 AND [Feitas] IS NULL) OR ([Feitas] = @Original_Feitas)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumeroEnco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroEnco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -20589,10 +20632,12 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataEntregaPrevista", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEntregaPrevista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Encomenda] ([Artigo], [Cliente], [Quantidade], [DataLimite], [DataEntregaPrevista], [Estado]) VALUES (@Artigo, @Cliente, @Quantidade, @DataLimite, @DataEntregaPrevista, @Estado);
-SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado FROM Encomenda WHERE (NumeroEnco = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Encomenda] ([Artigo], [Cliente], [Quantidade], [DataLimite], [DataEntregaPrevista], [Estado], [Feitas]) VALUES (@Artigo, @Cliente, @Quantidade, @DataLimite, @DataEntregaPrevista, @Estado, @Feitas);
+SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado, Feitas FROM Encomenda WHERE (NumeroEnco = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -20600,10 +20645,11 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataLimite", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataLimite", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataEntregaPrevista", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEntregaPrevista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Encomenda] SET [Artigo] = @Artigo, [Cliente] = @Cliente, [Quantidade] = @Quantidade, [DataLimite] = @DataLimite, [DataEntregaPrevista] = @DataEntregaPrevista, [Estado] = @Estado WHERE (([NumeroEnco] = @Original_NumeroEnco) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Cliente = 1 AND [Cliente] IS NULL) OR ([Cliente] = @Original_Cliente)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_DataLimite = 1 AND [DataLimite] IS NULL) OR ([DataLimite] = @Original_DataLimite)) AND ((@IsNull_DataEntregaPrevista = 1 AND [DataEntregaPrevista] IS NULL) OR ([DataEntregaPrevista] = @Original_DataEntregaPrevista)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)));
-SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado FROM Encomenda WHERE (NumeroEnco = @NumeroEnco)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Encomenda] SET [Artigo] = @Artigo, [Cliente] = @Cliente, [Quantidade] = @Quantidade, [DataLimite] = @DataLimite, [DataEntregaPrevista] = @DataEntregaPrevista, [Estado] = @Estado, [Feitas] = @Feitas WHERE (([NumeroEnco] = @Original_NumeroEnco) AND ((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Cliente = 1 AND [Cliente] IS NULL) OR ([Cliente] = @Original_Cliente)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_DataLimite = 1 AND [DataLimite] IS NULL) OR ([DataLimite] = @Original_DataLimite)) AND ((@IsNull_DataEntregaPrevista = 1 AND [DataEntregaPrevista] IS NULL) OR ([DataEntregaPrevista] = @Original_DataEntregaPrevista)) AND ((@IsNull_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_Feitas = 1 AND [Feitas] IS NULL) OR ([Feitas] = @Original_Feitas)));
+SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado, Feitas FROM Encomenda WHERE (NumeroEnco = @NumeroEnco)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -20611,6 +20657,7 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataLimite", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataLimite", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataEntregaPrevista", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEntregaPrevista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumeroEnco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroEnco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Artigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -20624,6 +20671,8 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataEntregaPrevista", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEntregaPrevista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Feitas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Feitas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumeroEnco", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NumeroEnco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -20641,7 +20690,7 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, " +
-                "Estado FROM dbo.Encomenda";
+                "Estado, Feitas FROM Encomenda";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20702,7 +20751,7 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_NumeroEnco, string Original_Artigo, string Original_Cliente, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<global::System.DateTime> Original_DataLimite, global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, string Original_Estado) {
+        public virtual int Delete(int Original_NumeroEnco, string Original_Artigo, string Original_Cliente, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<global::System.DateTime> Original_DataLimite, global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, string Original_Estado, global::System.Nullable<int> Original_Feitas) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_NumeroEnco));
             if ((Original_Artigo == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -20752,6 +20801,14 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Estado));
             }
+            if ((Original_Feitas.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Feitas.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -20772,7 +20829,7 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Artigo, string Cliente, global::System.Nullable<int> Quantidade, global::System.Nullable<global::System.DateTime> DataLimite, global::System.Nullable<global::System.DateTime> DataEntregaPrevista, string Estado) {
+        public virtual int Insert(string Artigo, string Cliente, global::System.Nullable<int> Quantidade, global::System.Nullable<global::System.DateTime> DataLimite, global::System.Nullable<global::System.DateTime> DataEntregaPrevista, string Estado, global::System.Nullable<int> Feitas) {
             if ((Artigo == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -20809,6 +20866,12 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Estado));
             }
+            if ((Feitas.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Feitas.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -20829,7 +20892,23 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Artigo, string Cliente, global::System.Nullable<int> Quantidade, global::System.Nullable<global::System.DateTime> DataLimite, global::System.Nullable<global::System.DateTime> DataEntregaPrevista, string Estado, int Original_NumeroEnco, string Original_Artigo, string Original_Cliente, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<global::System.DateTime> Original_DataLimite, global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, string Original_Estado, int NumeroEnco) {
+        public virtual int Update(
+                    string Artigo, 
+                    string Cliente, 
+                    global::System.Nullable<int> Quantidade, 
+                    global::System.Nullable<global::System.DateTime> DataLimite, 
+                    global::System.Nullable<global::System.DateTime> DataEntregaPrevista, 
+                    string Estado, 
+                    global::System.Nullable<int> Feitas, 
+                    int Original_NumeroEnco, 
+                    string Original_Artigo, 
+                    string Original_Cliente, 
+                    global::System.Nullable<int> Original_Quantidade, 
+                    global::System.Nullable<global::System.DateTime> Original_DataLimite, 
+                    global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, 
+                    string Original_Estado, 
+                    global::System.Nullable<int> Original_Feitas, 
+                    int NumeroEnco) {
             if ((Artigo == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -20866,56 +20945,70 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Estado));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_NumeroEnco));
-            if ((Original_Artigo == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            if ((Feitas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Feitas.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Artigo));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_NumeroEnco));
+            if ((Original_Artigo == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Artigo));
             }
             if ((Original_Cliente == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Cliente));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Cliente));
             }
             if ((Original_Quantidade.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Quantidade.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Quantidade.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_DataLimite.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_DataLimite.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_DataLimite.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_DataEntregaPrevista.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_DataEntregaPrevista.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_DataEntregaPrevista.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_Estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Estado));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Estado));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(NumeroEnco));
+            if ((Original_Feitas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Feitas.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(NumeroEnco));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -20936,8 +21029,8 @@ SELECT NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Artigo, string Cliente, global::System.Nullable<int> Quantidade, global::System.Nullable<global::System.DateTime> DataLimite, global::System.Nullable<global::System.DateTime> DataEntregaPrevista, string Estado, int Original_NumeroEnco, string Original_Artigo, string Original_Cliente, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<global::System.DateTime> Original_DataLimite, global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, string Original_Estado) {
-            return this.Update(Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado, Original_NumeroEnco, Original_Artigo, Original_Cliente, Original_Quantidade, Original_DataLimite, Original_DataEntregaPrevista, Original_Estado, Original_NumeroEnco);
+        public virtual int Update(string Artigo, string Cliente, global::System.Nullable<int> Quantidade, global::System.Nullable<global::System.DateTime> DataLimite, global::System.Nullable<global::System.DateTime> DataEntregaPrevista, string Estado, global::System.Nullable<int> Feitas, int Original_NumeroEnco, string Original_Artigo, string Original_Cliente, global::System.Nullable<int> Original_Quantidade, global::System.Nullable<global::System.DateTime> Original_DataLimite, global::System.Nullable<global::System.DateTime> Original_DataEntregaPrevista, string Original_Estado, global::System.Nullable<int> Original_Feitas) {
+            return this.Update(Artigo, Cliente, Quantidade, DataLimite, DataEntregaPrevista, Estado, Feitas, Original_NumeroEnco, Original_Artigo, Original_Cliente, Original_Quantidade, Original_DataLimite, Original_DataEntregaPrevista, Original_Estado, Original_Feitas, Original_NumeroEnco);
         }
     }
     
@@ -21466,11 +21559,22 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Maquina, Funcionario, Posicao FROM dbo.PessoasMaquinas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Funcionario, Maquina, Posicao FROM dbo.PessoasMaquinas where Maquina=\'\" + " +
+                "comboBox1.Text.Trim() + \"\' and Funcionario=\'\" + comboBox3.Text.Trim() + \"\' and P" +
+                "osicao=\'Frente\'";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Funcionario, Maquina, Posicao FROM dbo.PessoasMaquinas where Maquina=\'\" + " +
+                "comboBox1.Text.Trim() + \"\' and Posicao=\'Frente\'";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21495,6 +21599,32 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             MedirmDBDataSet.PessoasMaquinasDataTable dataTable = new MedirmDBDataSet.PessoasMaquinasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(MedirmDBDataSet.PessoasMaquinasDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(MedirmDBDataSet.PessoasMaquinasDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
