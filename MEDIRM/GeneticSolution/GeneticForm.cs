@@ -107,30 +107,55 @@ namespace Scheduling
                         var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         if (maquina1 != null)
                         {
-                            currentProcessCount++;
+                           currentProcessCount++;
                             task.Processes.Add(new GeneticTask.GeneticProcess(encomenda,components,maquina1, maquina1C , qt));
+                        }
+                        else
+                        {
+                            task.Processes.Add(GeneticTask.GeneticProcess.Empty);
+
                         }
                         if (maquina2 != null)
                         {
                             currentProcessCount++;
                             task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina2, maquina2C,qt));
                         }
+                        else
+                        {
+                            task.Processes.Add(GeneticTask.GeneticProcess.Empty);
+
+                        }
                         if (maquina3 != null)
                         {
                             currentProcessCount++;
                             task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina3, maquina3C, qt));
+                        }
+                        else
+                        {
+                            task.Processes.Add(GeneticTask.GeneticProcess.Empty);
+
                         }
                         if (maquina4 != null)
                         {
                             currentProcessCount++;
                             task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina4, maquina4C, qt));
                         }
+                        else
+                        {
+                            task.Processes.Add(GeneticTask.GeneticProcess.Empty);
+
+                        }
                         if (maquina5 != null)
                         {
                             currentProcessCount++;
                             task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina5, maquina5C, qt));
                         }
-                      
+                        else
+                        {
+                            task.Processes.Add(GeneticTask.GeneticProcess.Empty);
+
+                        }
+
                         if (currentProcessCount > MaxProcessCount)
                             MaxProcessCount = currentProcessCount;
                         //
@@ -179,8 +204,11 @@ namespace Scheduling
                     get
                     {
                         int velocidade = 0;
-                        if ( int.TryParse(this.Machine.Velocidade1, out velocidade))                   
-                            return (int)((quantidade / velocidade));
+                        if (int.TryParse(this.Machine.Velocidade1, out velocidade))
+                        {
+                            var v = ((float)(quantidade * encomenda.Quantidade) / velocidade);
+                            return v;
+                        }
                         return quantidade;
                     }
                 }
@@ -223,7 +251,7 @@ namespace Scheduling
         int MaxMachines
         {
             get
-            { return MaxProcessCount; }
+            { return ResourcesNeeded.Count; }
         }
         int MaxJob
         {
@@ -245,22 +273,19 @@ namespace Scheduling
 
                     for (int i = 0; i < MaxMachines; i++)
                     {
-                        if (process != GeneticTask.GeneticProcess.Empty && process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
+
+                        if (process == GeneticTask.GeneticProcess.Empty)
+                        {
+                            vals[k, j, i] = 0;
+                        }
+                        else if (process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
                         {
                             vals[k, j, i] = process.Duration;
                         }
-                        else
-                        {
-                            if (task.Processes.Count > j)
-                            {
-                                // temos processo para este nivel
-                                vals[k, j, i] = 50000;
-                            }
-                            else
-                            {
-                                vals[k, j, i] = 0;
-                            }
+                        else {
+                            vals[k, j, i] = 5000;
                         }
+
                     }
                 }
             }
@@ -279,23 +304,19 @@ namespace Scheduling
                     for (int i = 0; i < MaxMachines; i++)
                     {
 
-                        float time = 0;
-                        if (process != GeneticTask.GeneticProcess.Empty &&  process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
+                        if (process == GeneticTask.GeneticProcess.Empty)
                         {
-                            time = process.Duration;
+                           // vals[k, j, i] = 0;
+                        }
+                        else if (process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
+                        {
+                           // vals[k, j, i] = process.Duration;
                         }
                         else
                         {
-                            if (task.Processes.Count > j)
-                            {
-                                // temos processo para este nivel
-                                time = 50000;
-                            }
-                            else
-                            {
-                                time = 0;
-                            }
+                           // vals[k, j, i] = 50000000;
                         }
+
                         //getBoxControl(boxPanel, k + 1, j + 1, i + 1).Text =  time == 50000 ? "X" : time.ToString();
                     }
                 }

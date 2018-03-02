@@ -25,8 +25,7 @@ namespace MEDIRM.GeneticSolution.Helpers
 
             var hours = task.HourDuration;
             int velocidade;
-            ;
-            //this.unidadesPorTurno = int.TryParse(process.Machine.Velocidade1, out velocidade) ? (hours * velocidade).ToString() : "N/A";
+            this.unidadesPorTurno = int.TryParse(process.Machine.Velocidade1, out velocidade) ? (hours * velocidade).ToString() : "N/A";
         }
 
         [Category("Encomenda")]
@@ -59,8 +58,8 @@ namespace MEDIRM.GeneticSolution.Helpers
         [Category("Processo")]
         public string Molde => this.process.Machine.Molde;
         [Category("Processo")]
-        //public string UnidadesNesteTurno => this.unidadesPorTurno;
-        //[Category("Processo")]
+        public string UnidadesNesteTurno => this.unidadesPorTurno;
+        [Category("Processo")]
         public DateTime DataFinalProcesso => this.estimatedDelivery;
         [Category("Processo")]
         public DateTime DataInicioProcesso => this.sTask.start;
