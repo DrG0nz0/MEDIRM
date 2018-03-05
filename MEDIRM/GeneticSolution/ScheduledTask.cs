@@ -11,6 +11,7 @@ namespace ProjectScheduling.SolverFoundation
         public double HourDuration { get; }
         public int JobId { get; internal set; }
         public int ProcessId { get; internal set; }
+        public int MachineId { get; internal set; }
 
         public List<TimeInterval> Breaks = new List<TimeInterval>();
 

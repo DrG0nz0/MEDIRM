@@ -739,6 +739,7 @@ namespace Scheduling
         public static float[, ,] DataTable;
 
         public static List<GeneticForm.GeneticTask> Tasks { get; internal set; }
+        public static List<GeneticForm.GeneticResource> Machines { get; internal set; }
 
         public static int GetMinTimeMacForJP(int job, int proc)
         {
@@ -758,7 +759,7 @@ namespace Scheduling
                     min = curr;
                 }
             }
-            return result + 25;
+            return result;
         }
     }
     public enum COTypes
