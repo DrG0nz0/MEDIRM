@@ -35,6 +35,7 @@ namespace Scheduling
             idleTimes = new float[m];
         }
 
+
         private float AverageTime()
         {
             float average = 0;
@@ -92,14 +93,25 @@ namespace Scheduling
                 int mac = macSchedule[a];
                 int oldProc = compProcs[job] > 0 ? compProcs[job] - 1 : -1;
                 var modelSwitch = 0;
+                var genProcess = Data.Tasks[job].Processes[proc];
+                //if (genProcess == GeneticProcess.Empty)
+                //    continue;
 
+
+              
                 Func<Func<GeneticProcess, Object>, bool> change = (Func<GeneticProcess, Object> compare) =>
                  {
-                     if (!lastJob[mac].HasValue)
+                     if (!lastJob[mac].HasValue || !lastProc[mac].HasValue)
                          return false;
-                     object oldTipo = compare(Data.Tasks[lastJob[mac].Value].Processes[lastProc[mac].Value]);
+                     int lastProcessId = lastProc[mac].Value;
+                     int lastJobId = lastJob[mac].Value;
+
+                     var lastProcess = Data.Tasks[lastJobId].GetProcess(lastProcessId);
+                     object oldTipo = compare(lastProcess);
 
                      var process = Data.Tasks[job].GetProcess(proc);
+                     if (process == GeneticProcess.Empty)
+                         return false;
                      object nTipo = process == GeneticProcess.Empty ? null : compare(process);
                      if (oldTipo != null && nTipo != null && oldTipo.ToString() != nTipo.ToString() && oldTipo != nTipo)
                      {
@@ -107,7 +119,7 @@ namespace Scheduling
                      }
                      return false;
 
-                 };
+                };
                 if (change(x => x.Machine.Molde))
                 {
                     modelSwitch = 1;
@@ -122,12 +134,14 @@ namespace Scheduling
                     PapelSwitch++;
                 }
 
-   
+
                 startTimes[job, proc] = Math.Max(totalTime[mac],
                                                 oldProc == -1 ? 0 : finishTimes[job, oldProc]) + modelSwitch;
                 //Idle time calculator
                 idleTimes[mac] += startTimes[job, proc] - totalTime[mac];
                 //
+
+                var duration = genProcess == GeneticProcess.Empty ? 0 : Data.DataTable[job, proc, mac];
                 //last process and job at the machine
                 finishTimes[job, proc] = startTimes[job, proc] + Data.DataTable[job, proc, mac];
 
@@ -135,12 +149,13 @@ namespace Scheduling
                 {
                     lastJob[mac] = job;
                     lastProc[mac] = proc;
+                compProcs[job]++;
                 }
-                //
+                ////
 
 
                 totalTime[mac] = finishTimes[job, proc];
-                compProcs[job]++;
+               
             }
 
             float result = -1;
@@ -178,7 +193,7 @@ namespace Scheduling
             int job = j;
             int horSpace = 40;
             int vertSpace = 60;
-            int delWidth = 0;
+            int delWidth = 150;
 
             #region Draw job delegate signs
             for (int i = 0; i < job; i++)
@@ -203,15 +218,16 @@ namespace Scheduling
 
             #region Draw measure lines and texts
             int idWidth = 0;
-            int num = (int)((makeSpan + 5) / 25);
+            int count = 500;
+            int num = (int)((makeSpan + 5) / count);
             for (int i = 0; i <= num; i++)
             {
-                Point p1 = new Point(25 * i + horSpace, vertSpace - 3);
-                Point p2 = new Point(25 * i + horSpace, vertSpace + (int)((mac - 0.5) * 25) + 5);
+                Point p1 = new Point(count * i + horSpace, vertSpace - 3);
+                Point p2 = new Point(count * i + horSpace, vertSpace + (int)((mac - 0.5) * count) + 5);
                 using (Font font = new Font("Arial", 7))
                 {
                     grp.DrawLine(Pens.DarkGray, p1, p2);
-                    string text = (25 * i).ToString();
+                    string text = (count * i).ToString();
                     Size size = TextRenderer.MeasureText(text, font);
                     Point tp = new Point(p1.X - size.Width / 2 + 2, p1.Y - size.Height);
                     grp.DrawString(text, font, Brushes.DarkGray, tp);
@@ -249,7 +265,7 @@ namespace Scheduling
             {
                 using (Font font = new Font("Arial", 10))
                 {
-                    string text = "M" + (i + 1);
+                    string text = "M" +  Data.Machines[i].maquina.Tipo;
                     Size size = TextRenderer.MeasureText(text, font);
                     PointF tp = new PointF(backRects[i].X - size.Width, backRects[i].Y);
                     grp.DrawString(text, font, Brushes.Gray, tp);
@@ -272,7 +288,8 @@ namespace Scheduling
                     float y = backRects[tempMac].Y;
                     float height = 15;
                     float time = Data.DataTable[i, b, tempMac];
-
+                    if (time == int.MaxValue)
+                        continue;
                     PointF ps1 = new PointF(x, y + 15);
                     PointF ps2 = new PointF(x, ps1.Y - height);
                     PointF ps3 = new PointF(ps2.X + time, ps2.Y);
@@ -318,6 +335,7 @@ namespace Scheduling
                     var t = new ScheduledTask(startTimes[i, k], finishTimes[i, k]);
                     t.JobId = i;
                     t.ProcessId = k;
+
                     task.Add(t);
 
                 }

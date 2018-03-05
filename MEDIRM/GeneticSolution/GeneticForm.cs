@@ -283,7 +283,7 @@ namespace Scheduling
                             vals[k, j, i] = process.Duration;
                         }
                         else {
-                            vals[k, j, i] = 5000;
+                            vals[k, j, i] = process.Duration + 500000;
                         }
 
                     }
@@ -408,6 +408,7 @@ namespace Scheduling
             {*/
                 Data.DataTable = getDatas();
                 Data.Tasks = Tasks;
+            Data.Machines = ResourcesNeeded;
                 Colors.GenerateRandomHSV(MaxJob);
                 if (genetik != null && !genetik.Stopped)
                 {
