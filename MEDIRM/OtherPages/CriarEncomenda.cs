@@ -39,7 +39,7 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Quantidade", textBox3.Text);
                 com.Parameters.AddWithValue("@DataLimite", dateTimePicker1.Value);
                 com.Parameters.AddWithValue("@Estado", "EmEspera");
-                com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedItem);
                 com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedValue.ToString());
 
                 con.Open();
@@ -86,6 +86,35 @@ namespace MEDIRM
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+            SqlDataReader dr;
+            try
+            {
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                //Check whether the Drop Down has existing items. If YES, empty it.
+                if (comboBox2.Items.Count > 0)
+                    comboBox2.Items.Clear();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT Artigo FROM ArtigosClientes WHERE Cliente= '" + comboBox1.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                while (dr.Read())
+                    comboBox2.Items.Add(dr[0].ToString());
+
+                dr.Close();
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

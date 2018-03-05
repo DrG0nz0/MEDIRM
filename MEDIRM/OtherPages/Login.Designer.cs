@@ -82,6 +82,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button2.Location = new System.Drawing.Point(687, 535);
             this.button2.Name = "button2";
@@ -97,6 +98,8 @@
             this.button12.BackgroundImage = global::MEDIRM.Properties.Resources.MEDIRM_decente;
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(441, 3);
             this.button12.Name = "button12";

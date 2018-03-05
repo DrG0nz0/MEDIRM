@@ -92,15 +92,12 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DataSource = this.artigosClientesBindingSource;
-            this.comboBox2.DisplayMember = "Artigo";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(417, 261);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(650, 28);
             this.comboBox2.TabIndex = 85;
-            this.comboBox2.ValueMember = "Artigo";
             // 
             // artigosClientesBindingSource
             // 
@@ -124,6 +121,7 @@
             this.comboBox1.Size = new System.Drawing.Size(650, 28);
             this.comboBox1.TabIndex = 87;
             this.comboBox1.ValueMember = "Nome";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // clienteBindingSource
             // 
