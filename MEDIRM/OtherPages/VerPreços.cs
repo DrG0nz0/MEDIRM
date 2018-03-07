@@ -113,7 +113,7 @@ namespace MEDIRM
                     con3.Close();
                     MessageBox.Show("Erro ao exibir margem de lucro. Por favor tente novamente.");
                 }
-                /*
+                
                 // somar os custos fixos
                 SqlConnection con4 = new SqlConnection(connectionString);
                 con4.Open();
@@ -122,8 +122,11 @@ namespace MEDIRM
 
                 object result = cmd4.ExecuteScalar();
                 string s2 = Convert.ToString(result);
-                margemLucro = Convert.ToDecimal(s2);
-                con4.Close();*/
+                custosFixos = Convert.ToDecimal(s2);
+                con4.Close();
+
+                // preço final
+                decimal final = preco * Convert.ToDecimal(textBox3.Text);
 
                 // finalemnte correr a query que mete tudo na BD
                 SqlConnection con = new SqlConnection(connectionString);
@@ -133,12 +136,12 @@ namespace MEDIRM
                 SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos)", con);
                 com.CommandType = CommandType.Text;
 
-                com.Parameters.AddWithValue("@Cliente", "aefsf");
-                com.Parameters.AddWithValue("@Artigo", "wsef");
+                com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedValue.ToString());
+                com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedItem.ToString());
                 com.Parameters.AddWithValue("@Quantidade", textBox3.Text);
                 com.Parameters.AddWithValue("@Preco", preco);
                 com.Parameters.AddWithValue("@MargemLucro", margemLucro);
-                com.Parameters.AddWithValue("@CustosFixos", '5');
+                com.Parameters.AddWithValue("@CustosFixos", custosFixos);
 
                 int i = com.ExecuteNonQuery();
                 con.Close();
@@ -160,6 +163,35 @@ namespace MEDIRM
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar artigo ao cliente. Por favor tente novamente.");
             }*/
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+            SqlDataReader dr;
+            try
+            {
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                //Check whether the Drop Down has existing items. If YES, empty it.
+                if (comboBox2.Items.Count > 0)
+                    comboBox2.Items.Clear();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT Artigo FROM ArtigosClientes WHERE Cliente= '" + comboBox1.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                while (dr.Read())
+                    comboBox2.Items.Add(dr[0].ToString());
+
+                dr.Close();
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

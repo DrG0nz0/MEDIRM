@@ -62,9 +62,11 @@
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.transporteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -123,7 +125,7 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.DataSource = this.transporteBindingSource;
+            this.comboBox1.DataSource = this.transporteBindingSource1;
             this.comboBox1.DisplayMember = "Designacao";
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -393,6 +395,11 @@
             this.label11.Text = "Preço custo final:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // transporteBindingSource1
+            // 
+            this.transporteBindingSource1.DataMember = "Transporte";
+            this.transporteBindingSource1.DataSource = this.medirmDBDataSet;
+            // 
             // AddComponente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +439,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,5 +479,6 @@
         private MedirmDBDataSetTableAdapters.MoedaTableAdapter moedaTableAdapter;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.BindingSource transporteBindingSource1;
     }
 }

@@ -50,7 +50,7 @@ namespace MEDIRM
         {
             InitializeComponent();
             Instance = this;
-            ShowForm(new Login());
+            ShowForm(new Menu());
         }
         private void MainFormView_Load(object sender, EventArgs e)
         {

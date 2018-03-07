@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerPreços));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,12 +50,14 @@
             this.verPrecosTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.VerPrecosTableAdapter();
             this.tableAdapterManager = new MEDIRM.MedirmDBDataSetTableAdapters.TableAdapterManager();
             this.verPrecosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.custosFixosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.margemLucroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoFinalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).BeginInit();
@@ -73,6 +77,7 @@
             this.comboBox1.Size = new System.Drawing.Size(508, 28);
             this.comboBox1.TabIndex = 20;
             this.comboBox1.ValueMember = "Nome";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // clienteBindingSource
             // 
@@ -87,15 +92,12 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DataSource = this.artigoBindingSource;
-            this.comboBox2.DisplayMember = "Nome";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(998, 48);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(453, 28);
             this.comboBox2.TabIndex = 21;
-            this.comboBox2.ValueMember = "Nome";
             // 
             // artigoBindingSource
             // 
@@ -217,6 +219,7 @@
             this.tableAdapterManager.CustosFixosTableAdapter = null;
             this.tableAdapterManager.EncomendaTableAdapter = null;
             this.tableAdapterManager.EsterilizacaoTableAdapter = null;
+            this.tableAdapterManager.FeitasTableAdapter = null;
             this.tableAdapterManager.FeriasTableAdapter = null;
             this.tableAdapterManager.FilmeTableAdapter = null;
             this.tableAdapterManager.FuncionarioTableAdapter = null;
@@ -236,55 +239,87 @@
             // 
             this.verPrecosDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.verPrecosDataGridView.AutoGenerateColumns = false;
+            this.verPrecosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.verPrecosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.verPrecosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.verPrecosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.artigoDataGridViewTextBoxColumn,
+            this.quantidadeDataGridViewTextBoxColumn,
+            this.precoDataGridViewTextBoxColumn,
+            this.custosFixosDataGridViewTextBoxColumn,
+            this.margemLucroDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
+            this.transporteDataGridViewTextBoxColumn,
+            this.precoFinalDataGridViewTextBoxColumn});
             this.verPrecosDataGridView.DataSource = this.verPrecosBindingSource;
             this.verPrecosDataGridView.Location = new System.Drawing.Point(32, 154);
             this.verPrecosDataGridView.Name = "verPrecosDataGridView";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.verPrecosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.verPrecosDataGridView.RowHeadersVisible = false;
             this.verPrecosDataGridView.Size = new System.Drawing.Size(1319, 513);
             this.verPrecosDataGridView.TabIndex = 89;
             // 
-            // dataGridViewTextBoxColumn1
+            // artigoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Cliente";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Cliente";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.artigoDataGridViewTextBoxColumn.DataPropertyName = "Artigo";
+            this.artigoDataGridViewTextBoxColumn.HeaderText = "Artigo";
+            this.artigoDataGridViewTextBoxColumn.Name = "artigoDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn2
+            // quantidadeDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Artigo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Artigo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn3
+            // precoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantidade";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Quantidade";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.precoDataGridViewTextBoxColumn.DataPropertyName = "Preco";
+            this.precoDataGridViewTextBoxColumn.HeaderText = "Preco";
+            this.precoDataGridViewTextBoxColumn.Name = "precoDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn4
+            // custosFixosDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Preco";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Preco";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.custosFixosDataGridViewTextBoxColumn.DataPropertyName = "CustosFixos";
+            this.custosFixosDataGridViewTextBoxColumn.HeaderText = "CustosFixos";
+            this.custosFixosDataGridViewTextBoxColumn.Name = "custosFixosDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn5
+            // margemLucroDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CustosFixos";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CustosFixos";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.margemLucroDataGridViewTextBoxColumn.DataPropertyName = "MargemLucro";
+            this.margemLucroDataGridViewTextBoxColumn.HeaderText = "MargemLucro";
+            this.margemLucroDataGridViewTextBoxColumn.Name = "margemLucroDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn6
+            // clienteDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "MargemLucro";
-            this.dataGridViewTextBoxColumn6.HeaderText = "MargemLucro";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            // 
+            // transporteDataGridViewTextBoxColumn
+            // 
+            this.transporteDataGridViewTextBoxColumn.DataPropertyName = "Transporte";
+            this.transporteDataGridViewTextBoxColumn.HeaderText = "Transporte";
+            this.transporteDataGridViewTextBoxColumn.Name = "transporteDataGridViewTextBoxColumn";
+            // 
+            // precoFinalDataGridViewTextBoxColumn
+            // 
+            this.precoFinalDataGridViewTextBoxColumn.DataPropertyName = "PrecoFinal";
+            this.precoFinalDataGridViewTextBoxColumn.HeaderText = "PrecoFinal";
+            this.precoFinalDataGridViewTextBoxColumn.Name = "precoFinalDataGridViewTextBoxColumn";
             // 
             // VerPreços
             // 
@@ -335,11 +370,13 @@
         private MedirmDBDataSetTableAdapters.VerPrecosTableAdapter verPrecosTableAdapter;
         private MedirmDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView verPrecosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn artigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custosFixosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn margemLucroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transporteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoFinalDataGridViewTextBoxColumn;
     }
 }

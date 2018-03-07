@@ -8415,6 +8415,10 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnCliente;
             
+            private global::System.Data.DataColumn columnTransporte;
+            
+            private global::System.Data.DataColumn columnPrecoFinal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public VerPrecosDataTable() {
@@ -8498,6 +8502,22 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TransporteColumn {
+                get {
+                    return this.columnTransporte;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PrecoFinalColumn {
+                get {
+                    return this.columnPrecoFinal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8533,7 +8553,7 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VerPrecosRow AddVerPrecosRow(string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1, string Cliente) {
+            public VerPrecosRow AddVerPrecosRow(string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1, string Cliente, decimal Transporte, decimal PrecoFinal) {
                 VerPrecosRow rowVerPrecosRow = ((VerPrecosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Artigo,
@@ -8541,7 +8561,9 @@ namespace MEDIRM {
                         Preco,
                         CustosFixos,
                         null,
-                        Cliente};
+                        Cliente,
+                        Transporte,
+                        PrecoFinal};
                 if ((parentClienteRowByCliente_VerPrecos1 != null)) {
                     columnValuesArray[4] = parentClienteRowByCliente_VerPrecos1[3];
                 }
@@ -8580,6 +8602,8 @@ namespace MEDIRM {
                 this.columnCustosFixos = base.Columns["CustosFixos"];
                 this.columnMargemLucro = base.Columns["MargemLucro"];
                 this.columnCliente = base.Columns["Cliente"];
+                this.columnTransporte = base.Columns["Transporte"];
+                this.columnPrecoFinal = base.Columns["PrecoFinal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8597,6 +8621,10 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnMargemLucro);
                 this.columnCliente = new global::System.Data.DataColumn("Cliente", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCliente);
+                this.columnTransporte = new global::System.Data.DataColumn("Transporte", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransporte);
+                this.columnPrecoFinal = new global::System.Data.DataColumn("PrecoFinal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecoFinal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCliente}, true));
                 this.columnArtigo.MaxLength = 50;
@@ -12488,6 +12516,38 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Transporte {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVerPrecos.TransporteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Transporte\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.TransporteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal PrecoFinal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVerPrecos.PrecoFinalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PrecoFinal\' na tabela \'VerPrecos\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVerPrecos.PrecoFinalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ClienteRow ClienteRowByCliente_VerPrecos1 {
                 get {
                     return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["Cliente_VerPrecos1"])));
@@ -12555,6 +12615,30 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMargemLucroNull() {
                 this[this.tableVerPrecos.MargemLucroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTransporteNull() {
+                return this.IsNull(this.tableVerPrecos.TransporteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTransporteNull() {
+                this[this.tableVerPrecos.TransporteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPrecoFinalNull() {
+                return this.IsNull(this.tableVerPrecos.PrecoFinalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPrecoFinalNull() {
+                this[this.tableVerPrecos.PrecoFinalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -22601,6 +22685,8 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             tableMapping.ColumnMappings.Add("CustosFixos", "CustosFixos");
             tableMapping.ColumnMappings.Add("MargemLucro", "MargemLucro");
             tableMapping.ColumnMappings.Add("Cliente", "Cliente");
+            tableMapping.ColumnMappings.Add("Transporte", "Transporte");
+            tableMapping.ColumnMappings.Add("PrecoFinal", "PrecoFinal");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -22619,8 +22705,9 @@ SELECT Funcionario, DataInicio, DataFim FROM Ferias WHERE (Funcionario = @Funcio
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VerPrecos] ([Artigo], [Quantidade], [Preco], [CustosFixos], [MargemLucro], [Cliente]) VALUES (@Artigo, @Quantidade, @Preco, @CustosFixos, @MargemLucro, @Cliente);
-SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrecos WHERE (Cliente = @Cliente)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [VerPrecos] ([Artigo], [Quantidade], [Preco], [CustosFixos], [MargemL" +
+                "ucro], [Cliente], [PrecoFinal], [Transporte]) VALUES (@Artigo, @Quantidade, @Pre" +
+                "co, @CustosFixos, @MargemLucro, @Cliente, @PrecoFinal, @Transporte)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22628,6 +22715,8 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustosFixos", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "CustosFixos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MargemLucro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MargemLucro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrecoFinal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "PrecoFinal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Transporte", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Transporte", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [VerPrecos] SET [Artigo] = @Artigo, [Quantidade] = @Quantidade, [Preco] = @Preco, [CustosFixos] = @CustosFixos, [MargemLucro] = @MargemLucro, [Cliente] = @Cliente WHERE (((@IsNull_Artigo = 1 AND [Artigo] IS NULL) OR ([Artigo] = @Original_Artigo)) AND ((@IsNull_Quantidade = 1 AND [Quantidade] IS NULL) OR ([Quantidade] = @Original_Quantidade)) AND ((@IsNull_Preco = 1 AND [Preco] IS NULL) OR ([Preco] = @Original_Preco)) AND ((@IsNull_CustosFixos = 1 AND [CustosFixos] IS NULL) OR ([CustosFixos] = @Original_CustosFixos)) AND ((@IsNull_MargemLucro = 1 AND [MargemLucro] IS NULL) OR ([MargemLucro] = @Original_MargemLucro)) AND ([Cliente] = @Original_Cliente));
@@ -22665,8 +22754,8 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPreco" +
-                "s";
+            this._commandCollection[0].CommandText = "SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente, PrecoFinal, " +
+                "Transporte FROM VerPrecos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22794,7 +22883,7 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Cliente) {
+        public virtual int Insert(string Artigo, global::System.Nullable<int> Quantidade, global::System.Nullable<decimal> Preco, global::System.Nullable<decimal> CustosFixos, global::System.Nullable<decimal> MargemLucro, string Cliente, global::System.Nullable<decimal> PrecoFinal, global::System.Nullable<decimal> Transporte) {
             if ((Artigo == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -22830,6 +22919,18 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Cliente));
+            }
+            if ((PrecoFinal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(PrecoFinal.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Transporte.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Transporte.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
