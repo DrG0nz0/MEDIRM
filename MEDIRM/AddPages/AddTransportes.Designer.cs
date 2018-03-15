@@ -35,8 +35,6 @@
             this.criarMaquina = new System.Windows.Forms.Button();
             this.LabelMaxtras = new System.Windows.Forms.Label();
             this.LabelminAtras = new System.Windows.Forms.Label();
-            this.minFrente = new System.Windows.Forms.TextBox();
-            this.Labelminfrente = new System.Windows.Forms.Label();
             this.labeltipo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
@@ -51,9 +49,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             this.SuspendLayout();
@@ -114,34 +112,12 @@
             this.LabelminAtras.Text = "Transportadora:";
             this.LabelminAtras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // minFrente
-            // 
-            this.minFrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minFrente.Location = new System.Drawing.Point(663, 335);
-            this.minFrente.Name = "minFrente";
-            this.minFrente.Size = new System.Drawing.Size(100, 26);
-            this.minFrente.TabIndex = 16;
-            this.minFrente.Text = "auto";
-            // 
-            // Labelminfrente
-            // 
-            this.Labelminfrente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Labelminfrente.AutoSize = true;
-            this.Labelminfrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelminfrente.Location = new System.Drawing.Point(509, 338);
-            this.Labelminfrente.Name = "Labelminfrente";
-            this.Labelminfrente.Size = new System.Drawing.Size(148, 20);
-            this.Labelminfrente.TabIndex = 15;
-            this.Labelminfrente.Text = "Utilizador que criou:";
-            this.Labelminfrente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labeltipo
             // 
             this.labeltipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labeltipo.AutoSize = true;
             this.labeltipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltipo.Location = new System.Drawing.Point(566, 288);
+            this.labeltipo.Location = new System.Drawing.Point(566, 301);
             this.labeltipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltipo.Name = "labeltipo";
             this.labeltipo.Size = new System.Drawing.Size(90, 20);
@@ -277,55 +253,46 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(663, 288);
+            this.textBox3.Location = new System.Drawing.Point(663, 301);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(154, 26);
             this.textBox3.TabIndex = 85;
             // 
-            // comboBox1
+            // textBox2
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "tls"});
-            this.comboBox1.Location = new System.Drawing.Point(663, 421);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(154, 28);
-            this.comboBox1.TabIndex = 86;
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(663, 459);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(159, 26);
+            this.textBox2.TabIndex = 89;
             // 
-            // comboBox3
+            // textBox4
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "lisboa"});
-            this.comboBox3.Location = new System.Drawing.Point(663, 459);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(154, 28);
-            this.comboBox3.TabIndex = 87;
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(663, 499);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(159, 26);
+            this.textBox4.TabIndex = 90;
             // 
-            // comboBox4
+            // textBox5
             // 
-            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "porto"});
-            this.comboBox4.Location = new System.Drawing.Point(663, 499);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(154, 28);
-            this.comboBox4.TabIndex = 88;
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(663, 421);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(159, 26);
+            this.textBox5.TabIndex = 91;
             // 
             // AddTransportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
@@ -341,12 +308,9 @@
             this.Controls.Add(this.criarMaquina);
             this.Controls.Add(this.LabelMaxtras);
             this.Controls.Add(this.LabelminAtras);
-            this.Controls.Add(this.minFrente);
-            this.Controls.Add(this.Labelminfrente);
             this.Controls.Add(this.labeltipo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddTransportes";
-            this.Text = "AddTransportes";
             this.Load += new System.EventHandler(this.AddTransportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
@@ -362,8 +326,6 @@
         private System.Windows.Forms.Button criarMaquina;
         private System.Windows.Forms.Label LabelMaxtras;
         private System.Windows.Forms.Label LabelminAtras;
-        private System.Windows.Forms.TextBox minFrente;
-        private System.Windows.Forms.Label Labelminfrente;
         private System.Windows.Forms.Label labeltipo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button back;
@@ -378,8 +340,8 @@
         private System.Windows.Forms.BindingSource moedaBindingSource;
         private MedirmDBDataSetTableAdapters.MoedaTableAdapter moedaTableAdapter;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

@@ -38,12 +38,39 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Funcionario (Nome, ID, Sigla) VALUES (@Nome, @ID, @Sigla)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Funcionario (Nome, ID, Sigla, Frente, Tras, Manual) VALUES (@Nome, @ID, @Sigla, @Frente, @Tras, @Manual)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
                 com.Parameters.AddWithValue("@ID", textBox2.Text);
                 com.Parameters.AddWithValue("@Sigla", textBox3.Text);
+
+                if (checkBox1.Checked)
+                {
+                    com.Parameters.AddWithValue("@Frente", 1);
+                }
+                else
+                {
+                    com.Parameters.AddWithValue("@Frente", 0);
+                }
+
+                if (checkBox2.Checked)
+                {
+                    com.Parameters.AddWithValue("@Tras", 1);
+                }
+                else
+                {
+                    com.Parameters.AddWithValue("@Tras", 0);
+                }
+
+                if (checkBox3.Checked)
+                {
+                    com.Parameters.AddWithValue("@Manual", 1);
+                }
+                else
+                {
+                    com.Parameters.AddWithValue("@Manual", 0);
+                }
 
                 con.Open();
                 int i = com.ExecuteNonQuery();
@@ -51,6 +78,13 @@ namespace MEDIRM
 
                 //Confirmation Message 
                 MessageBox.Show("Funcionário adicionado com sucesso!");
+
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                checkBox1.Checked = false;
+                checkBox2.Checked = false;
+                checkBox3.Checked = false;
             }
             catch (Exception x)
             {
@@ -58,6 +92,7 @@ namespace MEDIRM
                 MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
             }
 
+            /*
 
             try         // segunda feira
             {
@@ -224,7 +259,7 @@ namespace MEDIRM
             {
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar funcionário. Por favor tente novamente.");
-            }
+            } */
         }
     }
 }

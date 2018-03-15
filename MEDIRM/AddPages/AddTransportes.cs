@@ -33,9 +33,9 @@ namespace MEDIRM
         }
 
         private void criarMaquina_Click(object sender, EventArgs e)
-        {/*
+        {
             try
-            {*/
+            {
                 //Insert in the database
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
@@ -48,9 +48,9 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Info", richTextBox1.Text);     
                 com.Parameters.AddWithValue("@Utilizador", "User");        // criar func para ir ver o user
 
-                com.Parameters.AddWithValue("@Transportadora", comboBox1.SelectedItem.ToString());
-                com.Parameters.AddWithValue("@De", comboBox3.SelectedItem.ToString());
-                com.Parameters.AddWithValue("@Para", comboBox4.SelectedItem.ToString());
+                com.Parameters.AddWithValue("@Transportadora", textBox5.Text);
+                com.Parameters.AddWithValue("@De", textBox2.Text);
+                com.Parameters.AddWithValue("@Para", textBox4.Text);
 
 
                 DataRowView drv = (DataRowView)comboBox2.SelectedItem;
@@ -69,16 +69,16 @@ namespace MEDIRM
                 richTextBox1.Clear();
                 textBox1.Clear();
                 comboBox2.ResetText();
-                comboBox1.ResetText();
-                comboBox3.ResetText();
-                comboBox4.ResetText();
-            /*
+                textBox5.Clear();
+                textBox2.Clear();
+                textBox4.Clear();
+            
             }
             catch (Exception x)
             {
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar transporte. Por favor tente novamente.");
-            }*/
+            }
         }
     }
 }

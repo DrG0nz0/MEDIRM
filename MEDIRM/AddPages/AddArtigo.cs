@@ -36,36 +36,322 @@ namespace MEDIRM
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
             this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
 
+            comboBox1.ResetText();
+            comboBox4.ResetText();
+            comboBox5.ResetText();
+            comboBox6.ResetText();
+            comboBox7.ResetText();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {
-                //Insert in the database
-                string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
-                SqlConnection con = new SqlConnection(connectionString);
+            {            
+                if (checkBox5.Checked && checkBox4.Checked && checkBox3.Checked && checkBox2.Checked && checkBox1.Checked)
+                {
+                    try
+                    {
+                        //Insert in the database
+                        string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina)", con);
-                com.CommandType = CommandType.Text;
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5) VALUES ((@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3, @Maquina4, @Maquina5)", con);
+                        com.CommandType = CommandType.Text;
 
-                com.Parameters.AddWithValue("@Nome", textBox1.Text);
-                com.Parameters.AddWithValue("@ID", textBox2.Text);
-                com.Parameters.AddWithValue("@UnBase", textBox5.Text);
-                com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
-                com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
-                com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Nome", textBox1.Text);
+                        com.Parameters.AddWithValue("@ID", textBox2.Text);
+                        com.Parameters.AddWithValue("@UnBase", textBox5.Text);
+                        com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
+                        com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
+                        com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina5", comboBox6.SelectedValue.ToString());
 
+                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartao", ed);
 
-                string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                com.Parameters.AddWithValue("@Cartao", ed);
+                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartolina", ed2);
 
-                string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                com.Parameters.AddWithValue("@Cartolina", ed2);
+                        con.Open();
+                        int i = com.ExecuteNonQuery();
+                        con.Close();
 
-                con.Open();
-                int i = com.ExecuteNonQuery();
-                con.Close();
+                        //Confirmation Message 
+                        MessageBox.Show("Artigo adicionado com sucesso!");
+
+                        //Clear the fields
+                        textBox1.Clear();
+                        comboBox1.ResetText();
+                        comboBox4.ResetText();
+                        comboBox5.ResetText();
+                        comboBox6.ResetText();
+                        comboBox7.ResetText();
+                        comboBox8.ResetText();
+                        button1.Visible = false;
+                        button9.Visible = false;
+                        button8.Visible = false;
+                        button7.Visible = false;
+                        button6.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox4.Visible = false;
+                        comboBox6.Visible = false;
+                        comboBox7.Visible = false;
+                    }
+                    catch (Exception x)
+                    {
+                        //Error Message 
+                        MessageBox.Show("Erro ao adicionar componente ao artigo. Por favor tente novamente.");
+                    }
+                }
+
+                if (!checkBox5.Checked && checkBox4.Checked && checkBox3.Checked && checkBox2.Checked && checkBox1.Checked)
+                {
+                    try
+                    {
+                        //Insert in the database
+                        string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(connectionString);
+
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3, @Maquina4)", con);
+                        com.CommandType = CommandType.Text;
+
+                        com.Parameters.AddWithValue("@Nome", textBox1.Text);
+                        com.Parameters.AddWithValue("@ID", textBox2.Text);
+                        com.Parameters.AddWithValue("@UnBase", textBox5.Text);
+                        com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
+                        com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
+                        com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
+
+                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartao", ed);
+
+                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartolina", ed2);
+
+                        con.Open();
+                        int i = com.ExecuteNonQuery();
+                        con.Close();
+
+                        //Confirmation Message 
+                        MessageBox.Show("Artigo adicionado com sucesso!");
+
+                        //Clear the fields
+                        textBox1.Clear();
+                        comboBox1.ResetText();
+                        comboBox4.ResetText();
+                        comboBox5.ResetText();
+                        comboBox6.ResetText();
+                        comboBox7.ResetText();
+                        comboBox8.ResetText();
+                        button1.Visible = false;
+                        button9.Visible = false;
+                        button8.Visible = false;
+                        button7.Visible = false;
+                        button6.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox4.Visible = false;
+                        comboBox6.Visible = false;
+                        comboBox7.Visible = false;
+                    }
+                    catch (Exception x)
+                    {
+                        //Error Message 
+                        MessageBox.Show("Erro ao adicionar componente ao artigo. Por favor tente novamente.");
+                    }
+                }
+
+                if (!checkBox5.Checked && !checkBox4.Checked && checkBox3.Checked && checkBox2.Checked && checkBox1.Checked)
+                {
+                    try
+                    {
+                        //Insert in the database
+                        string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(connectionString);
+
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3)", con);
+                        com.CommandType = CommandType.Text;
+
+                        com.Parameters.AddWithValue("@Nome", textBox1.Text);
+                        com.Parameters.AddWithValue("@ID", textBox2.Text);
+                        com.Parameters.AddWithValue("@UnBase", textBox5.Text);
+                        com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
+                        com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
+                        com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
+
+                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartao", ed);
+
+                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartolina", ed2);
+
+                        con.Open();
+                        int i = com.ExecuteNonQuery();
+                        con.Close();
+
+                        //Confirmation Message 
+                        MessageBox.Show("Artigo adicionado com sucesso!");
+
+                        //Clear the fields
+                        textBox1.Clear();
+                        comboBox1.ResetText();
+                        comboBox4.ResetText();
+                        comboBox5.ResetText();
+                        comboBox6.ResetText();
+                        comboBox7.ResetText();
+                        comboBox8.ResetText();
+                        button1.Visible = false;
+                        button9.Visible = false;
+                        button8.Visible = false;
+                        button7.Visible = false;
+                        button6.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox4.Visible = false;
+                        comboBox6.Visible = false;
+                        comboBox7.Visible = false;
+                    }
+                    catch (Exception x)
+                    {
+                        //Error Message 
+                        MessageBox.Show("Erro ao adicionar componente ao artigo. Por favor tente novamente.");
+                    }
+                }
+
+                if (!checkBox5.Checked && !checkBox4.Checked && !checkBox3.Checked && checkBox2.Checked && checkBox1.Checked)
+                {
+                    try
+                    {
+                        //Insert in the database
+                        string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(connectionString);
+
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2)", con);
+                        com.CommandType = CommandType.Text;
+
+                        com.Parameters.AddWithValue("@Nome", textBox1.Text);
+                        com.Parameters.AddWithValue("@ID", textBox2.Text);
+                        com.Parameters.AddWithValue("@UnBase", textBox5.Text);
+                        com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
+                        com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
+                        com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+
+                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartao", ed);
+
+                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartolina", ed2);
+
+                        con.Open();
+                        int i = com.ExecuteNonQuery();
+                        con.Close();
+
+                        //Confirmation Message 
+                        MessageBox.Show("Artigo adicionado com sucesso!");
+
+                        //Clear the fields
+                        textBox1.Clear();
+                        comboBox1.ResetText();
+                        comboBox4.ResetText();
+                        comboBox5.ResetText();
+                        comboBox6.ResetText();
+                        comboBox7.ResetText();
+                        comboBox8.ResetText();
+                        button1.Visible = false;
+                        button9.Visible = false;
+                        button8.Visible = false;
+                        button7.Visible = false;
+                        button6.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox4.Visible = false;
+                        comboBox6.Visible = false;
+                        comboBox7.Visible = false;
+                    }
+                    catch (Exception x)
+                    {
+                        //Error Message 
+                        MessageBox.Show("Erro ao adicionar componente ao artigo. Por favor tente novamente.");
+                    }
+                }
+
+                if (!checkBox5.Checked && !checkBox4.Checked && !checkBox3.Checked && !checkBox2.Checked && checkBox1.Checked)
+                {
+                    try
+                    {
+                        //Insert in the database
+                        string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(connectionString);
+
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1)", con);
+                        com.CommandType = CommandType.Text;
+
+                        com.Parameters.AddWithValue("@Nome", textBox1.Text);
+                        com.Parameters.AddWithValue("@ID", textBox2.Text);
+                        com.Parameters.AddWithValue("@UnBase", textBox5.Text);
+                        com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
+                        com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
+                        com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
+                        com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+
+                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartao", ed);
+
+                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
+                        com.Parameters.AddWithValue("@Cartolina", ed2);
+
+                        con.Open();
+                        int i = com.ExecuteNonQuery();
+                        con.Close();
+
+                        //Confirmation Message 
+                        MessageBox.Show("Artigo adicionado com sucesso!");
+
+                        //Clear the fields
+                        textBox1.Clear();
+                        comboBox1.ResetText();
+                        comboBox4.ResetText();
+                        comboBox5.ResetText();
+                        comboBox6.ResetText();
+                        comboBox7.ResetText();
+                        comboBox8.ResetText();
+                        button1.Visible = false;
+                        button9.Visible = false;
+                        button8.Visible = false;
+                        button7.Visible = false;
+                        button6.Visible = false;
+                        comboBox1.Visible = false;
+                        comboBox4.Visible = false;
+                        comboBox6.Visible = false;
+                        comboBox7.Visible = false;
+                    }
+                    catch (Exception x)
+                    {
+                        //Error Message 
+                        MessageBox.Show("Erro ao adicionar componente ao artigo. Por favor tente novamente.");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Erro ao adicionar maquina ao artigo. Por favor coloque as máquinas por ordem e tente novamente.");
+                }
 
                 //Confirmation Message 
                 MessageBox.Show("Artigo adicionado com sucesso!");
@@ -79,6 +365,11 @@ namespace MEDIRM
                 textBox8.Clear();
                 comboBox7.ResetText();
                 comboBox8.ResetText();
+                comboBox1.ResetText();
+                comboBox4.ResetText();
+                comboBox5.ResetText();
+                comboBox6.ResetText();
+                comboBox7.ResetText();
 
             }
             catch (Exception x)

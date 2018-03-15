@@ -116,16 +116,6 @@ namespace MEDIRM {
         
         private global::System.Data.DataRelation relationComponentes_ComponentesDosArtigos;
         
-        private global::System.Data.DataRelation relationMaquina_ComponentesDosArtigos;
-        
-        private global::System.Data.DataRelation relationMaquina_ComponentesDosArtigos1;
-        
-        private global::System.Data.DataRelation relationMaquina_ComponentesDosArtigos2;
-        
-        private global::System.Data.DataRelation relationMaquina_ComponentesDosArtigos3;
-        
-        private global::System.Data.DataRelation relationMaquina_ComponentesDosArtigos4;
-        
         private global::System.Data.DataRelation relationArtigo_Encomenda;
         
         private global::System.Data.DataRelation relationCliente_Encomenda;
@@ -832,11 +822,6 @@ namespace MEDIRM {
             this.relationArtigo_ArtigosClientes = this.Relations["Artigo_ArtigosClientes"];
             this.relationArtigo_ComponentesDosArtigos = this.Relations["Artigo_ComponentesDosArtigos"];
             this.relationComponentes_ComponentesDosArtigos = this.Relations["Componentes_ComponentesDosArtigos"];
-            this.relationMaquina_ComponentesDosArtigos = this.Relations["Maquina_ComponentesDosArtigos"];
-            this.relationMaquina_ComponentesDosArtigos1 = this.Relations["Maquina_ComponentesDosArtigos1"];
-            this.relationMaquina_ComponentesDosArtigos2 = this.Relations["Maquina_ComponentesDosArtigos2"];
-            this.relationMaquina_ComponentesDosArtigos3 = this.Relations["Maquina_ComponentesDosArtigos3"];
-            this.relationMaquina_ComponentesDosArtigos4 = this.Relations["Maquina_ComponentesDosArtigos4"];
             this.relationArtigo_Encomenda = this.Relations["Artigo_Encomenda"];
             this.relationCliente_Encomenda = this.Relations["Cliente_Encomenda"];
             this.relationFuncionario_Ferias = this.Relations["Funcionario_Ferias"];
@@ -988,26 +973,6 @@ namespace MEDIRM {
                         this.tableComponentes.NomeColumn}, new global::System.Data.DataColumn[] {
                         this.tableComponentesDosArtigos.ComponenteColumn}, false);
             this.Relations.Add(this.relationComponentes_ComponentesDosArtigos);
-            this.relationMaquina_ComponentesDosArtigos = new global::System.Data.DataRelation("Maquina_ComponentesDosArtigos", new global::System.Data.DataColumn[] {
-                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComponentesDosArtigos.Maquina1Column}, false);
-            this.Relations.Add(this.relationMaquina_ComponentesDosArtigos);
-            this.relationMaquina_ComponentesDosArtigos1 = new global::System.Data.DataRelation("Maquina_ComponentesDosArtigos1", new global::System.Data.DataColumn[] {
-                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComponentesDosArtigos.Maquina2Column}, false);
-            this.Relations.Add(this.relationMaquina_ComponentesDosArtigos1);
-            this.relationMaquina_ComponentesDosArtigos2 = new global::System.Data.DataRelation("Maquina_ComponentesDosArtigos2", new global::System.Data.DataColumn[] {
-                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComponentesDosArtigos.Maquina3Column}, false);
-            this.Relations.Add(this.relationMaquina_ComponentesDosArtigos2);
-            this.relationMaquina_ComponentesDosArtigos3 = new global::System.Data.DataRelation("Maquina_ComponentesDosArtigos3", new global::System.Data.DataColumn[] {
-                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComponentesDosArtigos.Maquina4Column}, false);
-            this.Relations.Add(this.relationMaquina_ComponentesDosArtigos3);
-            this.relationMaquina_ComponentesDosArtigos4 = new global::System.Data.DataRelation("Maquina_ComponentesDosArtigos4", new global::System.Data.DataColumn[] {
-                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComponentesDosArtigos.Maquina5Column}, false);
-            this.Relations.Add(this.relationMaquina_ComponentesDosArtigos4);
             this.relationArtigo_Encomenda = new global::System.Data.DataRelation("Artigo_Encomenda", new global::System.Data.DataColumn[] {
                         this.tableArtigo.NomeColumn}, new global::System.Data.DataColumn[] {
                         this.tableEncomenda.ArtigoColumn}, false);
@@ -2861,6 +2826,12 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnSigla;
             
+            private global::System.Data.DataColumn columnFrente;
+            
+            private global::System.Data.DataColumn columnTras;
+            
+            private global::System.Data.DataColumn columnManual;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public FuncionarioDataTable() {
@@ -2920,6 +2891,30 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FrenteColumn {
+                get {
+                    return this.columnFrente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TrasColumn {
+                get {
+                    return this.columnTras;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ManualColumn {
+                get {
+                    return this.columnManual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2955,12 +2950,15 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FuncionarioRow AddFuncionarioRow(string Nome, int ID, string Sigla) {
+            public FuncionarioRow AddFuncionarioRow(string Nome, int ID, string Sigla, bool Frente, bool Tras, bool Manual) {
                 FuncionarioRow rowFuncionarioRow = ((FuncionarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nome,
                         ID,
-                        Sigla};
+                        Sigla,
+                        Frente,
+                        Tras,
+                        Manual};
                 rowFuncionarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFuncionarioRow);
                 return rowFuncionarioRow;
@@ -2993,6 +2991,9 @@ namespace MEDIRM {
                 this.columnNome = base.Columns["Nome"];
                 this.columnID = base.Columns["ID"];
                 this.columnSigla = base.Columns["Sigla"];
+                this.columnFrente = base.Columns["Frente"];
+                this.columnTras = base.Columns["Tras"];
+                this.columnManual = base.Columns["Manual"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3004,6 +3005,12 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnID);
                 this.columnSigla = new global::System.Data.DataColumn("Sigla", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSigla);
+                this.columnFrente = new global::System.Data.DataColumn("Frente", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrente);
+                this.columnTras = new global::System.Data.DataColumn("Tras", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTras);
+                this.columnManual = new global::System.Data.DataColumn("Manual", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnManual);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNome}, true));
                 this.columnNome.AllowDBNull = false;
@@ -4432,6 +4439,16 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnCartolina;
             
+            private global::System.Data.DataColumn columnMaquina1;
+            
+            private global::System.Data.DataColumn columnMaquina2;
+            
+            private global::System.Data.DataColumn columnMaquina3;
+            
+            private global::System.Data.DataColumn columnMaquina4;
+            
+            private global::System.Data.DataColumn columnMaquina5;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ArtigoDataTable() {
@@ -4531,6 +4548,46 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Maquina1Column {
+                get {
+                    return this.columnMaquina1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Maquina2Column {
+                get {
+                    return this.columnMaquina2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Maquina3Column {
+                get {
+                    return this.columnMaquina3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Maquina4Column {
+                get {
+                    return this.columnMaquina4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Maquina5Column {
+                get {
+                    return this.columnMaquina5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4566,7 +4623,7 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ArtigoRow AddArtigoRow(string Nome, int ID, string UnBase, int QtdCartao, int QtdCartolina, int QtdCartoesPalete, string Cartao, string Cartolina) {
+            public ArtigoRow AddArtigoRow(string Nome, int ID, string UnBase, int QtdCartao, int QtdCartolina, int QtdCartoesPalete, string Cartao, string Cartolina, string Maquina1, string Maquina2, string Maquina3, string Maquina4, string Maquina5) {
                 ArtigoRow rowArtigoRow = ((ArtigoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nome,
@@ -4576,7 +4633,12 @@ namespace MEDIRM {
                         QtdCartolina,
                         QtdCartoesPalete,
                         Cartao,
-                        Cartolina};
+                        Cartolina,
+                        Maquina1,
+                        Maquina2,
+                        Maquina3,
+                        Maquina4,
+                        Maquina5};
                 rowArtigoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowArtigoRow);
                 return rowArtigoRow;
@@ -4614,6 +4676,11 @@ namespace MEDIRM {
                 this.columnQtdCartoesPalete = base.Columns["QtdCartoesPalete"];
                 this.columnCartao = base.Columns["Cartao"];
                 this.columnCartolina = base.Columns["Cartolina"];
+                this.columnMaquina1 = base.Columns["Maquina1"];
+                this.columnMaquina2 = base.Columns["Maquina2"];
+                this.columnMaquina3 = base.Columns["Maquina3"];
+                this.columnMaquina4 = base.Columns["Maquina4"];
+                this.columnMaquina5 = base.Columns["Maquina5"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4635,6 +4702,16 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnCartao);
                 this.columnCartolina = new global::System.Data.DataColumn("Cartolina", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCartolina);
+                this.columnMaquina1 = new global::System.Data.DataColumn("Maquina1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaquina1);
+                this.columnMaquina2 = new global::System.Data.DataColumn("Maquina2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaquina2);
+                this.columnMaquina3 = new global::System.Data.DataColumn("Maquina3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaquina3);
+                this.columnMaquina4 = new global::System.Data.DataColumn("Maquina4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaquina4);
+                this.columnMaquina5 = new global::System.Data.DataColumn("Maquina5", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaquina5);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNome}, true));
                 this.columnNome.AllowDBNull = false;
@@ -4644,6 +4721,11 @@ namespace MEDIRM {
                 this.columnUnBase.MaxLength = 50;
                 this.columnCartao.MaxLength = 2147483647;
                 this.columnCartolina.MaxLength = 2147483647;
+                this.columnMaquina1.MaxLength = 2147483647;
+                this.columnMaquina2.MaxLength = 2147483647;
+                this.columnMaquina3.MaxLength = 2147483647;
+                this.columnMaquina4.MaxLength = 2147483647;
+                this.columnMaquina5.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4797,8 +4879,6 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnVelocidade1;
             
-            private global::System.Data.DataColumn columnVelocidade2;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public MaquinaDataTable() {
@@ -4914,14 +4994,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Velocidade2Column {
-                get {
-                    return this.columnVelocidade2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4957,7 +5029,7 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow AddMaquinaRow(string Nome, TipoMaquinaRow parentTipoMaquinaRowByTipoMaquina_Maquina, int MinPessFrente, int MaxPessFrente, int MinPessTras, int MaxPessTras, FilmeRow parentFilmeRowByFilme_Maquina, PapelRow parentPapelRowByPapel_Maquina, MoldeRow parentMoldeRowByMolde_Maquina, string Velocidade1, string Velocidade2) {
+            public MaquinaRow AddMaquinaRow(string Nome, TipoMaquinaRow parentTipoMaquinaRowByTipoMaquina_Maquina, int MinPessFrente, int MaxPessFrente, int MinPessTras, int MaxPessTras, FilmeRow parentFilmeRowByFilme_Maquina, PapelRow parentPapelRowByPapel_Maquina, MoldeRow parentMoldeRowByMolde_Maquina, string Velocidade1) {
                 MaquinaRow rowMaquinaRow = ((MaquinaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nome,
@@ -4969,8 +5041,7 @@ namespace MEDIRM {
                         null,
                         null,
                         null,
-                        Velocidade1,
-                        Velocidade2};
+                        Velocidade1};
                 if ((parentTipoMaquinaRowByTipoMaquina_Maquina != null)) {
                     columnValuesArray[1] = parentTipoMaquinaRowByTipoMaquina_Maquina[0];
                 }
@@ -5022,7 +5093,6 @@ namespace MEDIRM {
                 this.columnPapel = base.Columns["Papel"];
                 this.columnMolde = base.Columns["Molde"];
                 this.columnVelocidade1 = base.Columns["Velocidade1"];
-                this.columnVelocidade2 = base.Columns["Velocidade2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5048,8 +5118,6 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnMolde);
                 this.columnVelocidade1 = new global::System.Data.DataColumn("Velocidade1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVelocidade1);
-                this.columnVelocidade2 = new global::System.Data.DataColumn("Velocidade2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVelocidade2);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNome}, true));
                 this.columnNome.AllowDBNull = false;
@@ -5061,7 +5129,6 @@ namespace MEDIRM {
                 this.columnPapel.MaxLength = 50;
                 this.columnMolde.MaxLength = 50;
                 this.columnVelocidade1.MaxLength = 10;
-                this.columnVelocidade2.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6759,16 +6826,6 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnQuantidade;
             
-            private global::System.Data.DataColumn columnMaquina1;
-            
-            private global::System.Data.DataColumn columnMaquina2;
-            
-            private global::System.Data.DataColumn columnMaquina3;
-            
-            private global::System.Data.DataColumn columnMaquina4;
-            
-            private global::System.Data.DataColumn columnMaquina5;
-            
             private global::System.Data.DataColumn columnArtigo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6822,46 +6879,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Maquina1Column {
-                get {
-                    return this.columnMaquina1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Maquina2Column {
-                get {
-                    return this.columnMaquina2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Maquina3Column {
-                get {
-                    return this.columnMaquina3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Maquina4Column {
-                get {
-                    return this.columnMaquina4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Maquina5Column {
-                get {
-                    return this.columnMaquina5;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ArtigoColumn {
                 get {
                     return this.columnArtigo;
@@ -6905,37 +6922,17 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow AddComponentesDosArtigosRow(ComponentesRow parentComponentesRowByComponentes_ComponentesDosArtigos, string Quantidade, MaquinaRow parentMaquinaRowByMaquina_ComponentesDosArtigos, MaquinaRow parentMaquinaRowByMaquina_ComponentesDosArtigos1, MaquinaRow parentMaquinaRowByMaquina_ComponentesDosArtigos2, MaquinaRow parentMaquinaRowByMaquina_ComponentesDosArtigos3, MaquinaRow parentMaquinaRowByMaquina_ComponentesDosArtigos4, ArtigoRow parentArtigoRowByArtigo_ComponentesDosArtigos) {
+            public ComponentesDosArtigosRow AddComponentesDosArtigosRow(ComponentesRow parentComponentesRowByComponentes_ComponentesDosArtigos, string Quantidade, ArtigoRow parentArtigoRowByArtigo_ComponentesDosArtigos) {
                 ComponentesDosArtigosRow rowComponentesDosArtigosRow = ((ComponentesDosArtigosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Quantidade,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
                         null};
                 if ((parentComponentesRowByComponentes_ComponentesDosArtigos != null)) {
                     columnValuesArray[0] = parentComponentesRowByComponentes_ComponentesDosArtigos[0];
                 }
-                if ((parentMaquinaRowByMaquina_ComponentesDosArtigos != null)) {
-                    columnValuesArray[2] = parentMaquinaRowByMaquina_ComponentesDosArtigos[0];
-                }
-                if ((parentMaquinaRowByMaquina_ComponentesDosArtigos1 != null)) {
-                    columnValuesArray[3] = parentMaquinaRowByMaquina_ComponentesDosArtigos1[0];
-                }
-                if ((parentMaquinaRowByMaquina_ComponentesDosArtigos2 != null)) {
-                    columnValuesArray[4] = parentMaquinaRowByMaquina_ComponentesDosArtigos2[0];
-                }
-                if ((parentMaquinaRowByMaquina_ComponentesDosArtigos3 != null)) {
-                    columnValuesArray[5] = parentMaquinaRowByMaquina_ComponentesDosArtigos3[0];
-                }
-                if ((parentMaquinaRowByMaquina_ComponentesDosArtigos4 != null)) {
-                    columnValuesArray[6] = parentMaquinaRowByMaquina_ComponentesDosArtigos4[0];
-                }
                 if ((parentArtigoRowByArtigo_ComponentesDosArtigos != null)) {
-                    columnValuesArray[7] = parentArtigoRowByArtigo_ComponentesDosArtigos[0];
+                    columnValuesArray[2] = parentArtigoRowByArtigo_ComponentesDosArtigos[0];
                 }
                 rowComponentesDosArtigosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComponentesDosArtigosRow);
@@ -6961,11 +6958,6 @@ namespace MEDIRM {
             internal void InitVars() {
                 this.columnComponente = base.Columns["Componente"];
                 this.columnQuantidade = base.Columns["Quantidade"];
-                this.columnMaquina1 = base.Columns["Maquina1"];
-                this.columnMaquina2 = base.Columns["Maquina2"];
-                this.columnMaquina3 = base.Columns["Maquina3"];
-                this.columnMaquina4 = base.Columns["Maquina4"];
-                this.columnMaquina5 = base.Columns["Maquina5"];
                 this.columnArtigo = base.Columns["Artigo"];
             }
             
@@ -6976,27 +6968,12 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnComponente);
                 this.columnQuantidade = new global::System.Data.DataColumn("Quantidade", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantidade);
-                this.columnMaquina1 = new global::System.Data.DataColumn("Maquina1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaquina1);
-                this.columnMaquina2 = new global::System.Data.DataColumn("Maquina2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaquina2);
-                this.columnMaquina3 = new global::System.Data.DataColumn("Maquina3", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaquina3);
-                this.columnMaquina4 = new global::System.Data.DataColumn("Maquina4", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaquina4);
-                this.columnMaquina5 = new global::System.Data.DataColumn("Maquina5", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaquina5);
                 this.columnArtigo = new global::System.Data.DataColumn("Artigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArtigo);
                 this.columnComponente.AllowDBNull = false;
                 this.columnComponente.MaxLength = 2147483647;
                 this.columnQuantidade.AllowDBNull = false;
                 this.columnQuantidade.MaxLength = 10;
-                this.columnMaquina1.MaxLength = 2147483647;
-                this.columnMaquina2.MaxLength = 2147483647;
-                this.columnMaquina3.MaxLength = 2147483647;
-                this.columnMaquina4.MaxLength = 2147483647;
-                this.columnMaquina5.MaxLength = 2147483647;
                 this.columnArtigo.AllowDBNull = false;
                 this.columnArtigo.MaxLength = 50;
             }
@@ -9592,6 +9569,54 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Frente {
+                get {
+                    try {
+                        return ((bool)(this[this.tableFuncionario.FrenteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Frente\' na tabela \'Funcionario\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFuncionario.FrenteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Tras {
+                get {
+                    try {
+                        return ((bool)(this[this.tableFuncionario.TrasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Tras\' na tabela \'Funcionario\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFuncionario.TrasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Manual {
+                get {
+                    try {
+                        return ((bool)(this[this.tableFuncionario.ManualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Manual\' na tabela \'Funcionario\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFuncionario.ManualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableFuncionario.IDColumn);
             }
@@ -9612,6 +9637,42 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSiglaNull() {
                 this[this.tableFuncionario.SiglaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFrenteNull() {
+                return this.IsNull(this.tableFuncionario.FrenteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFrenteNull() {
+                this[this.tableFuncionario.FrenteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTrasNull() {
+                return this.IsNull(this.tableFuncionario.TrasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTrasNull() {
+                this[this.tableFuncionario.TrasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsManualNull() {
+                return this.IsNull(this.tableFuncionario.ManualColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetManualNull() {
+                this[this.tableFuncionario.ManualColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10352,6 +10413,86 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Maquina1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableArtigo.Maquina1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina1\' na tabela \'Artigo\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArtigo.Maquina1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Maquina2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableArtigo.Maquina2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina2\' na tabela \'Artigo\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArtigo.Maquina2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Maquina3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableArtigo.Maquina3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina3\' na tabela \'Artigo\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArtigo.Maquina3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Maquina4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableArtigo.Maquina4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina4\' na tabela \'Artigo\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArtigo.Maquina4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Maquina5 {
+                get {
+                    try {
+                        return ((string)(this[this.tableArtigo.Maquina5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina5\' na tabela \'Artigo\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArtigo.Maquina5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUnBaseNull() {
                 return this.IsNull(this.tableArtigo.UnBaseColumn);
             }
@@ -10420,6 +10561,66 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCartolinaNull() {
                 this[this.tableArtigo.CartolinaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaquina1Null() {
+                return this.IsNull(this.tableArtigo.Maquina1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaquina1Null() {
+                this[this.tableArtigo.Maquina1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaquina2Null() {
+                return this.IsNull(this.tableArtigo.Maquina2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaquina2Null() {
+                this[this.tableArtigo.Maquina2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaquina3Null() {
+                return this.IsNull(this.tableArtigo.Maquina3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaquina3Null() {
+                this[this.tableArtigo.Maquina3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaquina4Null() {
+                return this.IsNull(this.tableArtigo.Maquina4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaquina4Null() {
+                this[this.tableArtigo.Maquina4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaquina5Null() {
+                return this.IsNull(this.tableArtigo.Maquina5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaquina5Null() {
+                this[this.tableArtigo.Maquina5Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10622,22 +10823,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Velocidade2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaquina.Velocidade2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Velocidade2\' na tabela \'Maquina\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaquina.Velocidade2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public PapelRow PapelRow {
                 get {
                     return ((PapelRow)(this.GetParentRow(this.Table.ParentRelations["Papel_Maquina"])));
@@ -10778,79 +10963,12 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsVelocidade2Null() {
-                return this.IsNull(this.tableMaquina.Velocidade2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetVelocidade2Null() {
-                this[this.tableMaquina.Velocidade2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public PessoasMaquinasRow[] GetPessoasMaquinasRows() {
                 if ((this.Table.ChildRelations["Maquina_PessoasMaquinas"] == null)) {
                     return new PessoasMaquinasRow[0];
                 }
                 else {
                     return ((PessoasMaquinasRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_PessoasMaquinas"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow[] GetComponentesDosArtigosRows() {
-                if ((this.Table.ChildRelations["Maquina_ComponentesDosArtigos"] == null)) {
-                    return new ComponentesDosArtigosRow[0];
-                }
-                else {
-                    return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_ComponentesDosArtigos"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow[] GetComponentesDosArtigosRowsByMaquina_ComponentesDosArtigos1() {
-                if ((this.Table.ChildRelations["Maquina_ComponentesDosArtigos1"] == null)) {
-                    return new ComponentesDosArtigosRow[0];
-                }
-                else {
-                    return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_ComponentesDosArtigos1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow[] GetComponentesDosArtigosRowsByMaquina_ComponentesDosArtigos2() {
-                if ((this.Table.ChildRelations["Maquina_ComponentesDosArtigos2"] == null)) {
-                    return new ComponentesDosArtigosRow[0];
-                }
-                else {
-                    return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_ComponentesDosArtigos2"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow[] GetComponentesDosArtigosRowsByMaquina_ComponentesDosArtigos3() {
-                if ((this.Table.ChildRelations["Maquina_ComponentesDosArtigos3"] == null)) {
-                    return new ComponentesDosArtigosRow[0];
-                }
-                else {
-                    return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_ComponentesDosArtigos3"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ComponentesDosArtigosRow[] GetComponentesDosArtigosRowsByMaquina_ComponentesDosArtigos4() {
-                if ((this.Table.ChildRelations["Maquina_ComponentesDosArtigos4"] == null)) {
-                    return new ComponentesDosArtigosRow[0];
-                }
-                else {
-                    return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_ComponentesDosArtigos4"])));
                 }
             }
         }
@@ -11564,86 +11682,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Maquina1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentesDosArtigos.Maquina1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina1\' na tabela \'ComponentesDosArtigos\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentesDosArtigos.Maquina1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Maquina2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentesDosArtigos.Maquina2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina2\' na tabela \'ComponentesDosArtigos\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentesDosArtigos.Maquina2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Maquina3 {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentesDosArtigos.Maquina3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina3\' na tabela \'ComponentesDosArtigos\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentesDosArtigos.Maquina3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Maquina4 {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentesDosArtigos.Maquina4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina4\' na tabela \'ComponentesDosArtigos\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentesDosArtigos.Maquina4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Maquina5 {
-                get {
-                    try {
-                        return ((string)(this[this.tableComponentesDosArtigos.Maquina5Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Maquina5\' na tabela \'ComponentesDosArtigos\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComponentesDosArtigos.Maquina5Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Artigo {
                 get {
                     return ((string)(this[this.tableComponentesDosArtigos.ArtigoColumn]));
@@ -11673,121 +11711,6 @@ namespace MEDIRM {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Componentes_ComponentesDosArtigos"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow MaquinaRow {
-                get {
-                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["Maquina_ComponentesDosArtigos"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Maquina_ComponentesDosArtigos"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow MaquinaRowByMaquina_ComponentesDosArtigos1 {
-                get {
-                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["Maquina_ComponentesDosArtigos1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Maquina_ComponentesDosArtigos1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow MaquinaRowByMaquina_ComponentesDosArtigos2 {
-                get {
-                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["Maquina_ComponentesDosArtigos2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Maquina_ComponentesDosArtigos2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow MaquinaRowByMaquina_ComponentesDosArtigos3 {
-                get {
-                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["Maquina_ComponentesDosArtigos3"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Maquina_ComponentesDosArtigos3"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow MaquinaRowByMaquina_ComponentesDosArtigos4 {
-                get {
-                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["Maquina_ComponentesDosArtigos4"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Maquina_ComponentesDosArtigos4"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMaquina1Null() {
-                return this.IsNull(this.tableComponentesDosArtigos.Maquina1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMaquina1Null() {
-                this[this.tableComponentesDosArtigos.Maquina1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMaquina2Null() {
-                return this.IsNull(this.tableComponentesDosArtigos.Maquina2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMaquina2Null() {
-                this[this.tableComponentesDosArtigos.Maquina2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMaquina3Null() {
-                return this.IsNull(this.tableComponentesDosArtigos.Maquina3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMaquina3Null() {
-                this[this.tableComponentesDosArtigos.Maquina3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMaquina4Null() {
-                return this.IsNull(this.tableComponentesDosArtigos.Maquina4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMaquina4Null() {
-                this[this.tableComponentesDosArtigos.Maquina4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMaquina5Null() {
-                return this.IsNull(this.tableComponentesDosArtigos.Maquina5Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMaquina5Null() {
-                this[this.tableComponentesDosArtigos.Maquina5Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -15671,39 +15594,59 @@ SELECT Designacao, PrecoMetro, Moeda, MetodoDeCalculo FROM Filme WHERE (Designac
             tableMapping.ColumnMappings.Add("Nome", "Nome");
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Sigla", "Sigla");
+            tableMapping.ColumnMappings.Add("Frente", "Frente");
+            tableMapping.ColumnMappings.Add("Tras", "Tras");
+            tableMapping.ColumnMappings.Add("Manual", "Manual");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Funcionario] WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 A" +
-                "ND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Sigla = 1 AND [Sigla] I" +
-                "S NULL) OR ([Sigla] = @Original_Sigla)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Funcionario] WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Sigla = 1 AND [Sigla] IS NULL) OR ([Sigla] = @Original_Sigla)) AND ((@IsNull_Frente = 1 AND [Frente] IS NULL) OR ([Frente] = @Original_Frente)) AND ((@IsNull_Manual = 1 AND [Manual] IS NULL) OR ([Manual] = @Original_Manual)) AND ((@IsNull_Tras = 1 AND [Tras] IS NULL) OR ([Tras] = @Original_Tras)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sigla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sigla", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frente", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Manual", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Manual", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tras", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Funcionario] ([Nome], [ID], [Sigla]) VALUES (@Nome, @ID, @Sigla);\r\nS" +
-                "ELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Funcionario] ([Nome], [ID], [Sigla], [Frente], [Manual], [Tras]) VAL" +
+                "UES (@Nome, @ID, @Sigla, @Frente, @Manual, @Tras);\r\nSELECT Nome, ID, Sigla, Fren" +
+                "te, Manual, Tras FROM Funcionario WHERE (Nome = @Nome)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sigla", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frente", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Manual", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tras", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Funcionario] SET [Nome] = @Nome, [ID] = @ID, [Sigla] = @Sigla WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Sigla = 1 AND [Sigla] IS NULL) OR ([Sigla] = @Original_Sigla)));
-SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Funcionario] SET [Nome] = @Nome, [ID] = @ID, [Sigla] = @Sigla, [Frente] = @Frente, [Manual] = @Manual, [Tras] = @Tras WHERE (([Nome] = @Original_Nome) AND ((@IsNull_ID = 1 AND [ID] IS NULL) OR ([ID] = @Original_ID)) AND ((@IsNull_Sigla = 1 AND [Sigla] IS NULL) OR ([Sigla] = @Original_Sigla)) AND ((@IsNull_Frente = 1 AND [Frente] IS NULL) OR ([Frente] = @Original_Frente)) AND ((@IsNull_Manual = 1 AND [Manual] IS NULL) OR ([Manual] = @Original_Manual)) AND ((@IsNull_Tras = 1 AND [Tras] IS NULL) OR ([Tras] = @Original_Tras)));
+SELECT Nome, ID, Sigla, Frente, Manual, Tras FROM Funcionario WHERE (Nome = @Nome)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sigla", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frente", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Manual", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tras", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sigla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sigla", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sigla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frente", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Manual", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Manual", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Manual", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Tras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tras", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tras", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15719,7 +15662,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nome, ID, Sigla FROM Funcionario";
+            this._commandCollection[0].CommandText = "SELECT Nome, ID, Sigla, Frente, Manual, Tras FROM Funcionario";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15780,7 +15723,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla) {
+        public virtual int Delete(string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla, global::System.Nullable<bool> Original_Frente, global::System.Nullable<bool> Original_Manual, global::System.Nullable<bool> Original_Tras) {
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
@@ -15803,6 +15746,30 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Sigla));
             }
+            if ((Original_Frente.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_Frente.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Manual.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_Manual.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Tras.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_Tras.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15823,7 +15790,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nome, global::System.Nullable<int> ID, string Sigla) {
+        public virtual int Insert(string Nome, global::System.Nullable<int> ID, string Sigla, global::System.Nullable<bool> Frente, global::System.Nullable<bool> Manual, global::System.Nullable<bool> Tras) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -15841,6 +15808,24 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Sigla));
+            }
+            if ((Frente.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Frente.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Manual.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Manual.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Tras.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Tras.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15862,7 +15847,7 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nome, global::System.Nullable<int> ID, string Sigla, string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla) {
+        public virtual int Update(string Nome, global::System.Nullable<int> ID, string Sigla, global::System.Nullable<bool> Frente, global::System.Nullable<bool> Manual, global::System.Nullable<bool> Tras, string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla, global::System.Nullable<bool> Original_Frente, global::System.Nullable<bool> Original_Manual, global::System.Nullable<bool> Original_Tras) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -15881,27 +15866,69 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Sigla));
             }
+            if ((Frente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Frente.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Manual.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Manual.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Tras.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Tras.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Nome));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Nome));
             }
             if ((Original_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_Sigla == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Sigla));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Sigla));
+            }
+            if ((Original_Frente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_Frente.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Manual.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(Original_Manual.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Tras.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_Tras.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15923,8 +15950,8 @@ SELECT Nome, ID, Sigla FROM Funcionario WHERE (Nome = @Nome)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> ID, string Sigla, string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla) {
-            return this.Update(Original_Nome, ID, Sigla, Original_Nome, Original_ID, Original_Sigla);
+        public virtual int Update(global::System.Nullable<int> ID, string Sigla, global::System.Nullable<bool> Frente, global::System.Nullable<bool> Manual, global::System.Nullable<bool> Tras, string Original_Nome, global::System.Nullable<int> Original_ID, string Original_Sigla, global::System.Nullable<bool> Original_Frente, global::System.Nullable<bool> Original_Manual, global::System.Nullable<bool> Original_Tras) {
+            return this.Update(Original_Nome, ID, Sigla, Frente, Manual, Tras, Original_Nome, Original_ID, Original_Sigla, Original_Frente, Original_Manual, Original_Tras);
         }
     }
     
@@ -17702,6 +17729,11 @@ SELECT Designacao, Preco, Moeda, Transportadora, Utilizador, De, Para, Info FROM
             tableMapping.ColumnMappings.Add("QtdCartoesPalete", "QtdCartoesPalete");
             tableMapping.ColumnMappings.Add("Cartao", "Cartao");
             tableMapping.ColumnMappings.Add("Cartolina", "Cartolina");
+            tableMapping.ColumnMappings.Add("Maquina1", "Maquina1");
+            tableMapping.ColumnMappings.Add("Maquina2", "Maquina2");
+            tableMapping.ColumnMappings.Add("Maquina3", "Maquina3");
+            tableMapping.ColumnMappings.Add("Maquina4", "Maquina4");
+            tableMapping.ColumnMappings.Add("Maquina5", "Maquina5");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -17719,8 +17751,8 @@ SELECT Designacao, Preco, Moeda, Transportadora, Utilizador, De, Para, Info FROM
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QtdCartoesPalete", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartoesPalete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Artigo] ([Nome], [ID], [UnBase], [QtdCartao], [QtdCartolina], [QtdCartoesPalete], [Cartao], [Cartolina]) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina);
-SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina FROM Artigo WHERE (Nome = @Nome)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Artigo] ([Nome], [ID], [UnBase], [QtdCartao], [QtdCartolina], [QtdCartoesPalete], [Cartao], [Cartolina], [Maquina1], [Maquina2], [Maquina3], [Maquina4], [Maquina5]) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3, @Maquina4, @Maquina5);
+SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5 FROM Artigo WHERE (Nome = @Nome)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17730,10 +17762,15 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QtdCartoesPalete", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartoesPalete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cartao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cartolina", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cartolina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina5", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Artigo] SET [Nome] = @Nome, [ID] = @ID, [UnBase] = @UnBase, [QtdCartao] = @QtdCartao, [QtdCartolina] = @QtdCartolina, [QtdCartoesPalete] = @QtdCartoesPalete, [Cartao] = @Cartao, [Cartolina] = @Cartolina WHERE (([Nome] = @Original_Nome) AND ([ID] = @Original_ID) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_QtdCartolina = 1 AND [QtdCartolina] IS NULL) OR ([QtdCartolina] = @Original_QtdCartolina)) AND ((@IsNull_QtdCartoesPalete = 1 AND [QtdCartoesPalete] IS NULL) OR ([QtdCartoesPalete] = @Original_QtdCartoesPalete)));
-SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina FROM Artigo WHERE (Nome = @Nome)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Artigo] SET [Nome] = @Nome, [ID] = @ID, [UnBase] = @UnBase, [QtdCartao] = @QtdCartao, [QtdCartolina] = @QtdCartolina, [QtdCartoesPalete] = @QtdCartoesPalete, [Cartao] = @Cartao, [Cartolina] = @Cartolina, [Maquina1] = @Maquina1, [Maquina2] = @Maquina2, [Maquina3] = @Maquina3, [Maquina4] = @Maquina4, [Maquina5] = @Maquina5 WHERE (([Nome] = @Original_Nome) AND ([ID] = @Original_ID) AND ((@IsNull_UnBase = 1 AND [UnBase] IS NULL) OR ([UnBase] = @Original_UnBase)) AND ((@IsNull_QtdCartao = 1 AND [QtdCartao] IS NULL) OR ([QtdCartao] = @Original_QtdCartao)) AND ((@IsNull_QtdCartolina = 1 AND [QtdCartolina] IS NULL) OR ([QtdCartolina] = @Original_QtdCartolina)) AND ((@IsNull_QtdCartoesPalete = 1 AND [QtdCartoesPalete] IS NULL) OR ([QtdCartoesPalete] = @Original_QtdCartoesPalete)));
+SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5 FROM Artigo WHERE (Nome = @Nome)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17743,6 +17780,11 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QtdCartoesPalete", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QtdCartoesPalete", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cartao", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cartao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cartolina", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cartolina", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina5", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnBase", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnBase", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -17769,7 +17811,7 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Carto" +
-                "lina FROM Artigo";
+                "lina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5 FROM Artigo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17890,7 +17932,7 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nome, int ID, string UnBase, global::System.Nullable<int> QtdCartao, global::System.Nullable<int> QtdCartolina, global::System.Nullable<int> QtdCartoesPalete, string Cartao, string Cartolina) {
+        public virtual int Insert(string Nome, int ID, string UnBase, global::System.Nullable<int> QtdCartao, global::System.Nullable<int> QtdCartolina, global::System.Nullable<int> QtdCartoesPalete, string Cartao, string Cartolina, string Maquina1, string Maquina2, string Maquina3, string Maquina4, string Maquina5) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -17934,6 +17976,36 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Cartolina));
             }
+            if ((Maquina1 == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Maquina1));
+            }
+            if ((Maquina2 == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Maquina2));
+            }
+            if ((Maquina3 == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Maquina3));
+            }
+            if ((Maquina4 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Maquina4));
+            }
+            if ((Maquina5 == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Maquina5));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17954,7 +18026,26 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nome, int ID, string UnBase, global::System.Nullable<int> QtdCartao, global::System.Nullable<int> QtdCartolina, global::System.Nullable<int> QtdCartoesPalete, string Cartao, string Cartolina, string Original_Nome, int Original_ID, string Original_UnBase, global::System.Nullable<int> Original_QtdCartao, global::System.Nullable<int> Original_QtdCartolina, global::System.Nullable<int> Original_QtdCartoesPalete) {
+        public virtual int Update(
+                    string Nome, 
+                    int ID, 
+                    string UnBase, 
+                    global::System.Nullable<int> QtdCartao, 
+                    global::System.Nullable<int> QtdCartolina, 
+                    global::System.Nullable<int> QtdCartoesPalete, 
+                    string Cartao, 
+                    string Cartolina, 
+                    string Maquina1, 
+                    string Maquina2, 
+                    string Maquina3, 
+                    string Maquina4, 
+                    string Maquina5, 
+                    string Original_Nome, 
+                    int Original_ID, 
+                    string Original_UnBase, 
+                    global::System.Nullable<int> Original_QtdCartao, 
+                    global::System.Nullable<int> Original_QtdCartolina, 
+                    global::System.Nullable<int> Original_QtdCartoesPalete) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -17998,44 +18089,74 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Cartolina));
             }
+            if ((Maquina1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Maquina1));
+            }
+            if ((Maquina2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Maquina2));
+            }
+            if ((Maquina3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Maquina3));
+            }
+            if ((Maquina4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Maquina4));
+            }
+            if ((Maquina5 == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Maquina5));
+            }
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Nome));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Nome));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ID));
             if ((Original_UnBase == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_UnBase));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_UnBase));
             }
             if ((Original_QtdCartao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_QtdCartao.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_QtdCartao.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_QtdCartolina.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_QtdCartolina.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_QtdCartolina.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_QtdCartoesPalete.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_QtdCartoesPalete.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_QtdCartoesPalete.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18057,8 +18178,26 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID, string UnBase, global::System.Nullable<int> QtdCartao, global::System.Nullable<int> QtdCartolina, global::System.Nullable<int> QtdCartoesPalete, string Cartao, string Cartolina, string Original_Nome, int Original_ID, string Original_UnBase, global::System.Nullable<int> Original_QtdCartao, global::System.Nullable<int> Original_QtdCartolina, global::System.Nullable<int> Original_QtdCartoesPalete) {
-            return this.Update(Original_Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Original_Nome, Original_ID, Original_UnBase, Original_QtdCartao, Original_QtdCartolina, Original_QtdCartoesPalete);
+        public virtual int Update(
+                    int ID, 
+                    string UnBase, 
+                    global::System.Nullable<int> QtdCartao, 
+                    global::System.Nullable<int> QtdCartolina, 
+                    global::System.Nullable<int> QtdCartoesPalete, 
+                    string Cartao, 
+                    string Cartolina, 
+                    string Maquina1, 
+                    string Maquina2, 
+                    string Maquina3, 
+                    string Maquina4, 
+                    string Maquina5, 
+                    string Original_Nome, 
+                    int Original_ID, 
+                    string Original_UnBase, 
+                    global::System.Nullable<int> Original_QtdCartao, 
+                    global::System.Nullable<int> Original_QtdCartolina, 
+                    global::System.Nullable<int> Original_QtdCartoesPalete) {
+            return this.Update(Original_Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5, Original_Nome, Original_ID, Original_UnBase, Original_QtdCartao, Original_QtdCartolina, Original_QtdCartoesPalete);
         }
     }
     
@@ -18193,11 +18332,10 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             tableMapping.ColumnMappings.Add("Papel", "Papel");
             tableMapping.ColumnMappings.Add("Molde", "Molde");
             tableMapping.ColumnMappings.Add("Velocidade1", "Velocidade1");
-            tableMapping.ColumnMappings.Add("Velocidade2", "Velocidade2");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Maquina] WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_MaxPessTras = 1 AND [MaxPessTras] IS NULL) OR ([MaxPessTras] = @Original_MaxPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)) AND ((@IsNull_Velocidade2 = 1 AND [Velocidade2] IS NULL) OR ([Velocidade2] = @Original_Velocidade2)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Maquina] WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_MaxPessTras = 1 AND [MaxPessTras] IS NULL) OR ([MaxPessTras] = @Original_MaxPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -18217,12 +18355,10 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Maquina] ([Nome], [Tipo], [MinPessFrente], [MaxPessFrente], [MinPessTras], [MaxPessTras], [Filme], [Papel], [Molde], [Velocidade1], [Velocidade2]) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1, @Velocidade2);
-SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2 FROM Maquina WHERE (Nome = @Nome)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Maquina] ([Nome], [Tipo], [MinPessFrente], [MaxPessFrente], [MinPessTras], [MaxPessTras], [Filme], [Papel], [Molde], [Velocidade1]) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1);
+SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1 FROM Maquina WHERE (Nome = @Nome)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18234,11 +18370,10 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Papel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Maquina] SET [Nome] = @Nome, [Tipo] = @Tipo, [MinPessFrente] = @MinPessFrente, [MaxPessFrente] = @MaxPessFrente, [MinPessTras] = @MinPessTras, [MaxPessTras] = @MaxPessTras, [Filme] = @Filme, [Papel] = @Papel, [Molde] = @Molde, [Velocidade1] = @Velocidade1, [Velocidade2] = @Velocidade2 WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_MaxPessTras = 1 AND [MaxPessTras] IS NULL) OR ([MaxPessTras] = @Original_MaxPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)) AND ((@IsNull_Velocidade2 = 1 AND [Velocidade2] IS NULL) OR ([Velocidade2] = @Original_Velocidade2)));
-SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2 FROM Maquina WHERE (Nome = @Nome)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Maquina] SET [Nome] = @Nome, [Tipo] = @Tipo, [MinPessFrente] = @MinPessFrente, [MaxPessFrente] = @MaxPessFrente, [MinPessTras] = @MinPessTras, [MaxPessTras] = @MaxPessTras, [Filme] = @Filme, [Papel] = @Papel, [Molde] = @Molde, [Velocidade1] = @Velocidade1 WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_MaxPessTras = 1 AND [MaxPessTras] IS NULL) OR ([MaxPessTras] = @Original_MaxPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)));
+SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1 FROM Maquina WHERE (Nome = @Nome)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18250,7 +18385,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Papel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -18269,8 +18403,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade2", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18287,7 +18419,7 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme," +
-                " Papel, Molde, Velocidade1, Velocidade2 FROM Maquina";
+                " Papel, Molde, Velocidade1 FROM Maquina";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18348,7 +18480,7 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, global::System.Nullable<int> Original_MaxPessFrente, global::System.Nullable<int> Original_MinPessTras, global::System.Nullable<int> Original_MaxPessTras, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1, string Original_Velocidade2) {
+        public virtual int Delete(string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, global::System.Nullable<int> Original_MaxPessFrente, global::System.Nullable<int> Original_MinPessTras, global::System.Nullable<int> Original_MaxPessTras, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1) {
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
@@ -18425,14 +18557,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Velocidade1));
             }
-            if ((Original_Velocidade2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Velocidade2));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -18453,7 +18577,7 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nome, string Tipo, global::System.Nullable<int> MinPessFrente, global::System.Nullable<int> MaxPessFrente, global::System.Nullable<int> MinPessTras, global::System.Nullable<int> MaxPessTras, string Filme, string Papel, string Molde, string Velocidade1, string Velocidade2) {
+        public virtual int Insert(string Nome, string Tipo, global::System.Nullable<int> MinPessFrente, global::System.Nullable<int> MaxPessFrente, global::System.Nullable<int> MinPessTras, global::System.Nullable<int> MaxPessTras, string Filme, string Papel, string Molde, string Velocidade1) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -18514,12 +18638,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Velocidade1));
             }
-            if ((Velocidade2 == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Velocidade2));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -18551,7 +18669,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
                     string Papel, 
                     string Molde, 
                     string Velocidade1, 
-                    string Velocidade2, 
                     string Original_Nome, 
                     string Original_Tipo, 
                     global::System.Nullable<int> Original_MinPessFrente, 
@@ -18561,8 +18678,7 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
                     string Original_Filme, 
                     string Original_Papel, 
                     string Original_Molde, 
-                    string Original_Velocidade1, 
-                    string Original_Velocidade2) {
+                    string Original_Velocidade1) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -18623,95 +18739,81 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Velocidade1));
             }
-            if ((Velocidade2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Velocidade2));
-            }
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Nome));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Nome));
             }
             if ((Original_Tipo == null)) {
                 throw new global::System.ArgumentNullException("Original_Tipo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Tipo));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Tipo));
             }
             if ((Original_MinPessFrente.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_MinPessFrente.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_MinPessFrente.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_MaxPessFrente.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_MaxPessFrente.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_MaxPessFrente.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_MinPessTras.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_MinPessTras.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_MinPessTras.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_MaxPessTras.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_MaxPessTras.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_MaxPessTras.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Original_Filme == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Filme));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Filme));
             }
             if ((Original_Papel == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Papel));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Papel));
             }
             if ((Original_Molde == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Molde));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Molde));
             }
             if ((Original_Velocidade1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_Velocidade1));
-            }
-            if ((Original_Velocidade2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Velocidade2));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Velocidade1));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18743,7 +18845,6 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
                     string Papel, 
                     string Molde, 
                     string Velocidade1, 
-                    string Velocidade2, 
                     string Original_Nome, 
                     string Original_Tipo, 
                     global::System.Nullable<int> Original_MinPessFrente, 
@@ -18753,9 +18854,8 @@ SELECT Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme
                     string Original_Filme, 
                     string Original_Papel, 
                     string Original_Molde, 
-                    string Original_Velocidade1, 
-                    string Original_Velocidade2) {
-            return this.Update(Original_Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2, Original_Nome, Original_Tipo, Original_MinPessFrente, Original_MaxPessFrente, Original_MinPessTras, Original_MaxPessTras, Original_Filme, Original_Papel, Original_Molde, Original_Velocidade1, Original_Velocidade2);
+                    string Original_Velocidade1) {
+            return this.Update(Original_Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Original_Nome, Original_Tipo, Original_MinPessFrente, Original_MaxPessFrente, Original_MinPessTras, Original_MaxPessTras, Original_Filme, Original_Papel, Original_Molde, Original_Velocidade1);
         }
     }
     
@@ -20876,26 +20976,15 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
             tableMapping.DataSetTable = "ComponentesDosArtigos";
             tableMapping.ColumnMappings.Add("Componente", "Componente");
             tableMapping.ColumnMappings.Add("Quantidade", "Quantidade");
-            tableMapping.ColumnMappings.Add("Maquina1", "Maquina1");
-            tableMapping.ColumnMappings.Add("Maquina2", "Maquina2");
-            tableMapping.ColumnMappings.Add("Maquina3", "Maquina3");
-            tableMapping.ColumnMappings.Add("Maquina4", "Maquina4");
-            tableMapping.ColumnMappings.Add("Maquina5", "Maquina5");
             tableMapping.ColumnMappings.Add("Artigo", "Artigo");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [ComponentesDosArtigos] ([Componente], [Quantidade], [Maquina1], [Maq" +
-                "uina2], [Maquina3], [Maquina4], [Maquina5], [Artigo]) VALUES (@Componente, @Quan" +
-                "tidade, @Maquina1, @Maquina2, @Maquina3, @Maquina4, @Maquina5, @Artigo)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [ComponentesDosArtigos] ([Componente], [Quantidade], [Artigo]) VALUES" +
+                " (@Componente, @Quantidade, @Artigo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Componente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Componente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Maquina5", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Maquina5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artigo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -20912,13 +21001,12 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Componente, Quantidade, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5, " +
-                "Artigo FROM ComponentesDosArtigos";
+            this._commandCollection[0].CommandText = "SELECT Componente, Quantidade, Artigo FROM ComponentesDosArtigos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Componente, Quantidade, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5, " +
-                "Artigo FROM ComponentesDosArtigos WHERE Artigo= \'\" + textBox6.Text + \"\'";
+            this._commandCollection[1].CommandText = "SELECT Componente, Quantidade, Artigo FROM ComponentesDosArtigos WHERE (Artigo = " +
+                "\'\" + textBox6.Text + \"\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20992,7 +21080,7 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Componente, string Quantidade, string Maquina1, string Maquina2, string Maquina3, string Maquina4, string Maquina5, string Artigo) {
+        public virtual int Insert(string Componente, string Quantidade, string Artigo) {
             if ((Componente == null)) {
                 throw new global::System.ArgumentNullException("Componente");
             }
@@ -21005,41 +21093,11 @@ SELECT Designacao, Custo FROM CustosFixos WHERE (Designacao = @Designacao)";
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Quantidade));
             }
-            if ((Maquina1 == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Maquina1));
-            }
-            if ((Maquina2 == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Maquina2));
-            }
-            if ((Maquina3 == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Maquina3));
-            }
-            if ((Maquina4 == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Maquina4));
-            }
-            if ((Maquina5 == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Maquina5));
-            }
             if ((Artigo == null)) {
                 throw new global::System.ArgumentNullException("Artigo");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Artigo));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Artigo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23957,6 +24015,15 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._filmeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._esterilizacaoTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Esterilizacao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -23972,6 +24039,24 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._papelTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23993,15 +24078,6 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._clienteTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -24020,30 +24096,12 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._componentesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24180,6 +24238,14 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._filmeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._esterilizacaoTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Esterilizacao.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -24193,6 +24259,22 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._papelTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24212,14 +24294,6 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._clienteTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -24236,27 +24310,11 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._componentesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24446,27 +24504,11 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._componentesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._componentesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tipoMaquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tipoMaquinaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24486,14 +24528,6 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._funcionarioTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24510,6 +24544,22 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tipoMaquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TipoMaquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tipoMaquinaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._papelTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Papel.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24523,6 +24573,14 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._esterilizacaoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._filmeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

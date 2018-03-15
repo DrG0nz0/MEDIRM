@@ -64,9 +64,9 @@
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(684, 426);
+            this.textBox2.Location = new System.Drawing.Point(684, 415);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.Size = new System.Drawing.Size(143, 26);
             this.textBox2.TabIndex = 44;
             // 
             // label2
@@ -74,7 +74,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(632, 429);
+            this.label2.Location = new System.Drawing.Point(632, 418);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 43;
@@ -110,7 +110,7 @@
             this.maxTras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxTras.Location = new System.Drawing.Point(684, 383);
             this.maxTras.Name = "maxTras";
-            this.maxTras.Size = new System.Drawing.Size(100, 26);
+            this.maxTras.Size = new System.Drawing.Size(143, 26);
             this.maxTras.TabIndex = 38;
             // 
             // LabelMaxtras
@@ -131,7 +131,7 @@
             this.minAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minAtras.Location = new System.Drawing.Point(684, 351);
             this.minAtras.Name = "minAtras";
-            this.minAtras.Size = new System.Drawing.Size(100, 26);
+            this.minAtras.Size = new System.Drawing.Size(143, 26);
             this.minAtras.TabIndex = 36;
             // 
             // LabelminAtras

@@ -47,17 +47,14 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Nome, Tipo, MinPessFrente, MaxPessFrente, MinPessTras, MaxPessTras, Filme, Papel, Molde, Velocidade1, Velocidade2) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @MinPessTras, @MaxPessTras, @Filme, @Papel, @Molde, @Velocidade1, @Velocidade2)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Nome, Tipo, MinPessFrente, MaxPessFrente, Filme, Papel, Molde, Velocidade1) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @Filme, @Papel, @Molde, @Velocidade1)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
 
                 com.Parameters.AddWithValue("@MinPessFrente", minFrente.Text);
                 com.Parameters.AddWithValue("@MaxPessFrente", maxFrente.Text);
-                com.Parameters.AddWithValue("@MinPessTras", minAtras.Text);
-                com.Parameters.AddWithValue("@MaxPessTras", maxTras.Text);
                 com.Parameters.AddWithValue("@Velocidade1", textBox3.Text);
-                com.Parameters.AddWithValue("@Velocidade2", textBox2.Text);
 
                 DataRowView drv = (DataRowView)comboBox1.SelectedItem;
                 String cb = drv["Tipo"].ToString();
@@ -78,8 +75,6 @@ namespace MEDIRM
                 //Clear the fields
                 minFrente.Clear();
                 maxFrente.Clear();
-                minAtras.Clear();
-                maxTras.Clear();
                 comboBox1.ResetText();
                 comboBox4.ResetText();
                 comboBox5.ResetText();
