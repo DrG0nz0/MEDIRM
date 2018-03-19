@@ -33,9 +33,10 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Encomenda (Artigo, Cliente, Quantidade, DataLimite, Estado) VALUES (@Artigo, @Cliente, @Quantidade, @DataLimite, @Estado)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Encomenda (NumeroEnco, Artigo, Cliente, Quantidade, DataLimite, Estado) VALUES (@NumeroEnco, @Artigo, @Cliente, @Quantidade, @DataLimite, @Estado)", con);
                 com.CommandType = CommandType.Text;
 
+                com.Parameters.AddWithValue("@NumeroEnco", textBox1.Text);
                 com.Parameters.AddWithValue("@Quantidade", textBox3.Text);
                 com.Parameters.AddWithValue("@DataLimite", dateTimePicker1.Value);
                 com.Parameters.AddWithValue("@Estado", "EmEspera");
@@ -47,12 +48,13 @@ namespace MEDIRM
                 con.Close();
 
                 //Confirmation Message 
-                MessageBox.Show("Componente adicionado com sucesso!");
+                MessageBox.Show("Encomenda adicionada com sucesso!");
 
                 //clear
                 comboBox2.ResetText();
                 comboBox1.ResetText();
                 textBox3.Clear();
+                textBox1.Clear();
 
             }
             catch (Exception x)
@@ -73,6 +75,7 @@ namespace MEDIRM
             comboBox2.ResetText();
             comboBox1.ResetText();
             textBox3.Clear();
+            textBox1.Clear();
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)

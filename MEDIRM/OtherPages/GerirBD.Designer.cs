@@ -41,7 +41,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -147,7 +145,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1088, 590);
+            this.label7.Location = new System.Drawing.Point(854, 590);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(213, 20);
             this.label7.TabIndex = 24;
@@ -213,18 +211,6 @@
             this.label12.TabIndex = 29;
             this.label12.Text = "Gerir componentes";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(849, 585);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(211, 20);
-            this.label13.TabIndex = 35;
-            this.label13.Text = "Gerir pessoas nas maquinas";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -356,20 +342,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // button15
-            // 
-            this.button15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button15.BackgroundImage = global::MEDIRM.Properties.Resources.factory_industry_process_machine_production_industrial_conveyor_v2_512;
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(904, 487);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(100, 100);
-            this.button15.TabIndex = 30;
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
             // back
             // 
             this.back.BackgroundImage = global::MEDIRM.Properties.Resources.back;
@@ -405,7 +377,7 @@
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1138, 483);
+            this.button8.Location = new System.Drawing.Point(904, 483);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(110, 109);
             this.button8.TabIndex = 11;
@@ -557,7 +529,7 @@
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(1303, 175);
+            this.label19.Location = new System.Drawing.Point(1121, 590);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(140, 20);
             this.label19.TabIndex = 44;
@@ -571,7 +543,7 @@
             this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button19.FlatAppearance.BorderSize = 0;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Location = new System.Drawing.Point(1320, 77);
+            this.button19.Location = new System.Drawing.Point(1138, 492);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(100, 91);
             this.button19.TabIndex = 43;
@@ -591,12 +563,10 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button17);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -658,12 +628,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button16;

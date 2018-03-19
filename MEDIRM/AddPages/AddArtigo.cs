@@ -71,12 +71,8 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina5", comboBox6.SelectedValue.ToString());
-
-                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartao", ed);
-
-                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartolina", ed2);
+                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -132,12 +128,8 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
-
-                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartao", ed);
-
-                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartolina", ed2);
+                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -192,12 +184,8 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
-
-                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartao", ed);
-
-                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartolina", ed2);
+                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -251,12 +239,8 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
-
-                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartao", ed);
-
-                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartolina", ed2);
+                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -309,12 +293,8 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
-
-                        string ed = comboBox7.Items[comboBox7.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartao", ed);
-
-                        string ed2 = comboBox8.Items[comboBox8.SelectedIndex].ToString();
-                        com.Parameters.AddWithValue("@Cartolina", ed2);
+                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();

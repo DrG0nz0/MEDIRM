@@ -78,7 +78,7 @@
             this.minFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minFrente.Location = new System.Drawing.Point(770, 354);
             this.minFrente.Name = "minFrente";
-            this.minFrente.Size = new System.Drawing.Size(100, 30);
+            this.minFrente.Size = new System.Drawing.Size(100, 26);
             this.minFrente.TabIndex = 3;
             // 
             // maxFrente
@@ -87,7 +87,7 @@
             this.maxFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxFrente.Location = new System.Drawing.Point(770, 386);
             this.maxFrente.Name = "maxFrente";
-            this.maxFrente.Size = new System.Drawing.Size(100, 30);
+            this.maxFrente.Size = new System.Drawing.Size(100, 26);
             this.maxFrente.TabIndex = 5;
             // 
             // criarMaquina
@@ -107,7 +107,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(511, 152);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 30);
+            this.textBox1.Size = new System.Drawing.Size(544, 26);
             this.textBox1.TabIndex = 13;
             // 
             // label1
@@ -117,7 +117,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(328, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 25);
+            this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Nome da máquina:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,7 +130,7 @@
             this.labeltipo.Location = new System.Drawing.Point(570, 207);
             this.labeltipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltipo.Name = "labeltipo";
-            this.labeltipo.Size = new System.Drawing.Size(164, 25);
+            this.labeltipo.Size = new System.Drawing.Size(130, 20);
             this.labeltipo.TabIndex = 0;
             this.labeltipo.Text = "Tipo de máquina:";
             this.labeltipo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,9 +143,10 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(741, 204);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 33);
+            this.comboBox1.Size = new System.Drawing.Size(168, 28);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.ValueMember = "Tipo";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tipoMaquinaBindingSource
             // 
@@ -164,7 +165,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(990, 444);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 25);
+            this.label5.Size = new System.Drawing.Size(56, 20);
             this.label5.TabIndex = 21;
             this.label5.Text = "Molde:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,7 +177,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(990, 302);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 25);
+            this.label6.Size = new System.Drawing.Size(51, 20);
             this.label6.TabIndex = 19;
             this.label6.Text = "Filme:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -188,7 +189,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(990, 372);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 25);
+            this.label7.Size = new System.Drawing.Size(53, 20);
             this.label7.TabIndex = 21;
             this.label7.Text = "Papel:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -272,7 +273,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(1062, 299);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(266, 33);
+            this.comboBox4.Size = new System.Drawing.Size(266, 28);
             this.comboBox4.TabIndex = 35;
             this.comboBox4.ValueMember = "Designacao";
             // 
@@ -289,7 +290,7 @@
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(1062, 371);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(266, 33);
+            this.comboBox5.Size = new System.Drawing.Size(266, 28);
             this.comboBox5.TabIndex = 36;
             this.comboBox5.ValueMember = "Designacao";
             // 
@@ -306,7 +307,7 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(1062, 439);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(266, 33);
+            this.comboBox6.Size = new System.Drawing.Size(266, 28);
             this.comboBox6.TabIndex = 37;
             this.comboBox6.ValueMember = "Designacao";
             // 
@@ -341,7 +342,7 @@
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(770, 418);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 30);
+            this.textBox3.Size = new System.Drawing.Size(100, 26);
             this.textBox3.TabIndex = 42;
             // 
             // label10
@@ -351,7 +352,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(627, 424);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 25);
+            this.label10.Size = new System.Drawing.Size(92, 20);
             this.label10.TabIndex = 41;
             this.label10.Text = "Velocidade:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,7 +364,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(710, 448);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 18);
+            this.label12.Size = new System.Drawing.Size(97, 15);
             this.label12.TabIndex = 45;
             this.label12.Text = "(peças por hora)";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,7 +376,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(542, 389);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 25);
+            this.label2.Size = new System.Drawing.Size(177, 20);
             this.label2.TabIndex = 47;
             this.label2.Text = "Numero pessoas a trás:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,14 +388,14 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(527, 357);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(236, 25);
+            this.label3.Size = new System.Drawing.Size(192, 20);
             this.label3.TabIndex = 46;
             this.label3.Text = "Numero pessoas a frente:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddMaquina
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
             this.Controls.Add(this.label2);

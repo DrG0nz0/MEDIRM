@@ -53,9 +53,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.componentesDosArtigosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label9 = new System.Windows.Forms.Label();
             this.componentesDosArtigosTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ComponentesDosArtigosTableAdapter();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.encomendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.componentesDosArtigosBindingSource)).BeginInit();
@@ -298,40 +296,15 @@
             this.componentesDosArtigosBindingSource.DataMember = "ComponentesDosArtigos";
             this.componentesDosArtigosBindingSource.DataSource = this.medirmDBDataSet;
             // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(546, 387);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 20);
-            this.label9.TabIndex = 103;
-            this.label9.Text = "Componente:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // componentesDosArtigosTableAdapter
             // 
             this.componentesDosArtigosTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(657, 384);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(204, 28);
-            this.comboBox3.TabIndex = 104;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // GerirEncomendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox5);
@@ -387,9 +360,7 @@
         private MedirmDBDataSetTableAdapters.EncomendaTableAdapter encomendaTableAdapter;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.BindingSource componentesDosArtigosBindingSource;
         private MedirmDBDataSetTableAdapters.ComponentesDosArtigosTableAdapter componentesDosArtigosTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

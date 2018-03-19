@@ -76,8 +76,6 @@ namespace MEDIRM.GerirPages
                 com2.Parameters.AddWithValue("@Feitas", Convert.ToInt32(textBox1.Text));
                 com2.Parameters.AddWithValue("@Encomenda", enc);
                 com2.Parameters.AddWithValue("@Artigo", textBox6.Text);
-                com2.Parameters.AddWithValue("@Componente", comboBox3.SelectedItem);
-
             
                 con.Open();
                 int j = com2.ExecuteNonQuery();
@@ -95,7 +93,6 @@ namespace MEDIRM.GerirPages
                 textBox6.Clear();
                 comboBox2.ResetText();
                 comboBox1.ResetText();
-                comboBox3.ResetText();
             }
             catch (Exception x)
             {
@@ -107,7 +104,6 @@ namespace MEDIRM.GerirPages
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)     // preencher
         {
             comboBox2.ResetText();
-            comboBox3.ResetText();
 
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
@@ -134,54 +130,6 @@ namespace MEDIRM.GerirPages
                 MessageBox.Show("Erro ao exibir encomenda. Por favor tente novamente.");
             }
 
-            // preencher a combo box com query   
-
-            SqlDataReader dr;
-            try
-            {
-                SqlConnection con3 = new SqlConnection(connectionString);
-                con3.Open();
-               
-                //Check whether the Drop Down has existing items. If YES, empty it.
-                if (comboBox3.Items.Count > 0)
-                    comboBox3.Items.Clear();
-
-                SqlCommand cmd3 = new SqlCommand("SELECT Componente, Quantidade, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5, Artigo FROM ComponentesDosArtigos WHERE Artigo= '" + textBox6.Text + "'", con3);
-                
-                dr = cmd3.ExecuteReader();
-
-                while (dr.Read())
-                    comboBox3.Items.Add(dr[0].ToString());
-
-                dr.Close();
-                con3.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            
-
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.componentesDosArtigosTableAdapter.FillBy(this.medirmDBDataSet.ComponentesDosArtigos);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-            
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox3.Refresh();
         }
 
         private void fillByToolStripButton_Click_1(object sender, EventArgs e)

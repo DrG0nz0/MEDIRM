@@ -47,13 +47,13 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Nome, Tipo, MinPessFrente, MaxPessFrente, Filme, Papel, Molde, Velocidade1) VALUES (@Nome, @Tipo, @MinPessFrente, @MaxPessFrente, @Filme, @Papel, @Molde, @Velocidade1)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO Maquina (Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1) VALUES (@Nome, @Tipo, @MinPessFrente, @MinPessTras, @Filme, @Papel, @Molde, @Velocidade1)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
 
                 com.Parameters.AddWithValue("@MinPessFrente", minFrente.Text);
-                com.Parameters.AddWithValue("@MaxPessFrente", maxFrente.Text);
+                com.Parameters.AddWithValue("@MinPessTras", maxFrente.Text);
                 com.Parameters.AddWithValue("@Velocidade1", textBox3.Text);
 
                 DataRowView drv = (DataRowView)comboBox1.SelectedItem;
@@ -86,6 +86,20 @@ namespace MEDIRM
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar máquina. Por favor tente novamente.");
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {/*
+            string f = "Manual";
+            if(f == comboBox1.SelectedValue.ToString())
+            {
+                label5.Visible = false;
+                comboBox6.Visible = false;
+                button9.Visible = false;
+
+
+            }*/
+
         }
     }
 }
