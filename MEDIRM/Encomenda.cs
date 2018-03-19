@@ -21,5 +21,6 @@ namespace MEDIRM
         public Nullable<System.DateTime> DataLimite { get; set; }
         public Nullable<System.DateTime> DataEntregaPrevista { get; set; }
         public string Estado { get; set; }
+        public Nullable<int> Feitas { get; set; }
     }
 }

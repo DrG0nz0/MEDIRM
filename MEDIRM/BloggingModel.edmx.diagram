@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="MedirmDBModel.ComponentesDosArtigos" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MedirmDBModel.PessoasMaquinas" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MedirmDBModel.TurnosFuncionarios" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedirmDBModel.Feitas" Width="1.5" PointX="3.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

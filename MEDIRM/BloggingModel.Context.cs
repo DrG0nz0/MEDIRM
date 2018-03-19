@@ -48,5 +48,6 @@ namespace MEDIRM
         public virtual DbSet<ComponentesDosArtigos> ComponentesDosArtigos { get; set; }
         public virtual DbSet<PessoasMaquinas> PessoasMaquinas { get; set; }
         public virtual DbSet<TurnosFuncionarios> TurnosFuncionarios { get; set; }
+        public virtual DbSet<Feitas> Feitas { get; set; }
     }
 }

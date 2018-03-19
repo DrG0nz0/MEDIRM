@@ -17,5 +17,8 @@ namespace MEDIRM
         public string Nome { get; set; }
         public Nullable<int> ID { get; set; }
         public string Sigla { get; set; }
+        public Nullable<bool> Frente { get; set; }
+        public Nullable<bool> Tras { get; set; }
+        public Nullable<bool> Manual { get; set; }
     }
 }

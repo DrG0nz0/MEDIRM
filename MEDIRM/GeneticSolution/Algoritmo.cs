@@ -79,11 +79,11 @@ namespace MEDIRM.GeneticSolution
                     todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == "1"));
                     foreach (var components in todosComponents)
                     {
-                        var maquina1 = ResourceFromMaquina(components.Maquina1);
-                        var maquina2 = ResourceFromMaquina(components.Maquina2);
-                        var maquina3 = ResourceFromMaquina(components.Maquina3);
-                        var maquina4 = ResourceFromMaquina(components.Maquina4);
-                        var maquina5 = ResourceFromMaquina(components.Maquina5);
+                        var maquina1 = ResourceFromMaquina(compoartigos.Maquina1);
+                        var maquina2 = ResourceFromMaquina(compoartigos.Maquina2);
+                        var maquina3 = ResourceFromMaquina(compoartigos.Maquina3);
+                        var maquina4 = ResourceFromMaquina(compoartigos.Maquina4);
+                        var maquina5 = ResourceFromMaquina(compoartigos.Maquina5);
                         int currentProcessCount = 0;
                         var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         int qt = int.Parse(components.Quantidade);

@@ -20,5 +20,7 @@ namespace MEDIRM
         public Nullable<decimal> Preco { get; set; }
         public Nullable<decimal> MargemLucro { get; set; }
         public Nullable<decimal> CustosFixos { get; set; }
+        public Nullable<decimal> Transporte { get; set; }
+        public Nullable<decimal> PrecoFinal { get; set; }
     }
 }
