@@ -93,16 +93,17 @@ namespace Scheduling
                     var todosComponents = new List<ComponentesDosArtigos>();
 
                     todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == encomenda.Artigo));
+
                     foreach (var components in todosComponents)
                     {
                         int qt = int.Parse(components.Quantidade);
                         Maquina maquina1C, maquina2C, maquina3C, maquina4C, maquina5C = null;
                         var task = new GeneticTask(encomenda, components);
-                        var maquina1 = ResourceFromMaquina(components.Maquina1, out maquina1C);
-                        var maquina2 = ResourceFromMaquina(components.Maquina2, out maquina2C);
-                        var maquina3 = ResourceFromMaquina(components.Maquina3, out maquina3C);
-                        var maquina4 = ResourceFromMaquina(components.Maquina4, out maquina4C);
-                        var maquina5 = ResourceFromMaquina(components.Maquina5, out maquina5C);
+                        var maquina1 = ResourceFromMaquina(compoartigos.Maquina1, out maquina1C);
+                        var maquina2 = ResourceFromMaquina(compoartigos.Maquina2, out maquina2C);
+                        var maquina3 = ResourceFromMaquina(compoartigos.Maquina3, out maquina3C);
+                        var maquina4 = ResourceFromMaquina(compoartigos.Maquina4, out maquina4C);
+                        var maquina5 = ResourceFromMaquina(compoartigos.Maquina5, out maquina5C);
                         int currentProcessCount = 0;
                         var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         if (maquina1 != null)
@@ -404,9 +405,15 @@ namespace Scheduling
         Stopwatch stp = new Stopwatch();
         void btnStart_Click(object sender, EventArgs e)
         {
+
+            if (MaxProcesses < 1 || MaxMachines < 1 || MaxJob < 1)
+            {
+                MessageBox.Show("Erro ao PLanificar : Não existem Processoes, Maquinas ou Trabalhos para efectuar");
+                return;
+            }
             /*try
             {*/
-                Data.DataTable = getDatas();
+            Data.DataTable = getDatas();
                 Data.Tasks = Tasks;
             Data.Machines = ResourcesNeeded;
                 Colors.GenerateRandomHSV(MaxJob);
@@ -417,6 +424,8 @@ namespace Scheduling
                 }
 
                 int popSize = popnmud.Value.ToInt();
+
+         
                 genetik = new GeneticMachine(MaxJob, MaxProcesses, MaxMachines, popSize);
 
                 genetik.MutOdd = mutnmud.Value.ToInt();
@@ -590,10 +599,18 @@ namespace Scheduling
             }
             var events = best.GetEvents();
 
+
+            var eventosValidos = events.Where(x => x.end.Subtract(x.start).TotalMinutes > 5);
+
+
+            /// criar lista com eventos ordenados para distribuir
+
             // Lista com os dados
-            var tasks = events.Where(x => x.end.Subtract(x.start).TotalMinutes > 5).Select(x => new TaskVisualizer(x, events, Tasks));
+            var tasks = eventosValidos.Select(x => new TaskVisualizer(x, events, Tasks)).ToList();
 
 
+
+        
             TabelaHorario t = new TabelaHorario(tasks.ToList());
             t.Show();
         }

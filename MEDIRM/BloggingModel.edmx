@@ -17,6 +17,11 @@
           <Property Name="QtdCartoesPalete" Type="int" />
           <Property Name="Cartao" Type="nvarchar(max)" />
           <Property Name="Cartolina" Type="nvarchar(max)" />
+          <Property Name="Maquina1" Type="nvarchar(max)" />
+          <Property Name="Maquina2" Type="nvarchar(max)" />
+          <Property Name="Maquina3" Type="nvarchar(max)" />
+          <Property Name="Maquina4" Type="nvarchar(max)" />
+          <Property Name="Maquina5" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ArtigosClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -87,11 +92,6 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Artigo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Componente" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Quantidade" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Maquina1" Type="nvarchar(max)" />
-          <Property Name="Maquina2" Type="nvarchar(max)" />
-          <Property Name="Maquina3" Type="nvarchar(max)" />
-          <Property Name="Maquina4" Type="nvarchar(max)" />
-          <Property Name="Maquina5" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CustosFixos">
           <Key>
@@ -111,6 +111,7 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="DataLimite" Type="datetime" />
           <Property Name="DataEntregaPrevista" Type="datetime" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feitas" Type="int" />
         </EntityType>
         <EntityType Name="Esterilizacao">
           <Key>
@@ -119,6 +120,17 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Preco" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.Feitas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Feitas">
+          <Key>
+            <PropertyRef Name="Encomenda" />
+          </Key>
+          <Property Name="Encomenda" Type="int" Nullable="false" />
+          <Property Name="Artigo" Type="nvarchar(max)" />
+          <Property Name="Componente" Type="nvarchar(max)" />
+          <Property Name="Feitas" Type="int" />
         </EntityType>
         <EntityType Name="Ferias">
           <Key>
@@ -144,6 +156,9 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID" Type="int" />
           <Property Name="Sigla" Type="nvarchar" MaxLength="50" />
+          <Property Name="Frente" Type="bit" />
+          <Property Name="Tras" Type="bit" />
+          <Property Name="Manual" Type="bit" />
         </EntityType>
         <EntityType Name="Maquina">
           <Key>
@@ -237,6 +252,8 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.VerPrecos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VerPrecos">
           <Key>
             <PropertyRef Name="Cliente" />
@@ -247,6 +264,8 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Preco" Type="decimal" Precision="18" Scale="0" />
           <Property Name="MargemLucro" Type="decimal" Precision="18" Scale="0" />
           <Property Name="CustosFixos" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Transporte" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PrecoFinal" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityContainer Name="MedirmDBModelStoreContainer">
           <EntitySet Name="Artigo" EntityType="Self.Artigo" Schema="dbo" store:Type="Tables" />
@@ -267,7 +286,6 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySet Name="TipoMaquina" EntityType="Self.TipoMaquina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transporte" EntityType="Self.Transporte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VerPrecos" EntityType="Self.VerPrecos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArtigosClientes" EntityType="Self.ArtigosClientes" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ArtigosClientes].[Cliente] AS [Cliente], 
@@ -282,13 +300,16 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
             <DefiningQuery>SELECT 
     [ComponentesDosArtigos].[Artigo] AS [Artigo], 
     [ComponentesDosArtigos].[Componente] AS [Componente], 
-    [ComponentesDosArtigos].[Quantidade] AS [Quantidade], 
-    [ComponentesDosArtigos].[Maquina1] AS [Maquina1], 
-    [ComponentesDosArtigos].[Maquina2] AS [Maquina2], 
-    [ComponentesDosArtigos].[Maquina3] AS [Maquina3], 
-    [ComponentesDosArtigos].[Maquina4] AS [Maquina4], 
-    [ComponentesDosArtigos].[Maquina5] AS [Maquina5]
+    [ComponentesDosArtigos].[Quantidade] AS [Quantidade]
     FROM [dbo].[ComponentesDosArtigos] AS [ComponentesDosArtigos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Feitas" EntityType="Self.Feitas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Feitas].[Encomenda] AS [Encomenda], 
+    [Feitas].[Artigo] AS [Artigo], 
+    [Feitas].[Componente] AS [Componente], 
+    [Feitas].[Feitas] AS [Feitas]
+    FROM [dbo].[Feitas] AS [Feitas]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PessoasMaquinas" EntityType="Self.PessoasMaquinas" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -307,6 +328,18 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
     [TurnosFuncionarios].[Turno4] AS [Turno4]
     FROM [dbo].[TurnosFuncionarios] AS [TurnosFuncionarios]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VerPrecos" EntityType="Self.VerPrecos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VerPrecos].[Cliente] AS [Cliente], 
+    [VerPrecos].[Artigo] AS [Artigo], 
+    [VerPrecos].[Quantidade] AS [Quantidade], 
+    [VerPrecos].[Preco] AS [Preco], 
+    [VerPrecos].[MargemLucro] AS [MargemLucro], 
+    [VerPrecos].[CustosFixos] AS [CustosFixos], 
+    [VerPrecos].[Transporte] AS [Transporte], 
+    [VerPrecos].[PrecoFinal] AS [PrecoFinal]
+    FROM [dbo].[VerPrecos] AS [VerPrecos]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -324,6 +357,11 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="QtdCartoesPalete" Type="Int32" />
           <Property Name="Cartao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Cartolina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Cartao">
           <Key>
@@ -387,6 +425,7 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="DataLimite" Type="DateTime" Precision="3" />
           <Property Name="DataEntregaPrevista" Type="DateTime" Precision="3" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feitas" Type="Int32" />
         </EntityType>
         <EntityType Name="Esterilizacao">
           <Key>
@@ -420,6 +459,9 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Int32" />
           <Property Name="Sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Frente" Type="Boolean" />
+          <Property Name="Tras" Type="Boolean" />
+          <Property Name="Manual" Type="Boolean" />
         </EntityType>
         <EntityType Name="Maquina">
           <Key>
@@ -500,6 +542,8 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Preco" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="MargemLucro" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="CustosFixos" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Transporte" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PrecoFinal" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="ArtigosClientes">
           <Key>
@@ -522,11 +566,6 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Componente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Quantidade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Maquina1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Maquina2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Maquina3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Maquina4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Maquina5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PessoasMaquinas">
           <Key>
@@ -571,7 +610,17 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySet Name="ComponentesDosArtigos" EntityType="Self.ComponentesDosArtigos" />
           <EntitySet Name="PessoasMaquinas" EntityType="Self.PessoasMaquinas" />
           <EntitySet Name="TurnosFuncionarios" EntityType="Self.TurnosFuncionarios" />
+          <EntitySet Name="Feitas" EntityType="MedirmDBModel.Feitas" />
         </EntityContainer>
+        <EntityType Name="Feitas">
+          <Key>
+            <PropertyRef Name="Encomenda" />
+          </Key>
+          <Property Name="Encomenda" Type="Int32" Nullable="false" />
+          <Property Name="Artigo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Componente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Feitas1" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -581,6 +630,11 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySetMapping Name="Artigo">
             <EntityTypeMapping TypeName="MedirmDBModel.Artigo">
               <MappingFragment StoreEntitySet="Artigo">
+                <ScalarProperty Name="Maquina5" ColumnName="Maquina5" />
+                <ScalarProperty Name="Maquina4" ColumnName="Maquina4" />
+                <ScalarProperty Name="Maquina3" ColumnName="Maquina3" />
+                <ScalarProperty Name="Maquina2" ColumnName="Maquina2" />
+                <ScalarProperty Name="Maquina1" ColumnName="Maquina1" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UnBase" ColumnName="UnBase" />
@@ -651,6 +705,7 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySetMapping Name="Encomenda">
             <EntityTypeMapping TypeName="MedirmDBModel.Encomenda">
               <MappingFragment StoreEntitySet="Encomenda">
+                <ScalarProperty Name="Feitas" ColumnName="Feitas" />
                 <ScalarProperty Name="NumeroEnco" ColumnName="NumeroEnco" />
                 <ScalarProperty Name="Artigo" ColumnName="Artigo" />
                 <ScalarProperty Name="Cliente" ColumnName="Cliente" />
@@ -692,6 +747,9 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySetMapping Name="Funcionario">
             <EntityTypeMapping TypeName="MedirmDBModel.Funcionario">
               <MappingFragment StoreEntitySet="Funcionario">
+                <ScalarProperty Name="Manual" ColumnName="Manual" />
+                <ScalarProperty Name="Tras" ColumnName="Tras" />
+                <ScalarProperty Name="Frente" ColumnName="Frente" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Sigla" ColumnName="Sigla" />
@@ -777,6 +835,8 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
           <EntitySetMapping Name="VerPrecos">
             <EntityTypeMapping TypeName="MedirmDBModel.VerPrecos">
               <MappingFragment StoreEntitySet="VerPrecos">
+                <ScalarProperty Name="PrecoFinal" ColumnName="PrecoFinal" />
+                <ScalarProperty Name="Transporte" ColumnName="Transporte" />
                 <ScalarProperty Name="Cliente" ColumnName="Cliente" />
                 <ScalarProperty Name="Artigo" ColumnName="Artigo" />
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
@@ -804,12 +864,7 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
                 <ScalarProperty Name="Artigo" ColumnName="Artigo" />
                 <ScalarProperty Name="Componente" ColumnName="Componente" />
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
-                <ScalarProperty Name="Maquina1" ColumnName="Maquina1" />
-                <ScalarProperty Name="Maquina2" ColumnName="Maquina2" />
-                <ScalarProperty Name="Maquina3" ColumnName="Maquina3" />
-                <ScalarProperty Name="Maquina4" ColumnName="Maquina4" />
-                <ScalarProperty Name="Maquina5" ColumnName="Maquina5" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PessoasMaquinas">
@@ -830,6 +885,16 @@ warning 6002: The table/view 'E:\DOCUMENTS\FREELANCER\MENDES\MEDIRM\MEDIRM\MEDIR
                 <ScalarProperty Name="Turno2" ColumnName="Turno2" />
                 <ScalarProperty Name="Turno3" ColumnName="Turno3" />
                 <ScalarProperty Name="Turno4" ColumnName="Turno4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feitas">
+            <EntityTypeMapping TypeName="MedirmDBModel.Feitas">
+              <MappingFragment StoreEntitySet="Feitas">
+                <ScalarProperty Name="Feitas1" ColumnName="Feitas" />
+                <ScalarProperty Name="Componente" ColumnName="Componente" />
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Encomenda" ColumnName="Encomenda" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,10 +12,11 @@ namespace MEDIRM
     using System;
     using System.Collections.Generic;
     
-    public partial class ComponentesDosArtigos
+    public partial class Feitas
     {
+        public int Encomenda { get; set; }
         public string Artigo { get; set; }
         public string Componente { get; set; }
-        public string Quantidade { get; set; }
+        public Nullable<int> Feitas1 { get; set; }
     }
 }

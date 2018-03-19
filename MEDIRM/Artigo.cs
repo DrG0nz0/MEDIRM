@@ -22,5 +22,10 @@ namespace MEDIRM
         public Nullable<int> QtdCartoesPalete { get; set; }
         public string Cartao { get; set; }
         public string Cartolina { get; set; }
+        public string Maquina1 { get; set; }
+        public string Maquina2 { get; set; }
+        public string Maquina3 { get; set; }
+        public string Maquina4 { get; set; }
+        public string Maquina5 { get; set; }
     }
 }
