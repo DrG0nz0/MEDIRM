@@ -246,6 +246,7 @@
     <Compile Include="GeneticSolution\Colors.cs" />
     <Compile Include="GeneticSolution\GeneticRunner.cs" />
     <Compile Include="GeneticSolution\Helpers\TaskVisualizer.cs" />
+    <Compile Include="GeneticSolution\Helpers\TurnoWork.cs" />
     <Compile Include="GeneticSolution\InputBoxProvider.cs" />
     <Compile Include="GeneticSolution\GeneticForm.cs">
       <SubType>Form</SubType>
@@ -261,6 +262,7 @@
     <Compile Include="GeneticSolution\TabelaHorario.Designer.cs">
       <DependentUpon>TabelaHorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeneticSolution\Helpers\TurnoVisualizer.cs" />
     <Compile Include="GerirPages\GerirEncomendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -625,6 +627,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MEDIRM.GeneticSolution.Helpers.TaskVisualizer.datasource" />
+    <None Include="Properties\DataSources\MEDIRM.GeneticSolution.Helpers.TurnoVisualizer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
