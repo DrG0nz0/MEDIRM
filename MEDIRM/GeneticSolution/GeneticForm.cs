@@ -588,6 +588,9 @@ namespace Scheduling
         }
 
 
+
+
+
         
         private void PDF_Click(object sender, EventArgs e)
         {
@@ -598,23 +601,206 @@ namespace Scheduling
                 return;
             }
             var events = best.GetEvents();
+            List<TurnoWork> turnos = new List<TurnoWork>();
+            Dictionary<int, double> MaquinaTempo = new Dictionary<int, double>();
+            Dictionary<int, double> AccumulatedTimeMaquina = new Dictionary<int, double>();
 
+            // loop machines
+            for (int m = 0; m < MaxMachines;m++)
+            {
+                MaquinaTempo.Add(m, events.Where(x => x.MachineId == m).Sum(x => x.HourDuration));
+                AccumulatedTimeMaquina.Add(m,0);
+            }
+            var totalTime = events.Sum(x => x.HourDuration);
+            // there is work to be done
+            // HORAS -> Turnos
+            // Turno(mquina, TurnosExistents, duraçao) -> devolve lista de turnos para esta produçao
+           events.Sort((x, y) =>
+            {
+                if ( x.start < y.start)
+                {
+                    return -1;
+                }
+                if (x.start > y.start)
+                    return 1;
+                if ( x.start == y.start)
+                {
+                    if (x.HourDuration > y.HourDuration)
+                        return 1;
+                    else
+                        return -1;
+                }
+                return 0;
+            });
 
-            var eventosValidos = events.Where(x => x.end.Subtract(x.start).TotalMinutes > 5);
-
+            List<TurnoWork> currentTurnos = new List<TurnoWork>();
+              foreach(var task in events)
+            {
+                var schedule = getTurnos(task, currentTurnos);
+                currentTurnos.AddRange(schedule);
+            }
+            
+            var eventosValidos = events.Where(x => x.end.Subtract(x.start).TotalMinutes > 5).ToList();
 
             /// criar lista com eventos ordenados para distribuir
-
             // Lista com os dados
             var tasks = eventosValidos.Select(x => new TaskVisualizer(x, events, Tasks)).ToList();
-
-
-
-        
-            TabelaHorario t = new TabelaHorario(tasks.ToList());
+            //Lista com numero de horas
+            TabelaHorario t = new TabelaHorario(currentTurnos.Select( x=> new TurnoVisualizer(x, events, Tasks)).ToList());
             t.Show();
         }
-        
+
+        private List<TurnoWork> getTurnos(ScheduledTask task, List<TurnoWork> currentTurnos)
+        {
+            var machine = task.MachineId;
+            var duration = task.HourDuration;
+            List<TurnoWork> turnos = new List<TurnoWork>();
+            DateTime startTime = task.start;
+            while (duration > 0)
+            {
+                var realTurns = currentTurnos.Concat(turnos).ToList();
+                TurnoWork avaibleFuncionarios = GetShift(startTime, task, realTurns);
+                while (avaibleFuncionarios == null)
+                {
+                    startTime = startTime.AddMinutes(60);
+                    avaibleFuncionarios = GetShift(startTime, task, realTurns);
+                }
+                duration -= avaibleFuncionarios.end.Subtract(avaibleFuncionarios.start).TotalHours;
+                turnos.Add(avaibleFuncionarios);
+            }
+            return turnos;
+        }
+
+        class TurnoFuncionario
+        {
+            public DateTime Start;
+            public DateTime End;
+            public Funcionario Funcionario;
+        }
+
+
+        private List<TurnoFuncionario> ConvertTurnos(TurnosFuncionarios f, DateTime t)
+        {
+            // esta merda sem chaves estrangeiras-...  eu bem avisei.
+            List<TurnoFuncionario> turnos = new List<TurnoFuncionario>();
+            var context = new MedirmDBEntities();
+            var funcionar = context.Funcionario.FirstOrDefault(x => x.Nome == f.Funcionario);
+            if (funcionar == null)
+                return new List<TurnoFuncionario>();
+               // throw new Exception("Informaçao nas tabelas esta errada. É o que dá nao ter chaves estrangeiras. Nao existe : " + f.Funcionario + " na tabela Funcionarios.");
+
+            // TURNO 1
+            var turno = new TurnoFuncionario();
+            turno.Funcionario = funcionar;
+            var data = f.Turno1.Replace("h","").Split('-');
+            if (data.Length == 2)
+            {
+                turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
+                turno.End = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[1]), 0, 0);
+                turnos.Add(turno);
+            }
+
+             turno = new TurnoFuncionario();
+            turno.Funcionario = funcionar;
+             data = f.Turno2.Replace("h", "").Split('-');
+            if (data.Length == 2)
+            {
+                turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
+                turno.End = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[1]), 0, 0);
+                turnos.Add(turno);
+            }
+            turno = new TurnoFuncionario();
+            turno.Funcionario = funcionar;
+            data = f.Turno3.Replace("h", "").Split('-');
+            if (data.Length == 2)
+            {
+                turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
+                turno.End = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[1]), 0, 0);
+                turnos.Add(turno);
+            }
+            turno = new TurnoFuncionario();
+            turno.Funcionario = funcionar;
+            data = f.Turno4.Replace("h", "").Split('-');
+            if (data.Length == 2)
+            {
+                turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
+                turno.End = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[1]), 0, 0);
+                turnos.Add(turno);
+            }
+            return turnos;
+        }
+
+        // devolve os funcionar que podem trabalhar a começar nestas horas e a duraçao do turno
+        private TurnoWork GetShift(DateTime startTime, ScheduledTask task, List<TurnoWork> currentTurnos)
+        {
+            var context = new MedirmDBEntities();
+            List<TurnoFuncionario> turnosDecentes = new List<TurnoFuncionario>();
+            var turnos = context.TurnosFuncionarios.ToList();
+            var dia = ToDiaDaSemana(startTime);
+            var filtered = turnos.Where(x => x.DiaDaSemana.ToLower() == dia);
+            foreach (var tu in filtered)
+            {
+
+                turnosDecentes.AddRange(ConvertTurnos(tu,startTime));
+            }
+            if (turnosDecentes.Count == 0)
+                return null;
+            // validar se o turno e valido para se escolhido
+            Func<TurnoFuncionario,bool> validarHoras = (TurnoFuncionario turno) =>
+            {
+                if (turno.Start.Hour <= startTime.Hour && turno.End.Hour >= startTime.Hour)
+                    if (startTime.DayOfWeek == turno.Start.DayOfWeek)
+                        return true;
+                return false;
+            };
+
+            Func<TurnoFuncionario, bool> validarOverlap = (TurnoFuncionario turno) =>
+            {
+                var ActualStart = new DateTime(startTime.Year, startTime.Month,startTime.Day, turno.Start.Hour, turno.Start.Minute, turno.Start.Second);
+                var ActualEnd = new DateTime(startTime.Year, startTime.Month, startTime.Day, turno.End.Hour, turno.End.Minute, turno.End.Second); ;
+
+                if (currentTurnos.Any( x=> x.frente.Nome == turno.Funcionario.Nome && x.start >= ActualStart &&  x.end <= ActualEnd) || currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
+                {
+                    return false;
+                }
+                return true;
+            };
+            var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && validarHoras(x) && validarOverlap(x));
+            if (frente == null)
+                return null;
+            var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value && x.Funcionario.Nome != frente.Funcionario.Nome && validarHoras(x) && validarOverlap(x));
+            if (frente == null || tras == null)
+                return null;
+            var tWork = new TurnoWork();
+            var start = new DateTime(startTime.Year, startTime.Month, startTime.Day, frente.Start.Hour, frente.Start.Minute, frente.Start.Second);
+            var end = new DateTime(startTime.Year, startTime.Month, startTime.Day, frente.End.Hour, frente.End.Minute, frente.End.Second); ;
+            tWork.frente = frente.Funcionario;
+            tWork.tras = tras.Funcionario;
+            tWork.start = start;
+            tWork.end = end;
+            tWork.Task = task;
+            return tWork;
+        }
+
+        private string ToDiaDaSemana(DateTime startTime)
+        {
+            switch(startTime.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return "segunda-feira";
+                case DayOfWeek.Tuesday:
+                    return "terça-feira";
+                case DayOfWeek.Wednesday:
+                    return "quarta-feira";
+                case DayOfWeek.Thursday:
+                    return "quinta-feira";
+                case DayOfWeek.Friday:
+                    return "sexta-feira";
+                default:
+                    return "";
+            }
+        }
+
         private void back_Click(object sender, EventArgs e)
         {
             MainFormView.ShowForm(new Menu());

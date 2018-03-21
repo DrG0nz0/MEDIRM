@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using MEDIRM.GeneticSolution.Helpers;
 
 namespace MEDIRM.GeneticSolution
 {
     public partial class TabelaHorario : Form
     {
-        public TabelaHorario(List<Helpers.TaskVisualizer> tasks)
+        public TabelaHorario(List<TurnoVisualizer> tasks)
         {
             InitializeComponent();
-            var bindingList = new BindingList<Helpers.TaskVisualizer>(tasks);
+            var bindingList = new BindingList<TurnoVisualizer>(tasks);
             var source = new BindingSource(bindingList, null);
             this.dataGridView1.DataSource = source;
 

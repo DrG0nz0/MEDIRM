@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabelaHorario));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.turnoVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.encomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TurnoInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TurnoFim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +54,8 @@
             this.unidadesNesteTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataFinalProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInicioProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnoVisualizerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +68,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.encomendaDataGridViewTextBoxColumn,
+            this.Column1,
+            this.Tras,
+            this.TurnoInicio,
+            this.TurnoFim,
             this.clienteDataGridViewTextBoxColumn,
             this.unidadesDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn,
@@ -78,7 +88,7 @@
             this.unidadesNesteTurnoDataGridViewTextBoxColumn,
             this.dataFinalProcessoDataGridViewTextBoxColumn,
             this.dataInicioProcessoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.taskVisualizerBindingSource;
+            this.dataGridView1.DataSource = this.turnoVisualizerBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -88,12 +98,48 @@
             this.dataGridView1.Size = new System.Drawing.Size(1484, 691);
             this.dataGridView1.TabIndex = 0;
             // 
+            // turnoVisualizerBindingSource
+            // 
+            this.turnoVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TurnoVisualizer);
+            // 
+            // taskVisualizerBindingSource
+            // 
+            this.taskVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TaskVisualizer);
+            // 
             // encomendaDataGridViewTextBoxColumn
             // 
             this.encomendaDataGridViewTextBoxColumn.DataPropertyName = "Encomenda";
             this.encomendaDataGridViewTextBoxColumn.HeaderText = "Encomenda";
             this.encomendaDataGridViewTextBoxColumn.Name = "encomendaDataGridViewTextBoxColumn";
             this.encomendaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Frente";
+            this.Column1.HeaderText = "Frente";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Tras
+            // 
+            this.Tras.DataPropertyName = "Tras";
+            this.Tras.HeaderText = "Tras";
+            this.Tras.Name = "Tras";
+            this.Tras.ReadOnly = true;
+            // 
+            // TurnoInicio
+            // 
+            this.TurnoInicio.DataPropertyName = "TurnoInicio";
+            this.TurnoInicio.HeaderText = "TurnoInicio";
+            this.TurnoInicio.Name = "TurnoInicio";
+            this.TurnoInicio.ReadOnly = true;
+            // 
+            // TurnoFim
+            // 
+            this.TurnoFim.DataPropertyName = "TurnoFim";
+            this.TurnoFim.HeaderText = "TurnoFim";
+            this.TurnoFim.Name = "TurnoFim";
+            this.TurnoFim.ReadOnly = true;
             // 
             // clienteDataGridViewTextBoxColumn
             // 
@@ -207,10 +253,6 @@
             this.dataInicioProcessoDataGridViewTextBoxColumn.Name = "dataInicioProcessoDataGridViewTextBoxColumn";
             this.dataInicioProcessoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // taskVisualizerBindingSource
-            // 
-            this.taskVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TaskVisualizer);
-            // 
             // TabelaHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +263,7 @@
             this.Name = "TabelaHorario";
             this.Text = "TabelaHorario";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turnoVisualizerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -229,7 +272,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource taskVisualizerBindingSource;
+        private System.Windows.Forms.BindingSource turnoVisualizerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn encomendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TurnoInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TurnoFim;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
@@ -246,6 +295,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadesNesteTurnoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataFinalProcessoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataInicioProcessoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource taskVisualizerBindingSource;
     }
 }

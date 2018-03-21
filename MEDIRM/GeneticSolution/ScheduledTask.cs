@@ -39,7 +39,7 @@ namespace ProjectScheduling.SolverFoundation
                 startDate = NextWorkingTime(startDate, false);
                 //hours += startDate.Subtract(startHolder).TotalHours;
             }
-            return hours +5000;
+            return hours;
         }
 
         private List<TimeInterval> CalculatePeriods(DateTime start, double hours)
