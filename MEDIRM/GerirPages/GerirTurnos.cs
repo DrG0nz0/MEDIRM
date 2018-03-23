@@ -34,7 +34,7 @@ namespace MEDIRM.GerirPages
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("UPDATE TurnosFuncionarios SET Turno1=@Turno1, Turno2=@Turno2, Turno3=@Turno3, Turno4=@Turno4 WHERE Funcionario ='" + comboBox8.Text.Trim() + "' AND DiaDaSemana ='" + comboBox1.Text.Trim() + "'", con);
+                SqlCommand com = new SqlCommand("UPDATE TurnosFuncionario SET Turno1=@Turno1, Turno2=@Turno2, Turno3=@Turno3, Turno4=@Turno4 WHERE Funcionario ='" + comboBox8.Text.Trim() + "' AND DiaDaSemana ='" + comboBox1.Text.Trim() + "'", con);
                 com.CommandType = CommandType.Text;
 
                 if (comboBox2.SelectedItem != null)
@@ -97,7 +97,7 @@ namespace MEDIRM.GerirPages
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlConnection con2 = new SqlConnection(connectionString);
             con2.Open();
-            SqlCommand cmd2 = new SqlCommand("Select * from TurnosFuncionarios where Funcionario ='" + comboBox8.Text.Trim() + "' AND DiaDaSemana ='" + comboBox1.Text.Trim() + "'", con2);
+            SqlCommand cmd2 = new SqlCommand("Select * from TurnosFuncionario where Funcionario ='" + comboBox8.Text.Trim() + "' AND DiaDaSemana ='" + comboBox1.Text.Trim() + "'", con2);
 
             try
             {

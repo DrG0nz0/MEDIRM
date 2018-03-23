@@ -23,11 +23,11 @@
     <Shape ID="DesignTable:Componentes" ZOrder="32" X="2093" Y="0" Height="286" Width="225" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
     <Shape ID="DesignTable:CustosFixos" ZOrder="31" X="2388" Y="0" Height="115" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:ArtigosClientes" ZOrder="30" X="2061" Y="363" Height="210" Width="233" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:ComponentesDosArtigos" ZOrder="29" X="2384" Y="160" Height="248" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:ComponentesDosArtigo" ZOrder="29" X="2384" Y="160" Height="248" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:Encomenda" ZOrder="28" X="2467" Y="438" Height="229" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:Ferias" ZOrder="27" X="2689" Y="18" Height="134" Width="178" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:PessoasMaquinas" ZOrder="26" X="49" Y="143" Height="172" Width="246" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:TurnosFuncionarios" ZOrder="19" X="268" Y="255" Height="210" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:TurnosFuncionario" ZOrder="19" X="268" Y="255" Height="210" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:VerPrecos" ZOrder="5" X="0" Y="0" Height="191" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Feitas" ZOrder="1" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>

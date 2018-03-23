@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MEDIRM.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace MEDIRM.GeneticSolution
     class MaquinaResource
     {
         public string Tipo {  get { return this.maquina.Tipo; } }
-        public MEDIRM.Maquina maquina;
+        public Maquina maquina;
 
-        public MaquinaResource(MEDIRM.Maquina maqDB)
+        public MaquinaResource(Maquina maqDB)
         {
             this.maquina = maqDB;
         }
@@ -22,10 +23,10 @@ namespace MEDIRM.GeneticSolution
     class Tarefa
     {
         private MaquinaResource maquina1;
-        private ComponentesDosArtigos components;
+        private ComponentesDosArtigo components;
         private Encomenda encomenda;
 
-        public Tarefa(MaquinaResource maquina1, ComponentesDosArtigos components, Encomenda encomenda)
+        public Tarefa(MaquinaResource maquina1, ComponentesDosArtigo components, Encomenda encomenda)
         {
             this.maquina1 = maquina1;
             this.components = components;
@@ -65,18 +66,18 @@ namespace MEDIRM.GeneticSolution
         public List<Planificaçao> plan = new List<Planificaçao>();
         public List<Planificaçao> Generate()
         {
-            var context = new MedirmDBEntities();
-            var todasEncomendas = context.Encomenda.Where(x => x.Estado.ToLower() != "terminado");
+            var context = new MEDIRM.Modelos.MEDIRMContext();
+            var todasEncomendas = context.Encomendas.Where(x => x.Estado.ToLower() != "terminado");
 
             foreach (var encomenda in todasEncomendas)
             {
                 var todosArtigosdAsEncomendas = new List<Artigo>();
-                todosArtigosdAsEncomendas.AddRange(context.Artigo.Where(x => x.Nome == encomenda.Artigo));
+                todosArtigosdAsEncomendas.AddRange(context.Artigoes.Where(x => x.Nome == encomenda.Artigo));
                 foreach (var compoartigos in todosArtigosdAsEncomendas)
                 {
-                    var todosComponents = new List<ComponentesDosArtigos>();
+                    var todosComponents = new List<ComponentesDosArtigo>();
 
-                    todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == "1"));
+                    todosComponents.AddRange(context.ComponentesDosArtigo.Where(x => x.Artigo == "1"));
                     foreach (var components in todosComponents)
                     {
                         var maquina1 = ResourceFromMaquina(compoartigos.Maquina1);
@@ -85,7 +86,7 @@ namespace MEDIRM.GeneticSolution
                         var maquina4 = ResourceFromMaquina(compoartigos.Maquina4);
                         var maquina5 = ResourceFromMaquina(compoartigos.Maquina5);
                         int currentProcessCount = 0;
-                        var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                        var artigo = context.Artigoes.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         int qt = int.Parse(components.Quantidade);
                         if (maquina1 != null)
                         {
@@ -125,14 +126,14 @@ namespace MEDIRM.GeneticSolution
             P4 = OrderByGroup(P4);
             P5 = OrderByGroup(P5);
 
-            foreach (var turno in context.TurnosFuncionarios)
+            foreach (var turno in context.TurnosFuncionario)
             {
                 if (turno.Turno1.ToLower() != "nenhum")
                 {
                     var plani = new Planificaçao();
                     plani.Turno = turno.Turno1;
                     plani.DiaDaSemana = turno.DiaDaSemana;
-                    plani.Funcionario = context.Funcionario.FirstOrDefault(x=>x.Nome == turno.Funcionario);
+                    plani.Funcionario = context.Funcionarios.FirstOrDefault(x=>x.Nome == turno.Funcionario);
                     plan.Add(plani);
                 }
                 if (turno.Turno2.ToLower() != "nenhum")
@@ -140,7 +141,7 @@ namespace MEDIRM.GeneticSolution
                     var plani2 = new Planificaçao();
                     plani2.Turno = turno.Turno2;
                     plani2.DiaDaSemana = turno.DiaDaSemana;
-                    plani2.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+                    plani2.Funcionario = context.Funcionarios.FirstOrDefault(x => x.Nome == turno.Funcionario);
 
                     plan.Add(plani2);
                 }
@@ -149,7 +150,7 @@ namespace MEDIRM.GeneticSolution
                     var plani3 = new Planificaçao();
                     plani3.Turno = turno.Turno3;
                     plani3.DiaDaSemana = turno.DiaDaSemana;
-                    plani3.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+                    plani3.Funcionario = context.Funcionarios.FirstOrDefault(x => x.Nome == turno.Funcionario);
 
                     plan.Add(plani3);
 
@@ -159,7 +160,7 @@ namespace MEDIRM.GeneticSolution
                     var plani4 = new Planificaçao();
                     plani4.Turno = turno.Turno4;
                     plani4.DiaDaSemana = turno.DiaDaSemana;
-                    plani4.Funcionario = context.Funcionario.FirstOrDefault(x => x.Nome == turno.Funcionario);
+                    plani4.Funcionario = context.Funcionarios.FirstOrDefault(x => x.Nome == turno.Funcionario);
 
                     plan.Add(plani4);
 
@@ -184,7 +185,7 @@ namespace MEDIRM.GeneticSolution
             {
                 var list = maquina.ToList();
                 var tipo = maquina.Key;
-                var MaquinaTipo = context.Maquina.FirstOrDefault(x => x.Tipo == tipo);
+                var MaquinaTipo = context.Maquinas.FirstOrDefault(x => x.Tipo == tipo);
                 // Ordernado Tarefas por molde
                 var lPorMolde = list.GroupBy(x => x.Molde);
                 foreach (var molde in lPorMolde)
@@ -199,7 +200,7 @@ namespace MEDIRM.GeneticSolution
 
                     foreach (var pessoasMaquinas in context.PessoasMaquinas)
                     {
-                        var maq = context.Maquina.FirstOrDefault(x => x.Nome == pessoasMaquinas.Maquina);
+                        var maq = context.Maquinas.FirstOrDefault(x => x.Nome == pessoasMaquinas.Maquina);
                         if (maq.Tipo != tipo)
                             continue;
                         // Primeira planificaçao que essa pessoa pode ter .
@@ -212,7 +213,7 @@ namespace MEDIRM.GeneticSolution
                         produced += TurnoHoras(planoFirst.Turno);
                         // atribuir
                         planoFirst.Maquina = maq;
-                        planoFirst.Molde = context.Molde.FirstOrDefault(x => x.Designacao == maq.Molde);
+                        planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
                         while (produced < UnidadesTotal)
                         {
                             planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
@@ -224,7 +225,7 @@ namespace MEDIRM.GeneticSolution
                             produced += TurnoHoras(planoFirst.Turno);
                             // atribuir
                             planoFirst.Maquina = maq;
-                            planoFirst.Molde = context.Molde.FirstOrDefault(x => x.Designacao == maq.Molde);
+                            planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
 
                         }
                     }
@@ -276,8 +277,8 @@ namespace MEDIRM.GeneticSolution
 
             if (maquina1 == null)
                 return null;
-            var context = new MedirmDBEntities();
-            var maqDB = context.Maquina.FirstOrDefault(x => x.Nome == maquina1);
+            var context = new MEDIRM.Modelos.MEDIRMContext();
+            var maqDB = context.Maquinas.FirstOrDefault(x => x.Nome == maquina1);
 
             var search = Maquinas.FirstOrDefault(x => x.maquina.Tipo == maqDB.Tipo);
             if (search == null)

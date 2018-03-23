@@ -1,4 +1,5 @@
-﻿using ProjectScheduling.SolverFoundation;
+﻿using MEDIRM.Modelos;
+using ProjectScheduling.SolverFoundation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

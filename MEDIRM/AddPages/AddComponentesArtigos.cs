@@ -41,7 +41,7 @@ namespace MEDIRM.AddPages
                     string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                     SqlConnection con = new SqlConnection(connectionString);
 
-                    SqlCommand com = new SqlCommand("INSERT INTO ComponentesDosArtigos (Artigo, Componente, Quantidade) VALUES (@Artigo, @Componente, @Quantidade)", con);
+                    SqlCommand com = new SqlCommand("INSERT INTO ComponentesDosArtigo (Artigo, Componente, Quantidade) VALUES (@Artigo, @Componente, @Quantidade)", con);
                     com.CommandType = CommandType.Text;
 
                     com.Parameters.AddWithValue("@Quantidade", textBox1.Text);

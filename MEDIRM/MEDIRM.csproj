@@ -185,63 +185,7 @@
     <Compile Include="AddPages\AddTransportes.Designer.cs">
       <DependentUpon>AddTransportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Artigo.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ArtigosClientes.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BloggingModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BloggingModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BloggingModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BloggingModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BloggingModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Cartao.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cartolina.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cliente.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ComponentesDosArtigos.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustosFixos.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Encomenda.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Esterilizacao.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Feitas.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ferias.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Filme.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Funcionario.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="GeneticSolution\Algoritmo.cs" />
     <Compile Include="GeneticSolution\Colors.cs" />
     <Compile Include="GeneticSolution\GeneticRunner.cs" />
@@ -275,9 +219,6 @@
     <Compile Include="GerirPages\GerirTurnos.Designer.cs">
       <DependentUpon>GerirTurnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Maquina.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MedirmDBDataSet.cs">
       <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
     </Compile>
@@ -286,12 +227,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Moeda.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Molde.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Modelos\Artigo.cs" />
+    <Compile Include="Modelos\ArtigosCliente.cs" />
+    <Compile Include="Modelos\Cartao.cs" />
+    <Compile Include="Modelos\Cartolina.cs" />
+    <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\Componente.cs" />
+    <Compile Include="Modelos\ComponentesDosArtigo.cs" />
+    <Compile Include="Modelos\CustosFixo.cs" />
+    <Compile Include="Modelos\Encomenda.cs" />
+    <Compile Include="Modelos\Esterilizacao.cs" />
+    <Compile Include="Modelos\Feita.cs" />
+    <Compile Include="Modelos\Feria.cs" />
+    <Compile Include="Modelos\Filme.cs" />
+    <Compile Include="Modelos\Funcionario.cs" />
+    <Compile Include="Modelos\Maquina.cs" />
+    <Compile Include="Modelos\MEDIRMContext.cs" />
+    <Compile Include="Modelos\Moeda.cs" />
+    <Compile Include="Modelos\Molde.cs" />
+    <Compile Include="Modelos\Papel.cs" />
+    <Compile Include="Modelos\PessoasMaquina.cs" />
+    <Compile Include="Modelos\TipoMaquina.cs" />
+    <Compile Include="Modelos\Transporte.cs" />
+    <Compile Include="Modelos\TurnosFuncionario.cs" />
+    <Compile Include="Modelos\User.cs" />
+    <Compile Include="Modelos\VerPreco.cs" />
     <Compile Include="OtherPages\CriarEncomenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,34 +396,12 @@
     <Compile Include="OtherPages\VerTurnosFuncionarios.Designer.cs">
       <DependentUpon>VerTurnosFuncionarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Papel.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PessoasMaquinas.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OtherPages\VerPreços.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TipoMaquina.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Transporte.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TurnosFuncionarios.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Users.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VerPrecos.cs">
-      <DependentUpon>BloggingModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddPages\AddArtigosClientes.resx">
       <DependentUpon>AddArtigosClientes.cs</DependentUpon>
@@ -607,13 +545,6 @@
     <EmbeddedResource Include="OtherPages\VerPreços.resx">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="BloggingModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BloggingModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="BloggingModel.edmx.diagram">
-      <DependentUpon>BloggingModel.edmx</DependentUpon>
-    </None>
     <None Include="MedirmDBDataSet.xsc">
       <DependentUpon>MedirmDBDataSet.xsd</DependentUpon>
     </None>
@@ -648,16 +579,6 @@
     <None Include="Resources\medirm.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BloggingModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BloggingModel.edmx</DependentUpon>
-      <LastGenOutput>BloggingModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BloggingModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BloggingModel.edmx</DependentUpon>
-      <LastGenOutput>BloggingModel.cs</LastGenOutput>
-    </Content>
     <Content Include="medirm.ico" />
     <Content Include="MedirmDB.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,4 +1,5 @@
 ﻿using MEDIRM.GeneticSolution.Helpers;
+using MEDIRM.Modelos;
 using ProjectScheduling.SolverFoundation;
 using System;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace MEDIRM.GeneticSolution.Helpers
         private ScheduledTask sTask;
         private GeneticTask task;
         private GeneticTask.GeneticProcess process;
-        private ComponentesDosArtigos component;
+        private ComponentesDosArtigo component;
         private DateTime estimatedDelivery;
         private DateTime estimatedDeliveryEncomenda;
         private string unidadesPorTurno;

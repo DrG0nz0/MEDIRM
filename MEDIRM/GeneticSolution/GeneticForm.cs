@@ -15,6 +15,7 @@ using Menu = MEDIRM.Menu;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using MEDIRM.Modelos;
 
 namespace Scheduling
 {
@@ -28,6 +29,7 @@ namespace Scheduling
         Random rnd;
         bool best;
         GeneticMachine genetik;
+        private MEDIRM.Modelos.MEDIRMContext context;
         #endregion
 
         #region --------Related to Form--------
@@ -62,8 +64,7 @@ namespace Scheduling
         #region Genitk
         private GeneticResource ResourceFromMaquina(string Nome, out Maquina maquina)
         {
-            var context = new MedirmDBEntities();
-             maquina = context.Maquina.FirstOrDefault(x => x.Nome == Nome);
+             maquina = context.Maquinas.FirstOrDefault(x => x.Nome == Nome);
             var mac = maquina;
             if (maquina == null)
                 return null;
@@ -79,20 +80,21 @@ namespace Scheduling
 
         public void CreateProject()
         {
+            this.context = new MEDIRM.Modelos.MEDIRMContext();
+
             ResourcesNeeded = new List<GeneticResource>();
-            var context = new MedirmDBEntities();
-            var todasEncomendas = context.Encomenda.Where(x => x.Estado.ToLower() != "terminado");
-            var Moldes = context.Maquina.Select(x => x.Molde).ToArray();
+            var todasEncomendas = context.Encomendas.Where(x => x.Estado.ToLower() != "terminado");
+            var Moldes = context.Maquinas.Select(x => x.Molde).ToArray();
             List<GeneticResource> resources = new List<GeneticResource>();
             foreach (var encomenda in todasEncomendas)
             {
                 var todosArtigosdAsEncomendas = new List<Artigo>();
-                todosArtigosdAsEncomendas.AddRange(context.Artigo.Where(x => x.Nome == encomenda.Artigo));
+                todosArtigosdAsEncomendas.AddRange(context.Artigoes.Where(x => x.Nome == encomenda.Artigo));
                 foreach (var compoartigos in todosArtigosdAsEncomendas)
                 {
-                    var todosComponents = new List<ComponentesDosArtigos>();
+                    var todosComponents = new List<ComponentesDosArtigo>();
 
-                    todosComponents.AddRange(context.ComponentesDosArtigos.Where(x => x.Artigo == encomenda.Artigo));
+                    todosComponents.AddRange(context.ComponentesDosArtigo.Where(x => x.Artigo == encomenda.Artigo));
 
                     foreach (var components in todosComponents)
                     {
@@ -105,7 +107,7 @@ namespace Scheduling
                         var maquina4 = ResourceFromMaquina(compoartigos.Maquina4, out maquina4C);
                         var maquina5 = ResourceFromMaquina(compoartigos.Maquina5, out maquina5C);
                         int currentProcessCount = 0;
-                        var artigo = context.Artigo.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
+                        var artigo = context.Artigoes.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         if (maquina1 != null)
                         {
                            currentProcessCount++;
@@ -166,6 +168,8 @@ namespace Scheduling
                 }
 
             }
+            this.context = new MEDIRM.Modelos.MEDIRMContext();
+
         }
 
         public class GeneticResource
@@ -190,9 +194,9 @@ namespace Scheduling
                 public static GeneticProcess Empty = new GeneticProcess(null,null,null, null, 0);
                 private int quantidade;
                 public readonly Encomenda encomenda;
-                public readonly ComponentesDosArtigos components;
+                public readonly ComponentesDosArtigo components;
 
-                public GeneticProcess(Encomenda encomenda, ComponentesDosArtigos components, GeneticResource maquina1,Maquina mac, int quantidade)
+                public GeneticProcess(Encomenda encomenda, ComponentesDosArtigo components, GeneticResource maquina1,Maquina mac, int quantidade)
                 {
                     this.Machine = mac;
                     this.quantidade = quantidade;
@@ -222,9 +226,9 @@ namespace Scheduling
 
             public readonly Encomenda Encomenda;
 
-            public readonly ComponentesDosArtigos components;
+            public readonly ComponentesDosArtigo components;
 
-            public GeneticTask(Encomenda encomenda, ComponentesDosArtigos components)
+            public GeneticTask(Encomenda encomenda, ComponentesDosArtigo components)
             {
                 this.Encomenda = encomenda;
                 this.components = components;
@@ -403,6 +407,8 @@ namespace Scheduling
             btnStop.Enabled = false;
         }
         Stopwatch stp = new Stopwatch();
+        private List<TurnosFuncionario> turnos;
+
         void btnStart_Click(object sender, EventArgs e)
         {
 
@@ -679,12 +685,11 @@ namespace Scheduling
         }
 
 
-        private List<TurnoFuncionario> ConvertTurnos(TurnosFuncionarios f, DateTime t)
+        private List<TurnoFuncionario> ConvertTurnos(TurnosFuncionario f, DateTime t)
         {
             // esta merda sem chaves estrangeiras-...  eu bem avisei.
             List<TurnoFuncionario> turnos = new List<TurnoFuncionario>();
-            var context = new MedirmDBEntities();
-            var funcionar = context.Funcionario.FirstOrDefault(x => x.Nome == f.Funcionario);
+            var funcionar = context.Funcionarios.FirstOrDefault(x => x.Nome == f.Funcionario);
             if (funcionar == null)
                 return new List<TurnoFuncionario>();
                // throw new Exception("Informaçao nas tabelas esta errada. É o que dá nao ter chaves estrangeiras. Nao existe : " + f.Funcionario + " na tabela Funcionarios.");
@@ -733,11 +738,10 @@ namespace Scheduling
         // devolve os funcionar que podem trabalhar a começar nestas horas e a duraçao do turno
         private TurnoWork GetShift(DateTime startTime, ScheduledTask task, List<TurnoWork> currentTurnos)
         {
-            var context = new MedirmDBEntities();
             List<TurnoFuncionario> turnosDecentes = new List<TurnoFuncionario>();
-            var turnos = context.TurnosFuncionarios.ToList();
+            this.turnos  = this.turnos == null ? context.TurnosFuncionario.ToList() : this.turnos; 
             var dia = ToDiaDaSemana(startTime);
-            var filtered = turnos.Where(x => x.DiaDaSemana.ToLower() == dia);
+            var filtered = turnos.Where(x => x.DiaDaSemana.ToLower() == dia.ToLower());
             foreach (var tu in filtered)
             {
 

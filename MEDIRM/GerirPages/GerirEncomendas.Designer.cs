@@ -293,7 +293,7 @@
             // 
             // componentesDosArtigosBindingSource
             // 
-            this.componentesDosArtigosBindingSource.DataMember = "ComponentesDosArtigos";
+            this.componentesDosArtigosBindingSource.DataMember = "ComponentesDosArtigo";
             this.componentesDosArtigosBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // componentesDosArtigosTableAdapter

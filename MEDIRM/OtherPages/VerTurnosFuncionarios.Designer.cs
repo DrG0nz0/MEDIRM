@@ -81,7 +81,7 @@
             // 
             // turnosFuncionariosBindingSource
             // 
-            this.turnosFuncionariosBindingSource.DataMember = "TurnosFuncionarios";
+            this.turnosFuncionariosBindingSource.DataMember = "TurnosFuncionario";
             this.turnosFuncionariosBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // turnosFuncionariosTableAdapter

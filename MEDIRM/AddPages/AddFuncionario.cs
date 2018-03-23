@@ -100,7 +100,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
@@ -127,7 +127,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
@@ -154,7 +154,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
@@ -181,7 +181,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
@@ -208,7 +208,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);
@@ -235,7 +235,7 @@ namespace MEDIRM
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(connectionString);
 
-                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionarios (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO TurnosFuncionario (Funcionario, DiaDaSemana, Turno1, Turno2, Turno3, Turno4) VALUES (@Funcionario, @DiaDaSemana, @Turno1, @Turno2, @Turno3, @Turno4)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Funcionario", textBox1.Text);

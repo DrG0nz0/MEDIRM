@@ -22,8 +22,8 @@ namespace MEDIRM.GerirPages
 
         private void GerirEncomendas_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.ComponentesDosArtigos'. Você pode movê-la ou removê-la conforme necessário.
-            this.componentesDosArtigosTableAdapter.Fill(this.medirmDBDataSet.ComponentesDosArtigos);
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.ComponentesDosArtigo'. Você pode movê-la ou removê-la conforme necessário.
+            this.componentesDosArtigosTableAdapter.Fill(this.medirmDBDataSet.ComponentesDosArtigo);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Encomenda'. Você pode movê-la ou removê-la conforme necessário.
             this.encomendaTableAdapter.Fill(this.medirmDBDataSet.Encomenda);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Encomenda'. Você pode movê-la ou removê-la conforme necessário.
@@ -136,7 +136,7 @@ namespace MEDIRM.GerirPages
         {
             try
             {
-                this.componentesDosArtigosTableAdapter.FillBy(this.medirmDBDataSet.ComponentesDosArtigos);
+                this.componentesDosArtigosTableAdapter.FillBy(this.medirmDBDataSet.ComponentesDosArtigo);
             }
             catch (System.Exception ex)
             {

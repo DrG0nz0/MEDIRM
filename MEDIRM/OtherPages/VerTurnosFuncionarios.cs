@@ -43,8 +43,8 @@ namespace MEDIRM.OtherPages
         {
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TurnosFuncionarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.turnosFuncionariosTableAdapter.Fill(this.medirmDBDataSet.TurnosFuncionarios);
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TurnosFuncionario'. Você pode movê-la ou removê-la conforme necessário.
+            this.turnosFuncionariosTableAdapter.Fill(this.medirmDBDataSet.TurnosFuncionario);
         }
 
         private void back_Click(object sender, EventArgs e)
