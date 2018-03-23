@@ -126,6 +126,28 @@ namespace MEDIRM {
         
         private global::System.Data.DataRelation relationTransporte_Componentes1;
         
+        private global::System.Data.DataRelation relationFK__Artigo__Cartao__5E54FF49;
+        
+        private global::System.Data.DataRelation relationFK__Artigo__Cartolin__5F492382;
+        
+        private global::System.Data.DataRelation relationFK__Artigo__Maquina1__603D47BB;
+        
+        private global::System.Data.DataRelation relationFK__Artigo__Maquina2__61316BF4;
+        
+        private global::System.Data.DataRelation relationFK__Artigo__Maquina3__6225902D;
+        
+        private global::System.Data.DataRelation relationFK__Artigo__Maquina4__6319B466;
+        
+        private global::System.Data.DataRelation relationFK__PessoasMa__Funci__4589517F;
+        
+        private global::System.Data.DataRelation relationFK__VerPrecos__Artig__5D60DB10;
+        
+        private global::System.Data.DataRelation relationFK__VerPrecos__Clien__57A801BA;
+        
+        private global::System.Data.DataRelation relationFK__Feitas__Artigo__67DE6983;
+        
+        private global::System.Data.DataRelation relationFK__Feitas__Componen__68D28DBC;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -827,6 +849,17 @@ namespace MEDIRM {
             this.relationFuncionario_Ferias = this.Relations["Funcionario_Ferias"];
             this.relationCliente_VerPrecos1 = this.Relations["Cliente_VerPrecos1"];
             this.relationTransporte_Componentes1 = this.Relations["Transporte_Componentes1"];
+            this.relationFK__Artigo__Cartao__5E54FF49 = this.Relations["FK__Artigo__Cartao__5E54FF49"];
+            this.relationFK__Artigo__Cartolin__5F492382 = this.Relations["FK__Artigo__Cartolin__5F492382"];
+            this.relationFK__Artigo__Maquina1__603D47BB = this.Relations["FK__Artigo__Maquina1__603D47BB"];
+            this.relationFK__Artigo__Maquina2__61316BF4 = this.Relations["FK__Artigo__Maquina2__61316BF4"];
+            this.relationFK__Artigo__Maquina3__6225902D = this.Relations["FK__Artigo__Maquina3__6225902D"];
+            this.relationFK__Artigo__Maquina4__6319B466 = this.Relations["FK__Artigo__Maquina4__6319B466"];
+            this.relationFK__PessoasMa__Funci__4589517F = this.Relations["FK__PessoasMa__Funci__4589517F"];
+            this.relationFK__VerPrecos__Artig__5D60DB10 = this.Relations["FK__VerPrecos__Artig__5D60DB10"];
+            this.relationFK__VerPrecos__Clien__57A801BA = this.Relations["FK__VerPrecos__Clien__57A801BA"];
+            this.relationFK__Feitas__Artigo__67DE6983 = this.Relations["FK__Feitas__Artigo__67DE6983"];
+            this.relationFK__Feitas__Componen__68D28DBC = this.Relations["FK__Feitas__Componen__68D28DBC"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -993,6 +1026,50 @@ namespace MEDIRM {
                         this.tableTransporte.DesignacaoColumn}, new global::System.Data.DataColumn[] {
                         this.tableComponentes.NomeColumn}, false);
             this.Relations.Add(this.relationTransporte_Componentes1);
+            this.relationFK__Artigo__Cartao__5E54FF49 = new global::System.Data.DataRelation("FK__Artigo__Cartao__5E54FF49", new global::System.Data.DataColumn[] {
+                        this.tableCartao.DesignacaoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.CartaoColumn}, false);
+            this.Relations.Add(this.relationFK__Artigo__Cartao__5E54FF49);
+            this.relationFK__Artigo__Cartolin__5F492382 = new global::System.Data.DataRelation("FK__Artigo__Cartolin__5F492382", new global::System.Data.DataColumn[] {
+                        this.tableCartolina.DesignacaoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.CartolinaColumn}, false);
+            this.Relations.Add(this.relationFK__Artigo__Cartolin__5F492382);
+            this.relationFK__Artigo__Maquina1__603D47BB = new global::System.Data.DataRelation("FK__Artigo__Maquina1__603D47BB", new global::System.Data.DataColumn[] {
+                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.Maquina1Column}, false);
+            this.Relations.Add(this.relationFK__Artigo__Maquina1__603D47BB);
+            this.relationFK__Artigo__Maquina2__61316BF4 = new global::System.Data.DataRelation("FK__Artigo__Maquina2__61316BF4", new global::System.Data.DataColumn[] {
+                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.Maquina2Column}, false);
+            this.Relations.Add(this.relationFK__Artigo__Maquina2__61316BF4);
+            this.relationFK__Artigo__Maquina3__6225902D = new global::System.Data.DataRelation("FK__Artigo__Maquina3__6225902D", new global::System.Data.DataColumn[] {
+                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.Maquina3Column}, false);
+            this.Relations.Add(this.relationFK__Artigo__Maquina3__6225902D);
+            this.relationFK__Artigo__Maquina4__6319B466 = new global::System.Data.DataRelation("FK__Artigo__Maquina4__6319B466", new global::System.Data.DataColumn[] {
+                        this.tableMaquina.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableArtigo.Maquina4Column}, false);
+            this.Relations.Add(this.relationFK__Artigo__Maquina4__6319B466);
+            this.relationFK__PessoasMa__Funci__4589517F = new global::System.Data.DataRelation("FK__PessoasMa__Funci__4589517F", new global::System.Data.DataColumn[] {
+                        this.tableFuncionario.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePessoasMaquinas.FuncionarioColumn}, false);
+            this.Relations.Add(this.relationFK__PessoasMa__Funci__4589517F);
+            this.relationFK__VerPrecos__Artig__5D60DB10 = new global::System.Data.DataRelation("FK__VerPrecos__Artig__5D60DB10", new global::System.Data.DataColumn[] {
+                        this.tableArtigo.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVerPrecos.ArtigoColumn}, false);
+            this.Relations.Add(this.relationFK__VerPrecos__Artig__5D60DB10);
+            this.relationFK__VerPrecos__Clien__57A801BA = new global::System.Data.DataRelation("FK__VerPrecos__Clien__57A801BA", new global::System.Data.DataColumn[] {
+                        this.tableCliente.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVerPrecos.ClienteColumn}, false);
+            this.Relations.Add(this.relationFK__VerPrecos__Clien__57A801BA);
+            this.relationFK__Feitas__Artigo__67DE6983 = new global::System.Data.DataRelation("FK__Feitas__Artigo__67DE6983", new global::System.Data.DataColumn[] {
+                        this.tableArtigo.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFeitas.ArtigoColumn}, false);
+            this.Relations.Add(this.relationFK__Feitas__Artigo__67DE6983);
+            this.relationFK__Feitas__Componen__68D28DBC = new global::System.Data.DataRelation("FK__Feitas__Componen__68D28DBC", new global::System.Data.DataColumn[] {
+                        this.tableComponentes.NomeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFeitas.ComponenteColumn}, false);
+            this.Relations.Add(this.relationFK__Feitas__Componen__68D28DBC);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4623,7 +4700,7 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ArtigoRow AddArtigoRow(string Nome, int ID, string UnBase, int QtdCartao, int QtdCartolina, int QtdCartoesPalete, string Cartao, string Cartolina, string Maquina1, string Maquina2, string Maquina3, string Maquina4, string Maquina5) {
+            public ArtigoRow AddArtigoRow(string Nome, int ID, string UnBase, int QtdCartao, int QtdCartolina, int QtdCartoesPalete, CartaoRow parentCartaoRowByFK__Artigo__Cartao__5E54FF49, CartolinaRow parentCartolinaRowByFK__Artigo__Cartolin__5F492382, MaquinaRow parentMaquinaRowByFK__Artigo__Maquina1__603D47BB, MaquinaRow parentMaquinaRowByFK__Artigo__Maquina2__61316BF4, MaquinaRow parentMaquinaRowByFK__Artigo__Maquina3__6225902D, MaquinaRow parentMaquinaRowByFK__Artigo__Maquina4__6319B466, string Maquina5) {
                 ArtigoRow rowArtigoRow = ((ArtigoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nome,
@@ -4632,13 +4709,31 @@ namespace MEDIRM {
                         QtdCartao,
                         QtdCartolina,
                         QtdCartoesPalete,
-                        Cartao,
-                        Cartolina,
-                        Maquina1,
-                        Maquina2,
-                        Maquina3,
-                        Maquina4,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
                         Maquina5};
+                if ((parentCartaoRowByFK__Artigo__Cartao__5E54FF49 != null)) {
+                    columnValuesArray[6] = parentCartaoRowByFK__Artigo__Cartao__5E54FF49[0];
+                }
+                if ((parentCartolinaRowByFK__Artigo__Cartolin__5F492382 != null)) {
+                    columnValuesArray[7] = parentCartolinaRowByFK__Artigo__Cartolin__5F492382[0];
+                }
+                if ((parentMaquinaRowByFK__Artigo__Maquina1__603D47BB != null)) {
+                    columnValuesArray[8] = parentMaquinaRowByFK__Artigo__Maquina1__603D47BB[0];
+                }
+                if ((parentMaquinaRowByFK__Artigo__Maquina2__61316BF4 != null)) {
+                    columnValuesArray[9] = parentMaquinaRowByFK__Artigo__Maquina2__61316BF4[0];
+                }
+                if ((parentMaquinaRowByFK__Artigo__Maquina3__6225902D != null)) {
+                    columnValuesArray[10] = parentMaquinaRowByFK__Artigo__Maquina3__6225902D[0];
+                }
+                if ((parentMaquinaRowByFK__Artigo__Maquina4__6319B466 != null)) {
+                    columnValuesArray[11] = parentMaquinaRowByFK__Artigo__Maquina4__6319B466[0];
+                }
                 rowArtigoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowArtigoRow);
                 return rowArtigoRow;
@@ -8499,19 +8594,25 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VerPrecosRow AddVerPrecosRow(string Artigo, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1, string Cliente, decimal Transporte, decimal PrecoFinal) {
+            public VerPrecosRow AddVerPrecosRow(ArtigoRow parentArtigoRowByFK__VerPrecos__Artig__5D60DB10, int Quantidade, decimal Preco, decimal CustosFixos, ClienteRow parentClienteRowByCliente_VerPrecos1, ClienteRow parentClienteRowByFK__VerPrecos__Clien__57A801BA, decimal Transporte, decimal PrecoFinal) {
                 VerPrecosRow rowVerPrecosRow = ((VerPrecosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Artigo,
+                        null,
                         Quantidade,
                         Preco,
                         CustosFixos,
                         null,
-                        Cliente,
+                        null,
                         Transporte,
                         PrecoFinal};
+                if ((parentArtigoRowByFK__VerPrecos__Artig__5D60DB10 != null)) {
+                    columnValuesArray[0] = parentArtigoRowByFK__VerPrecos__Artig__5D60DB10[0];
+                }
                 if ((parentClienteRowByCliente_VerPrecos1 != null)) {
                     columnValuesArray[4] = parentClienteRowByCliente_VerPrecos1[3];
+                }
+                if ((parentClienteRowByFK__VerPrecos__Clien__57A801BA != null)) {
+                    columnValuesArray[5] = parentClienteRowByFK__VerPrecos__Clien__57A801BA[1];
                 }
                 rowVerPrecosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVerPrecosRow);
@@ -8820,13 +8921,19 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FeitasRow AddFeitasRow(int Encomenda, string Artigo, string Componente, int Feitas) {
+            public FeitasRow AddFeitasRow(int Encomenda, ArtigoRow parentArtigoRowByFK__Feitas__Artigo__67DE6983, ComponentesRow parentComponentesRowByFK__Feitas__Componen__68D28DBC, int Feitas) {
                 FeitasRow rowFeitasRow = ((FeitasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Encomenda,
-                        Artigo,
-                        Componente,
+                        null,
+                        null,
                         Feitas};
+                if ((parentArtigoRowByFK__Feitas__Artigo__67DE6983 != null)) {
+                    columnValuesArray[1] = parentArtigoRowByFK__Feitas__Artigo__67DE6983[0];
+                }
+                if ((parentComponentesRowByFK__Feitas__Componen__68D28DBC != null)) {
+                    columnValuesArray[2] = parentComponentesRowByFK__Feitas__Componen__68D28DBC[0];
+                }
                 rowFeitasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFeitasRow);
                 return rowFeitasRow;
@@ -9063,6 +9170,17 @@ namespace MEDIRM {
                     this.SetParentRow(value, this.Table.ParentRelations["Moeda_Cartao"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRows() {
+                if ((this.Table.ChildRelations["FK__Artigo__Cartao__5E54FF49"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Cartao__5E54FF49"])));
+                }
+            }
         }
         
         /// <summary>
@@ -9120,6 +9238,17 @@ namespace MEDIRM {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Moeda_Cartolina"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRows() {
+                if ((this.Table.ChildRelations["FK__Artigo__Cartolin__5F492382"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Cartolin__5F492382"])));
                 }
             }
         }
@@ -9307,6 +9436,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["Cliente_VerPrecos1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow[] GetVerPrecosRowsByFK__VerPrecos__Clien__57A801BA() {
+                if ((this.Table.ChildRelations["FK__VerPrecos__Clien__57A801BA"] == null)) {
+                    return new VerPrecosRow[0];
+                }
+                else {
+                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["FK__VerPrecos__Clien__57A801BA"])));
                 }
             }
         }
@@ -9674,6 +9814,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((FeriasRow[])(base.GetChildRows(this.Table.ChildRelations["Funcionario_Ferias"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PessoasMaquinasRow[] GetPessoasMaquinasRowsByFK__PessoasMa__Funci__4589517F() {
+                if ((this.Table.ChildRelations["FK__PessoasMa__Funci__4589517F"] == null)) {
+                    return new PessoasMaquinasRow[0];
+                }
+                else {
+                    return ((PessoasMaquinasRow[])(base.GetChildRows(this.Table.ChildRelations["FK__PessoasMa__Funci__4589517F"])));
                 }
             }
         }
@@ -10462,6 +10613,72 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public CartaoRow CartaoRow {
+                get {
+                    return ((CartaoRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Cartao__5E54FF49"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Cartao__5E54FF49"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public CartolinaRow CartolinaRow {
+                get {
+                    return ((CartolinaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Cartolin__5F492382"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Cartolin__5F492382"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MaquinaRow MaquinaRowByFK__Artigo__Maquina1__603D47BB {
+                get {
+                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Maquina1__603D47BB"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Maquina1__603D47BB"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MaquinaRow MaquinaRowByFK__Artigo__Maquina2__61316BF4 {
+                get {
+                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Maquina2__61316BF4"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Maquina2__61316BF4"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MaquinaRow MaquinaRowByFK__Artigo__Maquina3__6225902D {
+                get {
+                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Maquina3__6225902D"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Maquina3__6225902D"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MaquinaRow MaquinaRowByFK__Artigo__Maquina4__6319B466 {
+                get {
+                    return ((MaquinaRow)(this.GetParentRow(this.Table.ParentRelations["FK__Artigo__Maquina4__6319B466"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Artigo__Maquina4__6319B466"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUnBaseNull() {
                 return this.IsNull(this.tableArtigo.UnBaseColumn);
             }
@@ -10622,6 +10839,28 @@ namespace MEDIRM {
                 }
                 else {
                     return ((EncomendaRow[])(base.GetChildRows(this.Table.ChildRelations["Artigo_Encomenda"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VerPrecosRow[] GetVerPrecosRows() {
+                if ((this.Table.ChildRelations["FK__VerPrecos__Artig__5D60DB10"] == null)) {
+                    return new VerPrecosRow[0];
+                }
+                else {
+                    return ((VerPrecosRow[])(base.GetChildRows(this.Table.ChildRelations["FK__VerPrecos__Artig__5D60DB10"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FeitasRow[] GetFeitasRows() {
+                if ((this.Table.ChildRelations["FK__Feitas__Artigo__67DE6983"] == null)) {
+                    return new FeitasRow[0];
+                }
+                else {
+                    return ((FeitasRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Feitas__Artigo__67DE6983"])));
                 }
             }
         }
@@ -10882,6 +11121,50 @@ namespace MEDIRM {
                 }
                 else {
                     return ((PessoasMaquinasRow[])(base.GetChildRows(this.Table.ChildRelations["Maquina_PessoasMaquinas"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRowsByFK__Artigo__Maquina1__603D47BB() {
+                if ((this.Table.ChildRelations["FK__Artigo__Maquina1__603D47BB"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Maquina1__603D47BB"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRowsByFK__Artigo__Maquina2__61316BF4() {
+                if ((this.Table.ChildRelations["FK__Artigo__Maquina2__61316BF4"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Maquina2__61316BF4"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRowsByFK__Artigo__Maquina3__6225902D() {
+                if ((this.Table.ChildRelations["FK__Artigo__Maquina3__6225902D"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Maquina3__6225902D"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow[] GetArtigoRowsByFK__Artigo__Maquina4__6319B466() {
+                if ((this.Table.ChildRelations["FK__Artigo__Maquina4__6319B466"] == null)) {
+                    return new ArtigoRow[0];
+                }
+                else {
+                    return ((ArtigoRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Artigo__Maquina4__6319B466"])));
                 }
             }
         }
@@ -11328,6 +11611,17 @@ namespace MEDIRM {
                 }
                 else {
                     return ((ComponentesDosArtigosRow[])(base.GetChildRows(this.Table.ChildRelations["Componentes_ComponentesDosArtigos"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FeitasRow[] GetFeitasRows() {
+                if ((this.Table.ChildRelations["FK__Feitas__Componen__68D28DBC"] == null)) {
+                    return new FeitasRow[0];
+                }
+                else {
+                    return ((FeitasRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Feitas__Componen__68D28DBC"])));
                 }
             }
         }
@@ -12045,6 +12339,17 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FuncionarioRow FuncionarioRowByFK__PessoasMa__Funci__4589517F {
+                get {
+                    return ((FuncionarioRow)(this.GetParentRow(this.Table.ParentRelations["FK__PessoasMa__Funci__4589517F"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__PessoasMa__Funci__4589517F"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFuncionarioNull() {
                 return this.IsNull(this.tablePessoasMaquinas.FuncionarioColumn);
             }
@@ -12395,6 +12700,28 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow ArtigoRow {
+                get {
+                    return ((ArtigoRow)(this.GetParentRow(this.Table.ParentRelations["FK__VerPrecos__Artig__5D60DB10"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__VerPrecos__Artig__5D60DB10"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ClienteRow ClienteRowByFK__VerPrecos__Clien__57A801BA {
+                get {
+                    return ((ClienteRow)(this.GetParentRow(this.Table.ParentRelations["FK__VerPrecos__Clien__57A801BA"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__VerPrecos__Clien__57A801BA"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsArtigoNull() {
                 return this.IsNull(this.tableVerPrecos.ArtigoColumn);
             }
@@ -12548,6 +12875,28 @@ namespace MEDIRM {
                 }
                 set {
                     this[this.tableFeitas.FeitasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ArtigoRow ArtigoRow {
+                get {
+                    return ((ArtigoRow)(this.GetParentRow(this.Table.ParentRelations["FK__Feitas__Artigo__67DE6983"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Feitas__Artigo__67DE6983"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ComponentesRow ComponentesRow {
+                get {
+                    return ((ComponentesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Feitas__Componen__68D28DBC"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Feitas__Componen__68D28DBC"]);
                 }
             }
             
@@ -23857,21 +24206,84 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._esterilizacaoTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Esterilizacao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._esterilizacaoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._componentesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._componentesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._artigoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._artigoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cartolinaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._clienteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._clienteTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cartaoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cartaoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._funcionarioTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._funcionarioTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._maquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._maquinaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23893,120 +24305,12 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._maquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._maquinaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._funcionarioTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._funcionarioTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._clienteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._clienteTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._artigoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._artigoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._componentesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._componentesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._feriasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._feriasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._pessoasMaquinasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pessoasMaquinasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._encomendaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._encomendaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cartaoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cartaoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._artigosClientesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._artigosClientesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._custosFixosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._custosFixosTableAdapter.Update(updatedRows));
+                    result = (result + this._filmeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24019,12 +24323,21 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._custosFixosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(updatedRows));
+                    result = (result + this._custosFixosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._artigosClientesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._artigosClientesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24034,6 +24347,42 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._componentesDosArtigosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._encomendaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._encomendaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._feriasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._feriasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pessoasMaquinasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pessoasMaquinasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24080,19 +24429,75 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._esterilizacaoTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Esterilizacao.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._esterilizacaoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._componentesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._componentesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._artigoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._artigoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cartolinaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._clienteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._clienteTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cartaoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cartaoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._funcionarioTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._funcionarioTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._maquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._maquinaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24112,107 +24517,11 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._maquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._maquinaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._funcionarioTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._funcionarioTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._clienteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._clienteTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._artigoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._artigoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._componentesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._componentesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._feriasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._feriasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pessoasMaquinasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pessoasMaquinasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._encomendaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._encomendaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cartaoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cartaoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._artigosClientesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._artigosClientesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._custosFixosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._custosFixosTableAdapter.Update(addedRows));
+                    result = (result + this._filmeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24224,11 +24533,19 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._custosFixosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(addedRows));
+                    result = (result + this._custosFixosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._artigosClientesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._artigosClientesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24237,6 +24554,38 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._componentesDosArtigosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._encomendaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._encomendaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._feriasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._feriasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pessoasMaquinasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PessoasMaquinas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pessoasMaquinasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24266,59 +24615,11 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._componentesDosArtigosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ComponentesDosArtigos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._turnosFuncionariosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._componentesDosArtigosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cartolinaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cartolinaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._verPrecosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.VerPrecos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._verPrecosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._custosFixosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._custosFixosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._artigosClientesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._artigosClientesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cartaoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cartaoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._encomendaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._encomendaTableAdapter.Update(deletedRows));
+                    result = (result + this._turnosFuncionariosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24330,14 +24631,6 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._turnosFuncionariosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TurnosFuncionarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._turnosFuncionariosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._feriasTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Ferias.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -24346,51 +24639,51 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._componentesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._encomendaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Encomenda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._componentesTableAdapter.Update(deletedRows));
+                    result = (result + this._encomendaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._artigoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._componentesDosArtigosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ComponentesDosArtigos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._artigoTableAdapter.Update(deletedRows));
+                    result = (result + this._componentesDosArtigosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._clienteTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._artigosClientesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ArtigosClientes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._clienteTableAdapter.Update(deletedRows));
+                    result = (result + this._artigosClientesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._funcionarioTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._custosFixosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CustosFixos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._funcionarioTableAdapter.Update(deletedRows));
+                    result = (result + this._custosFixosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._maquinaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._verPrecosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.VerPrecos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._maquinaTableAdapter.Update(deletedRows));
+                    result = (result + this._verPrecosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._moldeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._filmeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._moldeTableAdapter.Update(deletedRows));
+                    result = (result + this._filmeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24410,19 +24703,75 @@ SELECT Artigo, Quantidade, Preco, CustosFixos, MargemLucro, Cliente FROM VerPrec
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._moldeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Molde.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._moldeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._maquinaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Maquina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._maquinaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._funcionarioTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Funcionario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._funcionarioTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cartaoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cartao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cartaoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._clienteTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cliente.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._clienteTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cartolinaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cartolina.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cartolinaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._artigoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Artigo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._artigoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._componentesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Componentes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._componentesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._esterilizacaoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Esterilizacao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._esterilizacaoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._filmeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Filme.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._filmeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

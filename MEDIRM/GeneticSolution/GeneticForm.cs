@@ -787,15 +787,15 @@ namespace Scheduling
             switch(startTime.DayOfWeek)
             {
                 case DayOfWeek.Monday:
-                    return "segunda-feira";
+                    return "Segunda-feira";
                 case DayOfWeek.Tuesday:
-                    return "terça-feira";
+                    return "Terça-feira";
                 case DayOfWeek.Wednesday:
-                    return "quarta-feira";
+                    return "Quarta-feira";
                 case DayOfWeek.Thursday:
-                    return "quinta-feira";
+                    return "Quinta-feira";
                 case DayOfWeek.Friday:
-                    return "sexta-feira";
+                    return "Sexta-feira";
                 default:
                     return "";
             }

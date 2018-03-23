@@ -171,12 +171,12 @@ namespace MEDIRM.GeneticSolution
 
             Dictionary<string, int> lookup = new Dictionary<string, int>()
                   {
-                    { "segunda-feira" , 0 },
-                     { "terça-feira" , 1 },
-                     { "quarta-feira" , 2 },
-                     { "quinta-feira" , 3 },
-                     { "sexta-feira" , 4 },
-                     { "sabado" , 4 },
+                    { "Segunda-feira" , 0 },
+                     { "Terça-feira" , 1 },
+                     { "Quarta-feira" , 2 },
+                     { "Quinta-feira" , 3 },
+                     { "Sexta-feira" , 4 },
+                     { "Sabado" , 4 },
                   };
 
             // para cada maquina na Prioridade 1
