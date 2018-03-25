@@ -136,10 +136,6 @@ namespace MEDIRM.Modelos
                 .IsFixedLength();
 
             modelBuilder.Entity<Maquina>()
-                .Property(e => e.Velocidade2)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Maquina>()
                 .HasMany(e => e.Artigoes)
                 .WithOptional(e => e.Maquina)
                 .HasForeignKey(e => e.Maquina1);

@@ -30,10 +30,6 @@ namespace MEDIRM.Modelos
 
         public int? MaxPessFrente { get; set; }
 
-        public int? MinPessTras { get; set; }
-
-        public int? MaxPessTras { get; set; }
-
         [StringLength(50)]
         public string Filme { get; set; }
 
@@ -47,7 +43,6 @@ namespace MEDIRM.Modelos
         public string Velocidade1 { get; set; }
 
         [StringLength(10)]
-        public string Velocidade2 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Artigo> Artigoes { get; set; }
