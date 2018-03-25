@@ -173,7 +173,7 @@ namespace MEDIRM.GeneticSolution
             Dictionary<string, int> lookup = new Dictionary<string, int>()
                   {
                     { "Segunda-feira" , 0 },
-                     { "Terça-feira" , 1 },
+                     { "Terca-feira" , 1 },
                      { "Quarta-feira" , 2 },
                      { "Quinta-feira" , 3 },
                      { "Sexta-feira" , 4 },
