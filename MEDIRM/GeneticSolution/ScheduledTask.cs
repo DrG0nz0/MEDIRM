@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Scheduling;
 
 namespace ProjectScheduling.SolverFoundation
 {
@@ -12,6 +13,8 @@ namespace ProjectScheduling.SolverFoundation
         public int JobId { get; internal set; }
         public int ProcessId { get; internal set; }
         public int MachineId { get; internal set; }
+        public GeneticForm.GeneticTask GeneticTask { get; internal set; }
+        public GeneticForm.GeneticTask.GeneticProcess GeneticProcess { get; internal set; }
 
         public List<TimeInterval> Breaks = new List<TimeInterval>();
 

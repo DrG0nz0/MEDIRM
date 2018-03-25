@@ -617,6 +617,7 @@ namespace Scheduling
                 MaquinaTempo.Add(m, events.Where(x => x.MachineId == m).Sum(x => x.HourDuration));
                 AccumulatedTimeMaquina.Add(m,0);
             }
+
             var totalTime = events.Sum(x => x.HourDuration);
             // there is work to be done
             // HORAS -> Turnos
@@ -642,6 +643,8 @@ namespace Scheduling
             List<TurnoWork> currentTurnos = new List<TurnoWork>();
               foreach(var task in events)
             {
+                task.GeneticTask = Tasks[task.JobId];
+                task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
                 var schedule = getTurnos(task, currentTurnos);
                 currentTurnos.AddRange(schedule);
             }
@@ -763,23 +766,36 @@ namespace Scheduling
                 var ActualStart = new DateTime(startTime.Year, startTime.Month,startTime.Day, turno.Start.Hour, turno.Start.Minute, turno.Start.Second);
                 var ActualEnd = new DateTime(startTime.Year, startTime.Month, startTime.Day, turno.End.Hour, turno.End.Minute, turno.End.Second); ;
 
-                if (currentTurnos.Any( x=> x.frente.Nome == turno.Funcionario.Nome && x.start >= ActualStart &&  x.end <= ActualEnd) || currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
+                if (currentTurnos.Any( x=> x.frente.Any(func => func.Nome == turno.Funcionario.Nome) || x.tras.Any(func => func.Nome == turno.Funcionario.Nome) && x.start >= ActualStart &&  x.end <= ActualEnd) || currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
                 {
                     return false;
                 }
                 return true;
             };
-            var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && validarHoras(x) && validarOverlap(x));
-            if (frente == null)
-                return null;
-            var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value && x.Funcionario.Nome != frente.Funcionario.Nome && validarHoras(x) && validarOverlap(x));
-            if (frente == null || tras == null)
-                return null;
+            List<TurnoFuncionario> frentes = new List<TurnoFuncionario>();
+            List<TurnoFuncionario> trass = new List<TurnoFuncionario>();
+            var requiredF = task.GeneticProcess.Machine.MaxPessFrente;
+            var requiredT = task.GeneticProcess.Machine.MaxPessTras;
+            while (frentes.Count != requiredF)
+            {
+                var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && validarHoras(x) && validarOverlap(x));
+                if (frente == null)
+                    return null;
+                frentes.Add(frente);
+            }
+            while (trass.Count != requiredT)
+            {
+                var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value &&  frentes.All( frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
+                if ( tras == null)
+                    return null;
+                trass.Add(tras);
+            }
             var tWork = new TurnoWork();
-            var start = new DateTime(startTime.Year, startTime.Month, startTime.Day, frente.Start.Hour, frente.Start.Minute, frente.Start.Second);
-            var end = new DateTime(startTime.Year, startTime.Month, startTime.Day, frente.End.Hour, frente.End.Minute, frente.End.Second); ;
-            tWork.frente = frente.Funcionario;
-            tWork.tras = tras.Funcionario;
+            var start = new DateTime(startTime.Year, startTime.Month, startTime.Day, frentes[0].Start.Hour, frentes[0].Start.Minute, frentes[0].Start.Second);
+            var end = new DateTime(startTime.Year, startTime.Month, startTime.Day, frentes[0].End.Hour, frentes[0].End.Minute, frentes[0].End.Second); 
+
+            tWork.frente = frentes.Select(x=>x.Funcionario).ToList();
+            tWork.tras = trass.Select(x => x.Funcionario).ToList();
             tWork.start = start;
             tWork.end = end;
             tWork.Task = task;

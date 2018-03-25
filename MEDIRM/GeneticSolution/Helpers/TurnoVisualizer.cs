@@ -35,8 +35,8 @@ namespace MEDIRM.GeneticSolution.Helpers
         }
 
 
-        public string Frente => this.turno.frente.Nome;
-        public string Tras => this.turno.tras.Nome;
+        public string Frente => String.Join(",", this.turno.frente.Select(x=> x.Nome));
+        public string Tras => String.Join(",", this.turno.tras.Select(x => x.Nome));
         public string TurnoInicio => this.turno.start.ToString();
         public string TurnoFim => this.turno.end.ToString();
         [Category("JOB")]
