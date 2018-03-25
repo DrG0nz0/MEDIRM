@@ -781,14 +781,14 @@ namespace Scheduling
             var requiredT = task.GeneticProcess.Machine.MaxPessFrente;
             while (frentes.Count != requiredF)
             {
-                var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && validarHoras(x) && validarOverlap(x));
+                var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && frentes.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && trass.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
                 if (frente == null)
                     return null;
                 frentes.Add(frente);
             }
             while (trass.Count != requiredT)
             {
-                var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value &&  frentes.All( frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
+                var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value &&  frentes.All( frt => x.Funcionario.Nome != frt.Funcionario.Nome) && trass.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
                 if ( tras == null)
                     return null;
                 trass.Add(tras);
