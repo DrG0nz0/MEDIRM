@@ -108,7 +108,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Segunda-feira",
-            "Terça-feira",
+            "Terca-feira",
             "Quarta-feira",
             "Quinta-feira",
             "Sexta-feira",
