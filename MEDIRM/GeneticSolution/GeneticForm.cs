@@ -766,7 +766,10 @@ namespace Scheduling
                 var ActualStart = new DateTime(startTime.Year, startTime.Month,startTime.Day, turno.Start.Hour, turno.Start.Minute, turno.Start.Second);
                 var ActualEnd = new DateTime(startTime.Year, startTime.Month, startTime.Day, turno.End.Hour, turno.End.Minute, turno.End.Second); ;
 
-                if (currentTurnos.Any( x=> x.frente.Any(func => func.Nome == turno.Funcionario.Nome) || x.tras.Any(func => func.Nome == turno.Funcionario.Nome) && x.start >= ActualStart &&  x.end <= ActualEnd) || currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
+                if (currentTurnos.Any( x=> ((x.frente.Any(func => func.Nome == turno.Funcionario.Nome) || 
+                x.tras.Any(func => func.Nome == turno.Funcionario.Nome)) && 
+                x.start >= ActualStart &&  x.end <= ActualEnd)) || 
+                currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
                 {
                     return false;
                 }
@@ -774,8 +777,8 @@ namespace Scheduling
             };
             List<TurnoFuncionario> frentes = new List<TurnoFuncionario>();
             List<TurnoFuncionario> trass = new List<TurnoFuncionario>();
-            var requiredF = task.GeneticProcess.Machine.MaxPessFrente;
-            var requiredT = task.GeneticProcess.Machine.MaxPessTras;
+            var requiredF = task.GeneticProcess.Machine.MinPessFrente;
+            var requiredT = task.GeneticProcess.Machine.MaxPessFrente;
             while (frentes.Count != requiredF)
             {
                 var frente = turnosDecentes.FirstOrDefault(x => x.Funcionario.Frente.HasValue && x.Funcionario.Frente.Value && validarHoras(x) && validarOverlap(x));
