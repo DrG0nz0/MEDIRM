@@ -7,7 +7,9 @@ namespace Scheduling
     {
         static Random rnd = new Random();
         public static Color[] JobColors;
-        public static void GenerateRandomHSV(int jobs)
+        public static Color[] ProcessColors;
+
+        public static void GenerateRandomHSV(int jobs, int process)
         {
             JobColors = new Color[jobs];
             double a = 0.8d / (jobs + 1);
@@ -18,6 +20,17 @@ namespace Scheduling
                 double s = rnd.Next(0, 5) * 0.05 + 0.4;
                 double v = rnd.Next(0, 5) * 0.05 + 0.7;
                 JobColors[i] = GenerateHSVColor(h, s, v);
+            }
+
+            ProcessColors = new Color[process];
+            a = 0.8d / (process + 1);
+
+            for (int i = 0; i < process; i++)
+            {
+                double h = a * (i + 1) + 0.2d;
+                double s = rnd.Next(0, 5) * 0.05 + 0.4;
+                double v = rnd.Next(0, 5) * 0.05 + 0.7;
+                ProcessColors[i] = GenerateHSVColor(h, s, v);
             }
         }
         public static Color GenerateHSVColor(double h, double s, double v)

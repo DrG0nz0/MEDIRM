@@ -303,7 +303,7 @@ namespace Scheduling
                     path.CloseAllFigures();
 
                     RectangleF bar = new RectangleF(x, y, ps3.X - ps1.X, height);
-                    using (SolidBrush brush = new SolidBrush(Colors.JobColors[i]))
+                    using (SolidBrush brush = new SolidBrush(Colors.ProcessColors[b]))
                     {
                         grp.DrawPath(Pens.Black, path);
                         grp.FillPath(brush, path);

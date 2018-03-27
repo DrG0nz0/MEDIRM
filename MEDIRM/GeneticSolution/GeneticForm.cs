@@ -48,17 +48,9 @@ namespace Scheduling
             this.calendar1.MaximumViewDays = 7 * 30;
             btnStart.Click += btnStart_Click;
             btnStop.Click += btnStop_Click;
-            panel1.Paint += panel1_Paint;
-            this.SizeChanged += MainForm_SizeChanged;
             btnStop.Enabled = false;
             rnd = new Random();
 
-            SetDoubleBuffered(panel1);
-            cbCOTypes.SelectedIndex = 2;
-            cbSelTypes.SelectedIndex = 0;
-            cbMutTypes.SelectedIndex = 0;
-            resPanel.AutoScroll = true;
-            resPanel.MouseEnter += resPanel_MouseEnter;
             this.Load += MainForm_Load;
         }
         #region Genitk
@@ -357,7 +349,7 @@ namespace Scheduling
                 var longName = "E" + gTask.Encomenda.NumeroEnco + "-" + task.Task.GeneticProcess.Machine.Tipo + "-" + gTask.components.Artigo + "(" + gTask.components.Componente + ")\n Frente: " + frentes + "\nTras:" + tras;
                 var name = showlongName ? longName : shortName;
                 var ut = new System.Windows.Forms.Calendar.CalendarItem(this.calendar1, task.start, task.end, name);
-                ut.BackgroundColor = Colors.JobColors[task.Task.ProcessId]; ;
+                ut.BackgroundColor = Colors.ProcessColors[task.Task.ProcessId]; ;
                 ut.Tag = task;
                 kui.Add(ut);
 
@@ -380,34 +372,11 @@ namespace Scheduling
 
         void resPanel_MouseEnter(object sender, EventArgs e)
         {
-            resPanel.Focus();
         }
 
-        void MainForm_SizeChanged(object sender, EventArgs e)
-        {
-            if (boxPanel != null)
-            {
-                boxPanel.Width = this.Width - boxPanel.Left - 40;
-            }
-            if (resPanel != null)
-            {
-                if (boxPanel != null)
-                    resPanel.Width = boxPanel.Width;
-            }
-        }
         #endregion
 
 
-        #region --------Paint--------
-
-        void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            if (genetik != null && genetik.Best != null)
-            {
-                genetik.Best.DrawSchedule(e.Graphics, panel1);
-            }
-        }
-        #endregion
 
         #region --------Click Events--------
 
@@ -427,36 +396,37 @@ namespace Scheduling
                 MessageBox.Show("Erro ao PLanificar : Não existem Processoes, Maquinas ou Trabalhos para efectuar");
                 return;
             }
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
             /*try
             {*/
             Data.DataTable = getDatas();
             Data.Tasks = Tasks;
             Data.Machines = ResourcesNeeded;
-            Colors.GenerateRandomHSV(MaxProcessCount);
+            Colors.GenerateRandomHSV(MaxJob,MaxProcessCount);
             if (genetik != null && !genetik.Stopped)
             {
                 genetik.Stop();
                 Thread.Sleep(100);
             }
 
-            int popSize = popnmud.Value.ToInt();
+            int popSize = 10000;
 
 
             genetik = new GeneticMachine(MaxJob, MaxProcesses, MaxMachines, popSize);
 
-            genetik.MutOdd = mutnmud.Value.ToInt();
-            genetik.GroupSize = groupnmud.Value.ToInt();
-            genetik.MinTimeOdd = nmudMinTime.Value.ToInt();
+            genetik.MutOdd = 1;
+            genetik.GroupSize = 5;
+            genetik.MinTimeOdd = 0;
 
-            genetik.SelectionType = (SelectionTypes)cbSelTypes.SelectedIndex;
-            genetik.CrossOver = (COTypes)cbCOTypes.SelectedIndex;
-            genetik.MutationTypes = (MutationTypes)cbMutTypes.SelectedIndex;
+            genetik.SelectionType = (SelectionTypes)SelectionTypes.Tournament;
+            genetik.CrossOver = (COTypes)COTypes.TwoPoint;
+            genetik.MutationTypes = (MutationTypes)MutationTypes.ChangeValue;
 
-            genetik.Refresh = chkRefresh.Checked;
+            genetik.Refresh = true;
             genetik.BestValueChanged += genetik_BestValueChanged;
             genetik.ProgressChanged += genetik_ProgressChanged;
             best = true;
-            resPanel.Visible = true;
             stp.Reset();
             stp.Start();
             genetik.Start();
@@ -485,7 +455,6 @@ namespace Scheduling
             //boxPanel.VerticalScroll.Maximum = 0;
             //boxPanel.AutoScroll = true;
 
-            resPanel.Visible = true;
             Cursor = Cursors.Arrow;
         }
         #endregion
@@ -510,7 +479,6 @@ namespace Scheduling
                 lblSpan.Text = genetik.Best.MakeSpan().ToString();
                 lblBestTime.Text = stp.Elapsed.TotalSeconds.ToString("00") + "." + stp.Elapsed.Milliseconds.ToString("00") + " sn";
                 lblIdleTime.Text = genetik.Best.TotalIdleTime.ToString();
-                resPanel.Invalidate();
                 RenderCalendar = true;
             }
         }
@@ -891,6 +859,15 @@ namespace Scheduling
 
             MainFormView.ShowForm(new Menu());
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CreateFromSchedule();
+            this.timer1.Interval = 5000;
+
+        }
+
+
     }
     public static class ExtMethods
     {
