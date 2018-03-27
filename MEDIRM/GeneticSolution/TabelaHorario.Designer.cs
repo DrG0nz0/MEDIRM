@@ -34,23 +34,17 @@
             this.turnoVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.encomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maquinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoMaquinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TurnoInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TurnoFim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.artigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEntregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maquinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filmeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.papelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moldeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataFinalProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataInicioProcessoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoVisualizerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).BeginInit();
@@ -65,23 +59,17 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.encomendaDataGridViewTextBoxColumn,
-            this.maquinaDataGridViewTextBoxColumn,
-            this.tipoMaquinaDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
             this.Column1,
             this.Tras,
             this.TurnoInicio,
             this.TurnoFim,
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn,
             this.artigoDataGridViewTextBoxColumn,
-            this.clienteDataGridViewTextBoxColumn,
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn,
-            this.dataEntregaDataGridViewTextBoxColumn,
+            this.maquinaDataGridViewTextBoxColumn,
             this.filmeDataGridViewTextBoxColumn,
             this.papelDataGridViewTextBoxColumn,
-            this.moldeDataGridViewTextBoxColumn,
-            this.dataFinalProcessoDataGridViewTextBoxColumn,
-            this.dataInicioProcessoDataGridViewTextBoxColumn,
-            this.unidadesDataGridViewTextBoxColumn,
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn});
+            this.moldeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.turnoVisualizerBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -107,19 +95,12 @@
             this.encomendaDataGridViewTextBoxColumn.Name = "encomendaDataGridViewTextBoxColumn";
             this.encomendaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // maquinaDataGridViewTextBoxColumn
+            // clienteDataGridViewTextBoxColumn
             // 
-            this.maquinaDataGridViewTextBoxColumn.DataPropertyName = "Maquina";
-            this.maquinaDataGridViewTextBoxColumn.HeaderText = "Maquina";
-            this.maquinaDataGridViewTextBoxColumn.Name = "maquinaDataGridViewTextBoxColumn";
-            this.maquinaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tipoMaquinaDataGridViewTextBoxColumn
-            // 
-            this.tipoMaquinaDataGridViewTextBoxColumn.DataPropertyName = "TipoMaquina";
-            this.tipoMaquinaDataGridViewTextBoxColumn.HeaderText = "TipoMaquina";
-            this.tipoMaquinaDataGridViewTextBoxColumn.Name = "tipoMaquinaDataGridViewTextBoxColumn";
-            this.tipoMaquinaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Column1
             // 
@@ -149,6 +130,13 @@
             this.TurnoFim.Name = "TurnoFim";
             this.TurnoFim.ReadOnly = true;
             // 
+            // unidadesNesteTurnoDataGridViewTextBoxColumn
+            // 
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn.DataPropertyName = "UnidadesNesteTurno";
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn.HeaderText = "UnidadesNesteTurno";
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn.Name = "unidadesNesteTurnoDataGridViewTextBoxColumn";
+            this.unidadesNesteTurnoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // artigoDataGridViewTextBoxColumn
             // 
             this.artigoDataGridViewTextBoxColumn.DataPropertyName = "Artigo";
@@ -156,26 +144,12 @@
             this.artigoDataGridViewTextBoxColumn.Name = "artigoDataGridViewTextBoxColumn";
             this.artigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // clienteDataGridViewTextBoxColumn
+            // maquinaDataGridViewTextBoxColumn
             // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // estimadaDaEncomendaDataGridViewTextBoxColumn
-            // 
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn.DataPropertyName = "EstimadaDaEncomenda";
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn.HeaderText = "EstimadaDaEncomenda";
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn.Name = "estimadaDaEncomendaDataGridViewTextBoxColumn";
-            this.estimadaDaEncomendaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataEntregaDataGridViewTextBoxColumn
-            // 
-            this.dataEntregaDataGridViewTextBoxColumn.DataPropertyName = "DataEntrega";
-            this.dataEntregaDataGridViewTextBoxColumn.HeaderText = "DataEntrega";
-            this.dataEntregaDataGridViewTextBoxColumn.Name = "dataEntregaDataGridViewTextBoxColumn";
-            this.dataEntregaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maquinaDataGridViewTextBoxColumn.DataPropertyName = "Maquina";
+            this.maquinaDataGridViewTextBoxColumn.HeaderText = "Maquina";
+            this.maquinaDataGridViewTextBoxColumn.Name = "maquinaDataGridViewTextBoxColumn";
+            this.maquinaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // filmeDataGridViewTextBoxColumn
             // 
@@ -198,34 +172,6 @@
             this.moldeDataGridViewTextBoxColumn.Name = "moldeDataGridViewTextBoxColumn";
             this.moldeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataFinalProcessoDataGridViewTextBoxColumn
-            // 
-            this.dataFinalProcessoDataGridViewTextBoxColumn.DataPropertyName = "DataFinalProcesso";
-            this.dataFinalProcessoDataGridViewTextBoxColumn.HeaderText = "DataFinalProcesso";
-            this.dataFinalProcessoDataGridViewTextBoxColumn.Name = "dataFinalProcessoDataGridViewTextBoxColumn";
-            this.dataFinalProcessoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataInicioProcessoDataGridViewTextBoxColumn
-            // 
-            this.dataInicioProcessoDataGridViewTextBoxColumn.DataPropertyName = "DataInicioProcesso";
-            this.dataInicioProcessoDataGridViewTextBoxColumn.HeaderText = "DataInicioProcesso";
-            this.dataInicioProcessoDataGridViewTextBoxColumn.Name = "dataInicioProcessoDataGridViewTextBoxColumn";
-            this.dataInicioProcessoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unidadesDataGridViewTextBoxColumn
-            // 
-            this.unidadesDataGridViewTextBoxColumn.DataPropertyName = "Unidades";
-            this.unidadesDataGridViewTextBoxColumn.HeaderText = "Unidades";
-            this.unidadesDataGridViewTextBoxColumn.Name = "unidadesDataGridViewTextBoxColumn";
-            this.unidadesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unidadesNesteTurnoDataGridViewTextBoxColumn
-            // 
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.DataPropertyName = "UnidadesNesteTurno";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.HeaderText = "UnidadesNesteTurno";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.Name = "unidadesNesteTurnoDataGridViewTextBoxColumn";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // TabelaHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,23 +193,18 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource taskVisualizerBindingSource;
         private System.Windows.Forms.BindingSource turnoVisualizerBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn encomendaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maquinaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoMaquinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tras;
         private System.Windows.Forms.DataGridViewTextBoxColumn TurnoInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn TurnoFim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidadesNesteTurnoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn artigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estimadaDaEncomendaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataEntregaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maquinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn filmeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn papelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn moldeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataFinalProcessoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataInicioProcessoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadesNesteTurnoDataGridViewTextBoxColumn;
     }
 }

@@ -38,14 +38,14 @@ namespace Scheduling
         public static int MaxProcessCount = 0;
         public GeneticForm()
         {
-;
+            ;
             CreateProject();
 
             InitializeComponent();
 
             this.calendar1.ViewStart = DateTime.Now;
             this.calendar1.ViewEnd = DateTime.Now.AddMonths(1);
-            this.calendar1.MaximumViewDays = 7*30;
+            this.calendar1.MaximumViewDays = 7 * 30;
             btnStart.Click += btnStart_Click;
             btnStop.Click += btnStop_Click;
             panel1.Paint += panel1_Paint;
@@ -64,12 +64,12 @@ namespace Scheduling
         #region Genitk
         private GeneticResource ResourceFromMaquina(string Nome, out Maquina maquina)
         {
-             maquina = context.Maquinas.FirstOrDefault(x => x.Nome == Nome);
+            maquina = context.Maquinas.FirstOrDefault(x => x.Nome == Nome);
             var mac = maquina;
             if (maquina == null)
                 return null;
             var maq = ResourcesNeeded.FirstOrDefault(x => x.maquina.Tipo == mac.Tipo);
-            if ( maq == null)
+            if (maq == null)
             {
                 var res = new GeneticResource(maquina);
                 ResourcesNeeded.Add(res);
@@ -110,8 +110,8 @@ namespace Scheduling
                         var artigo = context.Artigoes.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         if (maquina1 != null)
                         {
-                           currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda,components,maquina1, maquina1C , qt));
+                            currentProcessCount++;
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina1, maquina1C, qt));
                         }
                         else
                         {
@@ -121,7 +121,7 @@ namespace Scheduling
                         if (maquina2 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina2, maquina2C,qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina2, maquina2C, qt));
                         }
                         else
                         {
@@ -177,7 +177,7 @@ namespace Scheduling
             public readonly String Name;
             public readonly Maquina maquina;
 
-           
+
 
             public GeneticResource(Maquina maquina3)
             {
@@ -191,12 +191,12 @@ namespace Scheduling
             {
                 public readonly GeneticResource Machines;
                 public readonly Maquina Machine;
-                public static GeneticProcess Empty = new GeneticProcess(null,null,null, null, 0);
+                public static GeneticProcess Empty = new GeneticProcess(null, null, null, null, 0);
                 private int quantidade;
                 public readonly Encomenda encomenda;
                 public readonly ComponentesDosArtigo components;
 
-                public GeneticProcess(Encomenda encomenda, ComponentesDosArtigo components, GeneticResource maquina1,Maquina mac, int quantidade)
+                public GeneticProcess(Encomenda encomenda, ComponentesDosArtigo components, GeneticResource maquina1, Maquina mac, int quantidade)
                 {
                     this.Machine = mac;
                     this.quantidade = quantidade;
@@ -204,7 +204,7 @@ namespace Scheduling
                     this.components = components;
                 }
 
-               public float Duration
+                public float Duration
                 {
                     get
                     {
@@ -222,7 +222,7 @@ namespace Scheduling
 
             public List<GeneticProcess> Processes = new List<GeneticProcess>();
 
-          
+
 
             public readonly Encomenda Encomenda;
 
@@ -242,7 +242,7 @@ namespace Scheduling
             }
         }
 
-    
+
         GeneticTask GetTaskProcess(int MaxJob)
         {
             return Tasks[MaxJob];
@@ -250,7 +250,7 @@ namespace Scheduling
 
         int MaxProcesses
         {
-             get { return MaxProcessCount; }
+            get { return MaxProcessCount; }
         }
 
         int MaxMachines
@@ -287,8 +287,9 @@ namespace Scheduling
                         {
                             vals[k, j, i] = process.Duration;
                         }
-                        else {
-                            vals[k, j, i] = process.Duration + 500000;
+                        else
+                        {
+                            vals[k, j, i] = 500000;
                         }
 
                     }
@@ -311,15 +312,15 @@ namespace Scheduling
 
                         if (process == GeneticTask.GeneticProcess.Empty)
                         {
-                           // vals[k, j, i] = 0;
+                            // vals[k, j, i] = 0;
                         }
                         else if (process.Machine.Tipo == ResourcesNeeded[i].maquina.Tipo)
                         {
-                           // vals[k, j, i] = process.Duration;
+                            // vals[k, j, i] = process.Duration;
                         }
                         else
                         {
-                           // vals[k, j, i] = 50000000;
+                            // vals[k, j, i] = 50000000;
                         }
 
                         //getBoxControl(boxPanel, k + 1, j + 1, i + 1).Text =  time == 50000 ? "X" : time.ToString();
@@ -333,34 +334,43 @@ namespace Scheduling
             Schedule best = this?.genetik?.Best;
             if (best == null)
                 return;
+
+            if (best == null)
+            {
+                MessageBox.Show("Nao Existem Planificaçoes.");
+                return;
+            }
+
+            var events = best.GetEvents();
+            var currentTurnos = GetTurnos(events);
+
             this.calendar1.Items.Clear();
-           var events =  best.GetEvents();
             var kui = new List<System.Windows.Forms.Calendar.CalendarItem>();
             bool showlongName = this.calendar1.ViewEnd.Subtract(this.calendar1.ViewStart).TotalDays < 5;
-            foreach (var task in events)
+            foreach (var task in currentTurnos.Where(x => x.start >= this.calendar1.ViewStart && x.end <= this.calendar1.ViewEnd))
             {
 
-                foreach (var bk in task.Breaks.Where(x => x.Start >= this.calendar1.ViewStart && x.End <= this.calendar1.ViewEnd))
-                {
-                    var gTask = Tasks[task.JobId];
-                    var shortName = "E" + gTask.Encomenda.NumeroEnco + "/" + gTask.Processes[task.ProcessId].Machine.Tipo;
-                    var longName = "E" + gTask.Encomenda.NumeroEnco + "-" + gTask.Processes[task.ProcessId].Machine.Tipo + "-" + gTask.components.Artigo + "(" + gTask.components.Componente + ")";
-                    var name = showlongName ? longName : shortName;
-                    var ut = new System.Windows.Forms.Calendar.CalendarItem(this.calendar1, bk.Start, bk.End, name);
-                    ut.BackgroundColor = Colors.JobColors[task.JobId]; ;
-                    ut.Tag = task;
-                    kui.Add(ut);
-                }
+                var gTask = task.Task.GeneticTask;
+                var shortName = "E" + gTask.Encomenda.NumeroEnco + "/" + task.Task.GeneticProcess.Machine.Tipo;
+                var frentes = string.Join(",", task.frente.Select(x => x.Nome));
+                var tras = string.Join(",", task.tras.Select(x => x.Nome));
+                var longName = "E" + gTask.Encomenda.NumeroEnco + "-" + task.Task.GeneticProcess.Machine.Tipo + "-" + gTask.components.Artigo + "(" + gTask.components.Componente + ")\n Frente: " + frentes + "\nTras:" + tras;
+                var name = showlongName ? longName : shortName;
+                var ut = new System.Windows.Forms.Calendar.CalendarItem(this.calendar1, task.start, task.end, name);
+                ut.BackgroundColor = Colors.JobColors[task.Task.ProcessId]; ;
+                ut.Tag = task;
+                kui.Add(ut);
+
             }
             this.calendar1.Items.AddRange(kui);
         }
-        
+
         #endregion Genitk
 
         void MainForm_Load(object sender, EventArgs e)
         {
             Prepare();
-                   SetData();
+            SetData();
 
         }
 
@@ -420,44 +430,44 @@ namespace Scheduling
             /*try
             {*/
             Data.DataTable = getDatas();
-                Data.Tasks = Tasks;
+            Data.Tasks = Tasks;
             Data.Machines = ResourcesNeeded;
-                Colors.GenerateRandomHSV(MaxJob);
-                if (genetik != null && !genetik.Stopped)
-                {
-                    genetik.Stop();
-                    Thread.Sleep(100);
-                }
+            Colors.GenerateRandomHSV(MaxProcessCount);
+            if (genetik != null && !genetik.Stopped)
+            {
+                genetik.Stop();
+                Thread.Sleep(100);
+            }
 
-                int popSize = popnmud.Value.ToInt();
+            int popSize = popnmud.Value.ToInt();
 
-         
-                genetik = new GeneticMachine(MaxJob, MaxProcesses, MaxMachines, popSize);
 
-                genetik.MutOdd = mutnmud.Value.ToInt();
-                genetik.GroupSize = groupnmud.Value.ToInt();
-                genetik.MinTimeOdd = nmudMinTime.Value.ToInt();
+            genetik = new GeneticMachine(MaxJob, MaxProcesses, MaxMachines, popSize);
 
-                genetik.SelectionType = (SelectionTypes)cbSelTypes.SelectedIndex;
-                genetik.CrossOver = (COTypes)cbCOTypes.SelectedIndex;
-                genetik.MutationTypes = (MutationTypes)cbMutTypes.SelectedIndex;
+            genetik.MutOdd = mutnmud.Value.ToInt();
+            genetik.GroupSize = groupnmud.Value.ToInt();
+            genetik.MinTimeOdd = nmudMinTime.Value.ToInt();
 
-                genetik.Refresh = chkRefresh.Checked;
-                genetik.BestValueChanged += genetik_BestValueChanged;
-                genetik.ProgressChanged += genetik_ProgressChanged;
-                best = true;
-                resPanel.Visible = true;
-                stp.Reset();
-                stp.Start();
-                genetik.Start();
-                btnStop.Enabled = true;
+            genetik.SelectionType = (SelectionTypes)cbSelTypes.SelectedIndex;
+            genetik.CrossOver = (COTypes)cbCOTypes.SelectedIndex;
+            genetik.MutationTypes = (MutationTypes)cbMutTypes.SelectedIndex;
+
+            genetik.Refresh = chkRefresh.Checked;
+            genetik.BestValueChanged += genetik_BestValueChanged;
+            genetik.ProgressChanged += genetik_ProgressChanged;
+            best = true;
+            resPanel.Visible = true;
+            stp.Reset();
+            stp.Start();
+            genetik.Start();
+            btnStop.Enabled = true;
             /*}
             catch(Exception ea)
             {
                 MessageBox.Show("Data table is wrong");
             }*/
         }
-       
+
 
         void Prepare()
         {
@@ -467,7 +477,7 @@ namespace Scheduling
                 boxPanel.Dispose();
 
 
-           // boxPanel = provider.CreateJobBoxes(MaxMachines, MaxProcesses, MaxJob);
+            // boxPanel = provider.CreateJobBoxes(MaxMachines, MaxProcesses, MaxJob);
             Application.DoEvents();
             //boxPanel.AutoScroll = false;
             //boxPanel.VerticalScroll.Enabled = false;
@@ -489,7 +499,7 @@ namespace Scheduling
                 lblProgress.Text = "%" + genetik.Progress.ToString("0.00");
                 progressBarFooter.Value = (int)(genetik.Progress);
                 progressBarFooter.Maximum = 100;
-                
+
             }
         }
         //296
@@ -505,7 +515,7 @@ namespace Scheduling
             }
         }
 
-      
+
         #endregion
 
         #region --------Methods--------
@@ -517,7 +527,7 @@ namespace Scheduling
             return boxContainer.Controls["j" + MaxJob].Controls["boxer"].Controls[name];
         }
 
-      
+
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
         {
             //Taxes: Remote Desktop Connection and painting
@@ -551,6 +561,10 @@ namespace Scheduling
         private void button1_Click(object sender, EventArgs e)
         {
             CreateFromSchedule();
+
+
+
+
         }
 
         private void calendar1_DayHeaderClick(object sender, System.Windows.Forms.Calendar.CalendarDayEventArgs e)
@@ -559,14 +573,12 @@ namespace Scheduling
             {
                 this.calendar1.ViewStart = e.CalendarDay.Date.AddDays(-14);
                 this.calendar1.ViewEnd = e.CalendarDay.Date.AddDays(15);
-                this.CreateFromSchedule();
 
             }
             else
             {
                 this.calendar1.ViewStart = e.CalendarDay.Date.AddDays(-1);
                 this.calendar1.ViewEnd = e.CalendarDay.Date.AddDays(1);
-                this.CreateFromSchedule();
             }
         }
 
@@ -577,27 +589,95 @@ namespace Scheduling
 
         private void calendar1_ItemSelected(object sender, System.Windows.Forms.Calendar.CalendarItemEventArgs e)
         {
-            ScheduledTask task = (ScheduledTask)e.Item.Tag;
+            TurnoWork task = (TurnoWork)e.Item.Tag;
             if (task == null)
                 return;
             LoadTaskData(task);
         }
 
-        private void LoadTaskData(ScheduledTask task)
+        private void LoadTaskData(TurnoWork task)
         {
             Schedule best = genetik?.Best;
             if (best == null)
                 return;
 
-            this.propertyGrid1.SelectedObject =  new TaskVisualizer(task,best.GetEvents(), Tasks);
-                
+            this.propertyGrid1.SelectedObject = new TurnoVisualizer(task, best.GetEvents(), Tasks);
+
+        }
+
+        DateTime[] lastMachineTime;
+        DateTime[,] lastProcessTime;
+        string[] lastMachineMolde;
+
+        public DateTime GetNextValidStartDate(DateTime startDate, ScheduledTask task)
+        {
+            int machine = task.MachineId;
+            int process = task.ProcessId;
+            var finalTime = startDate;
+            if (process > 0)
+                if (startDate < lastProcessTime[task.JobId, process - 1])
+                    finalTime = lastProcessTime[task.JobId, process - 1];
+            if (finalTime < lastMachineTime[task.MachineId])
+            {
+                finalTime = lastMachineTime[task.MachineId];
+            }
+            if (task.GeneticProcess.Machine.Molde != lastMachineMolde[machine] && string.IsNullOrEmpty(lastMachineMolde[machine]))
+            {
+                finalTime.AddHours(1);
+            }
+            return finalTime;
+
+        }
+        private List<TurnoWork> GetTurnos(List<ScheduledTask> events)
+        {
+
+            List<TurnoWork> turnos = new List<TurnoWork>();
+
+
+            lastProcessTime = new DateTime[Tasks.Count,MaxProcessCount];
+            lastMachineMolde = new string[MaxMachines];
+            lastMachineTime = new DateTime[MaxMachines];
+            var totalTime = events.Sum(x => x.HourDuration);
+            // there is work to be done
+            // HORAS -> Turnos
+            // Turno(mquina, TurnosExistents, duraçao) -> devolve lista de turnos para esta produçao
+            events.Sort((x, y) =>
+                        {
+                            if (x.start < y.start)
+                            {
+                                return -1;
+                            }
+                            if (x.start > y.start)
+                                return 1;
+                            if (x.start == y.start)
+                            {
+                                if (x.HourDuration > y.HourDuration)
+                                    return 1;
+                                else
+                                    return -1;
+                            }
+                            return 0;
+                        });
+
+            List<TurnoWork> currentTurnos = new List<TurnoWork>();
+            foreach (var task in events)
+            {
+                task.GeneticTask = Tasks[task.JobId];
+                task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
+                var schedule = getTurnos(task, currentTurnos);
+                currentTurnos.AddRange(schedule);
+                var lastDate = schedule.Max(x => x.end);
+
+                lastProcessTime[task.JobId, task.ProcessId] = lastDate;
+                lastMachineTime[task.MachineId] = lastDate;
+                lastMachineMolde[task.MachineId] = task.GeneticProcess.Machine.Molde;
+            }
+
+            return currentTurnos;
         }
 
 
 
-
-
-        
         private void PDF_Click(object sender, EventArgs e)
         {
             Schedule best = genetik?.Best;
@@ -607,55 +687,9 @@ namespace Scheduling
                 return;
             }
             var events = best.GetEvents();
-            List<TurnoWork> turnos = new List<TurnoWork>();
-            Dictionary<int, double> MaquinaTempo = new Dictionary<int, double>();
-            Dictionary<int, double> AccumulatedTimeMaquina = new Dictionary<int, double>();
-
-            // loop machines
-            for (int m = 0; m < MaxMachines;m++)
-            {
-                MaquinaTempo.Add(m, events.Where(x => x.MachineId == m).Sum(x => x.HourDuration));
-                AccumulatedTimeMaquina.Add(m,0);
-            }
-
-            var totalTime = events.Sum(x => x.HourDuration);
-            // there is work to be done
-            // HORAS -> Turnos
-            // Turno(mquina, TurnosExistents, duraçao) -> devolve lista de turnos para esta produçao
-           events.Sort((x, y) =>
-            {
-                if ( x.start < y.start)
-                {
-                    return -1;
-                }
-                if (x.start > y.start)
-                    return 1;
-                if ( x.start == y.start)
-                {
-                    if (x.HourDuration > y.HourDuration)
-                        return 1;
-                    else
-                        return -1;
-                }
-                return 0;
-            });
-
-            List<TurnoWork> currentTurnos = new List<TurnoWork>();
-              foreach(var task in events)
-            {
-                task.GeneticTask = Tasks[task.JobId];
-                task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
-                var schedule = getTurnos(task, currentTurnos);
-                currentTurnos.AddRange(schedule);
-            }
-            
-            var eventosValidos = events.Where(x => x.end.Subtract(x.start).TotalMinutes > 5).ToList();
-
-            /// criar lista com eventos ordenados para distribuir
-            // Lista com os dados
-            var tasks = eventosValidos.Select(x => new TaskVisualizer(x, events, Tasks)).ToList();
+            var currentTurnos = GetTurnos(events);
             //Lista com numero de horas
-            TabelaHorario t = new TabelaHorario(currentTurnos.Select( x=> new TurnoVisualizer(x, events, Tasks)).ToList());
+            TabelaHorario t = new TabelaHorario(currentTurnos.Select(x => new TurnoVisualizer(x, events, Tasks)).ToList());
             t.Show();
         }
 
@@ -664,7 +698,7 @@ namespace Scheduling
             var machine = task.MachineId;
             var duration = task.HourDuration;
             List<TurnoWork> turnos = new List<TurnoWork>();
-            DateTime startTime = task.start;
+            DateTime startTime = GetNextValidStartDate(task.start, task);
             while (duration > 0)
             {
                 var realTurns = currentTurnos.Concat(turnos).ToList();
@@ -675,6 +709,7 @@ namespace Scheduling
                     avaibleFuncionarios = GetShift(startTime, task, realTurns);
                 }
                 duration -= avaibleFuncionarios.end.Subtract(avaibleFuncionarios.start).TotalHours;
+                startTime = avaibleFuncionarios.end;
                 turnos.Add(avaibleFuncionarios);
             }
             return turnos;
@@ -690,17 +725,16 @@ namespace Scheduling
 
         private List<TurnoFuncionario> ConvertTurnos(TurnosFuncionario f, DateTime t)
         {
-            // esta merda sem chaves estrangeiras-...  eu bem avisei.
             List<TurnoFuncionario> turnos = new List<TurnoFuncionario>();
             var funcionar = context.Funcionarios.FirstOrDefault(x => x.Nome == f.Funcionario);
             if (funcionar == null)
                 return new List<TurnoFuncionario>();
-               // throw new Exception("Informaçao nas tabelas esta errada. É o que dá nao ter chaves estrangeiras. Nao existe : " + f.Funcionario + " na tabela Funcionarios.");
+            // throw new Exception("Informaçao nas tabelas esta errada. É o que dá nao ter chaves estrangeiras. Nao existe : " + f.Funcionario + " na tabela Funcionarios.");
 
             // TURNO 1
             var turno = new TurnoFuncionario();
             turno.Funcionario = funcionar;
-            var data = f.Turno1.Replace("h","").Split('-');
+            var data = f.Turno1.Replace("h", "").Split('-');
             if (data.Length == 2)
             {
                 turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
@@ -708,9 +742,9 @@ namespace Scheduling
                 turnos.Add(turno);
             }
 
-             turno = new TurnoFuncionario();
+            turno = new TurnoFuncionario();
             turno.Funcionario = funcionar;
-             data = f.Turno2.Replace("h", "").Split('-');
+            data = f.Turno2.Replace("h", "").Split('-');
             if (data.Length == 2)
             {
                 turno.Start = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[0]), 0, 0);
@@ -735,40 +769,67 @@ namespace Scheduling
                 turno.End = new DateTime(t.Year, t.Month, t.Day, int.Parse(data[1]), 0, 0);
                 turnos.Add(turno);
             }
-            return turnos;
+            var realTurnosInHour = new List<TurnoFuncionario>();
+            foreach(var v in turnos)
+            {
+                var totalHours = v.End.Subtract(v.Start).TotalHours;
+                if (totalHours > 1 )
+                {
+                    var st = v.Start;
+                    //Split this shit
+                    while(totalHours > 0)
+                    {
+                        turno = new TurnoFuncionario();
+                        turno.Funcionario = funcionar;
+                        turno.Start = st;
+                        if (totalHours > 1)
+                            turno.End = st.AddHours(1);
+                        else 
+                            turno.End = st.AddHours(totalHours);
+                        realTurnosInHour.Add(turno);
+                        totalHours = v.End.Subtract(st).TotalHours;
+                        st = turno.End;
+                    }
+                }
+                else
+                {
+                    realTurnosInHour.Add(v);
+                }
+            }
+            return realTurnosInHour;
         }
 
         // devolve os funcionar que podem trabalhar a começar nestas horas e a duraçao do turno
         private TurnoWork GetShift(DateTime startTime, ScheduledTask task, List<TurnoWork> currentTurnos)
         {
             List<TurnoFuncionario> turnosDecentes = new List<TurnoFuncionario>();
-            this.turnos  = this.turnos == null ? context.TurnosFuncionario.ToList() : this.turnos; 
+            this.turnos = this.turnos == null ? context.TurnosFuncionario.ToList() : this.turnos;
             var dia = ToDiaDaSemana(startTime);
             var filtered = turnos.Where(x => x.DiaDaSemana.ToLower() == dia.ToLower());
             foreach (var tu in filtered)
             {
 
-                turnosDecentes.AddRange(ConvertTurnos(tu,startTime));
+                turnosDecentes.AddRange(ConvertTurnos(tu, startTime));
             }
             if (turnosDecentes.Count == 0)
                 return null;
             // validar se o turno e valido para se escolhido
-            Func<TurnoFuncionario,bool> validarHoras = (TurnoFuncionario turno) =>
-            {
-                if (turno.Start.Hour <= startTime.Hour && turno.End.Hour >= startTime.Hour)
-                    if (startTime.DayOfWeek == turno.Start.DayOfWeek)
-                        return true;
-                return false;
-            };
+            Func<TurnoFuncionario, bool> validarHoras = (TurnoFuncionario turno) =>
+             {
+                 if (turno.Start.Hour <= startTime.Hour && turno.End.Hour >= startTime.Hour)
+                     if (startTime.DayOfWeek == turno.Start.DayOfWeek)
+                         return true;
+                 return false;
+             };
 
             Func<TurnoFuncionario, bool> validarOverlap = (TurnoFuncionario turno) =>
             {
-                var ActualStart = new DateTime(startTime.Year, startTime.Month,startTime.Day, turno.Start.Hour, turno.Start.Minute, turno.Start.Second);
+                var ActualStart = new DateTime(startTime.Year, startTime.Month, startTime.Day, turno.Start.Hour, turno.Start.Minute, turno.Start.Second);
                 var ActualEnd = new DateTime(startTime.Year, startTime.Month, startTime.Day, turno.End.Hour, turno.End.Minute, turno.End.Second); ;
 
-                if (currentTurnos.Any( x=> ((x.frente.Any(func => func.Nome == turno.Funcionario.Nome) || 
-                x.tras.Any(func => func.Nome == turno.Funcionario.Nome)) && 
-                x.start >= ActualStart &&  x.end <= ActualEnd)) || 
+                if (currentTurnos.Any(x => ((x.frente.Any(func => func.Nome == turno.Funcionario.Nome) ||
+               x.tras.Any(func => func.Nome == turno.Funcionario.Nome)) &&
+               x.start >= ActualStart && x.end <= ActualEnd)) ||
                 currentTurnos.Any(x => x.start >= ActualStart && x.end <= ActualEnd && x.Task == task))
                 {
                     return false;
@@ -788,16 +849,16 @@ namespace Scheduling
             }
             while (trass.Count != requiredT)
             {
-                var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value &&  frentes.All( frt => x.Funcionario.Nome != frt.Funcionario.Nome) && trass.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
-                if ( tras == null)
+                var tras = turnosDecentes.FirstOrDefault(x => x.Funcionario.Tras.HasValue && x.Funcionario.Tras.Value && frentes.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && trass.All(frt => x.Funcionario.Nome != frt.Funcionario.Nome) && validarHoras(x) && validarOverlap(x));
+                if (tras == null)
                     return null;
                 trass.Add(tras);
             }
             var tWork = new TurnoWork();
             var start = new DateTime(startTime.Year, startTime.Month, startTime.Day, frentes[0].Start.Hour, frentes[0].Start.Minute, frentes[0].Start.Second);
-            var end = new DateTime(startTime.Year, startTime.Month, startTime.Day, frentes[0].End.Hour, frentes[0].End.Minute, frentes[0].End.Second); 
+            var end = new DateTime(startTime.Year, startTime.Month, startTime.Day, frentes[0].End.Hour, frentes[0].End.Minute, frentes[0].End.Second);
 
-            tWork.frente = frentes.Select(x=>x.Funcionario).ToList();
+            tWork.frente = frentes.Select(x => x.Funcionario).ToList();
             tWork.tras = trass.Select(x => x.Funcionario).ToList();
             tWork.start = start;
             tWork.end = end;
@@ -807,12 +868,12 @@ namespace Scheduling
 
         private string ToDiaDaSemana(DateTime startTime)
         {
-            switch(startTime.DayOfWeek)
+            switch (startTime.DayOfWeek)
             {
                 case DayOfWeek.Monday:
                     return "Segunda-feira";
                 case DayOfWeek.Tuesday:
-                    return "Terca-feira";
+                    return "Terça-feira";
                 case DayOfWeek.Wednesday:
                     return "Quarta-feira";
                 case DayOfWeek.Thursday:
@@ -826,6 +887,8 @@ namespace Scheduling
 
         private void back_Click(object sender, EventArgs e)
         {
+
+
             MainFormView.ShowForm(new Menu());
         }
     }
