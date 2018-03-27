@@ -285,6 +285,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneticForm";
             this.Text = "Genetic Scheduler";
+            this.Load += new System.EventHandler(this.GeneticForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.groupBox3.ResumeLayout(false);

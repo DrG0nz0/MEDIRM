@@ -33,18 +33,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.turnoVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taskVisualizerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.encomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaDaSemana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TurnoInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TurnoFim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.encomendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.artigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maquinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moldeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filmeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.papelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.moldeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoVisualizerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).BeginInit();
@@ -56,20 +56,21 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.encomendaDataGridViewTextBoxColumn,
-            this.clienteDataGridViewTextBoxColumn,
+            this.Turno,
+            this.DiaDaSemana,
             this.Column1,
             this.Tras,
-            this.TurnoInicio,
-            this.TurnoFim,
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn,
+            this.encomendaDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
             this.artigoDataGridViewTextBoxColumn,
-            this.maquinaDataGridViewTextBoxColumn,
+            this.TipoMaquina,
+            this.moldeDataGridViewTextBoxColumn,
             this.filmeDataGridViewTextBoxColumn,
             this.papelDataGridViewTextBoxColumn,
-            this.moldeDataGridViewTextBoxColumn});
+            this.DataEntrega});
             this.dataGridView1.DataSource = this.turnoVisualizerBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -88,19 +89,19 @@
             // 
             this.taskVisualizerBindingSource.DataSource = typeof(MEDIRM.GeneticSolution.Helpers.TaskVisualizer);
             // 
-            // encomendaDataGridViewTextBoxColumn
+            // Turno
             // 
-            this.encomendaDataGridViewTextBoxColumn.DataPropertyName = "Encomenda";
-            this.encomendaDataGridViewTextBoxColumn.HeaderText = "Encomenda";
-            this.encomendaDataGridViewTextBoxColumn.Name = "encomendaDataGridViewTextBoxColumn";
-            this.encomendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Turno.DataPropertyName = "Turno";
+            this.Turno.HeaderText = "Turno";
+            this.Turno.Name = "Turno";
+            this.Turno.ReadOnly = true;
             // 
-            // clienteDataGridViewTextBoxColumn
+            // DiaDaSemana
             // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.DiaDaSemana.DataPropertyName = "DiaDaSemana";
+            this.DiaDaSemana.HeaderText = "DiaDaSemana";
+            this.DiaDaSemana.Name = "DiaDaSemana";
+            this.DiaDaSemana.ReadOnly = true;
             // 
             // Column1
             // 
@@ -116,26 +117,19 @@
             this.Tras.Name = "Tras";
             this.Tras.ReadOnly = true;
             // 
-            // TurnoInicio
+            // encomendaDataGridViewTextBoxColumn
             // 
-            this.TurnoInicio.DataPropertyName = "TurnoInicio";
-            this.TurnoInicio.HeaderText = "TurnoInicio";
-            this.TurnoInicio.Name = "TurnoInicio";
-            this.TurnoInicio.ReadOnly = true;
+            this.encomendaDataGridViewTextBoxColumn.DataPropertyName = "Encomenda";
+            this.encomendaDataGridViewTextBoxColumn.HeaderText = "Encomenda";
+            this.encomendaDataGridViewTextBoxColumn.Name = "encomendaDataGridViewTextBoxColumn";
+            this.encomendaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // TurnoFim
+            // clienteDataGridViewTextBoxColumn
             // 
-            this.TurnoFim.DataPropertyName = "TurnoFim";
-            this.TurnoFim.HeaderText = "TurnoFim";
-            this.TurnoFim.Name = "TurnoFim";
-            this.TurnoFim.ReadOnly = true;
-            // 
-            // unidadesNesteTurnoDataGridViewTextBoxColumn
-            // 
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.DataPropertyName = "UnidadesNesteTurno";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.HeaderText = "UnidadesNesteTurno";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.Name = "unidadesNesteTurnoDataGridViewTextBoxColumn";
-            this.unidadesNesteTurnoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // artigoDataGridViewTextBoxColumn
             // 
@@ -144,12 +138,19 @@
             this.artigoDataGridViewTextBoxColumn.Name = "artigoDataGridViewTextBoxColumn";
             this.artigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // maquinaDataGridViewTextBoxColumn
+            // TipoMaquina
             // 
-            this.maquinaDataGridViewTextBoxColumn.DataPropertyName = "Maquina";
-            this.maquinaDataGridViewTextBoxColumn.HeaderText = "Maquina";
-            this.maquinaDataGridViewTextBoxColumn.Name = "maquinaDataGridViewTextBoxColumn";
-            this.maquinaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.TipoMaquina.DataPropertyName = "TipoMaquina";
+            this.TipoMaquina.HeaderText = "TipoMaquina";
+            this.TipoMaquina.Name = "TipoMaquina";
+            this.TipoMaquina.ReadOnly = true;
+            // 
+            // moldeDataGridViewTextBoxColumn
+            // 
+            this.moldeDataGridViewTextBoxColumn.DataPropertyName = "Molde";
+            this.moldeDataGridViewTextBoxColumn.HeaderText = "Molde";
+            this.moldeDataGridViewTextBoxColumn.Name = "moldeDataGridViewTextBoxColumn";
+            this.moldeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // filmeDataGridViewTextBoxColumn
             // 
@@ -165,12 +166,12 @@
             this.papelDataGridViewTextBoxColumn.Name = "papelDataGridViewTextBoxColumn";
             this.papelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // moldeDataGridViewTextBoxColumn
+            // DataEntrega
             // 
-            this.moldeDataGridViewTextBoxColumn.DataPropertyName = "Molde";
-            this.moldeDataGridViewTextBoxColumn.HeaderText = "Molde";
-            this.moldeDataGridViewTextBoxColumn.Name = "moldeDataGridViewTextBoxColumn";
-            this.moldeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.DataEntrega.DataPropertyName = "DataEntrega";
+            this.DataEntrega.HeaderText = "DataEntrega";
+            this.DataEntrega.Name = "DataEntrega";
+            this.DataEntrega.ReadOnly = true;
             // 
             // TabelaHorario
             // 
@@ -181,6 +182,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TabelaHorario";
             this.Text = "TabelaHorario";
+            this.Load += new System.EventHandler(this.TabelaHorario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnoVisualizerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskVisualizerBindingSource)).EndInit();
@@ -194,17 +196,18 @@
         private System.Windows.Forms.BindingSource taskVisualizerBindingSource;
         private System.Windows.Forms.BindingSource turnoVisualizerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encomendaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maquinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Turno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaDaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TurnoInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TurnoFim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadesNesteTurnoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encomendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn artigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maquinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoMaquina;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moldeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn filmeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn papelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn moldeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataEntrega;
     }
 }

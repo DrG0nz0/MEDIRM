@@ -862,12 +862,15 @@ namespace Scheduling
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            CreateFromSchedule();
+           // CreateFromSchedule();
             this.timer1.Interval = 5000;
 
         }
 
+        private void GeneticForm_Load(object sender, EventArgs e)
+        {
 
+        }
     }
     public static class ExtMethods
     {

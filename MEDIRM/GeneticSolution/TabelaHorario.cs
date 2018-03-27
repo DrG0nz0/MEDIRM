@@ -76,5 +76,10 @@ namespace MEDIRM.GeneticSolution
 
             MessageBox.Show("PDF criado. Encontra-se no seu disco C: dentro da pasta PDF's");
         }
+
+        private void TabelaHorario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
