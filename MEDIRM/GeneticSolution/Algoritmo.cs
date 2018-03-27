@@ -120,11 +120,11 @@ namespace MEDIRM.GeneticSolution
                 }
             }
 
-            P1 = OrderByGroup(P1);
-            P2 = OrderByGroup(P2);
-            P3 = OrderByGroup(P3);
-            P4 = OrderByGroup(P4);
-            P5 = OrderByGroup(P5);
+            //P1 = OrderByGroup(P1);
+            //P2 = OrderByGroup(P2);
+            //P3 = OrderByGroup(P3);
+            //P4 = OrderByGroup(P4);
+            //P5 = OrderByGroup(P5);
 
             foreach (var turno in context.TurnosFuncionario)
             {
@@ -168,71 +168,71 @@ namespace MEDIRM.GeneticSolution
             }
 
             // Order Maquina1 
-            var group = P1.GroupBy(x => x.TipoMaquina);
+            //var group = P1.GroupBy(x => x.TipoMaquina);
 
-            Dictionary<string, int> lookup = new Dictionary<string, int>()
-                  {
-                    { "Segunda-feira" , 0 },
-                     { "Terca-feira" , 1 },
-                     { "Quarta-feira" , 2 },
-                     { "Quinta-feira" , 3 },
-                     { "Sexta-feira" , 4 },
-                     { "Sabado" , 4 },
-                  };
+            //Dictionary<string, int> lookup = new Dictionary<string, int>()
+            //      {
+            //        { "Segunda-feira" , 0 },
+            //         { "Terca-feira" , 1 },
+            //         { "Quarta-feira" , 2 },
+            //         { "Quinta-feira" , 3 },
+            //         { "Sexta-feira" , 4 },
+            //         { "Sabado" , 4 },
+            //      };
 
-            // para cada maquina na Prioridade 1
-            foreach (var maquina in group)
-            {
-                var list = maquina.ToList();
-                var tipo = maquina.Key;
-                var MaquinaTipo = context.Maquinas.FirstOrDefault(x => x.Tipo == tipo);
-                // Ordernado Tarefas por molde
-                var lPorMolde = list.GroupBy(x => x.Molde);
-                foreach (var molde in lPorMolde)
-                {
-                    var tarefas = molde.ToList();
-                    var UnidadesTotal = tarefas.Sum(x => x.Quantidade);
-                    var prodPorHora = int.Parse(string.IsNullOrEmpty(MaquinaTipo.Velocidade1) ? "1" : MaquinaTipo.Velocidade1);
+            //// para cada maquina na Prioridade 1
+            //foreach (var maquina in group)
+            //{
+            //    var list = maquina.ToList();
+            //    var tipo = maquina.Key;
+            //    var MaquinaTipo = context.Maquinas.FirstOrDefault(x => x.Tipo == tipo);
+            //    // Ordernado Tarefas por molde
+            //    var lPorMolde = list.GroupBy(x => x.Molde);
+            //    foreach (var molde in lPorMolde)
+            //    {
+            //        var tarefas = molde.ToList();
+            //        var UnidadesTotal = tarefas.Sum(x => x.Quantidade);
+            //        var prodPorHora = int.Parse(string.IsNullOrEmpty(MaquinaTipo.Velocidade1) ? "1" : MaquinaTipo.Velocidade1);
 
-                    var tempoTotal = UnidadesTotal / prodPorHora;
-                    var produced = 0;
-                    // ver que pessoas podem usar a maquina
+            //        var tempoTotal = UnidadesTotal / prodPorHora;
+            //        var produced = 0;
+            //        // ver que pessoas podem usar a maquina
 
-                    foreach (var pessoasMaquinas in context.PessoasMaquinas)
-                    {
-                        var maq = context.Maquinas.FirstOrDefault(x => x.Nome == pessoasMaquinas.Maquina);
-                        if (maq.Tipo != tipo)
-                            continue;
-                        // Primeira planificaçao que essa pessoa pode ter .
-                        var planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
-                        if (planoFirst == null)
-                        {
-                            break;
-                            throw new Exception("NAO existem turnos disponiveis para esse funcionaro");
-                        }
-                        produced += TurnoHoras(planoFirst.Turno);
-                        // atribuir
-                        planoFirst.Maquina = maq;
-                        planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
-                        while (produced < UnidadesTotal)
-                        {
-                            planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
-                            if (planoFirst == null)
-                            {
-                                break;
-                                throw new Exception("NAO existem turnos disponiveis para esse funcionaro");
-                            }
-                            produced += TurnoHoras(planoFirst.Turno);
-                            // atribuir
-                            planoFirst.Maquina = maq;
-                            planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
+            //        foreach (var pessoasMaquinas in context.PessoasMaquinas)
+            //        {
+            //            var maq = context.Maquinas.FirstOrDefault(x => x.Nome == pessoasMaquinas.Maquina);
+            //            if (maq.Tipo != tipo)
+            //                continue;
+            //            // Primeira planificaçao que essa pessoa pode ter .
+            //            var planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
+            //            if (planoFirst == null)
+            //            {
+            //                break;
+            //                throw new Exception("NAO existem turnos disponiveis para esse funcionaro");
+            //            }
+            //            produced += TurnoHoras(planoFirst.Turno);
+            //            // atribuir
+            //            planoFirst.Maquina = maq;
+            //            planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
+            //            while (produced < UnidadesTotal)
+            //            {
+            //                planoFirst = plan.OrderBy(x => lookup[x.DiaDaSemana.ToLower()]).FirstOrDefault(x => x.Funcionario.Sigla == pessoasMaquinas.Funcionario && x.Maquina == null);
+            //                if (planoFirst == null)
+            //                {
+            //                    break;
+            //                    throw new Exception("NAO existem turnos disponiveis para esse funcionaro");
+            //                }
+            //                produced += TurnoHoras(planoFirst.Turno);
+            //                // atribuir
+            //                planoFirst.Maquina = maq;
+            //                planoFirst.Molde = context.Moldes.FirstOrDefault(x => x.Designacao == maq.Molde);
 
-                        }
-                    }
+            //            }
+            //        }
                   
-                }
+            //    }
 
-            }
+            //}
             return plan;
 
         }

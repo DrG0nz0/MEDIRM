@@ -96,7 +96,8 @@ namespace Scheduling
                 var genProcess = Data.Tasks[job].Processes[proc];
                 //if (genProcess == GeneticProcess.Empty)
                 //    continue;
-
+                if (genProcess.Duration == 500000)
+                    continue;
 
               
                 Func<Func<GeneticProcess, Object>, bool> change = (Func<GeneticProcess, Object> compare) =>
