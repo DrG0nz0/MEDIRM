@@ -36,8 +36,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.transporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transporteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.transporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,11 +63,13 @@
             this.moedaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MoedaTableAdapter();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.transporteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -135,15 +138,20 @@
             this.comboBox1.TabIndex = 52;
             this.comboBox1.ValueMember = "Designacao";
             // 
-            // transporteBindingSource
+            // transporteBindingSource1
             // 
-            this.transporteBindingSource.DataMember = "Transporte";
-            this.transporteBindingSource.DataSource = this.medirmDBDataSet;
+            this.transporteBindingSource1.DataMember = "Transporte";
+            this.transporteBindingSource1.DataSource = this.medirmDBDataSet;
             // 
             // medirmDBDataSet
             // 
             this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
             this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // transporteBindingSource
+            // 
+            this.transporteBindingSource.DataMember = "Transporte";
+            this.transporteBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // label3
             // 
@@ -192,11 +200,11 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(391, 433);
+            this.label5.Location = new System.Drawing.Point(362, 433);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 20);
+            this.label5.Size = new System.Drawing.Size(188, 20);
             this.label5.TabIndex = 56;
-            this.label5.Text = "Preço custo (100uni):";
+            this.label5.Text = "Preço custo (100uni Eur):";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox5
@@ -378,7 +386,7 @@
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(1154, 433);
+            this.textBox9.Location = new System.Drawing.Point(1167, 493);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(154, 26);
             this.textBox9.TabIndex = 72;
@@ -388,23 +396,56 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1018, 436);
+            this.label11.Location = new System.Drawing.Point(1031, 496);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(130, 20);
             this.label11.TabIndex = 71;
             this.label11.Text = "Preço custo final:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // transporteBindingSource1
+            // label12
             // 
-            this.transporteBindingSource1.DataMember = "Transporte";
-            this.transporteBindingSource1.DataSource = this.medirmDBDataSet;
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(1314, 357);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 20);
+            this.label12.TabIndex = 73;
+            this.label12.Text = "(m3)";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.Location = new System.Drawing.Point(1191, 525);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 33);
+            this.button3.TabIndex = 74;
+            this.button3.Text = "Calcular";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(1065, 516);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 20);
+            this.label13.TabIndex = 75;
+            this.label13.Text = "(100uni)";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddComponente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 661);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox8);
@@ -436,10 +477,10 @@
             this.Name = "AddComponente";
             this.Text = "AddComponentes";
             this.Load += new System.EventHandler(this.AddComponente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moedaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +521,8 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource transporteBindingSource1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label13;
     }
 }

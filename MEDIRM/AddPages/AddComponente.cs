@@ -88,5 +88,39 @@ namespace MEDIRM
                 MessageBox.Show("Erro ao adicionar componente. Por favor tente novamente.");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double qtCartoes = 100 / (Convert.ToDouble(textBox6.Text));
+            double nrCartoes = Math.Round(qtCartoes);
+            double volCartoes = nrCartoes * (Convert.ToDouble(textBox7.Text));
+            double volTotal = Math.Round(volCartoes);
+            double precom=0;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+            SqlDataReader dr;
+            try
+            {
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT Preco FROM Transporte WHERE Designacao= '" + comboBox1.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                precom = Convert.ToDouble(dr[0]);
+
+                dr.Close();
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            double precoTrans = volTotal * precom;
+
+            textBox9.Text = Convert.ToString(precoTrans);
+        }
     }
 }
