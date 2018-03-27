@@ -53,7 +53,7 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@VolCartao", textBox7.Text);
                 com.Parameters.AddWithValue("@UnBase", textBox8.Text);
                 com.Parameters.AddWithValue("@CustoAlfandega", textBox5.Text);
-                com.Parameters.AddWithValue("@PrecoCustoFinal", 0);
+                com.Parameters.AddWithValue("@PrecoCustoFinal", textBox9.Text);
 
                 com.Parameters.AddWithValue("@Transporte", comboBox1.SelectedValue.ToString());
 
@@ -87,6 +87,96 @@ namespace MEDIRM
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar componente. Por favor tente novamente.");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double qtCartoes = 100 / (Convert.ToDouble(textBox6.Text));
+            double nrCartoes = Math.Round(qtCartoes);
+            double volCartoes = nrCartoes * (Convert.ToDouble(textBox7.Text));
+            double volTotal = Math.Round(volCartoes);
+            double precom=1;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+            SqlDataReader dr;
+            try
+            {
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT Preco FROM Transporte WHERE Designacao= '" + comboBox1.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        precom = dr.GetFloat(0);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                
+
+                dr.Close();
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            double precoTrans = volTotal * precom;
+            double precoCusto = (Convert.ToDouble(textBox4.Text));
+            double precoFinal = precoTrans + precoCusto;
+
+            textBox9.Text = Convert.ToString(precoFinal);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            double alfandega = Convert.ToDouble(textBox5.Text);
+            double cambio = 1;
+            double precoCompra = Convert.ToDouble(textBox3.Text);
+            
+            string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
+            SqlDataReader dr;
+            /*try
+            {*/
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT Cambio FROM Moeda WHERE Moeda= '" + comboBox2.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        string str = dr.GetString(0);
+                        cambio = Convert.ToDouble(str);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                dr.Close();
+                con3.Close();/*
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }*/
+
+            double preco100 = precoCompra * cambio + alfandega;
+            textBox4.Text = Convert.ToString(preco100);
         }
     }
 }
