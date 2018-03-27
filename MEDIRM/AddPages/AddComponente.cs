@@ -53,7 +53,7 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@VolCartao", textBox7.Text);
                 com.Parameters.AddWithValue("@UnBase", textBox8.Text);
                 com.Parameters.AddWithValue("@CustoAlfandega", textBox5.Text);
-                com.Parameters.AddWithValue("@PrecoCustoFinal", 0);
+                com.Parameters.AddWithValue("@PrecoCustoFinal", textBox9.Text);
 
                 com.Parameters.AddWithValue("@Transporte", comboBox1.SelectedValue.ToString());
 
@@ -95,7 +95,7 @@ namespace MEDIRM
             double nrCartoes = Math.Round(qtCartoes);
             double volCartoes = nrCartoes * (Convert.ToDouble(textBox7.Text));
             double volTotal = Math.Round(volCartoes);
-            double precom=0;
+            double precom=1;
 
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlDataReader dr;
@@ -108,7 +108,19 @@ namespace MEDIRM
 
                 dr = cmd3.ExecuteReader();
 
-                precom = Convert.ToDouble(dr[0]);
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        precom = dr.GetFloat(0);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                
 
                 dr.Close();
                 con3.Close();
@@ -119,8 +131,10 @@ namespace MEDIRM
             }
 
             double precoTrans = volTotal * precom;
+            double precoCusto = (Convert.ToDouble(textBox4.Text));
+            double precoFinal = precoTrans + precoCusto;
 
-            textBox9.Text = Convert.ToString(precoTrans);
+            textBox9.Text = Convert.ToString(precoFinal);
         }
     }
 }
