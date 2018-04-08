@@ -25,7 +25,6 @@ namespace MEDIRM.GeneticSolution.Helpers
             this._ProcessId = task.ProcessId;
             this.sTask = task;
             this.process = this.task.Processes[task.ProcessId];
-            this.component = this.task.components;
             //this.estimatedDelivery = task.Breaks.Last().End;
             var last = list.Last(x => x.JobId == task.JobId && x.end - x.start > 1/60*5);
             //this.estimatedDeliveryEncomenda = last.Breaks.Last().End;
@@ -57,9 +56,7 @@ namespace MEDIRM.GeneticSolution.Helpers
         [Category("Processo")]
         public string TipoMaquina => this.process.Machine.Tipo;
         [Category("Processo")]
-        public int QuantidadeDeComponentes => int.Parse(this.process.components.Quantidade) * this.Quantidade;
-        [Category("Processo")]
-        public float TempoDoProcesso => int.Parse(this.process.components.Quantidade) * this.Quantidade / float.Parse(this.process.Machine.Velocidade1);
+        public float TempoDoProcesso => this.Quantidade / float.Parse(this.process.Machine.Velocidade1);
         [Category("Processo")]
         public string Filme => this.process.Machine.Filme;
         [Category("Processo")]

@@ -80,30 +80,22 @@ namespace Scheduling
             List<GeneticResource> resources = new List<GeneticResource>();
             foreach (var encomenda in todasEncomendas)
             {
-                var todosArtigosdAsEncomendas = new List<Artigo>();
-                todosArtigosdAsEncomendas.AddRange(context.Artigoes.Where(x => x.Nome == encomenda.Artigo));
-                foreach (var compoartigos in todosArtigosdAsEncomendas)
-                {
-                    var todosComponents = new List<ComponentesDosArtigo>();
+                var artigo = encomenda.Artigo1;
 
-                    todosComponents.AddRange(context.ComponentesDosArtigo.Where(x => x.Artigo == encomenda.Artigo));
-
-                    foreach (var components in todosComponents)
-                    {
-                        int qt = int.Parse(components.Quantidade);
+                //todosArtigosdAsEncomendas.AddRange(context.Artigoes.Where(x => x. == encomenda.Artigo));
+                    
                         Maquina maquina1C, maquina2C, maquina3C, maquina4C, maquina5C = null;
-                        var task = new GeneticTask(encomenda, components);
-                        var maquina1 = ResourceFromMaquina(compoartigos.Maquina1, out maquina1C);
-                        var maquina2 = ResourceFromMaquina(compoartigos.Maquina2, out maquina2C);
-                        var maquina3 = ResourceFromMaquina(compoartigos.Maquina3, out maquina3C);
-                        var maquina4 = ResourceFromMaquina(compoartigos.Maquina4, out maquina4C);
-                        var maquina5 = ResourceFromMaquina(compoartigos.Maquina5, out maquina5C);
+                        var task = new GeneticTask(encomenda);
+                        var maquina1 = ResourceFromMaquina(artigo.Maquina1, out maquina1C);
+                        var maquina2 = ResourceFromMaquina(artigo.Maquina2, out maquina2C);
+                        var maquina3 = ResourceFromMaquina(artigo.Maquina3, out maquina3C);
+                        var maquina4 = ResourceFromMaquina(artigo.Maquina4, out maquina4C);
+                        var maquina5 = ResourceFromMaquina(artigo.Maquina5, out maquina5C);
                         int currentProcessCount = 0;
-                        var artigo = context.Artigoes.FirstOrDefault(x => x.ID.ToString() == components.Artigo.ToString());
                         if (maquina1 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina1, maquina1C, qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, maquina1, maquina1C));
                         }
                         else
                         {
@@ -113,7 +105,7 @@ namespace Scheduling
                         if (maquina2 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina2, maquina2C, qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, maquina2, maquina2C));
                         }
                         else
                         {
@@ -123,7 +115,7 @@ namespace Scheduling
                         if (maquina3 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina3, maquina3C, qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, maquina3, maquina3C));
                         }
                         else
                         {
@@ -133,7 +125,7 @@ namespace Scheduling
                         if (maquina4 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina4, maquina4C, qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, maquina4, maquina4C));
                         }
                         else
                         {
@@ -143,7 +135,7 @@ namespace Scheduling
                         if (maquina5 != null)
                         {
                             currentProcessCount++;
-                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, components, maquina5, maquina5C, qt));
+                            task.Processes.Add(new GeneticTask.GeneticProcess(encomenda, maquina5, maquina5C));
                         }
                         else
                         {
@@ -153,13 +145,11 @@ namespace Scheduling
 
                         if (currentProcessCount > MaxProcessCount)
                             MaxProcessCount = currentProcessCount;
-                        //
                         Tasks.Add(task);
                     }
 
-                }
-
-            }
+         
+            
             this.context = new MEDIRM.Modelos.MEDIRMContext();
 
         }
@@ -183,17 +173,15 @@ namespace Scheduling
             {
                 public readonly GeneticResource Machines;
                 public readonly Maquina Machine;
-                public static GeneticProcess Empty = new GeneticProcess(null, null, null, null, 0);
+                public static GeneticProcess Empty = new GeneticProcess(null, null, null);
                 private int quantidade;
                 public readonly Encomenda encomenda;
-                public readonly ComponentesDosArtigo components;
 
-                public GeneticProcess(Encomenda encomenda, ComponentesDosArtigo components, GeneticResource maquina1, Maquina mac, int quantidade)
+                public GeneticProcess(Encomenda encomenda, GeneticResource maquina1, Maquina mac)
                 {
                     this.Machine = mac;
                     this.quantidade = quantidade;
                     this.encomenda = encomenda;
-                    this.components = components;
                 }
 
                 public float Duration
@@ -203,13 +191,12 @@ namespace Scheduling
                         int velocidade = 0;
                         if (int.TryParse(this.Machine.Velocidade1, out velocidade))
                         {
-                            var v = ((float)(quantidade * encomenda.Quantidade) / velocidade);
+                            var v = ((float)(encomenda.Quantidade) / velocidade);
                             return v;
                         }
                         return quantidade;
                     }
                 }
-                //public Genetic
             }
 
             public List<GeneticProcess> Processes = new List<GeneticProcess>();
@@ -218,12 +205,10 @@ namespace Scheduling
 
             public readonly Encomenda Encomenda;
 
-            public readonly ComponentesDosArtigo components;
 
-            public GeneticTask(Encomenda encomenda, ComponentesDosArtigo components)
+            public GeneticTask(Encomenda encomenda)
             {
                 this.Encomenda = encomenda;
-                this.components = components;
             }
 
             internal GeneticProcess GetProcess(int j)
@@ -346,7 +331,7 @@ namespace Scheduling
                 var shortName = "E" + gTask.Encomenda.NumeroEnco + "/" + task.Task.GeneticProcess.Machine.Tipo;
                 var frentes = string.Join(",", task.frente.Select(x => x.Nome));
                 var tras = string.Join(",", task.tras.Select(x => x.Nome));
-                var longName = "E" + gTask.Encomenda.NumeroEnco + "-" + task.Task.GeneticProcess.Machine.Tipo + "-" + gTask.components.Artigo + "(" + gTask.components.Componente + ")\n Frente: " + frentes + "\nTras:" + tras;
+                var longName = "E" + gTask.Encomenda.NumeroEnco + "-" + task.Task.GeneticProcess.Machine.Tipo + "\n Frente: " + frentes + "\nTras:" + tras;
                 var name = showlongName ? longName : shortName;
                 var ut = new System.Windows.Forms.Calendar.CalendarItem(this.calendar1, task.start, task.end, name);
                 ut.BackgroundColor = Colors.ProcessColors[task.Task.ProcessId]; ;

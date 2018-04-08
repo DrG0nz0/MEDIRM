@@ -21,7 +21,6 @@ namespace MEDIRM.GeneticSolution.Helpers
             this.sTask = task;
             this.task = Tasks[task.JobId];
             this.process = this.task.Processes[task.ProcessId];
-            this.component = this.task.components;
             this.estimatedDelivery = task.Breaks.Last().End;
             var last = list.Last(x => x.JobId == task.JobId && x.end - x.start > (1/60 * 5));
             this.estimatedDeliveryEncomenda = last.Breaks.Last().End;
@@ -40,7 +39,7 @@ namespace MEDIRM.GeneticSolution.Helpers
         [Category("Encomenda")]
         public string Cliente => this.task.Encomenda.Cliente;
         [Category("Encomenda")]
-        public string Unidades => (int.Parse(this.task.components.Quantidade) * this.task.Encomenda.Quantidade).ToString();
+        public string Unidades => (this.task.Encomenda.Quantidade).ToString();
         [Category("Encomenda")]
         public string Estado => this.task.Encomenda.Estado;
         [Category("Encomenda")]
