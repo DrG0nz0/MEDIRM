@@ -7,8 +7,6 @@ namespace ProjectScheduling.SolverFoundation
 {
     public class ScheduledTask
     {
-        public DateTime start { get; private set; }
-        public DateTime end { get; private set; }
         public double HourDuration { get; }
         public int JobId { get; internal set; }
         public int ProcessId { get; internal set; }
@@ -17,13 +15,17 @@ namespace ProjectScheduling.SolverFoundation
         public GeneticForm.GeneticTask.GeneticProcess GeneticProcess { get; internal set; }
 
         public List<TimeInterval> Breaks = new List<TimeInterval>();
+        public double start;
+        public  double end;
 
         public ScheduledTask(double start,double end)
         {
             var duration = end - start;
-            this.start = AddDays(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0), start, true);
-            this.Breaks = CalculatePeriods(this.start, duration);
-            this.end = AddDays(this.start, duration, false);
+            this.start = start;
+            this.end = end;
+            //this.start = AddDays(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0), start, true);
+            ////this.Breaks = CalculatePeriods(this.start, duration);
+            //this.end = AddDays(this.start, duration, false);
             this.HourDuration = end - start;
         }
 

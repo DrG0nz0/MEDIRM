@@ -628,11 +628,12 @@ namespace Scheduling
                         });
 
             List<TurnoWork> currentTurnos = new List<TurnoWork>();
+            var startDate = DateTime.Now;
             foreach (var task in events)
             {
                 task.GeneticTask = Tasks[task.JobId];
                 task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
-                var schedule = getTurnos(task, currentTurnos);
+                var schedule = getTurnos(task, currentTurnos, startDate);
                 currentTurnos.AddRange(schedule);
                 var lastDate = schedule.Max(x => x.end);
 
@@ -640,8 +641,26 @@ namespace Scheduling
                 lastMachineTime[task.MachineId] = lastDate;
                 lastMachineMolde[task.MachineId] = task.GeneticProcess.Machine.Molde;
             }
-
-            return currentTurnos;
+            var RealTurnos = new List<TurnoWork>();
+            TurnoWork current =  null;
+            foreach( var turno in currentTurnos)
+            {
+                if (current == null)
+                {
+                    current = turno;
+                    continue;
+                }
+                if ( current.frente.SequenceEqual(turno.frente)&& current.tras.SequenceEqual(turno.tras) && turno.Task == current.Task && turno.start == current.end)
+                {
+                    current.end = turno.end;
+                }
+                else
+                {
+                    RealTurnos.Add(current);
+                    current = turno;
+                }
+            }
+            return RealTurnos;
         }
 
 
@@ -661,12 +680,12 @@ namespace Scheduling
             t.Show();
         }
 
-        private List<TurnoWork> getTurnos(ScheduledTask task, List<TurnoWork> currentTurnos)
+        private List<TurnoWork> getTurnos(ScheduledTask task, List<TurnoWork> currentTurnos,DateTime startDate)
         {
             var machine = task.MachineId;
             var duration = task.HourDuration;
             List<TurnoWork> turnos = new List<TurnoWork>();
-            DateTime startTime = GetNextValidStartDate(task.start, task);
+            DateTime startTime = GetNextValidStartDate(startDate, task);
             while (duration > 0)
             {
                 var realTurns = currentTurnos.Concat(turnos).ToList();
