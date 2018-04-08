@@ -23,7 +23,7 @@ namespace MEDIRM.GeneticSolution.Helpers
             this.process = this.task.Processes[task.ProcessId];
             this.component = this.task.components;
             this.estimatedDelivery = task.Breaks.Last().End;
-            var last = list.Last(x => x.JobId == task.JobId && x.end.Subtract(x.start).TotalMinutes > 5);
+            var last = list.Last(x => x.JobId == task.JobId && x.end - x.start > (1/60 * 5));
             this.estimatedDeliveryEncomenda = last.Breaks.Last().End;
 
             var hours = task.HourDuration;
@@ -68,8 +68,6 @@ namespace MEDIRM.GeneticSolution.Helpers
         public string UnidadesNesteTurno => this.unidadesPorTurno;
         [Category("Processo")]
         public DateTime DataFinalProcesso => this.estimatedDelivery;
-        [Category("Processo")]
-        public DateTime DataInicioProcesso => this.sTask.start;
 
         private int _jobID;
         private int _ProcessId;

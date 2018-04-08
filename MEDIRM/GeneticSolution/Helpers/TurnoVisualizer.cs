@@ -26,9 +26,9 @@ namespace MEDIRM.GeneticSolution.Helpers
             this.sTask = task;
             this.process = this.task.Processes[task.ProcessId];
             this.component = this.task.components;
-            this.estimatedDelivery = task.Breaks.Last().End;
-            var last = list.Last(x => x.JobId == task.JobId && x.end.Subtract(x.start).TotalMinutes > 5);
-            this.estimatedDeliveryEncomenda = last.Breaks.Last().End;
+            //this.estimatedDelivery = task.Breaks.Last().End;
+            var last = list.Last(x => x.JobId == task.JobId && x.end - x.start > 1/60*5);
+            //this.estimatedDeliveryEncomenda = last.Breaks.Last().End;
             var hours = turno.end.Subtract(turno.start).Hours;
             int velocidade;
             this.unidadesPorTurno = int.TryParse(process.Machine.Velocidade1, out velocidade) ? (hours * velocidade).ToString() : "N/A";
@@ -50,9 +50,16 @@ namespace MEDIRM.GeneticSolution.Helpers
         [Category("Encomenda")]
         public string Artigo => this.task.Encomenda.Artigo;
         [Category("Encomenda")]
+        public int Quantidade => this.task.Encomenda.Quantidade.Value;
+        [Category("Encomenda")]
         public DateTime? DataEntrega => this.task.Encomenda.DataLimite;
+
         [Category("Processo")]
         public string TipoMaquina => this.process.Machine.Tipo;
+        [Category("Processo")]
+        public int QuantidadeDeComponentes => int.Parse(this.process.components.Quantidade) * this.Quantidade;
+        [Category("Processo")]
+        public float TempoDoProcesso => int.Parse(this.process.components.Quantidade) * this.Quantidade / float.Parse(this.process.Machine.Velocidade1);
         [Category("Processo")]
         public string Filme => this.process.Machine.Filme;
         [Category("Processo")]
