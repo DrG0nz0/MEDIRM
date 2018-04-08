@@ -860,7 +860,7 @@ namespace Scheduling
                 case DayOfWeek.Monday:
                     return "Segunda-feira";
                 case DayOfWeek.Tuesday:
-                    return "Terça-feira";
+                    return "Terca-feira";
                 case DayOfWeek.Wednesday:
                     return "Quarta-feira";
                 case DayOfWeek.Thursday:
