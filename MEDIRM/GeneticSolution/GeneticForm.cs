@@ -628,8 +628,10 @@ namespace Scheduling
             }
             var RealTurnos = new List<TurnoWork>();
             TurnoWork current =  null;
+            var lastAdd = false;
             foreach( var turno in currentTurnos)
             {
+                lastAdd = false;
                 if (current == null)
                 {
                     current = turno;
@@ -643,8 +645,11 @@ namespace Scheduling
                 {
                     RealTurnos.Add(current);
                     current = turno;
+                    lastAdd = true;
                 }
             }
+            if (!lastAdd)
+                RealTurnos.Add(current);
             return RealTurnos;
         }
 
