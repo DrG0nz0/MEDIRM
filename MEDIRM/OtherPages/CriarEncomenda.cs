@@ -55,7 +55,7 @@ namespace MEDIRM
                 comboBox1.ResetText();
                 textBox3.Clear();
                 textBox1.Clear();
-
+            
             }
             catch (Exception x)
             {

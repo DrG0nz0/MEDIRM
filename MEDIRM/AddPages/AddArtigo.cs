@@ -358,5 +358,10 @@ namespace MEDIRM
                 MessageBox.Show("Erro ao adicionar artigo. Por favor tente novamente.");
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
