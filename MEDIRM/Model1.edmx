@@ -1,0 +1,2064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MedirmDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artigo">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UnBase" Type="nvarchar" MaxLength="50" />
+          <Property Name="QtdCartao" Type="int" />
+          <Property Name="QtdCartolina" Type="int" />
+          <Property Name="QtdCartoesPalete" Type="int" />
+          <Property Name="Cartao" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cartolina" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maquina5" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ArtigosClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ArtigosClientes">
+          <Key>
+            <PropertyRef Name="Cliente" />
+            <PropertyRef Name="Artigo" />
+          </Key>
+          <Property Name="Cliente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Artigo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preco" Type="real" />
+          <Property Name="Preco1" Type="real" />
+          <Property Name="Preco2" Type="real" />
+          <Property Name="Preco3" Type="real" />
+        </EntityType>
+        <EntityType Name="Cartao">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrecoCartolina" Type="real" Nullable="false" />
+          <Property Name="Volume" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cartolina">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrecoMetro" Type="real" Nullable="false" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Localidade" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MargemLucro" Type="real" />
+          <Property Name="Transporte" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoEsterilizacao" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Componentes">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="Transporte" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrecoCompra" Type="real" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrecoCusto" Type="real" />
+          <Property Name="CustoAlfandega" Type="real" />
+          <Property Name="QtdCartao" Type="int" />
+          <Property Name="VolCartao" Type="real" />
+          <Property Name="UnBase" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrecoCustoFinal" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.ComponentesDosArtigos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ComponentesDosArtigos">
+          <Key>
+            <PropertyRef Name="Artigo" />
+            <PropertyRef Name="Componente" />
+            <PropertyRef Name="Quantidade" />
+          </Key>
+          <Property Name="Artigo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Componente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantidade" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustosFixos">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Custo" Type="real" />
+        </EntityType>
+        <EntityType Name="Encomenda">
+          <Key>
+            <PropertyRef Name="NumeroEnco" />
+          </Key>
+          <Property Name="NumeroEnco" Type="int" Nullable="false" />
+          <Property Name="Artigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="DataLimite" Type="datetime" />
+          <Property Name="DataEntregaPrevista" Type="datetime" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feitas" Type="int" />
+        </EntityType>
+        <EntityType Name="Esterilizacao">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preco" Type="real" Nullable="false" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.Feitas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Feitas">
+          <Key>
+            <PropertyRef Name="Encomenda" />
+          </Key>
+          <Property Name="Encomenda" Type="int" Nullable="false" />
+          <Property Name="Artigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Componente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feitas" Type="int" />
+        </EntityType>
+        <EntityType Name="Ferias">
+          <Key>
+            <PropertyRef Name="Funcionario" />
+          </Key>
+          <Property Name="Funcionario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" />
+          <Property Name="DataFim" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Filme">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrecoMetro" Type="real" Nullable="false" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MetodoDeCalculo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="Sigla" Type="nvarchar" MaxLength="50" />
+          <Property Name="Frente" Type="bit" />
+          <Property Name="Tras" Type="bit" />
+          <Property Name="Manual" Type="bit" />
+        </EntityType>
+        <EntityType Name="Maquina">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MinPessFrente" Type="int" />
+          <Property Name="MaxPessFrente" Type="int" />
+          <Property Name="Filme" Type="nvarchar" MaxLength="50" />
+          <Property Name="Papel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Molde" Type="nvarchar" MaxLength="50" />
+          <Property Name="Velocidade1" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Moeda">
+          <Key>
+            <PropertyRef Name="Moeda" />
+          </Key>
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cambio" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Molde">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cortantes" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PecasPorAvanco" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MetrosPorAvanco" Type="real" />
+          <Property Name="Profundidade" Type="real" />
+        </EntityType>
+        <EntityType Name="Papel">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrecoMetro" Type="real" Nullable="false" />
+          <Property Name="MetodoCalculo" Type="nvarchar(max)" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.PessoasMaquinas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PessoasMaquinas">
+          <Key>
+            <PropertyRef Name="Maquina" />
+          </Key>
+          <Property Name="Maquina" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Funcionario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Posicao" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoMaquina">
+          <Key>
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transporte">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preco" Type="real" Nullable="false" />
+          <Property Name="Moeda" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Transportadora" Type="nvarchar" MaxLength="50" />
+          <Property Name="Utilizador" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="De" Type="nvarchar" MaxLength="50" />
+          <Property Name="Para" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TurnosFuncionarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Funcionario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiaDaSemana" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Turno1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Turno2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Turno3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Turno4" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DRGONZO\DOCUMENTS\MEDIRM\MEDIRM\MEDIRMDB.MDF.dbo.VerPrecos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VerPrecos">
+          <Key>
+            <PropertyRef Name="Cliente" />
+          </Key>
+          <Property Name="Cliente" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Artigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="Preco" Type="real" />
+          <Property Name="MargemLucro" Type="real" />
+          <Property Name="CustosFixos" Type="real" />
+          <Property Name="Transporte" Type="real" />
+          <Property Name="PrecoFinal" Type="real" />
+        </EntityType>
+        <Association Name="FK__Artigo__Cartao__5E54FF49">
+          <End Role="Cartao" Type="Self.Cartao" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cartao">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Cartao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Cartolin__5F492382">
+          <End Role="Cartolina" Type="Self.Cartolina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cartolina">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Cartolina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina1__603D47BB">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina2__61316BF4">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina3__6225902D">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina4__6319B466">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtigosCl__Artig__5B78929E">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="1" />
+          <End Role="ArtigosClientes" Type="Self.ArtigosClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ArtigosClientes">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtigosCl__Clien__4865BE2A">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ArtigosClientes" Type="Self.ArtigosClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ArtigosClientes">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cartao__Moeda__3FD07829">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Cartao" Type="Self.Cartao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Cartao">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cartolina__Moeda__40C49C62">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Cartolina" Type="Self.Cartolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Cartolina">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__TipoEst__5006DFF2">
+          <End Role="Esterilizacao" Type="Self.Esterilizacao" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esterilizacao">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="TipoEsterilizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Transpo__50FB042B">
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transporte">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Transporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Artig__5C6CB6D7">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="1" />
+          <End Role="ComponentesDosArtigos" Type="Self.ComponentesDosArtigos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ComponentesDosArtigos">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Compo__4F12BBB9">
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="1" />
+          <End Role="ComponentesDosArtigos" Type="Self.ComponentesDosArtigos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Componentes">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ComponentesDosArtigos">
+              <PropertyRef Name="Componente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Moeda__4B422AD5">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="0..1" />
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Componentes">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Trans__4C364F0E">
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="0..1" />
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transporte">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Componentes">
+              <PropertyRef Name="Transporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Encomenda__Artig__220B0B18">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Encomenda">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Encomenda__Clien__22FF2F51">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Encomenda">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Esteriliz__Moeda__4A4E069C">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Esterilizacao" Type="Self.Esterilizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Esterilizacao">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Artigo__67DE6983">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Componen__68D28DBC">
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="0..1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Componentes">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Componente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Encomend__23F3538A">
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Encomenda">
+              <PropertyRef Name="NumeroEnco" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Encomenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filme__Moeda__42ACE4D4">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Filme">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Filme__51EF2864">
+          <End Role="Filme" Type="Self.Filme" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Filme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Molde__53D770D6">
+          <End Role="Molde" Type="Self.Molde" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Molde">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Molde" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Papel__52E34C9D">
+          <End Role="Papel" Type="Self.Papel" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Papel">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Papel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Tipo__54CB950F">
+          <End Role="TipoMaquina" Type="Self.TipoMaquina" Multiplicity="1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMaquina">
+              <PropertyRef Name="Tipo" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Papel__Moeda__41B8C09B">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Papel" Type="Self.Papel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Papel">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PessoasMa__Funci__4589517F">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="0..1" />
+          <End Role="PessoasMaquinas" Type="Self.PessoasMaquinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="PessoasMaquinas">
+              <PropertyRef Name="Funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PessoasMa__Maqui__44952D46">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="1" />
+          <End Role="PessoasMaquinas" Type="Self.PessoasMaquinas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="PessoasMaquinas">
+              <PropertyRef Name="Maquina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transport__Moeda__55BFB948">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda" />
+            </Principal>
+            <Dependent Role="Transporte">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TurnosFun__Funci__0E04126B">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+          <End Role="TurnosFuncionarios" Type="Self.TurnosFuncionarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="TurnosFuncionarios">
+              <PropertyRef Name="Funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VerPrecos__Artig__5D60DB10">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="VerPrecos" Type="Self.VerPrecos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="VerPrecos">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VerPrecos__Clien__57A801BA">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="VerPrecos" Type="Self.VerPrecos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="VerPrecos">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MedirmDBModelStoreContainer">
+          <EntitySet Name="Artigo" EntityType="Self.Artigo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cartao" EntityType="Self.Cartao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cartolina" EntityType="Self.Cartolina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Componentes" EntityType="Self.Componentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustosFixos" EntityType="Self.CustosFixos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encomenda" EntityType="Self.Encomenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Esterilizacao" EntityType="Self.Esterilizacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ferias" EntityType="Self.Ferias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filme" EntityType="Self.Filme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maquina" EntityType="Self.Maquina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moeda" EntityType="Self.Moeda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Molde" EntityType="Self.Molde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Papel" EntityType="Self.Papel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoMaquina" EntityType="Self.TipoMaquina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transporte" EntityType="Self.Transporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TurnosFuncionarios" EntityType="Self.TurnosFuncionarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtigosClientes" EntityType="Self.ArtigosClientes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ArtigosClientes].[Cliente] AS [Cliente], 
+    [ArtigosClientes].[Artigo] AS [Artigo], 
+    [ArtigosClientes].[Preco] AS [Preco], 
+    [ArtigosClientes].[Preco1] AS [Preco1], 
+    [ArtigosClientes].[Preco2] AS [Preco2], 
+    [ArtigosClientes].[Preco3] AS [Preco3]
+    FROM [dbo].[ArtigosClientes] AS [ArtigosClientes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ComponentesDosArtigos" EntityType="Self.ComponentesDosArtigos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ComponentesDosArtigos].[Artigo] AS [Artigo], 
+    [ComponentesDosArtigos].[Componente] AS [Componente], 
+    [ComponentesDosArtigos].[Quantidade] AS [Quantidade]
+    FROM [dbo].[ComponentesDosArtigos] AS [ComponentesDosArtigos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Feitas" EntityType="Self.Feitas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Feitas].[Encomenda] AS [Encomenda], 
+    [Feitas].[Artigo] AS [Artigo], 
+    [Feitas].[Componente] AS [Componente], 
+    [Feitas].[Feitas] AS [Feitas]
+    FROM [dbo].[Feitas] AS [Feitas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PessoasMaquinas" EntityType="Self.PessoasMaquinas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PessoasMaquinas].[Maquina] AS [Maquina], 
+    [PessoasMaquinas].[Funcionario] AS [Funcionario], 
+    [PessoasMaquinas].[Posicao] AS [Posicao]
+    FROM [dbo].[PessoasMaquinas] AS [PessoasMaquinas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VerPrecos" EntityType="Self.VerPrecos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VerPrecos].[Cliente] AS [Cliente], 
+    [VerPrecos].[Artigo] AS [Artigo], 
+    [VerPrecos].[Quantidade] AS [Quantidade], 
+    [VerPrecos].[Preco] AS [Preco], 
+    [VerPrecos].[MargemLucro] AS [MargemLucro], 
+    [VerPrecos].[CustosFixos] AS [CustosFixos], 
+    [VerPrecos].[Transporte] AS [Transporte], 
+    [VerPrecos].[PrecoFinal] AS [PrecoFinal]
+    FROM [dbo].[VerPrecos] AS [VerPrecos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Artigo__Cartao__5E54FF49" Association="Self.FK__Artigo__Cartao__5E54FF49">
+            <End Role="Cartao" EntitySet="Cartao" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Cartolin__5F492382" Association="Self.FK__Artigo__Cartolin__5F492382">
+            <End Role="Cartolina" EntitySet="Cartolina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina1__603D47BB" Association="Self.FK__Artigo__Maquina1__603D47BB">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina2__61316BF4" Association="Self.FK__Artigo__Maquina2__61316BF4">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina3__6225902D" Association="Self.FK__Artigo__Maquina3__6225902D">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina4__6319B466" Association="Self.FK__Artigo__Maquina4__6319B466">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtigosCl__Artig__5B78929E" Association="Self.FK__ArtigosCl__Artig__5B78929E">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ArtigosClientes" EntitySet="ArtigosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtigosCl__Clien__4865BE2A" Association="Self.FK__ArtigosCl__Clien__4865BE2A">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ArtigosClientes" EntitySet="ArtigosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cartao__Moeda__3FD07829" Association="Self.FK__Cartao__Moeda__3FD07829">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Cartao" EntitySet="Cartao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cartolina__Moeda__40C49C62" Association="Self.FK__Cartolina__Moeda__40C49C62">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Cartolina" EntitySet="Cartolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__TipoEst__5006DFF2" Association="Self.FK__Cliente__TipoEst__5006DFF2">
+            <End Role="Esterilizacao" EntitySet="Esterilizacao" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Transpo__50FB042B" Association="Self.FK__Cliente__Transpo__50FB042B">
+            <End Role="Transporte" EntitySet="Transporte" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Artig__5C6CB6D7" Association="Self.FK__Component__Artig__5C6CB6D7">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ComponentesDosArtigos" EntitySet="ComponentesDosArtigos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Compo__4F12BBB9" Association="Self.FK__Component__Compo__4F12BBB9">
+            <End Role="Componentes" EntitySet="Componentes" />
+            <End Role="ComponentesDosArtigos" EntitySet="ComponentesDosArtigos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Moeda__4B422AD5" Association="Self.FK__Component__Moeda__4B422AD5">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Componentes" EntitySet="Componentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Trans__4C364F0E" Association="Self.FK__Component__Trans__4C364F0E">
+            <End Role="Transporte" EntitySet="Transporte" />
+            <End Role="Componentes" EntitySet="Componentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Encomenda__Artig__220B0B18" Association="Self.FK__Encomenda__Artig__220B0B18">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="Encomenda" EntitySet="Encomenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Encomenda__Clien__22FF2F51" Association="Self.FK__Encomenda__Clien__22FF2F51">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Encomenda" EntitySet="Encomenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Esteriliz__Moeda__4A4E069C" Association="Self.FK__Esteriliz__Moeda__4A4E069C">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Esterilizacao" EntitySet="Esterilizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Artigo__67DE6983" Association="Self.FK__Feitas__Artigo__67DE6983">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Componen__68D28DBC" Association="Self.FK__Feitas__Componen__68D28DBC">
+            <End Role="Componentes" EntitySet="Componentes" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Encomend__23F3538A" Association="Self.FK__Feitas__Encomend__23F3538A">
+            <End Role="Encomenda" EntitySet="Encomenda" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filme__Moeda__42ACE4D4" Association="Self.FK__Filme__Moeda__42ACE4D4">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Filme" EntitySet="Filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Filme__51EF2864" Association="Self.FK__Maquina__Filme__51EF2864">
+            <End Role="Filme" EntitySet="Filme" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Molde__53D770D6" Association="Self.FK__Maquina__Molde__53D770D6">
+            <End Role="Molde" EntitySet="Molde" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Papel__52E34C9D" Association="Self.FK__Maquina__Papel__52E34C9D">
+            <End Role="Papel" EntitySet="Papel" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Tipo__54CB950F" Association="Self.FK__Maquina__Tipo__54CB950F">
+            <End Role="TipoMaquina" EntitySet="TipoMaquina" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Papel__Moeda__41B8C09B" Association="Self.FK__Papel__Moeda__41B8C09B">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Papel" EntitySet="Papel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PessoasMa__Funci__4589517F" Association="Self.FK__PessoasMa__Funci__4589517F">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="PessoasMaquinas" EntitySet="PessoasMaquinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PessoasMa__Maqui__44952D46" Association="Self.FK__PessoasMa__Maqui__44952D46">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="PessoasMaquinas" EntitySet="PessoasMaquinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transport__Moeda__55BFB948" Association="Self.FK__Transport__Moeda__55BFB948">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Transporte" EntitySet="Transporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TurnosFun__Funci__0E04126B" Association="Self.FK__TurnosFun__Funci__0E04126B">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="TurnosFuncionarios" EntitySet="TurnosFuncionarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VerPrecos__Artig__5D60DB10" Association="Self.FK__VerPrecos__Artig__5D60DB10">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="VerPrecos" EntitySet="VerPrecos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VerPrecos__Clien__57A801BA" Association="Self.FK__VerPrecos__Clien__57A801BA">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="VerPrecos" EntitySet="VerPrecos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MedirmDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artigo">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UnBase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QtdCartao" Type="Int32" />
+          <Property Name="QtdCartolina" Type="Int32" />
+          <Property Name="QtdCartoesPalete" Type="Int32" />
+          <Property Name="Cartao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cartolina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maquina5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cartao1" Relationship="Self.FK__Artigo__Cartao__5E54FF49" FromRole="Artigo" ToRole="Cartao" />
+          <NavigationProperty Name="Cartolina1" Relationship="Self.FK__Artigo__Cartolin__5F492382" FromRole="Artigo" ToRole="Cartolina" />
+          <NavigationProperty Name="Maquina" Relationship="Self.FK__Artigo__Maquina1__603D47BB" FromRole="Artigo" ToRole="Maquina" />
+          <NavigationProperty Name="Maquina6" Relationship="Self.FK__Artigo__Maquina2__61316BF4" FromRole="Artigo" ToRole="Maquina" />
+          <NavigationProperty Name="Maquina7" Relationship="Self.FK__Artigo__Maquina3__6225902D" FromRole="Artigo" ToRole="Maquina" />
+          <NavigationProperty Name="Maquina8" Relationship="Self.FK__Artigo__Maquina4__6319B466" FromRole="Artigo" ToRole="Maquina" />
+          <NavigationProperty Name="ArtigosClientes" Relationship="Self.FK__ArtigosCl__Artig__5B78929E" FromRole="Artigo" ToRole="ArtigosClientes" />
+          <NavigationProperty Name="ComponentesDosArtigos" Relationship="Self.FK__Component__Artig__5C6CB6D7" FromRole="Artigo" ToRole="ComponentesDosArtigos" />
+          <NavigationProperty Name="Encomenda" Relationship="Self.FK__Encomenda__Artig__220B0B18" FromRole="Artigo" ToRole="Encomenda" />
+          <NavigationProperty Name="Feitas" Relationship="Self.FK__Feitas__Artigo__67DE6983" FromRole="Artigo" ToRole="Feitas" />
+          <NavigationProperty Name="VerPrecos" Relationship="Self.FK__VerPrecos__Artig__5D60DB10" FromRole="Artigo" ToRole="VerPrecos" />
+        </EntityType>
+        <EntityType Name="Cartao">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrecoCartolina" Type="Single" Nullable="false" />
+          <Property Name="Volume" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artigo" Relationship="Self.FK__Artigo__Cartao__5E54FF49" FromRole="Cartao" ToRole="Artigo" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Cartao__Moeda__3FD07829" FromRole="Cartao" ToRole="Moeda" />
+        </EntityType>
+        <EntityType Name="Cartolina">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrecoMetro" Type="Single" Nullable="false" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artigo" Relationship="Self.FK__Artigo__Cartolin__5F492382" FromRole="Cartolina" ToRole="Artigo" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Cartolina__Moeda__40C49C62" FromRole="Cartolina" ToRole="Moeda" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Localidade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MargemLucro" Type="Single" />
+          <Property Name="Transporte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoEsterilizacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArtigosClientes" Relationship="Self.FK__ArtigosCl__Clien__4865BE2A" FromRole="Cliente" ToRole="ArtigosClientes" />
+          <NavigationProperty Name="Esterilizacao" Relationship="Self.FK__Cliente__TipoEst__5006DFF2" FromRole="Cliente" ToRole="Esterilizacao" />
+          <NavigationProperty Name="Transporte1" Relationship="Self.FK__Cliente__Transpo__50FB042B" FromRole="Cliente" ToRole="Transporte" />
+          <NavigationProperty Name="Encomenda" Relationship="Self.FK__Encomenda__Clien__22FF2F51" FromRole="Cliente" ToRole="Encomenda" />
+          <NavigationProperty Name="VerPrecos" Relationship="Self.FK__VerPrecos__Clien__57A801BA" FromRole="Cliente" ToRole="VerPrecos" />
+        </EntityType>
+        <EntityType Name="Componentes">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Transporte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrecoCompra" Type="Single" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrecoCusto" Type="Single" />
+          <Property Name="CustoAlfandega" Type="Single" />
+          <Property Name="QtdCartao" Type="Int32" />
+          <Property Name="VolCartao" Type="Single" />
+          <Property Name="UnBase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrecoCustoFinal" Type="Single" />
+          <NavigationProperty Name="ComponentesDosArtigos" Relationship="Self.FK__Component__Compo__4F12BBB9" FromRole="Componentes" ToRole="ComponentesDosArtigos" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Component__Moeda__4B422AD5" FromRole="Componentes" ToRole="Moeda" />
+          <NavigationProperty Name="Transporte1" Relationship="Self.FK__Component__Trans__4C364F0E" FromRole="Componentes" ToRole="Transporte" />
+          <NavigationProperty Name="Feitas" Relationship="Self.FK__Feitas__Componen__68D28DBC" FromRole="Componentes" ToRole="Feitas" />
+        </EntityType>
+        <EntityType Name="CustosFixos">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Custo" Type="Single" />
+        </EntityType>
+        <EntityType Name="Encomenda">
+          <Key>
+            <PropertyRef Name="NumeroEnco" />
+          </Key>
+          <Property Name="NumeroEnco" Type="Int32" Nullable="false" />
+          <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="DataLimite" Type="DateTime" Precision="3" />
+          <Property Name="DataEntregaPrevista" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feitas" Type="Int32" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__Encomenda__Artig__220B0B18" FromRole="Encomenda" ToRole="Artigo" />
+          <NavigationProperty Name="Cliente1" Relationship="Self.FK__Encomenda__Clien__22FF2F51" FromRole="Encomenda" ToRole="Cliente" />
+          <NavigationProperty Name="Feitas1" Relationship="Self.FK__Feitas__Encomend__23F3538A" FromRole="Encomenda" ToRole="Feitas" />
+        </EntityType>
+        <EntityType Name="Esterilizacao">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preco" Type="Single" Nullable="false" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__TipoEst__5006DFF2" FromRole="Esterilizacao" ToRole="Cliente" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Esteriliz__Moeda__4A4E069C" FromRole="Esterilizacao" ToRole="Moeda" />
+        </EntityType>
+        <EntityType Name="Ferias">
+          <Key>
+            <PropertyRef Name="Funcionario" />
+          </Key>
+          <Property Name="Funcionario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataInicio" Type="DateTime" Precision="3" />
+          <Property Name="DataFim" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Filme">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrecoMetro" Type="Single" Nullable="false" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetodoDeCalculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Filme__Moeda__42ACE4D4" FromRole="Filme" ToRole="Moeda" />
+          <NavigationProperty Name="Maquina" Relationship="Self.FK__Maquina__Filme__51EF2864" FromRole="Filme" ToRole="Maquina" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Frente" Type="Boolean" />
+          <Property Name="Tras" Type="Boolean" />
+          <Property Name="Manual" Type="Boolean" />
+          <NavigationProperty Name="PessoasMaquinas" Relationship="Self.FK__PessoasMa__Funci__4589517F" FromRole="Funcionario" ToRole="PessoasMaquinas" />
+          <NavigationProperty Name="TurnosFuncionarios" Relationship="Self.FK__TurnosFun__Funci__0E04126B" FromRole="Funcionario" ToRole="TurnosFuncionarios" />
+        </EntityType>
+        <EntityType Name="Maquina">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MinPessFrente" Type="Int32" />
+          <Property Name="MaxPessFrente" Type="Int32" />
+          <Property Name="Filme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Papel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Molde" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Velocidade1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Artigo" Relationship="Self.FK__Artigo__Maquina1__603D47BB" FromRole="Maquina" ToRole="Artigo" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__Artigo__Maquina2__61316BF4" FromRole="Maquina" ToRole="Artigo" />
+          <NavigationProperty Name="Artigo2" Relationship="Self.FK__Artigo__Maquina3__6225902D" FromRole="Maquina" ToRole="Artigo" />
+          <NavigationProperty Name="Artigo3" Relationship="Self.FK__Artigo__Maquina4__6319B466" FromRole="Maquina" ToRole="Artigo" />
+          <NavigationProperty Name="Filme1" Relationship="Self.FK__Maquina__Filme__51EF2864" FromRole="Maquina" ToRole="Filme" />
+          <NavigationProperty Name="Molde1" Relationship="Self.FK__Maquina__Molde__53D770D6" FromRole="Maquina" ToRole="Molde" />
+          <NavigationProperty Name="Papel1" Relationship="Self.FK__Maquina__Papel__52E34C9D" FromRole="Maquina" ToRole="Papel" />
+          <NavigationProperty Name="TipoMaquina" Relationship="Self.FK__Maquina__Tipo__54CB950F" FromRole="Maquina" ToRole="TipoMaquina" />
+          <NavigationProperty Name="PessoasMaquinas" Relationship="Self.FK__PessoasMa__Maqui__44952D46" FromRole="Maquina" ToRole="PessoasMaquinas" />
+        </EntityType>
+        <EntityType Name="Moeda">
+          <Key>
+            <PropertyRef Name="Moeda1" />
+          </Key>
+          <Property Name="Moeda1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cambio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cartao" Relationship="Self.FK__Cartao__Moeda__3FD07829" FromRole="Moeda" ToRole="Cartao" />
+          <NavigationProperty Name="Cartolina" Relationship="Self.FK__Cartolina__Moeda__40C49C62" FromRole="Moeda" ToRole="Cartolina" />
+          <NavigationProperty Name="Componentes" Relationship="Self.FK__Component__Moeda__4B422AD5" FromRole="Moeda" ToRole="Componentes" />
+          <NavigationProperty Name="Esterilizacao" Relationship="Self.FK__Esteriliz__Moeda__4A4E069C" FromRole="Moeda" ToRole="Esterilizacao" />
+          <NavigationProperty Name="Filme" Relationship="Self.FK__Filme__Moeda__42ACE4D4" FromRole="Moeda" ToRole="Filme" />
+          <NavigationProperty Name="Papel" Relationship="Self.FK__Papel__Moeda__41B8C09B" FromRole="Moeda" ToRole="Papel" />
+          <NavigationProperty Name="Transporte" Relationship="Self.FK__Transport__Moeda__55BFB948" FromRole="Moeda" ToRole="Transporte" />
+        </EntityType>
+        <EntityType Name="Molde">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cortantes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PecasPorAvanco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetrosPorAvanco" Type="Single" />
+          <Property Name="Profundidade" Type="Single" />
+          <NavigationProperty Name="Maquina" Relationship="Self.FK__Maquina__Molde__53D770D6" FromRole="Molde" ToRole="Maquina" />
+        </EntityType>
+        <EntityType Name="Papel">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrecoMetro" Type="Single" Nullable="false" />
+          <Property Name="MetodoCalculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Maquina" Relationship="Self.FK__Maquina__Papel__52E34C9D" FromRole="Papel" ToRole="Maquina" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Papel__Moeda__41B8C09B" FromRole="Papel" ToRole="Moeda" />
+        </EntityType>
+        <EntityType Name="TipoMaquina">
+          <Key>
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Maquina" Relationship="Self.FK__Maquina__Tipo__54CB950F" FromRole="TipoMaquina" ToRole="Maquina" />
+        </EntityType>
+        <EntityType Name="Transporte">
+          <Key>
+            <PropertyRef Name="Designacao" />
+          </Key>
+          <Property Name="Designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preco" Type="Single" Nullable="false" />
+          <Property Name="Moeda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Transportadora" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="De" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Para" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__Transpo__50FB042B" FromRole="Transporte" ToRole="Cliente" />
+          <NavigationProperty Name="Componentes" Relationship="Self.FK__Component__Trans__4C364F0E" FromRole="Transporte" ToRole="Componentes" />
+          <NavigationProperty Name="Moeda1" Relationship="Self.FK__Transport__Moeda__55BFB948" FromRole="Transporte" ToRole="Moeda" />
+        </EntityType>
+        <EntityType Name="TurnosFuncionarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Funcionario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DiaDaSemana" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Turno1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Turno2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Turno3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Turno4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Funcionario1" Relationship="Self.FK__TurnosFun__Funci__0E04126B" FromRole="TurnosFuncionarios" ToRole="Funcionario" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Nome" />
+          </Key>
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ArtigosClientes">
+          <Key>
+            <PropertyRef Name="Cliente" />
+            <PropertyRef Name="Artigo" />
+          </Key>
+          <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preco" Type="Single" />
+          <Property Name="Preco1" Type="Single" />
+          <Property Name="Preco2" Type="Single" />
+          <Property Name="Preco3" Type="Single" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__ArtigosCl__Artig__5B78929E" FromRole="ArtigosClientes" ToRole="Artigo" />
+          <NavigationProperty Name="Cliente1" Relationship="Self.FK__ArtigosCl__Clien__4865BE2A" FromRole="ArtigosClientes" ToRole="Cliente" />
+        </EntityType>
+        <EntityType Name="ComponentesDosArtigos">
+          <Key>
+            <PropertyRef Name="Artigo" />
+            <PropertyRef Name="Componente" />
+            <PropertyRef Name="Quantidade" />
+          </Key>
+          <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Componente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantidade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__Component__Artig__5C6CB6D7" FromRole="ComponentesDosArtigos" ToRole="Artigo" />
+          <NavigationProperty Name="Componentes" Relationship="Self.FK__Component__Compo__4F12BBB9" FromRole="ComponentesDosArtigos" ToRole="Componentes" />
+        </EntityType>
+        <EntityType Name="Feitas">
+          <Key>
+            <PropertyRef Name="Encomenda" />
+          </Key>
+          <Property Name="Encomenda" Type="Int32" Nullable="false" />
+          <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Componente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feitas1" Type="Int32" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__Feitas__Artigo__67DE6983" FromRole="Feitas" ToRole="Artigo" />
+          <NavigationProperty Name="Componentes" Relationship="Self.FK__Feitas__Componen__68D28DBC" FromRole="Feitas" ToRole="Componentes" />
+          <NavigationProperty Name="Encomenda1" Relationship="Self.FK__Feitas__Encomend__23F3538A" FromRole="Feitas" ToRole="Encomenda" />
+        </EntityType>
+        <EntityType Name="PessoasMaquinas">
+          <Key>
+            <PropertyRef Name="Maquina" />
+          </Key>
+          <Property Name="Maquina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Funcionario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Posicao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Funcionario1" Relationship="Self.FK__PessoasMa__Funci__4589517F" FromRole="PessoasMaquinas" ToRole="Funcionario" />
+          <NavigationProperty Name="Maquina1" Relationship="Self.FK__PessoasMa__Maqui__44952D46" FromRole="PessoasMaquinas" ToRole="Maquina" />
+        </EntityType>
+        <EntityType Name="VerPrecos">
+          <Key>
+            <PropertyRef Name="Cliente" />
+          </Key>
+          <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="Preco" Type="Single" />
+          <Property Name="MargemLucro" Type="Single" />
+          <Property Name="CustosFixos" Type="Single" />
+          <Property Name="Transporte" Type="Single" />
+          <Property Name="PrecoFinal" Type="Single" />
+          <NavigationProperty Name="Artigo1" Relationship="Self.FK__VerPrecos__Artig__5D60DB10" FromRole="VerPrecos" ToRole="Artigo" />
+          <NavigationProperty Name="Cliente1" Relationship="Self.FK__VerPrecos__Clien__57A801BA" FromRole="VerPrecos" ToRole="Cliente" />
+        </EntityType>
+        <Association Name="FK__Artigo__Cartao__5E54FF49">
+          <End Role="Cartao" Type="Self.Cartao" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cartao">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Cartao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Cartolin__5F492382">
+          <End Role="Cartolina" Type="Self.Cartolina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cartolina">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Cartolina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina1__603D47BB">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina2__61316BF4">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina3__6225902D">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artigo__Maquina4__6319B466">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="Maquina4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtigosCl__Artig__5B78929E">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="1" />
+          <End Role="ArtigosClientes" Type="Self.ArtigosClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ArtigosClientes">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Artig__5C6CB6D7">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="1" />
+          <End Role="ComponentesDosArtigos" Type="Self.ComponentesDosArtigos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ComponentesDosArtigos">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Encomenda__Artig__220B0B18">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Encomenda">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Artigo__67DE6983">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VerPrecos__Artig__5D60DB10">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="VerPrecos" Type="Self.VerPrecos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="VerPrecos">
+              <PropertyRef Name="Artigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cartao__Moeda__3FD07829">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Cartao" Type="Self.Cartao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Cartao">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cartolina__Moeda__40C49C62">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Cartolina" Type="Self.Cartolina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Cartolina">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtigosCl__Clien__4865BE2A">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ArtigosClientes" Type="Self.ArtigosClientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ArtigosClientes">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__TipoEst__5006DFF2">
+          <End Role="Esterilizacao" Type="Self.Esterilizacao" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esterilizacao">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="TipoEsterilizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Transpo__50FB042B">
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transporte">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Transporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Encomenda__Clien__22FF2F51">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Encomenda">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VerPrecos__Clien__57A801BA">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="VerPrecos" Type="Self.VerPrecos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="VerPrecos">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Compo__4F12BBB9">
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="1" />
+          <End Role="ComponentesDosArtigos" Type="Self.ComponentesDosArtigos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Componentes">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="ComponentesDosArtigos">
+              <PropertyRef Name="Componente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Moeda__4B422AD5">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="0..1" />
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Componentes">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Component__Trans__4C364F0E">
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="0..1" />
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transporte">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Componentes">
+              <PropertyRef Name="Transporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Componen__68D28DBC">
+          <End Role="Componentes" Type="Self.Componentes" Multiplicity="0..1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Componentes">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Componente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feitas__Encomend__23F3538A">
+          <End Role="Encomenda" Type="Self.Encomenda" Multiplicity="1" />
+          <End Role="Feitas" Type="Self.Feitas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Encomenda">
+              <PropertyRef Name="NumeroEnco" />
+            </Principal>
+            <Dependent Role="Feitas">
+              <PropertyRef Name="Encomenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Esteriliz__Moeda__4A4E069C">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Esterilizacao" Type="Self.Esterilizacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Esterilizacao">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Filme__Moeda__42ACE4D4">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Filme">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Filme__51EF2864">
+          <End Role="Filme" Type="Self.Filme" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Filme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PessoasMa__Funci__4589517F">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="0..1" />
+          <End Role="PessoasMaquinas" Type="Self.PessoasMaquinas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="PessoasMaquinas">
+              <PropertyRef Name="Funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TurnosFun__Funci__0E04126B">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+          <End Role="TurnosFuncionarios" Type="Self.TurnosFuncionarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="TurnosFuncionarios">
+              <PropertyRef Name="Funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Molde__53D770D6">
+          <End Role="Molde" Type="Self.Molde" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Molde">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Molde" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Papel__52E34C9D">
+          <End Role="Papel" Type="Self.Papel" Multiplicity="0..1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Papel">
+              <PropertyRef Name="Designacao" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Papel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maquina__Tipo__54CB950F">
+          <End Role="TipoMaquina" Type="Self.TipoMaquina" Multiplicity="1" />
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMaquina">
+              <PropertyRef Name="Tipo" />
+            </Principal>
+            <Dependent Role="Maquina">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PessoasMa__Maqui__44952D46">
+          <End Role="Maquina" Type="Self.Maquina" Multiplicity="1" />
+          <End Role="PessoasMaquinas" Type="Self.PessoasMaquinas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Maquina">
+              <PropertyRef Name="Nome" />
+            </Principal>
+            <Dependent Role="PessoasMaquinas">
+              <PropertyRef Name="Maquina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Papel__Moeda__41B8C09B">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Papel" Type="Self.Papel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Papel">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transport__Moeda__55BFB948">
+          <End Role="Moeda" Type="Self.Moeda" Multiplicity="1" />
+          <End Role="Transporte" Type="Self.Transporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moeda">
+              <PropertyRef Name="Moeda1" />
+            </Principal>
+            <Dependent Role="Transporte">
+              <PropertyRef Name="Moeda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MedirmDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artigo" EntityType="Self.Artigo" />
+          <EntitySet Name="Cartao" EntityType="Self.Cartao" />
+          <EntitySet Name="Cartolina" EntityType="Self.Cartolina" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Componentes" EntityType="Self.Componentes" />
+          <EntitySet Name="CustosFixos" EntityType="Self.CustosFixos" />
+          <EntitySet Name="Encomenda" EntityType="Self.Encomenda" />
+          <EntitySet Name="Esterilizacao" EntityType="Self.Esterilizacao" />
+          <EntitySet Name="Ferias" EntityType="Self.Ferias" />
+          <EntitySet Name="Filme" EntityType="Self.Filme" />
+          <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />
+          <EntitySet Name="Maquina" EntityType="Self.Maquina" />
+          <EntitySet Name="Moeda" EntityType="Self.Moeda" />
+          <EntitySet Name="Molde" EntityType="Self.Molde" />
+          <EntitySet Name="Papel" EntityType="Self.Papel" />
+          <EntitySet Name="TipoMaquina" EntityType="Self.TipoMaquina" />
+          <EntitySet Name="Transporte" EntityType="Self.Transporte" />
+          <EntitySet Name="TurnosFuncionarios" EntityType="Self.TurnosFuncionarios" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="ArtigosClientes" EntityType="Self.ArtigosClientes" />
+          <EntitySet Name="ComponentesDosArtigos" EntityType="Self.ComponentesDosArtigos" />
+          <EntitySet Name="Feitas" EntityType="Self.Feitas" />
+          <EntitySet Name="PessoasMaquinas" EntityType="Self.PessoasMaquinas" />
+          <EntitySet Name="VerPrecos" EntityType="Self.VerPrecos" />
+          <AssociationSet Name="FK__Artigo__Cartao__5E54FF49" Association="Self.FK__Artigo__Cartao__5E54FF49">
+            <End Role="Cartao" EntitySet="Cartao" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Cartolin__5F492382" Association="Self.FK__Artigo__Cartolin__5F492382">
+            <End Role="Cartolina" EntitySet="Cartolina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina1__603D47BB" Association="Self.FK__Artigo__Maquina1__603D47BB">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina2__61316BF4" Association="Self.FK__Artigo__Maquina2__61316BF4">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina3__6225902D" Association="Self.FK__Artigo__Maquina3__6225902D">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artigo__Maquina4__6319B466" Association="Self.FK__Artigo__Maquina4__6319B466">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtigosCl__Artig__5B78929E" Association="Self.FK__ArtigosCl__Artig__5B78929E">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ArtigosClientes" EntitySet="ArtigosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Artig__5C6CB6D7" Association="Self.FK__Component__Artig__5C6CB6D7">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ComponentesDosArtigos" EntitySet="ComponentesDosArtigos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Encomenda__Artig__220B0B18" Association="Self.FK__Encomenda__Artig__220B0B18">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="Encomenda" EntitySet="Encomenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Artigo__67DE6983" Association="Self.FK__Feitas__Artigo__67DE6983">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VerPrecos__Artig__5D60DB10" Association="Self.FK__VerPrecos__Artig__5D60DB10">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="VerPrecos" EntitySet="VerPrecos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cartao__Moeda__3FD07829" Association="Self.FK__Cartao__Moeda__3FD07829">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Cartao" EntitySet="Cartao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cartolina__Moeda__40C49C62" Association="Self.FK__Cartolina__Moeda__40C49C62">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Cartolina" EntitySet="Cartolina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtigosCl__Clien__4865BE2A" Association="Self.FK__ArtigosCl__Clien__4865BE2A">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ArtigosClientes" EntitySet="ArtigosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__TipoEst__5006DFF2" Association="Self.FK__Cliente__TipoEst__5006DFF2">
+            <End Role="Esterilizacao" EntitySet="Esterilizacao" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Transpo__50FB042B" Association="Self.FK__Cliente__Transpo__50FB042B">
+            <End Role="Transporte" EntitySet="Transporte" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Encomenda__Clien__22FF2F51" Association="Self.FK__Encomenda__Clien__22FF2F51">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Encomenda" EntitySet="Encomenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VerPrecos__Clien__57A801BA" Association="Self.FK__VerPrecos__Clien__57A801BA">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="VerPrecos" EntitySet="VerPrecos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Compo__4F12BBB9" Association="Self.FK__Component__Compo__4F12BBB9">
+            <End Role="Componentes" EntitySet="Componentes" />
+            <End Role="ComponentesDosArtigos" EntitySet="ComponentesDosArtigos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Moeda__4B422AD5" Association="Self.FK__Component__Moeda__4B422AD5">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Componentes" EntitySet="Componentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Component__Trans__4C364F0E" Association="Self.FK__Component__Trans__4C364F0E">
+            <End Role="Transporte" EntitySet="Transporte" />
+            <End Role="Componentes" EntitySet="Componentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Componen__68D28DBC" Association="Self.FK__Feitas__Componen__68D28DBC">
+            <End Role="Componentes" EntitySet="Componentes" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feitas__Encomend__23F3538A" Association="Self.FK__Feitas__Encomend__23F3538A">
+            <End Role="Encomenda" EntitySet="Encomenda" />
+            <End Role="Feitas" EntitySet="Feitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Esteriliz__Moeda__4A4E069C" Association="Self.FK__Esteriliz__Moeda__4A4E069C">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Esterilizacao" EntitySet="Esterilizacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Filme__Moeda__42ACE4D4" Association="Self.FK__Filme__Moeda__42ACE4D4">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Filme" EntitySet="Filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Filme__51EF2864" Association="Self.FK__Maquina__Filme__51EF2864">
+            <End Role="Filme" EntitySet="Filme" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PessoasMa__Funci__4589517F" Association="Self.FK__PessoasMa__Funci__4589517F">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="PessoasMaquinas" EntitySet="PessoasMaquinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TurnosFun__Funci__0E04126B" Association="Self.FK__TurnosFun__Funci__0E04126B">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="TurnosFuncionarios" EntitySet="TurnosFuncionarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Molde__53D770D6" Association="Self.FK__Maquina__Molde__53D770D6">
+            <End Role="Molde" EntitySet="Molde" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Papel__52E34C9D" Association="Self.FK__Maquina__Papel__52E34C9D">
+            <End Role="Papel" EntitySet="Papel" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maquina__Tipo__54CB950F" Association="Self.FK__Maquina__Tipo__54CB950F">
+            <End Role="TipoMaquina" EntitySet="TipoMaquina" />
+            <End Role="Maquina" EntitySet="Maquina" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PessoasMa__Maqui__44952D46" Association="Self.FK__PessoasMa__Maqui__44952D46">
+            <End Role="Maquina" EntitySet="Maquina" />
+            <End Role="PessoasMaquinas" EntitySet="PessoasMaquinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Papel__Moeda__41B8C09B" Association="Self.FK__Papel__Moeda__41B8C09B">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Papel" EntitySet="Papel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transport__Moeda__55BFB948" Association="Self.FK__Transport__Moeda__55BFB948">
+            <End Role="Moeda" EntitySet="Moeda" />
+            <End Role="Transporte" EntitySet="Transporte" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MedirmDBModelStoreContainer" CdmEntityContainer="MedirmDBEntities1">
+          <EntitySetMapping Name="Artigo">
+            <EntityTypeMapping TypeName="MedirmDBModel.Artigo">
+              <MappingFragment StoreEntitySet="Artigo">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UnBase" ColumnName="UnBase" />
+                <ScalarProperty Name="QtdCartao" ColumnName="QtdCartao" />
+                <ScalarProperty Name="QtdCartolina" ColumnName="QtdCartolina" />
+                <ScalarProperty Name="QtdCartoesPalete" ColumnName="QtdCartoesPalete" />
+                <ScalarProperty Name="Cartao" ColumnName="Cartao" />
+                <ScalarProperty Name="Cartolina" ColumnName="Cartolina" />
+                <ScalarProperty Name="Maquina1" ColumnName="Maquina1" />
+                <ScalarProperty Name="Maquina2" ColumnName="Maquina2" />
+                <ScalarProperty Name="Maquina3" ColumnName="Maquina3" />
+                <ScalarProperty Name="Maquina4" ColumnName="Maquina4" />
+                <ScalarProperty Name="Maquina5" ColumnName="Maquina5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cartao">
+            <EntityTypeMapping TypeName="MedirmDBModel.Cartao">
+              <MappingFragment StoreEntitySet="Cartao">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="PrecoCartolina" ColumnName="PrecoCartolina" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cartolina">
+            <EntityTypeMapping TypeName="MedirmDBModel.Cartolina">
+              <MappingFragment StoreEntitySet="Cartolina">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="PrecoMetro" ColumnName="PrecoMetro" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="MedirmDBModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+                <ScalarProperty Name="MargemLucro" ColumnName="MargemLucro" />
+                <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+                <ScalarProperty Name="TipoEsterilizacao" ColumnName="TipoEsterilizacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Componentes">
+            <EntityTypeMapping TypeName="MedirmDBModel.Componentes">
+              <MappingFragment StoreEntitySet="Componentes">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+                <ScalarProperty Name="PrecoCompra" ColumnName="PrecoCompra" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+                <ScalarProperty Name="PrecoCusto" ColumnName="PrecoCusto" />
+                <ScalarProperty Name="CustoAlfandega" ColumnName="CustoAlfandega" />
+                <ScalarProperty Name="QtdCartao" ColumnName="QtdCartao" />
+                <ScalarProperty Name="VolCartao" ColumnName="VolCartao" />
+                <ScalarProperty Name="UnBase" ColumnName="UnBase" />
+                <ScalarProperty Name="PrecoCustoFinal" ColumnName="PrecoCustoFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustosFixos">
+            <EntityTypeMapping TypeName="MedirmDBModel.CustosFixos">
+              <MappingFragment StoreEntitySet="CustosFixos">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="Custo" ColumnName="Custo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encomenda">
+            <EntityTypeMapping TypeName="MedirmDBModel.Encomenda">
+              <MappingFragment StoreEntitySet="Encomenda">
+                <ScalarProperty Name="NumeroEnco" ColumnName="NumeroEnco" />
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="DataLimite" ColumnName="DataLimite" />
+                <ScalarProperty Name="DataEntregaPrevista" ColumnName="DataEntregaPrevista" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Feitas" ColumnName="Feitas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Esterilizacao">
+            <EntityTypeMapping TypeName="MedirmDBModel.Esterilizacao">
+              <MappingFragment StoreEntitySet="Esterilizacao">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ferias">
+            <EntityTypeMapping TypeName="MedirmDBModel.Ferias">
+              <MappingFragment StoreEntitySet="Ferias">
+                <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filme">
+            <EntityTypeMapping TypeName="MedirmDBModel.Filme">
+              <MappingFragment StoreEntitySet="Filme">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="PrecoMetro" ColumnName="PrecoMetro" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+                <ScalarProperty Name="MetodoDeCalculo" ColumnName="MetodoDeCalculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funcionario">
+            <EntityTypeMapping TypeName="MedirmDBModel.Funcionario">
+              <MappingFragment StoreEntitySet="Funcionario">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+                <ScalarProperty Name="Frente" ColumnName="Frente" />
+                <ScalarProperty Name="Tras" ColumnName="Tras" />
+                <ScalarProperty Name="Manual" ColumnName="Manual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maquina">
+            <EntityTypeMapping TypeName="MedirmDBModel.Maquina">
+              <MappingFragment StoreEntitySet="Maquina">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="MinPessFrente" ColumnName="MinPessFrente" />
+                <ScalarProperty Name="MaxPessFrente" ColumnName="MaxPessFrente" />
+                <ScalarProperty Name="Filme" ColumnName="Filme" />
+                <ScalarProperty Name="Papel" ColumnName="Papel" />
+                <ScalarProperty Name="Molde" ColumnName="Molde" />
+                <ScalarProperty Name="Velocidade1" ColumnName="Velocidade1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moeda">
+            <EntityTypeMapping TypeName="MedirmDBModel.Moeda">
+              <MappingFragment StoreEntitySet="Moeda">
+                <ScalarProperty Name="Moeda1" ColumnName="Moeda" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Molde">
+            <EntityTypeMapping TypeName="MedirmDBModel.Molde">
+              <MappingFragment StoreEntitySet="Molde">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="Cortantes" ColumnName="Cortantes" />
+                <ScalarProperty Name="PecasPorAvanco" ColumnName="PecasPorAvanco" />
+                <ScalarProperty Name="MetrosPorAvanco" ColumnName="MetrosPorAvanco" />
+                <ScalarProperty Name="Profundidade" ColumnName="Profundidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Papel">
+            <EntityTypeMapping TypeName="MedirmDBModel.Papel">
+              <MappingFragment StoreEntitySet="Papel">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="PrecoMetro" ColumnName="PrecoMetro" />
+                <ScalarProperty Name="MetodoCalculo" ColumnName="MetodoCalculo" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoMaquina">
+            <EntityTypeMapping TypeName="MedirmDBModel.TipoMaquina">
+              <MappingFragment StoreEntitySet="TipoMaquina">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transporte">
+            <EntityTypeMapping TypeName="MedirmDBModel.Transporte">
+              <MappingFragment StoreEntitySet="Transporte">
+                <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+                <ScalarProperty Name="Transportadora" ColumnName="Transportadora" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="De" ColumnName="De" />
+                <ScalarProperty Name="Para" ColumnName="Para" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TurnosFuncionarios">
+            <EntityTypeMapping TypeName="MedirmDBModel.TurnosFuncionarios">
+              <MappingFragment StoreEntitySet="TurnosFuncionarios">
+                <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+                <ScalarProperty Name="DiaDaSemana" ColumnName="DiaDaSemana" />
+                <ScalarProperty Name="Turno1" ColumnName="Turno1" />
+                <ScalarProperty Name="Turno2" ColumnName="Turno2" />
+                <ScalarProperty Name="Turno3" ColumnName="Turno3" />
+                <ScalarProperty Name="Turno4" ColumnName="Turno4" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MedirmDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtigosClientes">
+            <EntityTypeMapping TypeName="MedirmDBModel.ArtigosClientes">
+              <MappingFragment StoreEntitySet="ArtigosClientes">
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Preco1" ColumnName="Preco1" />
+                <ScalarProperty Name="Preco2" ColumnName="Preco2" />
+                <ScalarProperty Name="Preco3" ColumnName="Preco3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComponentesDosArtigos">
+            <EntityTypeMapping TypeName="MedirmDBModel.ComponentesDosArtigos">
+              <MappingFragment StoreEntitySet="ComponentesDosArtigos">
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Componente" ColumnName="Componente" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feitas">
+            <EntityTypeMapping TypeName="MedirmDBModel.Feitas">
+              <MappingFragment StoreEntitySet="Feitas">
+                <ScalarProperty Name="Encomenda" ColumnName="Encomenda" />
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Componente" ColumnName="Componente" />
+                <ScalarProperty Name="Feitas1" ColumnName="Feitas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PessoasMaquinas">
+            <EntityTypeMapping TypeName="MedirmDBModel.PessoasMaquinas">
+              <MappingFragment StoreEntitySet="PessoasMaquinas">
+                <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+                <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+                <ScalarProperty Name="Posicao" ColumnName="Posicao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VerPrecos">
+            <EntityTypeMapping TypeName="MedirmDBModel.VerPrecos">
+              <MappingFragment StoreEntitySet="VerPrecos">
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Artigo" ColumnName="Artigo" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="MargemLucro" ColumnName="MargemLucro" />
+                <ScalarProperty Name="CustosFixos" ColumnName="CustosFixos" />
+                <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+                <ScalarProperty Name="PrecoFinal" ColumnName="PrecoFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

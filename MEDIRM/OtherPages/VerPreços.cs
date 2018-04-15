@@ -67,12 +67,12 @@ namespace MEDIRM
 
         private void criarMaquina_Click(object sender, EventArgs e)     // adicionar um artigo
         {
-            decimal preco=0;
+            decimal preco = 0;
             decimal margemLucro = 0;
             decimal custosFixos = 0;
-            /*
+
             try
-            {*/
+            {
                 string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
 
                 // ir buscar o preço do artigo
@@ -94,6 +94,243 @@ namespace MEDIRM
                     MessageBox.Show("Erro ao exibir preço. Por favor tente novamente.");
                 }
 
+
+
+
+                // preço do transporte
+                string transporte = "";
+                SqlConnection con5 = new SqlConnection(connectionString);
+                con5.Open();
+                SqlCommand cmd5 = new SqlCommand("Select * from Cliente where Nome='" + comboBox1.Text.Trim() + "'", con5);
+                cmd5.CommandType = CommandType.Text;
+                SqlDataReader reader5 = cmd5.ExecuteReader();
+                if (reader5.Read())
+                {
+                    transporte = reader5["Transporte"].ToString();
+
+                    reader5.Close();
+                    con5.Close();
+                }
+                else
+                {
+                    con5.Close();
+                    MessageBox.Show("Erro ao exibir transporte. Por favor tente novamente.");
+                }
+
+                decimal precoTransporte = 0;
+                string moeda = "";
+
+                SqlConnection con6 = new SqlConnection(connectionString);
+                con6.Open();
+                SqlCommand cmd6 = new SqlCommand("Select * from [Transporte] where [Designacao] ='" + transporte + "'", con6);
+                cmd6.CommandType = CommandType.Text;
+                SqlDataReader reader6 = cmd6.ExecuteReader();
+                if (reader6.Read())
+                {
+                    string s = reader6["Preco"].ToString();
+                    precoTransporte = Convert.ToDecimal(s);
+                    moeda = reader6["Moeda"].ToString();
+                    reader6.Close();
+                    con6.Close();
+                }
+                else
+                {
+                    con6.Close();
+                    MessageBox.Show("Erro ao exibir transporte. Por favor tente novamente.");
+                }
+
+                decimal precoEuros = 0;
+                decimal cambio = 0;
+
+                SqlConnection con7 = new SqlConnection(connectionString);
+                con7.Open();
+                SqlCommand cmd7 = new SqlCommand("Select * from Moeda where Moeda='" + moeda + "'", con7);
+                cmd7.CommandType = CommandType.Text;
+                SqlDataReader reader7 = cmd7.ExecuteReader();
+                if (reader7.Read())
+                {
+                    string s = reader7["Cambio"].ToString();
+                    cambio = Convert.ToDecimal(s);
+
+                    reader7.Close();
+                    con7.Close();
+                }
+                else
+                {
+                    con7.Close();
+                    MessageBox.Show("Erro ao exibir moeda. Por favor tente novamente.");
+                }
+
+                precoEuros = cambio * precoTransporte;
+                decimal precoFinal = 0;
+                int qtdCartao = 0, qtdCartolina = 0, UnBase = 0, qtdCartoesPalete = 0;
+                string cartao = "", cartolina = "", maquina1 = "", maquina2 = "", maquina3 = "", maquina4 = "";
+                string artigo = comboBox2.SelectedItem.ToString();
+                string qt = textBox3.Text;
+                int quantidade = Convert.ToInt32(qt);
+
+                SqlConnection con8 = new SqlConnection(connectionString);
+                con8.Open();
+                SqlCommand cmd8 = new SqlCommand("Select * from Artigo where Nome='" + artigo + "'", con8);
+                cmd8.CommandType = CommandType.Text;
+                SqlDataReader reader8 = cmd8.ExecuteReader();
+                if (reader8.Read())
+                {
+                    cartao = reader8["Cartao"].ToString();
+                    cartolina = reader8["Cartolina"].ToString();
+
+                    string s = reader8["qtdCartao"].ToString();
+                    qtdCartao = Convert.ToInt32(s);
+
+                    string s4 = reader8["qtdCartolina"].ToString();
+                    qtdCartolina = Convert.ToInt32(s4);
+
+                    string s3 = reader8["UnBase"].ToString();
+                    UnBase = Convert.ToInt32(s3);
+
+                    string s5 = reader8["QtdCartoesPalete"].ToString();
+                    qtdCartoesPalete = Convert.ToInt32(s5);
+
+                    maquina1 = reader8["Maquina1"].ToString();
+
+                    maquina2 = reader8["Maquina2"].ToString();
+
+                    maquina3 = reader8["Maquina3"].ToString();
+
+                    maquina4 = reader8["Maquina4"].ToString();
+
+                    reader8.Close();
+                    con8.Close();
+                }
+                else
+                {
+                    con8.Close();
+                    MessageBox.Show("Erro ao exibir artigo. Por favor tente novamente.");
+                }
+
+
+                // preço dos cartoes e calculo de cartoes por palete etc
+                decimal precoCartao = 0, volumeCartao = 0;
+                string moedaCartao = "";
+
+                SqlConnection con9 = new SqlConnection(connectionString);
+                con9.Open();
+                SqlCommand cmd9 = new SqlCommand("Select * from Cartao where Designacao='" + cartao + "'", con9);
+                cmd8.CommandType = CommandType.Text;
+                SqlDataReader reader9 = cmd9.ExecuteReader();
+                if (reader9.Read())
+                {
+                    moedaCartao = reader9["Moeda"].ToString();
+
+                    string s = reader9["PrecoCartolina"].ToString();        // naoe é erro
+                    precoCartao = Convert.ToDecimal(s);
+
+                    string s4 = reader9["Volume"].ToString();
+                    volumeCartao = Convert.ToDecimal(s4);
+
+                    reader9.Close();
+                    con9.Close();
+                }
+                else
+                {
+                    con9.Close();
+                    MessageBox.Show("Erro ao exibir artigo. Por favor tente novamente.");
+                }
+
+
+                decimal cartaoEuros = 0;
+                decimal cambioCartao = 0;
+
+                SqlConnection con10 = new SqlConnection(connectionString);
+                con10.Open();
+                SqlCommand cmd10 = new SqlCommand("Select * from Moeda where Moeda='" + moedaCartao + "'", con10);
+                cmd10.CommandType = CommandType.Text;
+                SqlDataReader reader10 = cmd10.ExecuteReader();
+                if (reader10.Read())
+                {
+                    string s = reader10["Cambio"].ToString();
+                    cambioCartao = Convert.ToDecimal(s);
+
+                    reader10.Close();
+                    con10.Close();
+                }
+                else
+                {
+                    con10.Close();
+                    MessageBox.Show("Erro ao exibir moeda1. Por favor tente novamente.");
+                }
+
+                cartaoEuros = cambioCartao * precoCartao;
+
+                decimal res3 = Convert.ToDecimal(quantidade) / Convert.ToDecimal(qtdCartao);
+                int numeroCartoes = 1;
+                numeroCartoes = Convert.ToInt32(Math.Ceiling(res3));
+                decimal precoCartoesFinal = Convert.ToDecimal(numeroCartoes) * Convert.ToDecimal(cartaoEuros);
+                decimal volumeCartoesFinal = numeroCartoes * volumeCartao;
+                decimal res = Convert.ToDecimal(qtdCartoesPalete) / Convert.ToDecimal(numeroCartoes);
+                int nrPaletes = 1;
+                nrPaletes = Convert.ToInt32(Math.Ceiling(res));
+
+                decimal precoFinalTransporte = precoEuros * nrPaletes;
+
+
+
+
+
+                // fazer a mesma coisa para a cartolina
+                decimal precoCartolina = 0;
+                string moedaCartolina = "";
+
+                SqlConnection con11 = new SqlConnection(connectionString);
+                con11.Open();
+                SqlCommand cmd11 = new SqlCommand("Select * from Cartolina where Designacao='" + cartolina + "'", con11);
+                cmd11.CommandType = CommandType.Text;
+                SqlDataReader reader11 = cmd11.ExecuteReader();
+                if (reader11.Read())
+                {
+                    moedaCartolina = reader11["Moeda"].ToString();
+
+                    string s = reader11["PrecoMetro"].ToString();        // naoe é erro é preco por cartolina
+                    precoCartolina = Convert.ToDecimal(s);
+
+                    reader11.Close();
+                    con11.Close();
+                }
+                else
+                {
+                    con11.Close();
+                    MessageBox.Show("Erro ao exibir cartolina. Por favor tente novamente.");
+                }
+
+                decimal cartolinaEuros = 0;
+                decimal cambioCartolina = 0;
+
+                SqlConnection con12 = new SqlConnection(connectionString);
+                con12.Open();
+                SqlCommand cmd12 = new SqlCommand("Select * from Moeda where Moeda='" + moedaCartolina + "'", con12);
+                cmd12.CommandType = CommandType.Text;
+                SqlDataReader reader12 = cmd12.ExecuteReader();
+                if (reader12.Read())
+                {
+                    string s = reader12["Cambio"].ToString();
+                    cambioCartolina = Convert.ToDecimal(s);
+
+                    reader12.Close();
+                    con12.Close();
+                }
+                else
+                {
+                    con12.Close();
+                    MessageBox.Show("Erro ao exibir cartolina. Por favor tente novamente.");
+                }
+
+                cartolinaEuros = cambioCartolina * precoCartolina;
+                decimal qtdCartolinas2 = Convert.ToDecimal(qtdCartolina) / Convert.ToDecimal(quantidade);
+                decimal qtdCartolinas = Convert.ToInt32(Math.Ceiling(qtdCartolinas2));
+                decimal precoFinalCartolina = cartolinaEuros * qtdCartolinas;
+
+
+                /*
                 // ir buscar a margem de lucro
                 SqlConnection con3 = new SqlConnection(connectionString);
                 con3.Open();
@@ -104,7 +341,7 @@ namespace MEDIRM
                 {
                     string s = reader2["MargemLucro"].ToString();
                     margemLucro = Convert.ToDecimal(s);
-                
+
                     reader2.Close();
                     con3.Close();
                 }
@@ -113,7 +350,10 @@ namespace MEDIRM
                     con3.Close();
                     MessageBox.Show("Erro ao exibir margem de lucro. Por favor tente novamente.");
                 }
-                
+                */
+
+                margemLucro = Convert.ToDecimal(textBox1.Text.ToString());
+
                 // somar os custos fixos
                 SqlConnection con4 = new SqlConnection(connectionString);
                 con4.Open();
@@ -125,15 +365,153 @@ namespace MEDIRM
                 custosFixos = Convert.ToDecimal(s2);
                 con4.Close();
 
+
+
+                //custos de producao (numero de horas)
+
+                int pessoasFrente = 0, pessoasTras = 0, velocidade = 0;
+                decimal custosFinais = 0;
+
+
+
+                if (maquina1 != "" || maquina4 != "NULL")
+                {
+                    SqlConnection con15 = new SqlConnection(connectionString);
+                    con15.Open();
+                    SqlCommand cmd = new SqlCommand("Select * from Maquina where Nome='" + maquina1 + "'", con15);
+                    cmd.CommandType = CommandType.Text;
+
+                    SqlDataReader reader21 = cmd.ExecuteReader();
+                    if (reader21.Read())
+                    {
+                        string s = reader21["MinPessFrente"].ToString();
+                        pessoasFrente = Convert.ToInt32(s);
+
+                        string s1 = reader21["MaxPessFrente"].ToString();
+                        pessoasTras = Convert.ToInt32(s1);
+
+                        string s3 = reader21["Velocidade1"].ToString();
+                        velocidade = Convert.ToInt32(s3);
+
+                        reader21.Close();
+                        con15.Close();
+
+                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
+                        int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
+                        decimal salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
+                        decimal preRes = nHoras * custosFixos;
+                        custosFinais += preRes + salarios;
+                    }
+                }
+
+                if (maquina2 != "" || maquina4 != "NULL")
+                {
+                    SqlConnection con16 = new SqlConnection(connectionString);
+                    con16.Open();
+                    SqlCommand cmd16 = new SqlCommand("Select * from Maquina where Nome='" + maquina2 + "'", con16);
+                    cmd16.CommandType = CommandType.Text;
+
+                    SqlDataReader reader22 = cmd16.ExecuteReader();
+                    if (reader22.Read())
+                    {
+                        string s = reader22["MinPessFrente"].ToString();
+                        pessoasFrente = Convert.ToInt32(s);
+
+                        string s1 = reader22["MaxPessFrente"].ToString();
+                        pessoasTras = Convert.ToInt32(s1);
+
+                        string s3 = reader22["Velocidade1"].ToString();
+                        velocidade = Convert.ToInt32(s3);
+
+                        reader22.Close();
+                        con16.Close();
+
+                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
+                        int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
+                        decimal salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
+                        decimal preRes = nHoras * custosFixos;
+                        custosFinais += preRes + salarios;
+                    }
+                }
+
+                if (maquina3 != "" || maquina4 != "NULL")
+                {
+                    SqlConnection con17 = new SqlConnection(connectionString);
+                    con17.Open();
+                    SqlCommand cmd17 = new SqlCommand("Select * from Maquina where Nome='" + maquina3 + "'", con17);
+                    cmd17.CommandType = CommandType.Text;
+
+                    SqlDataReader reader23 = cmd17.ExecuteReader();
+                    if (reader23.Read())
+                    {
+                        string s = reader23["MinPessFrente"].ToString();
+                        pessoasFrente = Convert.ToInt32(s);
+
+                        string s1 = reader23["MaxPessFrente"].ToString();
+                        pessoasTras = Convert.ToInt32(s1);
+
+                        string s3 = reader23["Velocidade1"].ToString();
+                        velocidade = Convert.ToInt32(s3);
+
+                        reader23.Close();
+                        con17.Close();
+
+                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
+                        int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
+                        decimal salarioPorHora = 1;
+                        decimal salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas) * salarioPorHora;
+                        decimal preRes = nHoras * custosFixos;
+                        custosFinais += preRes + salarios;
+                    }
+                }
+
+                if (maquina4 != "" || maquina4 != "NULL")
+                {
+                    SqlConnection con18 = new SqlConnection(connectionString);
+                    con18.Open();
+                    SqlCommand cmd18 = new SqlCommand("Select * from Maquina where Nome='" + maquina4 + "'", con18);
+                    cmd18.CommandType = CommandType.Text;
+
+                    SqlDataReader reader24 = cmd18.ExecuteReader();
+                    if (reader24.Read())
+                    {
+                        string s = reader24["MinPessFrente"].ToString();
+                        pessoasFrente = Convert.ToInt32(s);
+
+                        string s1 = reader24["MaxPessFrente"].ToString();
+                        pessoasTras = Convert.ToInt32(s1);
+
+                        string s3 = reader24["Velocidade1"].ToString();
+                        velocidade = Convert.ToInt32(s3);
+
+                        reader24.Close();
+                        con18.Close();
+
+                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
+                        int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
+                        decimal salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
+                        decimal preRes = nHoras * custosFixos;
+                        custosFinais += preRes + salarios;
+                    }
+                }
+
+
+
                 // preço final
-                decimal final = preco * Convert.ToDecimal(textBox3.Text);
+                decimal final = precoCartoesFinal + precoFinalTransporte + precoFinalCartolina + custosFinais + (preco * Convert.ToDecimal(textBox3.Text));
+                decimal precoVenda = final * margemLucro;
+
 
                 // finalemnte correr a query que mete tudo na BD
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
                 //Insert in the database
-                SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO VerPrecos (Cliente, Artigo, Quantidade, Preco, MargemLucro, CustosFixos, Transporte, PrecoFinal, PrecoVenda, Cartao, Cartolina) VALUES (@Cliente, @Artigo, @Quantidade, @Preco, @MargemLucro, @CustosFixos, @Transporte, @PrecoFinal, @PrecoVenda, @Cartao, @Cartolina)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Cliente", comboBox1.SelectedValue.ToString());
@@ -142,6 +520,11 @@ namespace MEDIRM
                 com.Parameters.AddWithValue("@Preco", preco);
                 com.Parameters.AddWithValue("@MargemLucro", margemLucro);
                 com.Parameters.AddWithValue("@CustosFixos", custosFixos);
+                com.Parameters.AddWithValue("@Transporte", precoFinalTransporte);
+                com.Parameters.AddWithValue("@PrecoFinal", final);
+                com.Parameters.AddWithValue("@PrecoVenda", precoVenda);
+                com.Parameters.AddWithValue("@Cartao", precoCartoesFinal);
+                com.Parameters.AddWithValue("@Cartolina", precoFinalCartolina);
 
                 int i = com.ExecuteNonQuery();
                 con.Close();
@@ -156,19 +539,20 @@ namespace MEDIRM
                 verPrecosDataGridView.Refresh();
                 textBox3.Clear();
                 comboBox2.ResetText();
-            /*
+
             }
             catch (Exception x)
             {
                 //Error Message 
                 MessageBox.Show("Erro ao adicionar artigo ao cliente. Por favor tente novamente.");
-            }*/
+            }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)     // preencher
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlDataReader dr;
+
             try
             {
                 SqlConnection con3 = new SqlConnection(connectionString);
@@ -184,6 +568,26 @@ namespace MEDIRM
 
                 while (dr.Read())
                     comboBox2.Items.Add(dr[0].ToString());
+
+                dr.Close();
+                con3.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            try         // margem de lucro
+            {
+                SqlConnection con3 = new SqlConnection(connectionString);
+                con3.Open();
+
+                SqlCommand cmd3 = new SqlCommand("SELECT MargemLucro FROM Cliente WHERE Nome= '" + comboBox1.SelectedValue.ToString() + "'", con3);
+
+                dr = cmd3.ExecuteReader();
+
+                while (dr.Read())
+                    textBox1.Text = dr.GetValue(0).ToString();
 
                 dr.Close();
                 con3.Close();
