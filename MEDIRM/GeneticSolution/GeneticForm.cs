@@ -581,9 +581,9 @@ namespace Scheduling
             return finalTime;
 
         }
-        private List<TurnoWork> GetTurnos(List<ScheduledTask> events)
+        private List<TurnoWork> GetTurnos(List<ScheduledTask> evt)
         {
-
+            var events = evt.Where(x => x.GeneticProcess != GeneticTask.GeneticProcess.Empty && x.end - x.start > 0).ToList(); ;
             List<TurnoWork> turnos = new List<TurnoWork>();
 
 

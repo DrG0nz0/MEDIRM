@@ -94,8 +94,8 @@ namespace Scheduling
                 int oldProc = compProcs[job] > 0 ? compProcs[job] - 1 : -1;
                 var modelSwitch = 0;
                 var genProcess = Data.Tasks[job].Processes[proc];
-                //if (genProcess == GeneticProcess.Empty)
-                //    continue;
+                if (genProcess == GeneticProcess.Empty)
+                    continue;
                 if (genProcess.Duration == 500000)
                     continue;
 
