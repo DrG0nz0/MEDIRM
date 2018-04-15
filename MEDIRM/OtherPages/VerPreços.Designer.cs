@@ -150,6 +150,7 @@
             this.button1.Size = new System.Drawing.Size(89, 127);
             this.button1.TabIndex = 25;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // back
             // 
@@ -293,7 +294,7 @@
             this.verPrecosDataGridView.RowHeadersVisible = false;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.verPrecosDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.verPrecosDataGridView.Size = new System.Drawing.Size(1319, 513);
+            this.verPrecosDataGridView.Size = new System.Drawing.Size(1419, 513);
             this.verPrecosDataGridView.TabIndex = 89;
             // 
             // clienteDataGridViewTextBoxColumn

@@ -5,10 +5,13 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace MEDIRM
 {
@@ -596,6 +599,61 @@ namespace MEDIRM
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable = new PdfPTable(verPrecosDataGridView.ColumnCount);
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 50;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable.DefaultCell.BorderWidth = 1;
+
+            //Adding Header row
+            foreach (DataGridViewColumn column in verPrecosDataGridView.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                pdfTable.AddCell(cell);
+            }
+
+            try
+            {
+                //Adding DataRow
+                foreach (DataGridViewRow row in verPrecosDataGridView.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        pdfTable.AddCell(cell.Value.ToString());
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+
+            }
+
+            
+
+            //Exporting to PDF
+            string folderPath = "C:\\PDFs\\";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            using (FileStream stream = new FileStream(folderPath + "SimualaçãoPreços" + comboBox1.Text.Trim().ToString() + ".pdf", FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Close();
+                stream.Close();
+            }
+
+            MessageBox.Show("PDF criado. Encontra-se no seu disco C: dentro da pasta PDF's");
         }
     }
 }
