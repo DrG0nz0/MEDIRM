@@ -165,6 +165,10 @@ namespace MEDIRM
                 }
 
                 precoEuros = cambio * precoTransporte;
+
+
+
+
                 decimal precoFinal = 0;
                 int qtdCartao = 0, qtdCartolina = 0, UnBase = 0, qtdCartoesPalete = 0;
                 string cartao = "", cartolina = "", maquina1 = "", maquina2 = "", maquina3 = "", maquina4 = "";
@@ -377,7 +381,7 @@ namespace MEDIRM
 
 
 
-                if (maquina1 != "" || maquina4 != "NULL")
+                if (maquina1 != "" || maquina1 != "NULL")
                 {
                     SqlConnection con15 = new SqlConnection(connectionString);
                     con15.Open();
@@ -404,11 +408,11 @@ namespace MEDIRM
                         int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
                         decimal salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
                         decimal preRes = nHoras * custosFixos;
-                        custosFinais += preRes + salarios;
+                        custosFinais += preRes + salarios; // falta so multiplicar os salarios pelo numero de pessoas
                     }
                 }
 
-                if (maquina2 != "" || maquina4 != "NULL")
+                if (maquina2 != "" || maquina2 != "NULL")
                 {
                     SqlConnection con16 = new SqlConnection(connectionString);
                     con16.Open();
@@ -439,7 +443,7 @@ namespace MEDIRM
                     }
                 }
 
-                if (maquina3 != "" || maquina4 != "NULL")
+                if (maquina3 != "" || maquina3 != "NULL")
                 {
                     SqlConnection con17 = new SqlConnection(connectionString);
                     con17.Open();
