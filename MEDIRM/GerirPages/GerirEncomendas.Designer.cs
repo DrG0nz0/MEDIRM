@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerirEncomendas));
             this.back = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.encomendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medirmDBDataSet = new MEDIRM.MedirmDBDataSet();
+            this.encomendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.criarMaquina = new System.Windows.Forms.Button();
@@ -52,11 +52,8 @@
             this.encomendaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.EncomendaTableAdapter();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.componentesDosArtigosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.componentesDosArtigosTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.ComponentesDosArtigosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.encomendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentesDosArtigosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encomendaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // back
@@ -87,15 +84,15 @@
             this.comboBox1.ValueMember = "NumeroEnco";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // encomendaBindingSource
-            // 
-            this.encomendaBindingSource.DataMember = "Encomenda";
-            this.encomendaBindingSource.DataSource = this.medirmDBDataSet;
-            // 
             // medirmDBDataSet
             // 
             this.medirmDBDataSet.DataSetName = "MedirmDBDataSet";
             this.medirmDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // encomendaBindingSource
+            // 
+            this.encomendaBindingSource.DataMember = "Encomenda";
+            this.encomendaBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // comboBox2
             // 
@@ -291,15 +288,6 @@
             this.label8.Text = "Artigo:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // componentesDosArtigosBindingSource
-            // 
-            this.componentesDosArtigosBindingSource.DataMember = "ComponentesDosArtigo";
-            this.componentesDosArtigosBindingSource.DataSource = this.medirmDBDataSet;
-            // 
-            // componentesDosArtigosTableAdapter
-            // 
-            this.componentesDosArtigosTableAdapter.ClearBeforeFill = true;
-            // 
             // GerirEncomendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,9 +316,8 @@
             this.Name = "GerirEncomendas";
             this.Text = "GerirEncomendas";
             this.Load += new System.EventHandler(this.GerirEncomendas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.encomendaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.componentesDosArtigosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encomendaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +347,5 @@
         private MedirmDBDataSetTableAdapters.EncomendaTableAdapter encomendaTableAdapter;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.BindingSource componentesDosArtigosBindingSource;
-        private MedirmDBDataSetTableAdapters.ComponentesDosArtigosTableAdapter componentesDosArtigosTableAdapter;
     }
 }
