@@ -35,8 +35,6 @@ namespace MEDIRM.GerirPages
             this.filmeTableAdapter.Fill(this.medirmDBDataSet.Filme);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TipoMaquina'. Você pode movê-la ou removê-la conforme necessário.
             this.tipoMaquinaTableAdapter.Fill(this.medirmDBDataSet.TipoMaquina);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
             this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
 

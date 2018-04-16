@@ -23,28 +23,11 @@ namespace MEDIRM.OtherPages
             InitializeComponent();
         }
 
-        private void turnosFuncionariosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.turnosFuncionariosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.medirmDBDataSet);
-
-        }
-
-        private void turnosFuncionariosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.turnosFuncionariosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.medirmDBDataSet);
-
-        }
-
         private void VerTurnosFuncionarios_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionarioTableAdapter.Fill(this.medirmDBDataSet.Funcionario);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TurnosFuncionario'. Você pode movê-la ou removê-la conforme necessário.
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TurnosFuncionarios'. Você pode movê-la ou removê-la conforme necessário.
             this.turnosFuncionariosTableAdapter.Fill(this.medirmDBDataSet.TurnosFuncionarios);
+
         }
 
         private void back_Click(object sender, EventArgs e)
@@ -52,17 +35,12 @@ namespace MEDIRM.OtherPages
             MainFormView.ShowForm(new Menu());
         }
 
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            turnosFuncionariosDataGridView.Refresh();
-        }
-
         private void button1_Click(object sender, EventArgs e)      // criar pdf
         {
             //Creating iTextSharp Table from the DataTable data
             PdfPTable pdfTable = new PdfPTable(turnosFuncionariosDataGridView.ColumnCount);
             pdfTable.DefaultCell.Padding = 3;
-            pdfTable.WidthPercentage = 50;
+            pdfTable.WidthPercentage = 80;
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
             pdfTable.DefaultCell.BorderWidth = 1;
 
@@ -109,6 +87,22 @@ namespace MEDIRM.OtherPages
             }
 
             MessageBox.Show("PDF criado. Encontra-se no seu disco C: dentro da pasta PDF's");
+        }
+
+        private void turnosFuncionariosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.turnosFuncionariosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.medirmDBDataSet);
+
+        }
+
+        private void turnosFuncionariosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.turnosFuncionariosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.medirmDBDataSet);
+
         }
     }
 }
