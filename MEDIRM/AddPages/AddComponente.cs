@@ -46,15 +46,14 @@ namespace MEDIRM
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Nome", textBox1.Text);
-                com.Parameters.AddWithValue("@ID", textBox2.Text);
-                com.Parameters.AddWithValue("@PrecoCompra", textBox3.Text);
-                com.Parameters.AddWithValue("@PrecoCusto", textBox4.Text);
-                com.Parameters.AddWithValue("@QtdCartao", textBox6.Text);
-                com.Parameters.AddWithValue("@VolCartao", textBox7.Text);
+                com.Parameters.AddWithValue("@ID", Convert.ToInt32(textBox2.Text));
+                com.Parameters.AddWithValue("@PrecoCompra", Convert.ToDecimal(textBox3.Text));
+                com.Parameters.AddWithValue("@PrecoCusto", Convert.ToDecimal(textBox4.Text) );
+                com.Parameters.AddWithValue("@QtdCartao", Convert.ToInt32(textBox6.Text));
+                com.Parameters.AddWithValue("@VolCartao", Convert.ToDecimal(textBox7.Text));
                 com.Parameters.AddWithValue("@UnBase", textBox8.Text);
-                com.Parameters.AddWithValue("@CustoAlfandega", textBox5.Text);
-                com.Parameters.AddWithValue("@PrecoCustoFinal", textBox9.Text);
-
+                com.Parameters.AddWithValue("@CustoAlfandega", Convert.ToDecimal(textBox5.Text));
+                com.Parameters.AddWithValue("@PrecoCustoFinal", Convert.ToDecimal(textBox9.Text));
                 com.Parameters.AddWithValue("@Transporte", comboBox1.SelectedValue.ToString());
 
                 DataRowView drv = (DataRowView)comboBox2.SelectedItem;
@@ -91,10 +90,13 @@ namespace MEDIRM
 
         private void button3_Click(object sender, EventArgs e)
         {
+            double volCartao = Convert.ToDouble(textBox7.Text);
+
+
             double qtCartoes = 100 / (Convert.ToDouble(textBox6.Text));
-            double nrCartoes = Math.Round(qtCartoes);
+            double nrCartoes = Math.Ceiling(qtCartoes);
             double volCartoes = nrCartoes * (Convert.ToDouble(textBox7.Text));
-            double volTotal = Math.Round(volCartoes);
+            double volTotal = Math.Ceiling(volCartoes);
             double precom=1;
 
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
@@ -130,10 +132,12 @@ namespace MEDIRM
                 MessageBox.Show(ex.Message.ToString());
             }
 
-            double precoTrans = volTotal * precom;
+            double precoCartao = volCartao * precom;    // preco por cartao
+
+            double precoTrans = 100 * precoCartao / Convert.ToDouble(textBox6.Text);
             double precoCusto = (Convert.ToDouble(textBox4.Text));
             double precoFinal = precoTrans + precoCusto;
-
+            
             textBox9.Text = Convert.ToString(precoFinal);
         }
 
@@ -145,8 +149,8 @@ namespace MEDIRM
             
             string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
             SqlDataReader dr;
-            /*try
-            {*/
+            try
+            {
                 SqlConnection con3 = new SqlConnection(connectionString);
                 con3.Open();
 
@@ -168,14 +172,15 @@ namespace MEDIRM
                 }
 
                 dr.Close();
-                con3.Close();/*
+                con3.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-            }*/
+            }
 
             double preco100 = precoCompra * cambio + alfandega;
+
             textBox4.Text = Convert.ToString(preco100);
         }
     }

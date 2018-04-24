@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -52,7 +51,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
-            this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.cartaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox8 = new System.Windows.Forms.ComboBox();
@@ -70,16 +68,25 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.esterilizacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.esterilizacaoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.EsterilizacaoTableAdapter();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
+            this.tableAdapterManager = new MEDIRM.MedirmDBDataSetTableAdapters.TableAdapterManager();
+            this.nomeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.componentesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartolinaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // componentesBindingSource
@@ -144,11 +151,6 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Numero do artigo:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // maquinaBindingSource
-            // 
-            this.maquinaBindingSource.DataMember = "Maquina";
-            this.maquinaBindingSource.DataSource = this.medirmDBDataSet;
             // 
             // textBox5
             // 
@@ -312,10 +314,6 @@
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // maquinaTableAdapter
-            // 
-            this.maquinaTableAdapter.ClearBeforeFill = true;
-            // 
             // comboBox7
             // 
             this.comboBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -437,7 +435,6 @@
             this.button9.Size = new System.Drawing.Size(33, 41);
             this.button9.TabIndex = 122;
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
             // 
             // button8
             // 
@@ -451,7 +448,6 @@
             this.button8.Size = new System.Drawing.Size(33, 41);
             this.button8.TabIndex = 121;
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Visible = false;
             // 
             // button7
             // 
@@ -465,7 +461,6 @@
             this.button7.Size = new System.Drawing.Size(33, 41);
             this.button7.TabIndex = 120;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Visible = false;
             // 
             // button2
             // 
@@ -479,7 +474,6 @@
             this.button2.Size = new System.Drawing.Size(33, 41);
             this.button2.TabIndex = 119;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
             // 
             // button6
             // 
@@ -493,34 +487,66 @@
             this.button6.Size = new System.Drawing.Size(33, 41);
             this.button6.TabIndex = 118;
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Visible = false;
             // 
-            // comboBox6
+            // comboBox3
             // 
-            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox6.DisplayMember = "Nome";
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(764, 374);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(576, 28);
-            this.comboBox6.TabIndex = 117;
-            this.comboBox6.ValueMember = "Nome";
-            this.comboBox6.Visible = false;
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.DataSource = this.esterilizacaoBindingSource;
+            this.comboBox3.DisplayMember = "Designacao";
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(143, 407);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(337, 28);
+            this.comboBox3.TabIndex = 131;
+            this.comboBox3.ValueMember = "Designacao";
             // 
-            // comboBox5
+            // label3
             // 
-            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox5.DataSource = this.maquinaBindingSource;
-            this.comboBox5.DisplayMember = "Nome";
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(764, 320);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(576, 28);
-            this.comboBox5.TabIndex = 116;
-            this.comboBox5.ValueMember = "Nome";
-            this.comboBox5.Visible = false;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 410);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 20);
+            this.label3.TabIndex = 130;
+            this.label3.Text = "Esterilização:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.BackgroundImage = global::MEDIRM.Properties.Resources.EO_sterilization_symbol_sm;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(487, 407);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(42, 23);
+            this.button3.TabIndex = 132;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // esterilizacaoBindingSource
+            // 
+            this.esterilizacaoBindingSource.DataMember = "Esterilizacao";
+            this.esterilizacaoBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // esterilizacaoTableAdapter
+            // 
+            this.esterilizacaoTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.DataSource = this.maquinaBindingSource;
+            this.comboBox2.DisplayMember = "Nome";
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(768, 216);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(572, 28);
+            this.comboBox2.TabIndex = 134;
+            this.comboBox2.ValueMember = "Nome";
             // 
             // comboBox4
             // 
@@ -529,45 +555,101 @@
             this.comboBox4.DisplayMember = "Nome";
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(764, 270);
+            this.comboBox4.Location = new System.Drawing.Point(768, 270);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(576, 28);
-            this.comboBox4.TabIndex = 115;
+            this.comboBox4.Size = new System.Drawing.Size(572, 28);
+            this.comboBox4.TabIndex = 135;
             this.comboBox4.ValueMember = "Nome";
-            this.comboBox4.Visible = false;
             // 
-            // comboBox1
+            // comboBox5
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.DataSource = this.maquinaBindingSource;
-            this.comboBox1.DisplayMember = "Nome";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(764, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(576, 28);
-            this.comboBox1.TabIndex = 114;
-            this.comboBox1.ValueMember = "Nome";
-            this.comboBox1.Visible = false;
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox5.DataSource = this.maquinaBindingSource;
+            this.comboBox5.DisplayMember = "Nome";
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(768, 320);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(572, 28);
+            this.comboBox5.TabIndex = 136;
+            this.comboBox5.ValueMember = "Nome";
             // 
-            // comboBox2
+            // comboBox6
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DisplayMember = "Nome";
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(764, 166);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(576, 28);
-            this.comboBox2.TabIndex = 113;
-            this.comboBox2.ValueMember = "Nome";
-            this.comboBox2.Visible = false;
+            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox6.DataSource = this.maquinaBindingSource;
+            this.comboBox6.DisplayMember = "Nome";
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(768, 370);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(572, 28);
+            this.comboBox6.TabIndex = 137;
+            this.comboBox6.ValueMember = "Nome";
+            // 
+            // maquinaBindingSource
+            // 
+            this.maquinaBindingSource.DataMember = "Maquina";
+            this.maquinaBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // maquinaTableAdapter
+            // 
+            this.maquinaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.ArtigosClientesTableAdapter = null;
+            this.tableAdapterManager.ArtigoTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CartaoTableAdapter = this.cartaoTableAdapter;
+            this.tableAdapterManager.CartolinaTableAdapter = this.cartolinaTableAdapter;
+            this.tableAdapterManager.ClienteTableAdapter = null;
+            this.tableAdapterManager.ComponentesDosArtigosTableAdapter = null;
+            this.tableAdapterManager.ComponentesTableAdapter = this.componentesTableAdapter;
+            this.tableAdapterManager.CustosFixosTableAdapter = null;
+            this.tableAdapterManager.EncomendaTableAdapter = null;
+            this.tableAdapterManager.EsterilizacaoTableAdapter = this.esterilizacaoTableAdapter;
+            this.tableAdapterManager.FeitasTableAdapter = null;
+            this.tableAdapterManager.FeriasTableAdapter = null;
+            this.tableAdapterManager.FilmeTableAdapter = null;
+            this.tableAdapterManager.FuncionarioTableAdapter = null;
+            this.tableAdapterManager.MaquinaTableAdapter = this.maquinaTableAdapter;
+            this.tableAdapterManager.MoedaTableAdapter = null;
+            this.tableAdapterManager.MoldeTableAdapter = null;
+            this.tableAdapterManager.PapelTableAdapter = null;
+            this.tableAdapterManager.PessoasMaquinasTableAdapter = null;
+            this.tableAdapterManager.SimulacaoPrecosTableAdapter = null;
+            this.tableAdapterManager.Table2TableAdapter = null;
+            this.tableAdapterManager.TipoMaquinaTableAdapter = null;
+            this.tableAdapterManager.TransporteTableAdapter = null;
+            this.tableAdapterManager.TurnosFuncionariosTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MEDIRM.MedirmDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            this.tableAdapterManager.VerPrecosTableAdapter = null;
+            // 
+            // nomeComboBox
+            // 
+            this.nomeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.maquinaBindingSource, "Nome", true));
+            this.nomeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeComboBox.FormattingEnabled = true;
+            this.nomeComboBox.Location = new System.Drawing.Point(768, 166);
+            this.nomeComboBox.Name = "nomeComboBox";
+            this.nomeComboBox.Size = new System.Drawing.Size(572, 28);
+            this.nomeComboBox.TabIndex = 138;
             // 
             // AddArtigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.nomeComboBox);
+            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -578,11 +660,6 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.comboBox6);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox8);
             this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.textBox8);
@@ -610,9 +687,10 @@
             this.Load += new System.EventHandler(this.AddArtigo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.componentesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartolinaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,8 +718,6 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
         private MedirmDBDataSet medirmDBDataSet;
-        private System.Windows.Forms.BindingSource maquinaBindingSource;
-        private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.BindingSource cartaoBindingSource;
@@ -660,10 +736,18 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.BindingSource esterilizacaoBindingSource;
+        private MedirmDBDataSetTableAdapters.EsterilizacaoTableAdapter esterilizacaoTableAdapter;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.BindingSource maquinaBindingSource;
+        private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
+        private MedirmDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox nomeComboBox;
     }
 }

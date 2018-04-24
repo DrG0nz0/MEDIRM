@@ -16,7 +16,7 @@
     <Shape ID="DesignTable:Molde" ZOrder="62" X="1651" Y="98" Height="172" Width="182" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:Papel" ZOrder="63" X="1847" Y="272" Height="153" Width="176" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:Transporte" ZOrder="29" X="1638" Y="437" Height="229" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:Artigo" ZOrder="42" X="875" Y="271" Height="229" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:Artigo" ZOrder="42" X="875" Y="271" Height="305" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Maquina" ZOrder="58" X="508" Y="434" Height="302" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
     <Shape ID="DesignTable:TipoMaquina" ZOrder="64" X="236" Y="360" Height="135" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="45" />
     <Shape ID="DesignTable:Users" ZOrder="41" X="1023" Y="558" Height="173" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
@@ -28,10 +28,10 @@
     <Shape ID="DesignTable:PessoasMaquinas" ZOrder="35" X="49" Y="143" Height="172" Width="246" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:VerPrecos" ZOrder="23" X="0" Y="0" Height="191" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Feitas" ZOrder="19" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:Table" ZOrder="18" X="0" Y="0" Height="305" Width="176" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:Table2" ZOrder="6" X="2937" Y="-40" Height="115" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:ComponentesDosArtigos" ZOrder="5" X="3190" Y="-40" Height="134" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:TurnosFuncionarios" ZOrder="4" X="3549" Y="-40" Height="210" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:Table2" ZOrder="7" X="2937" Y="-40" Height="115" Width="183" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:ComponentesDosArtigos" ZOrder="6" X="3190" Y="-40" Height="134" Width="289" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:TurnosFuncionarios" ZOrder="5" X="3549" Y="-40" Height="210" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:SimulacaoPrecos" ZOrder="1" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:Moeda_Papel" ZOrder="60" LineWidth="11">
@@ -418,7 +418,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Cartao__5E54FF49" ZOrder="17" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Cartao__5E54FF49" ZOrder="18" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -438,7 +438,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Cartolin__5F492382" ZOrder="16" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Cartolin__5F492382" ZOrder="17" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -458,7 +458,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Maquina1__603D47BB" ZOrder="15" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Maquina1__603D47BB" ZOrder="16" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -478,7 +478,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Maquina2__61316BF4" ZOrder="14" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Maquina2__61316BF4" ZOrder="15" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -498,7 +498,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Maquina3__6225902D" ZOrder="13" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Maquina3__6225902D" ZOrder="14" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -518,7 +518,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Artigo__Maquina4__6319B466" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Artigo__Maquina4__6319B466" ZOrder="13" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -538,7 +538,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__PessoasMa__Funci__4589517F" ZOrder="11" LineWidth="11">
+    <Connector ID="DesignRelation:FK__PessoasMa__Funci__4589517F" ZOrder="12" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -558,7 +558,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__VerPrecos__Artig__5D60DB10" ZOrder="10" LineWidth="11">
+    <Connector ID="DesignRelation:FK__VerPrecos__Artig__5D60DB10" ZOrder="11" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -578,7 +578,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__VerPrecos__Clien__57A801BA" ZOrder="9" LineWidth="11">
+    <Connector ID="DesignRelation:FK__VerPrecos__Clien__57A801BA" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -598,7 +598,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Feitas__Artigo__67DE6983" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Feitas__Artigo__67DE6983" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -618,7 +618,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Feitas__Componen__68D28DBC" ZOrder="7" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Feitas__Componen__68D28DBC" ZOrder="8" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -638,7 +638,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Component__Artig__5C6CB6D7" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Component__Artig__5C6CB6D7" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1039</X>
@@ -654,7 +654,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Component__Compo__4F12BBB9" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Component__Compo__4F12BBB9" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>2318</X>
@@ -666,7 +666,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__TurnosFun__Funci__0E04126B" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK__TurnosFun__Funci__0E04126B" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1597</X>

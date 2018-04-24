@@ -27,20 +27,17 @@ namespace MEDIRM
 
         private void AddArtigo_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
+            this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Esterilizacao'. Você pode movê-la ou removê-la conforme necessário.
+            this.esterilizacaoTableAdapter.Fill(this.medirmDBDataSet.Esterilizacao);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Componentes'. Você pode movê-la ou removê-la conforme necessário.
             this.componentesTableAdapter.Fill(this.medirmDBDataSet.Componentes);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cartolina'. Você pode movê-la ou removê-la conforme necessário.
             this.cartolinaTableAdapter.Fill(this.medirmDBDataSet.Cartolina);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cartao'. Você pode movê-la ou removê-la conforme necessário.
             this.cartaoTableAdapter.Fill(this.medirmDBDataSet.Cartao);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
-            this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
 
-            comboBox1.ResetText();
-            comboBox4.ResetText();
-            comboBox5.ResetText();
-            comboBox6.ResetText();
-            comboBox7.ResetText();
 
         }
 
@@ -56,7 +53,7 @@ namespace MEDIRM
                         string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                         SqlConnection con = new SqlConnection(connectionString);
 
-                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5) VALUES ((@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3, @Maquina4, @Maquina5)", con);
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Esterilizacao, Maquina1, Maquina2, Maquina3, Maquina4, Maquina5) VALUES ((@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Esterilizacao, @Maquina1, @Maquina2, @Maquina3, @Maquina4, @Maquina5)", con);
                         com.CommandType = CommandType.Text;
 
                         com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -66,13 +63,14 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina5", comboBox6.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -83,21 +81,13 @@ namespace MEDIRM
 
                         //Clear the fields
                         textBox1.Clear();
-                        comboBox1.ResetText();
+                        nomeComboBox.ResetText();
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
                         comboBox7.ResetText();
                         comboBox8.ResetText();
-                        button1.Visible = false;
-                        button9.Visible = false;
-                        button8.Visible = false;
-                        button7.Visible = false;
-                        button6.Visible = false;
-                        comboBox1.Visible = false;
-                        comboBox4.Visible = false;
-                        comboBox6.Visible = false;
-                        comboBox7.Visible = false;
+
                     }
                     catch (Exception x)
                     {
@@ -114,7 +104,7 @@ namespace MEDIRM
                         string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                         SqlConnection con = new SqlConnection(connectionString);
 
-                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3, Maquina4) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3, @Maquina4)", con);
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Esterilizacao, Maquina1, Maquina2, Maquina3, Maquina4) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Esterilizacao, @Maquina1, @Maquina2, @Maquina3, @Maquina4)", con);
                         com.CommandType = CommandType.Text;
 
                         com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -124,12 +114,13 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -140,21 +131,13 @@ namespace MEDIRM
 
                         //Clear the fields
                         textBox1.Clear();
-                        comboBox1.ResetText();
+                        nomeComboBox.ResetText();
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
                         comboBox7.ResetText();
                         comboBox8.ResetText();
-                        button1.Visible = false;
-                        button9.Visible = false;
-                        button8.Visible = false;
-                        button7.Visible = false;
-                        button6.Visible = false;
-                        comboBox1.Visible = false;
-                        comboBox4.Visible = false;
-                        comboBox6.Visible = false;
-                        comboBox7.Visible = false;
+
                     }
                     catch (Exception x)
                     {
@@ -171,7 +154,7 @@ namespace MEDIRM
                         string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                         SqlConnection con = new SqlConnection(connectionString);
 
-                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2, Maquina3) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2, @Maquina3)", con);
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Esterilizacao, Maquina1, Maquina2, Maquina3) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Esterilizacao, @Maquina1, @Maquina2, @Maquina3)", con);
                         com.CommandType = CommandType.Text;
 
                         com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -181,11 +164,12 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -196,21 +180,13 @@ namespace MEDIRM
 
                         //Clear the fields
                         textBox1.Clear();
-                        comboBox1.ResetText();
+                        nomeComboBox.ResetText();
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
                         comboBox7.ResetText();
                         comboBox8.ResetText();
-                        button1.Visible = false;
-                        button9.Visible = false;
-                        button8.Visible = false;
-                        button7.Visible = false;
-                        button6.Visible = false;
-                        comboBox1.Visible = false;
-                        comboBox4.Visible = false;
-                        comboBox6.Visible = false;
-                        comboBox7.Visible = false;
+
                     }
                     catch (Exception x)
                     {
@@ -227,7 +203,7 @@ namespace MEDIRM
                         string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                         SqlConnection con = new SqlConnection(connectionString);
 
-                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1, Maquina2) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1, @Maquina2)", con);
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Esterilizacao, Maquina1, Maquina2) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Esterilizacao, @Maquina1, @Maquina2)", con);
                         com.CommandType = CommandType.Text;
 
                         com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -237,10 +213,11 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina2", comboBox1.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -251,21 +228,13 @@ namespace MEDIRM
 
                         //Clear the fields
                         textBox1.Clear();
-                        comboBox1.ResetText();
+                        nomeComboBox.ResetText();
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
                         comboBox7.ResetText();
                         comboBox8.ResetText();
-                        button1.Visible = false;
-                        button9.Visible = false;
-                        button8.Visible = false;
-                        button7.Visible = false;
-                        button6.Visible = false;
-                        comboBox1.Visible = false;
-                        comboBox4.Visible = false;
-                        comboBox6.Visible = false;
-                        comboBox7.Visible = false;
+
                     }
                     catch (Exception x)
                     {
@@ -282,7 +251,7 @@ namespace MEDIRM
                         string connectionString = ConfigurationManager.ConnectionStrings["MedirmDB"].ConnectionString;
                         SqlConnection con = new SqlConnection(connectionString);
 
-                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Maquina1) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Maquina1)", con);
+                        SqlCommand com = new SqlCommand("INSERT INTO Artigo (Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cartolina, Esterilizacao, Maquina1) VALUES (@Nome, @ID, @UnBase, @QtdCartao, @QtdCartolina, @QtdCartoesPalete, @Cartao, @Cartolina, @Esterilizacao, @Maquina1)", con);
                         com.CommandType = CommandType.Text;
 
                         com.Parameters.AddWithValue("@Nome", textBox1.Text);
@@ -292,9 +261,10 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartolina", textBox8.Text);
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Maquina1", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
                         con.Open();
                         int i = com.ExecuteNonQuery();
@@ -305,21 +275,12 @@ namespace MEDIRM
 
                         //Clear the fields
                         textBox1.Clear();
-                        comboBox1.ResetText();
+                        nomeComboBox.ResetText();
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
                         comboBox7.ResetText();
                         comboBox8.ResetText();
-                        button1.Visible = false;
-                        button9.Visible = false;
-                        button8.Visible = false;
-                        button7.Visible = false;
-                        button6.Visible = false;
-                        comboBox1.Visible = false;
-                        comboBox4.Visible = false;
-                        comboBox6.Visible = false;
-                        comboBox7.Visible = false;
                     }
                     catch (Exception x)
                     {
@@ -345,11 +306,12 @@ namespace MEDIRM
                 textBox8.Clear();
                 comboBox7.ResetText();
                 comboBox8.ResetText();
-                comboBox1.ResetText();
+                nomeComboBox.ResetText();
                 comboBox4.ResetText();
                 comboBox5.ResetText();
                 comboBox6.ResetText();
                 comboBox7.ResetText();
+                comboBox3.ResetText();
 
             }
             catch (Exception x)
@@ -363,5 +325,7 @@ namespace MEDIRM
         {
 
         }
+
+       
     }
 }

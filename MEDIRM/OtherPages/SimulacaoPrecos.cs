@@ -24,6 +24,8 @@ namespace MEDIRM.OtherPages
 
         private void SimulacaoPrecos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.ComponentesDosArtigos'. Você pode movê-la ou removê-la conforme necessário.
+            this.componentesDosArtigosTableAdapter.Fill(this.medirmDBDataSet.ComponentesDosArtigos);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.SimulacaoPrecos'. Você pode movê-la ou removê-la conforme necessário.
             this.simulacaoPrecosTableAdapter.Fill(this.medirmDBDataSet.SimulacaoPrecos);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Artigo'. Você pode movê-la ou removê-la conforme necessário.
@@ -31,6 +33,10 @@ namespace MEDIRM.OtherPages
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cliente'. Você pode movê-la ou removê-la conforme necessário.
             this.clienteTableAdapter.Fill(this.medirmDBDataSet.Cliente);
 
+            artigoDataGridView.Rows.Clear();
+            artigoDataGridView.Refresh();
+            componentesDosArtigosDataGridView.Rows.Clear();
+            componentesDosArtigosDataGridView.Refresh();
         }
 
         private void back_Click(object sender, EventArgs e)
@@ -49,7 +55,6 @@ namespace MEDIRM.OtherPages
                 con.Close();
 
                 //Clear the fields
-                textBox3.Clear();
                 comboBox2.ResetText();
                 comboBox1.ResetText();
 
@@ -145,10 +150,22 @@ namespace MEDIRM.OtherPages
 
             artigo = comboBox2.SelectedItem.ToString();
             cliente = comboBox1.SelectedItem.ToString();
-            string qt = textBox3.Text;
-            int quantidade = Convert.ToInt32(qt);
 
-            
+
+
+            artigoBindingSource.Filter = "Nome ='" + artigo + "'";
+            componentesDosArtigosBindingSource.Filter = "Artigo ='" + artigo + "'";
+
+            /*
+            DataSet dds = new DataSet();
+
+            DataView dv;
+            dv = new DataView(dds.Tables[0], "Nome ='" + artigo + "'", "type Desc", DataViewRowState.CurrentRows);
+            artigoDataGridView.DataSource = dv;
+
+            */
+
+
             try
             {
                 SqlConnection con8 = new SqlConnection(connectionString);
@@ -337,7 +354,7 @@ namespace MEDIRM.OtherPages
 
                 cartaoEuros = cambioCartao * precoCartao;
 
-                decimal res3 = Convert.ToDecimal(quantidade) / Convert.ToDecimal(pecasCartao);
+                decimal res3 = 100 / Convert.ToDecimal(pecasCartao);
                 int numeroCartoes = 1;
                 numeroCartoes = Convert.ToInt32(Math.Ceiling(res3));
                 cartao = Convert.ToDecimal(numeroCartoes) * Convert.ToDecimal(cartaoEuros);
@@ -398,7 +415,7 @@ namespace MEDIRM.OtherPages
                 }
 
                 cartolinaEuros = cambioCartolina * precoCartolina;
-                decimal qtdCartolinas2 = Convert.ToDecimal(pecasCartolina) / Convert.ToDecimal(quantidade);
+                decimal qtdCartolinas2 = Convert.ToDecimal(pecasCartolina) / 100;
                 decimal qtdCartolinas = Convert.ToInt32(Math.Ceiling(qtdCartolinas2));
                 cartolina = cartolinaEuros * qtdCartolinas;
 
@@ -466,7 +483,7 @@ namespace MEDIRM.OtherPages
                 //custos de producao (numero de horas)
 
                 int pessoasFrente = 0, pessoasTras = 0, velocidade = 0;
-                decimal custosFinais = 0;
+                decimal custosFinais = 0, preRes = 0;
 
 
 
@@ -492,11 +509,15 @@ namespace MEDIRM.OtherPages
                         reader21.Close();
                         con15.Close();
 
-                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        decimal horas = 100 / Convert.ToDecimal(velocidade);
                         int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
                         int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
                         salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
-                        decimal preRes = nHoras * custosFixos;
+                        decimal ds = 8.28m;     
+                        salarios = salarios * ds;
+                        
+
+                        preRes = nHoras * custosFixos;
                         custosFinais += preRes + salarios;
                     }
                 }
@@ -523,11 +544,13 @@ namespace MEDIRM.OtherPages
                         reader22.Close();
                         con16.Close();
 
-                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        decimal horas = 100 / Convert.ToDecimal(velocidade);
                         int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
                         int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
                         salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
-                        decimal preRes = nHoras * custosFixos;
+                        decimal ds = 8.28m;
+                        salarios = salarios * ds;
+                        preRes = nHoras * custosFixos;
                         custosFinais += preRes + salarios;
                     }
                 }
@@ -554,12 +577,14 @@ namespace MEDIRM.OtherPages
                         reader23.Close();
                         con17.Close();
 
-                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        decimal horas = 100 / Convert.ToDecimal(velocidade);
                         int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
                         int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
                         decimal salarioPorHora = 1;
-                        salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas) * salarioPorHora;
-                        decimal preRes = nHoras * custosFixos;
+                        salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
+                        decimal ds = 8.28m;
+                        salarios = salarios * ds;
+                        preRes = nHoras * custosFixos;
                         custosFinais += preRes + salarios;
                     }
                 }
@@ -586,11 +611,13 @@ namespace MEDIRM.OtherPages
                         reader24.Close();
                         con18.Close();
 
-                        decimal horas = Convert.ToDecimal(textBox3.Text) / Convert.ToDecimal(velocidade);
+                        decimal horas = 100 / Convert.ToDecimal(velocidade);
                         int nHoras = Convert.ToInt32(Math.Ceiling(horas));      // numero de horas para esta maquina
                         int nPessoas = pessoasFrente + pessoasTras;             // numero de pessoas na maquina
                         salarios = Convert.ToDecimal(nHoras) * Convert.ToDecimal(nPessoas);
-                        decimal preRes = nHoras * custosFixos;
+                        decimal ds = 8.28m;
+                        salarios = salarios * ds;
+                        preRes = nHoras * custosFixos;
                         custosFinais += preRes + salarios;
                     }
                 }
@@ -598,8 +625,10 @@ namespace MEDIRM.OtherPages
 
 
                 // preço final
-                subTotal = cartao + transporte + cartolina + custosFinais + (precoArtigo * Convert.ToDecimal(textBox3.Text));
-                precoVenda = subTotal * margemLucro;
+                subTotal = cartao + transporte + cartolina + custosFinais + precoArtigo;
+                //precoVenda = subTotal * margemLucro;
+                decimal xpto = 100 - Convert.ToDecimal(textBox1.Text);
+                precoVenda = subTotal * 100 / xpto;
 
 
                 // finalemnte correr a query que mete tudo na BD
@@ -607,7 +636,7 @@ namespace MEDIRM.OtherPages
                 con.Open();
 
                 //Insert in the database
-                SqlCommand com = new SqlCommand("INSERT INTO SimulacaoPrecos (Artigo, Cliente, PecasCartolina, PecasCartao, CartoesPalete, UnBaseArtigo, Cartao, Cartolina, Transporte, Esterilizacao, SubTotal, PrecoVenda, MargemLucro) VALUES (@Artigo, @Cliente, @PecasCartolina, @PecasCartao, @CartoesPalete, @UnBaseArtigo, @Cartao, @Cartolina, @Transporte, @Esterilizacao, @SubTotal, @PrecoVenda, @MargemLucro)", con);
+                SqlCommand com = new SqlCommand("INSERT INTO SimulacaoPrecos (Artigo, Cliente, PecasCartolina, PecasCartao, CartoesPalete, UnBaseArtigo, Cartao, Cartolina, Transporte, Esterilizacao, SubTotal, PrecoVenda, MargemLucro, Salarios, CustosFixos) VALUES (@Artigo, @Cliente, @PecasCartolina, @PecasCartao, @CartoesPalete, @UnBaseArtigo, @Cartao, @Cartolina, @Transporte, @Esterilizacao, @SubTotal, @PrecoVenda, @MargemLucro, @Salarios, @CustosFixos)", con);
                 com.CommandType = CommandType.Text;
 
                 com.Parameters.AddWithValue("@Artigo", comboBox2.SelectedItem.ToString());
@@ -623,6 +652,8 @@ namespace MEDIRM.OtherPages
                 com.Parameters.AddWithValue("@SubTotal", subTotal);
                 com.Parameters.AddWithValue("@PrecoVenda", precoVenda);
                 com.Parameters.AddWithValue("@MargemLucro", margemLucro);
+                com.Parameters.AddWithValue("@Salarios", salarios);
+                com.Parameters.AddWithValue("@CustosFixos", preRes);
 
                 int r = com.ExecuteNonQuery();
                 con.Close();
@@ -633,10 +664,15 @@ namespace MEDIRM.OtherPages
                 this.simulacaoPrecosTableAdapter.Fill(this.medirmDBDataSet.SimulacaoPrecos);
 
                 simulacaoPrecosDataGridView.Refresh();
-                textBox3.Clear();
                 comboBox2.ResetText();
 
-
+                criarMaquina.Visible = false;
+                comboBox2.Visible = false;
+                comboBox1.Visible = false;
+                textBox1.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                label4.Visible = false;
 
             }
             catch (Exception x)
@@ -662,6 +698,7 @@ namespace MEDIRM.OtherPages
             {
                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                 cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
             }
 
@@ -682,6 +719,72 @@ namespace MEDIRM.OtherPages
 
             }
 
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable2 = new PdfPTable(artigoDataGridView.ColumnCount);
+            pdfTable2.DefaultCell.Padding = 3;
+            pdfTable2.WidthPercentage = 100;
+            pdfTable2.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable2.DefaultCell.BorderWidth = 1;
+
+            //Adding Header row
+            foreach (DataGridViewColumn column in artigoDataGridView.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                pdfTable2.AddCell(cell);
+            }
+
+            try
+            {
+                //Adding DataRow
+                foreach (DataGridViewRow row in artigoDataGridView.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        pdfTable2.AddCell(cell.Value.ToString());
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+
+            }
+
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable3 = new PdfPTable(componentesDosArtigosDataGridView.ColumnCount);
+            pdfTable3.DefaultCell.Padding = 3;
+            pdfTable3.WidthPercentage = 100;
+            pdfTable3.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable3.DefaultCell.BorderWidth = 1;
+
+            //Adding Header row
+            foreach (DataGridViewColumn column in componentesDosArtigosDataGridView.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                pdfTable3.AddCell(cell);
+            }
+
+            try
+            {
+                //Adding DataRow
+                foreach (DataGridViewRow row in componentesDosArtigosDataGridView.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        pdfTable3.AddCell(cell.Value.ToString());
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+
+            }
+
 
 
             //Exporting to PDF
@@ -690,17 +793,34 @@ namespace MEDIRM.OtherPages
             {
                 Directory.CreateDirectory(folderPath);
             }
-            using (FileStream stream = new FileStream(folderPath + "SimualaçãoPreços" + comboBox1.Text.Trim().ToString() + ".pdf", FileMode.Create))
+            using (FileStream stream = new FileStream(folderPath + "SimualaçãoPreçosCliente" + comboBox1.Text.Trim().ToString() + "Artigo" + comboBox2.Text.Trim().ToString() + ".pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A2, 10f, 10f, 10f, 0f);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
+                pdfDoc.Add(Chunk.NEWLINE);
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(Chunk.NEWLINE);
                 pdfDoc.Add(pdfTable);
+                pdfDoc.Add(Chunk.NEWLINE);
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(pdfTable2);
+                pdfDoc.Add(Chunk.NEWLINE);
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(pdfTable3);
                 pdfDoc.Close();
                 stream.Close();
             }
 
             MessageBox.Show("PDF criado. Encontra-se no seu disco C: dentro da pasta PDF's");
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            
         }
     }
 }
