@@ -8,9 +8,9 @@ namespace ProjectScheduling.SolverFoundation
     public class ScheduledTask
     {
         public double HourDuration { get; }
-        public int JobId { get; internal set; }
-        public int ProcessId { get; internal set; }
-        public int MachineId { get; internal set; }
+        public int JobId { get; internal set; } = -1;
+        public int ProcessId { get; internal set; } = -1;
+        public int MachineId { get; internal set; } = -1;
         public GeneticForm.GeneticTask GeneticTask { get; internal set; }
         public GeneticForm.GeneticTask.GeneticProcess GeneticProcess { get; internal set; }
 
