@@ -384,6 +384,12 @@
     <Compile Include="OtherPages\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtherPages\SimulacaoPrecos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherPages\SimulacaoPrecos.Designer.cs">
+      <DependentUpon>SimulacaoPrecos.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherPages\VerEncomendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -525,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OtherPages\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherPages\SimulacaoPrecos.resx">
+      <DependentUpon>SimulacaoPrecos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherPages\VerEncomendas.resx">
       <DependentUpon>VerEncomendas.cs</DependentUpon>

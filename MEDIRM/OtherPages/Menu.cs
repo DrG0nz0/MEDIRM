@@ -33,7 +33,7 @@ namespace MEDIRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MainFormView.ShowForm(new VerPreços());
+            MainFormView.ShowForm(new SimulacaoPrecos());
         }
 
         private void button1_Click(object sender, EventArgs e)

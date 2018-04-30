@@ -51,9 +51,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.MaquinaTableAdapter();
-            this.funcionarioTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.FuncionarioTableAdapter();
             this.tipoMaquinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.TipoMaquinaTableAdapter();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.moldeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,13 +74,14 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.maquinaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tipoMaquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -233,7 +232,7 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.DataSource = this.maquinaBindingSource;
+            this.comboBox2.DataSource = this.maquinaBindingSource1;
             this.comboBox2.DisplayMember = "Nome";
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
@@ -312,18 +311,9 @@
             this.button9.TabIndex = 46;
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // funcionarioBindingSource
-            // 
-            this.funcionarioBindingSource.DataMember = "Funcionario";
-            this.funcionarioBindingSource.DataSource = this.medirmDBDataSet;
-            // 
             // maquinaTableAdapter
             // 
             this.maquinaTableAdapter.ClearBeforeFill = true;
-            // 
-            // funcionarioTableAdapter
-            // 
-            this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
             // tipoMaquinaTableAdapter
             // 
@@ -533,6 +523,11 @@
             this.label15.Text = "(peças por hora)";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // maquinaBindingSource1
+            // 
+            this.maquinaBindingSource1.DataMember = "Maquina";
+            this.maquinaBindingSource1.DataSource = this.medirmDBDataSet;
+            // 
             // GerirMaquinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,10 +573,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tipoMaquinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moldeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.papelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,8 +604,6 @@
         private MedirmDBDataSet medirmDBDataSet;
         private System.Windows.Forms.BindingSource maquinaBindingSource;
         private MedirmDBDataSetTableAdapters.MaquinaTableAdapter maquinaTableAdapter;
-        private System.Windows.Forms.BindingSource funcionarioBindingSource;
-        private MedirmDBDataSetTableAdapters.FuncionarioTableAdapter funcionarioTableAdapter;
         private System.Windows.Forms.BindingSource tipoMaquinaBindingSource;
         private MedirmDBDataSetTableAdapters.TipoMaquinaTableAdapter tipoMaquinaTableAdapter;
         private System.Windows.Forms.ComboBox comboBox5;
@@ -634,5 +627,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.BindingSource maquinaBindingSource1;
     }
 }
