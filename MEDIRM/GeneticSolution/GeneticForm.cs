@@ -63,7 +63,7 @@ namespace Scheduling
             var maq = ResourcesNeeded.FirstOrDefault(x => x.maquina.Tipo == mac.Tipo);
             if (maq == null)
             {
-                var res = new GeneticResource(maquina);
+                var res = new GeneticResource(maquina, ResourcesNeeded.Count);
                 ResourcesNeeded.Add(res);
                 return res;
             }
@@ -158,11 +158,12 @@ namespace Scheduling
         {
             public readonly String Name;
             public readonly Maquina maquina;
+            public readonly int MachineID;
 
 
-
-            public GeneticResource(Maquina maquina3)
+            public GeneticResource(Maquina maquina3, int MachineID)
             {
+                this.MachineID = MachineID;
                 this.maquina = maquina3;
             }
         }
@@ -618,6 +619,7 @@ namespace Scheduling
             {
                 task.GeneticTask = Tasks[task.JobId];
                 task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
+                task.MachineId = ResourcesNeeded.First(x => x.maquina.TipoMaquina == task.GeneticProcess.Machine.TipoMaquina).MachineID;
                 var schedule = getTurnos(task, currentTurnos, startDate);
                 currentTurnos.AddRange(schedule);
                 var lastDate = schedule.Max(x => x.end);
