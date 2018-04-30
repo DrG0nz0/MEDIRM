@@ -801,6 +801,12 @@ namespace MEDIRM.OtherPages
                 pdfDoc.Add(Chunk.NEWLINE);
                 pdfDoc.Add(new Paragraph(""));
                 pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph("MEDIRM"));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph("Simulação de preços"));
+                pdfDoc.Add(new Paragraph(""));
+                pdfDoc.Add(new Paragraph(""));
                 pdfDoc.Add(Chunk.NEWLINE);
                 pdfDoc.Add(pdfTable);
                 pdfDoc.Add(Chunk.NEWLINE);

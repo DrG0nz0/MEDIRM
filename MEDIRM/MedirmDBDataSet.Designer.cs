@@ -5045,8 +5045,6 @@ namespace MEDIRM {
             
             private global::System.Data.DataColumn columnMinPessFrente;
             
-            private global::System.Data.DataColumn columnMinPessTras;
-            
             private global::System.Data.DataColumn columnFilme;
             
             private global::System.Data.DataColumn columnPapel;
@@ -5054,6 +5052,8 @@ namespace MEDIRM {
             private global::System.Data.DataColumn columnMolde;
             
             private global::System.Data.DataColumn columnVelocidade1;
+            
+            private global::System.Data.DataColumn columnMaxPessFrente;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -5114,14 +5114,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MinPessTrasColumn {
-                get {
-                    return this.columnMinPessTras;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn FilmeColumn {
                 get {
                     return this.columnFilme;
@@ -5149,6 +5141,14 @@ namespace MEDIRM {
             public global::System.Data.DataColumn Velocidade1Column {
                 get {
                     return this.columnVelocidade1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MaxPessFrenteColumn {
+                get {
+                    return this.columnMaxPessFrente;
                 }
             }
             
@@ -5189,28 +5189,28 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MaquinaRow AddMaquinaRow(string Nome, TipoMaquinaRow parentTipoMaquinaRowByTipoMaquina_Maquina, int MinPessFrente, int MinPessTras, FilmeRow parentFilmeRowByFilme_Maquina, PapelRow parentPapelRowByPapel_Maquina, MoldeRow parentMoldeRowByMolde_Maquina, string Velocidade1) {
+            public MaquinaRow AddMaquinaRow(string Nome, TipoMaquinaRow parentTipoMaquinaRowByTipoMaquina_Maquina, int MinPessFrente, FilmeRow parentFilmeRowByFilme_Maquina, PapelRow parentPapelRowByPapel_Maquina, MoldeRow parentMoldeRowByMolde_Maquina, string Velocidade1, int MaxPessFrente) {
                 MaquinaRow rowMaquinaRow = ((MaquinaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nome,
                         null,
                         MinPessFrente,
-                        MinPessTras,
                         null,
                         null,
                         null,
-                        Velocidade1};
+                        Velocidade1,
+                        MaxPessFrente};
                 if ((parentTipoMaquinaRowByTipoMaquina_Maquina != null)) {
                     columnValuesArray[1] = parentTipoMaquinaRowByTipoMaquina_Maquina[0];
                 }
                 if ((parentFilmeRowByFilme_Maquina != null)) {
-                    columnValuesArray[4] = parentFilmeRowByFilme_Maquina[0];
+                    columnValuesArray[3] = parentFilmeRowByFilme_Maquina[0];
                 }
                 if ((parentPapelRowByPapel_Maquina != null)) {
-                    columnValuesArray[5] = parentPapelRowByPapel_Maquina[0];
+                    columnValuesArray[4] = parentPapelRowByPapel_Maquina[0];
                 }
                 if ((parentMoldeRowByMolde_Maquina != null)) {
-                    columnValuesArray[6] = parentMoldeRowByMolde_Maquina[0];
+                    columnValuesArray[5] = parentMoldeRowByMolde_Maquina[0];
                 }
                 rowMaquinaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaquinaRow);
@@ -5244,11 +5244,11 @@ namespace MEDIRM {
                 this.columnNome = base.Columns["Nome"];
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnMinPessFrente = base.Columns["MinPessFrente"];
-                this.columnMinPessTras = base.Columns["MinPessTras"];
                 this.columnFilme = base.Columns["Filme"];
                 this.columnPapel = base.Columns["Papel"];
                 this.columnMolde = base.Columns["Molde"];
                 this.columnVelocidade1 = base.Columns["Velocidade1"];
+                this.columnMaxPessFrente = base.Columns["MaxPessFrente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5260,8 +5260,6 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnTipo);
                 this.columnMinPessFrente = new global::System.Data.DataColumn("MinPessFrente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinPessFrente);
-                this.columnMinPessTras = new global::System.Data.DataColumn("MinPessTras", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMinPessTras);
                 this.columnFilme = new global::System.Data.DataColumn("Filme", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFilme);
                 this.columnPapel = new global::System.Data.DataColumn("Papel", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5270,6 +5268,8 @@ namespace MEDIRM {
                 base.Columns.Add(this.columnMolde);
                 this.columnVelocidade1 = new global::System.Data.DataColumn("Velocidade1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVelocidade1);
+                this.columnMaxPessFrente = new global::System.Data.DataColumn("MaxPessFrente", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxPessFrente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNome}, true));
                 this.columnNome.AllowDBNull = false;
@@ -11858,22 +11858,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int MinPessTras {
-                get {
-                    try {
-                        return ((int)(this[this.tableMaquina.MinPessTrasColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'MinPessTras\' na tabela \'Maquina\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaquina.MinPessTrasColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Filme {
                 get {
                     try {
@@ -11938,6 +11922,22 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int MaxPessFrente {
+                get {
+                    try {
+                        return ((int)(this[this.tableMaquina.MaxPessFrenteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'MaxPessFrente\' na tabela \'Maquina\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaquina.MaxPessFrenteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public PapelRow PapelRow {
                 get {
                     return ((PapelRow)(this.GetParentRow(this.Table.ParentRelations["Papel_Maquina"])));
@@ -11994,18 +11994,6 @@ namespace MEDIRM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMinPessTrasNull() {
-                return this.IsNull(this.tableMaquina.MinPessTrasColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMinPessTrasNull() {
-                this[this.tableMaquina.MinPessTrasColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFilmeNull() {
                 return this.IsNull(this.tableMaquina.FilmeColumn);
             }
@@ -12050,6 +12038,18 @@ namespace MEDIRM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetVelocidade1Null() {
                 this[this.tableMaquina.Velocidade1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMaxPessFrenteNull() {
+                return this.IsNull(this.tableMaquina.MaxPessFrenteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMaxPessFrenteNull() {
+                this[this.tableMaquina.MaxPessFrenteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20448,22 +20448,20 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             tableMapping.ColumnMappings.Add("Nome", "Nome");
             tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("MinPessFrente", "MinPessFrente");
-            tableMapping.ColumnMappings.Add("MinPessTras", "MinPessTras");
             tableMapping.ColumnMappings.Add("Filme", "Filme");
             tableMapping.ColumnMappings.Add("Papel", "Papel");
             tableMapping.ColumnMappings.Add("Molde", "Molde");
             tableMapping.ColumnMappings.Add("Velocidade1", "Velocidade1");
+            tableMapping.ColumnMappings.Add("MaxPessFrente", "MaxPessFrente");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Maquina] WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Maquina] WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Filme", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Filme", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Papel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -20472,38 +20470,38 @@ SELECT Nome, ID, UnBase, QtdCartao, QtdCartolina, QtdCartoesPalete, Cartao, Cart
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Maquina] ([Nome], [Tipo], [MinPessFrente], [MinPessTras], [Filme], [Papel], [Molde], [Velocidade1]) VALUES (@Nome, @Tipo, @MinPessFrente, @MinPessTras, @Filme, @Papel, @Molde, @Velocidade1);
-SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 FROM Maquina WHERE (Nome = @Nome)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Maquina] ([Nome], [Tipo], [MinPessFrente], [Filme], [Papel], [Molde], [Velocidade1], [MaxPessFrente]) VALUES (@Nome, @Tipo, @MinPessFrente, @Filme, @Papel, @Molde, @Velocidade1, @MaxPessFrente);
+SELECT Nome, Tipo, MinPessFrente, Filme, Papel, Molde, Velocidade1, MaxPessFrente FROM Maquina WHERE (Nome = @Nome)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Filme", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Papel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Maquina] SET [Nome] = @Nome, [Tipo] = @Tipo, [MinPessFrente] = @MinPessFrente, [MinPessTras] = @MinPessTras, [Filme] = @Filme, [Papel] = @Papel, [Molde] = @Molde, [Velocidade1] = @Velocidade1 WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_MinPessTras = 1 AND [MinPessTras] IS NULL) OR ([MinPessTras] = @Original_MinPessTras)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)));
-SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 FROM Maquina WHERE (Nome = @Nome)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Maquina] SET [Nome] = @Nome, [Tipo] = @Tipo, [MinPessFrente] = @MinPessFrente, [Filme] = @Filme, [Papel] = @Papel, [Molde] = @Molde, [Velocidade1] = @Velocidade1, [MaxPessFrente] = @MaxPessFrente WHERE (([Nome] = @Original_Nome) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_MinPessFrente = 1 AND [MinPessFrente] IS NULL) OR ([MinPessFrente] = @Original_MinPessFrente)) AND ((@IsNull_Filme = 1 AND [Filme] IS NULL) OR ([Filme] = @Original_Filme)) AND ((@IsNull_Papel = 1 AND [Papel] IS NULL) OR ([Papel] = @Original_Papel)) AND ((@IsNull_Molde = 1 AND [Molde] IS NULL) OR ([Molde] = @Original_Molde)) AND ((@IsNull_Velocidade1 = 1 AND [Velocidade1] IS NULL) OR ([Velocidade1] = @Original_Velocidade1)) AND ((@IsNull_MaxPessFrente = 1 AND [MaxPessFrente] IS NULL) OR ([MaxPessFrente] = @Original_MaxPessFrente)));
+SELECT Nome, Tipo, MinPessFrente, Filme, Papel, Molde, Velocidade1, MaxPessFrente FROM Maquina WHERE (Nome = @Nome)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Filme", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Papel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MinPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessFrente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MinPessTras", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinPessTras", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Filme", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Filme", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Filme", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Papel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Papel", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -20512,6 +20510,8 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Molde", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Molde", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Velocidade1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Velocidade1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Velocidade1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxPessFrente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxPessFrente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20527,8 +20527,8 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 F" +
-                "ROM Maquina";
+            this._commandCollection[0].CommandText = "SELECT Nome, Tipo, MinPessFrente, Filme, Papel, Molde, Velocidade1, MaxPessFrente" +
+                " FROM Maquina";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -20589,7 +20589,7 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, global::System.Nullable<int> Original_MinPessTras, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1) {
+        public virtual int Delete(string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1, global::System.Nullable<int> Original_MaxPessFrente) {
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
             }
@@ -20610,45 +20610,45 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_MinPessTras.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_MinPessTras.Value));
-            }
-            else {
+            if ((Original_Filme == null)) {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_Filme == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Filme));
+            }
+            if ((Original_Papel == null)) {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Filme));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Papel));
             }
-            if ((Original_Papel == null)) {
+            if ((Original_Molde == null)) {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Papel));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Molde));
             }
-            if ((Original_Molde == null)) {
+            if ((Original_Velocidade1 == null)) {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Molde));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Velocidade1));
             }
-            if ((Original_Velocidade1 == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((Original_MaxPessFrente.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_MaxPessFrente.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Velocidade1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -20670,7 +20670,7 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nome, string Tipo, global::System.Nullable<int> MinPessFrente, global::System.Nullable<int> MinPessTras, string Filme, string Papel, string Molde, string Velocidade1) {
+        public virtual int Insert(string Nome, string Tipo, global::System.Nullable<int> MinPessFrente, string Filme, string Papel, string Molde, string Velocidade1, global::System.Nullable<int> MaxPessFrente) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -20689,35 +20689,35 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((MinPessTras.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(MinPessTras.Value));
-            }
-            else {
+            if ((Filme == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Filme == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Filme));
+            }
+            if ((Papel == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Filme));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Papel));
             }
-            if ((Papel == null)) {
+            if ((Molde == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Papel));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Molde));
             }
-            if ((Molde == null)) {
+            if ((Velocidade1 == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Molde));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Velocidade1));
             }
-            if ((Velocidade1 == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((MaxPessFrente.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(MaxPessFrente.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Velocidade1));
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -20743,19 +20743,19 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
                     string Nome, 
                     string Tipo, 
                     global::System.Nullable<int> MinPessFrente, 
-                    global::System.Nullable<int> MinPessTras, 
                     string Filme, 
                     string Papel, 
                     string Molde, 
                     string Velocidade1, 
+                    global::System.Nullable<int> MaxPessFrente, 
                     string Original_Nome, 
                     string Original_Tipo, 
                     global::System.Nullable<int> Original_MinPessFrente, 
-                    global::System.Nullable<int> Original_MinPessTras, 
                     string Original_Filme, 
                     string Original_Papel, 
                     string Original_Molde, 
-                    string Original_Velocidade1) {
+                    string Original_Velocidade1, 
+                    global::System.Nullable<int> Original_MaxPessFrente) {
             if ((Nome == null)) {
                 throw new global::System.ArgumentNullException("Nome");
             }
@@ -20774,35 +20774,35 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((MinPessTras.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(MinPessTras.Value));
-            }
-            else {
+            if ((Filme == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Filme == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Filme));
+            }
+            if ((Papel == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Filme));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Papel));
             }
-            if ((Papel == null)) {
+            if ((Molde == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Papel));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Molde));
             }
-            if ((Molde == null)) {
+            if ((Velocidade1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Molde));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Velocidade1));
             }
-            if ((Velocidade1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((MaxPessFrente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(MaxPessFrente.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Velocidade1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_Nome == null)) {
                 throw new global::System.ArgumentNullException("Original_Nome");
@@ -20824,45 +20824,45 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_MinPessTras.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_MinPessTras.Value));
-            }
-            else {
+            if ((Original_Filme == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_Filme == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Filme));
+            }
+            if ((Original_Papel == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Filme));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Papel));
             }
-            if ((Original_Papel == null)) {
+            if ((Original_Molde == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Papel));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Molde));
             }
-            if ((Original_Molde == null)) {
+            if ((Original_Velocidade1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Molde));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Velocidade1));
             }
-            if ((Original_Velocidade1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            if ((Original_MaxPessFrente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_MaxPessFrente.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Velocidade1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -20884,8 +20884,8 @@ SELECT Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Tipo, global::System.Nullable<int> MinPessFrente, global::System.Nullable<int> MinPessTras, string Filme, string Papel, string Molde, string Velocidade1, string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, global::System.Nullable<int> Original_MinPessTras, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1) {
-            return this.Update(Original_Nome, Tipo, MinPessFrente, MinPessTras, Filme, Papel, Molde, Velocidade1, Original_Nome, Original_Tipo, Original_MinPessFrente, Original_MinPessTras, Original_Filme, Original_Papel, Original_Molde, Original_Velocidade1);
+        public virtual int Update(string Tipo, global::System.Nullable<int> MinPessFrente, string Filme, string Papel, string Molde, string Velocidade1, global::System.Nullable<int> MaxPessFrente, string Original_Nome, string Original_Tipo, global::System.Nullable<int> Original_MinPessFrente, string Original_Filme, string Original_Papel, string Original_Molde, string Original_Velocidade1, global::System.Nullable<int> Original_MaxPessFrente) {
+            return this.Update(Original_Nome, Tipo, MinPessFrente, Filme, Papel, Molde, Velocidade1, MaxPessFrente, Original_Nome, Original_Tipo, Original_MinPessFrente, Original_Filme, Original_Papel, Original_Molde, Original_Velocidade1, Original_MaxPessFrente);
         }
     }
     
