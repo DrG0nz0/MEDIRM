@@ -12,7 +12,6 @@ namespace MEDIRM.GeneticSolution.Helpers
     {
         public List<Funcionario> frente;
         public List<Funcionario> tras;
-        public int Maquina;
         public ScheduledTask Task;
         public DateTime start;
         public DateTime end;

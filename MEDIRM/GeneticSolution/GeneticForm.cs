@@ -575,7 +575,7 @@ namespace Scheduling
             {
                 finalTime = lastMachineTime[task.MachineId];
             }
-            if (task.GeneticProcess.Machine.Molde != lastMachineMolde[machine] && string.IsNullOrEmpty(lastMachineMolde[machine]))
+            if (task.GeneticProcess.Machine.Molde != lastMachineMolde[machine] && string.IsNullOrEmpty(lastMachineMolde[machine]) && lastMachineMolde[machine] != null)
             {
                 finalTime.AddHours(1);
             }
@@ -591,6 +591,15 @@ namespace Scheduling
             lastProcessTime = new DateTime[Tasks.Count,MaxProcessCount];
             lastMachineMolde = new string[MaxMachines];
             lastMachineTime = new DateTime[MaxMachines];
+            for(int i = 0; i < MaxMachines;i++)
+            {
+                lastMachineMolde[i] = null;
+                lastMachineTime[i] = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0);
+                for (int j = 0; j < MaxProcessCount; j++)
+                {
+                    lastProcessTime[i,j] = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0); ;
+                }
+            }
             var totalTime = events.Sum(x => x.HourDuration);
             // there is work to be done
             // HORAS -> Turnos
@@ -620,6 +629,7 @@ namespace Scheduling
                 task.GeneticTask = Tasks[task.JobId];
                 task.GeneticProcess = task.GeneticTask.Processes[task.ProcessId];
                 task.MachineId = ResourcesNeeded.First(x => x.maquina.TipoMaquina == task.GeneticProcess.Machine.TipoMaquina).MachineID;
+                startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 8, 0, 0);
                 var schedule = getTurnos(task, currentTurnos, startDate);
                 currentTurnos.AddRange(schedule);
                 var lastDate = schedule.Max(x => x.end);
@@ -686,9 +696,13 @@ namespace Scheduling
                 {
                     startTime = startTime.AddMinutes(60);
                     avaibleFuncionarios = GetShift(startTime, task, realTurns);
+                    if (avaibleFuncionarios != null)
+                    {
+
+                    }
                 }
                 duration -= avaibleFuncionarios.end.Subtract(avaibleFuncionarios.start).TotalHours;
-                startTime = avaibleFuncionarios.end;
+                startTime = avaibleFuncionarios.start;
                 turnos.Add(avaibleFuncionarios);
             }
             return turnos;
