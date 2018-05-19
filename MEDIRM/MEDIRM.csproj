@@ -95,6 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPages\AddArtigo2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddArtigo2.Designer.cs">
+      <DependentUpon>AddArtigo2.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPages\AddArtigosClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +415,9 @@
     <Compile Include="OtherPages\VerPreços.Designer.cs">
       <DependentUpon>VerPreços.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddPages\AddArtigo2.resx">
+      <DependentUpon>AddArtigo2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPages\AddArtigosClientes.resx">
       <DependentUpon>AddArtigosClientes.cs</DependentUpon>
     </EmbeddedResource>

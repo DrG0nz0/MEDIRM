@@ -77,6 +77,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cartolinaTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.CartolinaTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.esterilizacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.esterilizacaoTableAdapter = new MEDIRM.MedirmDBDataSetTableAdapters.EsterilizacaoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medirmDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource)).BeginInit();
@@ -84,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox8
@@ -579,12 +585,62 @@
             // 
             this.cartolinaTableAdapter.ClearBeforeFill = true;
             // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.BackgroundImage = global::MEDIRM.Properties.Resources.EO_sterilization_symbol_sm;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(525, 470);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(42, 23);
+            this.button3.TabIndex = 146;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.DataSource = this.esterilizacaoBindingSource;
+            this.comboBox3.DisplayMember = "Designacao";
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(181, 470);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(337, 28);
+            this.comboBox3.TabIndex = 145;
+            this.comboBox3.ValueMember = "Designacao";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(72, 473);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 20);
+            this.label3.TabIndex = 144;
+            this.label3.Text = "Esterilização:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // esterilizacaoBindingSource
+            // 
+            this.esterilizacaoBindingSource.DataMember = "Esterilizacao";
+            this.esterilizacaoBindingSource.DataSource = this.medirmDBDataSet;
+            // 
+            // esterilizacaoTableAdapter
+            // 
+            this.esterilizacaoTableAdapter.ClearBeforeFill = true;
+            // 
             // GerirArtigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1484, 691);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -632,6 +688,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cartaoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artigoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esterilizacaoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,5 +743,10 @@
         private System.Windows.Forms.BindingSource cartolinaBindingSource;
         private MedirmDBDataSetTableAdapters.CartolinaTableAdapter cartolinaTableAdapter;
         private System.Windows.Forms.BindingSource maquinaBindingSource1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource esterilizacaoBindingSource;
+        private MedirmDBDataSetTableAdapters.EsterilizacaoTableAdapter esterilizacaoTableAdapter;
     }
 }

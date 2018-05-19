@@ -27,12 +27,12 @@ namespace MEDIRM
 
         private void AddArtigo_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.TipoMaquina'. Você pode movê-la ou removê-la conforme necessário.
+            this.tipoMaquinaTableAdapter.Fill(this.medirmDBDataSet.TipoMaquina);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Maquina'. Você pode movê-la ou removê-la conforme necessário.
             this.maquinaTableAdapter.Fill(this.medirmDBDataSet.Maquina);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Esterilizacao'. Você pode movê-la ou removê-la conforme necessário.
             this.esterilizacaoTableAdapter.Fill(this.medirmDBDataSet.Esterilizacao);
-            // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Componentes'. Você pode movê-la ou removê-la conforme necessário.
-            this.componentesTableAdapter.Fill(this.medirmDBDataSet.Componentes);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cartolina'. Você pode movê-la ou removê-la conforme necessário.
             this.cartolinaTableAdapter.Fill(this.medirmDBDataSet.Cartolina);
             // TODO: esta linha de código carrega dados na tabela 'medirmDBDataSet.Cartao'. Você pode movê-la ou removê-la conforme necessário.
@@ -68,7 +68,7 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina5", comboBox6.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartao", cartaoComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
@@ -85,7 +85,7 @@ namespace MEDIRM
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
-                        comboBox7.ResetText();
+                        cartaoComboBox.ResetText();
                         comboBox8.ResetText();
 
                     }
@@ -118,7 +118,7 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina4", comboBox5.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartao", cartaoComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
@@ -135,7 +135,7 @@ namespace MEDIRM
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
-                        comboBox7.ResetText();
+                        cartaoComboBox.ResetText();
                         comboBox8.ResetText();
 
                     }
@@ -167,7 +167,7 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina3", comboBox4.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartao", cartaoComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
@@ -184,7 +184,7 @@ namespace MEDIRM
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
-                        comboBox7.ResetText();
+                        cartaoComboBox.ResetText();
                         comboBox8.ResetText();
 
                     }
@@ -215,7 +215,7 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina2", comboBox2.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartao", cartaoComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
@@ -232,7 +232,7 @@ namespace MEDIRM
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
-                        comboBox7.ResetText();
+                        cartaoComboBox.ResetText();
                         comboBox8.ResetText();
 
                     }
@@ -262,7 +262,7 @@ namespace MEDIRM
                         com.Parameters.AddWithValue("@QtdCartoesPalete", textBox7.Text);
                         com.Parameters.AddWithValue("@Componente", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Maquina1", nomeComboBox.SelectedValue.ToString());
-                        com.Parameters.AddWithValue("@Cartao", comboBox7.SelectedValue.ToString());
+                        com.Parameters.AddWithValue("@Cartao", cartaoComboBox.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Cartolina", comboBox8.SelectedValue.ToString());
                         com.Parameters.AddWithValue("@Esterilizacao", comboBox3.SelectedValue.ToString());
 
@@ -279,7 +279,7 @@ namespace MEDIRM
                         comboBox4.ResetText();
                         comboBox5.ResetText();
                         comboBox6.ResetText();
-                        comboBox7.ResetText();
+                        cartaoComboBox.ResetText();
                         comboBox8.ResetText();
                     }
                     catch (Exception x)
@@ -304,13 +304,13 @@ namespace MEDIRM
                 textBox6.Clear();
                 textBox7.Clear();
                 textBox8.Clear();
-                comboBox7.ResetText();
+                cartaoComboBox.ResetText();
                 comboBox8.ResetText();
                 nomeComboBox.ResetText();
                 comboBox4.ResetText();
                 comboBox5.ResetText();
                 comboBox6.ResetText();
-                comboBox7.ResetText();
+                cartaoComboBox.ResetText();
                 comboBox3.ResetText();
 
             }
